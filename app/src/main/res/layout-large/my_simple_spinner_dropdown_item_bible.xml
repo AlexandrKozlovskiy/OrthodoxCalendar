@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/text1"
+    style="?android:attr/spinnerDropDownItemStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/Celeste_My"
+    android:ellipsize="marquee"
+    android:minHeight="50dp"
+    android:singleLine="true"
+    android:textColor="@color/BLACK"
+    android:textSize="21sp" />
+

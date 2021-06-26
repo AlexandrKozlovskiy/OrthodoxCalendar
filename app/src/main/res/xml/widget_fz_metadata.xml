@@ -1,0 +1,12 @@
+<appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:initialLayout="@layout/widget_fz"
+    android:configure="oleksandr.kotyuk.orthodoxcalendarfree.widget.ConfigActivityFZ"
+    android:minHeight="110dp"
+    android:minWidth="250dp"
+    android:minResizeWidth="110dp"
+    android:minResizeHeight="110dp"
+    android:updatePeriodMillis="1800000" 
+    android:resizeMode="horizontal|vertical"
+    android:previewImage="@drawable/screen_widget_fz">
+
+</appwidget-provider>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@android:id/text1"
+    style="?android:attr/spinnerItemStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/transparent"
+    android:ellipsize="marquee"
+    android:singleLine="true"
+    android:textColor="@color/BLACK"
+    android:textSize="19sp" />
+

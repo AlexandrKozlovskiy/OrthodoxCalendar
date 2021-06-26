@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/rx1"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:id="@+id/scrollViewDirectory1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:orientation="vertical" >
+
+            <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+                android:id="@+id/MyViewDirectory1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="2dp"
+                android:gravity="center"
+                android:text="@string/directory_title2"
+                android:textColor="@color/red_black"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+                android:id="@+id/MyViewDirectory2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rectangle_top_b"
+                android:paddingBottom="5dp"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:paddingTop="5dp"
+                android:text="oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView"
+                android:textColor="@color/BLACK"
+                android:textColorLink="@color/BLACK"
+                android:textSize="23sp"
+                android:textStyle="bold" />
+
+            <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+                android:id="@+id/MyViewDirectory3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:background="@drawable/rectangle_bottom"
+                android:paddingBottom="19dp"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:paddingTop="8dp"
+                android:text="oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView"
+                android:textColor="@color/BLACK"
+                android:textColorLink="@color/Blue_My2"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                android:visibility="gone" 
+                android:lineSpacingMultiplier="1.1"/>
+            
+            <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+                android:id="@+id/MyViewDirectory6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rectangle_top_b"
+                android:paddingBottom="5dp"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:paddingTop="5dp"
+                android:text="oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView"
+                android:textColor="@color/BLACK"
+                android:textColorLink="@color/BLACK"
+                android:textSize="23sp"
+                android:textStyle="bold" />
+
+            <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+                android:id="@+id/MyViewDirectory7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:background="@drawable/rectangle_bottom"
+                android:paddingBottom="19dp"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:paddingTop="8dp"
+                android:text="oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView"
+                android:textColor="@color/BLACK"
+                android:textColorLink="@color/Blue_My2"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                android:visibility="gone" 
+                android:lineSpacingMultiplier="1.1"/>
+              
+            <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+                android:id="@+id/MyViewDirectory8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rectangle_top_b"
+                android:paddingBottom="5dp"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:paddingTop="5dp"
+                android:text="oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView"
+                android:textColor="@color/BLACK"
+                android:textColorLink="@color/BLACK"
+                android:textSize="23sp"
+                android:textStyle="bold" />
+
+            <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+                android:id="@+id/MyViewDirectory9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:background="@drawable/rectangle_bottom"
+                android:paddingBottom="19dp"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:paddingTop="8dp"
+                android:text="oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView"
+                android:textColor="@color/BLACK"
+                android:textColorLink="@color/Blue_My2"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                android:visibility="gone" 
+                android:lineSpacingMultiplier="1.1"/>
+            
+			<oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+                android:id="@+id/MyViewDirectory10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rectangle_top_b"
+                android:paddingBottom="5dp"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:paddingTop="5dp"
+                android:text="oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView"
+                android:textColor="@color/BLACK"
+                android:textColorLink="@color/BLACK"
+                android:textSize="23sp"
+                android:textStyle="bold" />
+
+            <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+                android:id="@+id/MyViewDirectory11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:background="@drawable/rectangle_bottom"
+                android:paddingBottom="19dp"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:paddingTop="8dp"
+                android:text="oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView"
+                android:textColor="@color/BLACK"
+                android:textColorLink="@color/Blue_My2"
+                android:textSize="23sp"
+                android:textStyle="bold"
+                android:visibility="gone" 
+                android:lineSpacingMultiplier="1.1"/>
+
+            <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+                android:id="@+id/MyViewDirectory4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rectangle_top_b"
+                android:paddingBottom="5dp"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:paddingTop="5dp"
+                android:text="oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView"
+                android:textColor="@color/BLACK"
+                android:textColorLink="@color/BLACK"
+                android:textSize="23sp"
+                android:textStyle="bold" />
+
+            <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+                android:id="@+id/MyViewDirectory5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="70dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginRight="2dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/rectangle_top_b"
+                android:paddingBottom="5dp"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:paddingTop="5dp"
+                android:text="oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView"
+                android:textColor="@color/BLACK"
+                android:textColorLink="@color/BLACK"
+                android:textSize="23sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

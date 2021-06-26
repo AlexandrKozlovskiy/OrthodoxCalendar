@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/rx1"
+    android:orientation="vertical" >
+
+    <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+        android:id="@+id/MyViewHolidays1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:text="@string/holidays_title1"
+        android:textColor="@color/red_black"
+        android:textSize="26sp"
+        android:textStyle="bold" />
+    
+    <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+        android:id="@+id/MyViewHolidays9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/select_year"
+        android:textColor="@color/BLACK"
+        android:textSize="19sp" />
+
+    <Spinner
+        android:id="@+id/spinnerHolidays1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal" 
+        android:popupBackground="@color/list_item_title" />
+
+    <ScrollView
+        android:id="@+id/scrollViewHolidays1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
+            android:orientation="vertical" >
+
+            <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+                android:id="@+id/MyViewHolidays2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:clickable="true"
+                android:text="ПАСХА"
+                android:textColor="@color/red"
+                android:textColorLink="@color/red"
+                android:textSize="21sp"
+                android:textStyle="bold" 
+                android:lineSpacingMultiplier="1.2"/>
+
+            <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+                android:id="@+id/MyViewHolidays3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/holidays_title4"
+                android:textColor="@color/BLACK"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+            
+            <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+                android:id="@+id/MyViewHolidays4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="праздники..."
+                android:textColor="@color/BLACK"
+                android:textColorLink="@color/BLACK"
+                android:textSize="21sp" 
+                android:lineSpacingMultiplier="1.2"/>
+            
+            <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+                android:id="@+id/MyViewHolidays5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/holidays_title5"
+                android:textColor="@color/BLACK"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+            
+            <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+                android:id="@+id/MyViewHolidays6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="праздники..."
+                android:textColor="@color/BLACK"
+                android:textColorLink="@color/BLACK"
+                android:textSize="21sp" 
+                android:lineSpacingMultiplier="1.2"/>
+            
+            <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+                android:id="@+id/MyViewHolidays7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/holidays_title6"
+                android:textColor="@color/BLACK"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+            
+            <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+                android:id="@+id/MyViewHolidays8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="70dp"
+                android:lineSpacingMultiplier="1.2"
+                android:text="праздники..."
+                android:textColor="@color/BLACK"
+                android:textColorLink="@color/BLACK"
+                android:textSize="21sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

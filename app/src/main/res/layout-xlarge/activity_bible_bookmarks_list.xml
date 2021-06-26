@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/rx1" >
+
+    <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+        android:id="@+id/tvBibleBookmarks"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:textColor="@color/BLACK"
+        android:textSize="26sp"
+        android:textStyle="bold" >
+
+    </oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView>
+
+    <ListView
+        android:id="@+id/lvBibleBookmarks"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp" 
+        android:dividerHeight="3dp" >
+
+    </ListView>
+
+</LinearLayout>

@@ -1,0 +1,12 @@
+<oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/MyView_prayers_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:minHeight="?android:attr/listPreferredItemHeightSmall"
+    android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+    android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+    android:textAppearance="?android:attr/textAppearanceListItemSmall"
+    android:textColor="@color/list_divider"
+    android:textSize="20sp" />
+

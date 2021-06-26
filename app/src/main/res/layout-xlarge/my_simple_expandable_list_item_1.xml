@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  
+<oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/text_list_group"
+    android:layout_width="match_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:gravity="center_vertical"
+    android:paddingStart="?android:attr/expandableListPreferredItemPaddingLeft"
+    android:textAlignment="viewStart"
+    android:textAppearance="?android:attr/textAppearanceListItem"
+    android:textColor="@color/BLACK"
+    android:textSize="24sp"/>
+-->
+
+<oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/text_list_group"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:minHeight="?android:attr/listPreferredItemHeight"
+    android:paddingLeft="?android:attr/expandableListPreferredItemPaddingLeft"
+    android:textAppearance="?android:attr/textAppearanceLarge"
+    android:textColor="@color/BLACK"
+    android:textSize="24sp" />

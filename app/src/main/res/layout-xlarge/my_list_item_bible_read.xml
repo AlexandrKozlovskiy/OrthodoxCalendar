@@ -1,0 +1,9 @@
+<oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/MyView_bible_read_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:textAppearance="?android:attr/textAppearanceListItemSmall"
+    android:textColor="@color/list_divider"
+    android:textSize="23sp" />
+

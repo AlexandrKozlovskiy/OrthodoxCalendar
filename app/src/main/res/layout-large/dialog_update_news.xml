@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="0dp" >
+
+    <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+        android:id="@+id/MyView_dialog_update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:text="@string/text_update_news"
+        android:textSize="20sp" >
+    </oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:padding="0dp" >
+
+        <Button
+            android:id="@+id/btn_dialog_update1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="0dp"
+            android:layout_weight="1"
+            android:padding="0dp"
+            android:text="@string/button_dialog_update1" >
+
+        </Button>
+
+        <Button
+            android:id="@+id/btn_dialog_update2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="20dp"
+            android:layout_weight="1"
+            android:padding="0dp"
+            android:text="@string/button_dialog_update2" >
+
+        </Button>
+    </LinearLayout>
+
+</LinearLayout>
+
+

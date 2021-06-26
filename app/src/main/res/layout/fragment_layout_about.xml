@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+   <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+       android:id="@+id/scrollViewAbout1"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:layout_gravity="center_horizontal"
+       android:background="@drawable/rx1" >
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center_horizontal"
+           android:layout_marginLeft="3dp"
+           android:layout_marginRight="3dp"
+           android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/imageViewAbout1"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dp"
+android:importantForAccessibility="no"
+                android:src="@drawable/logo" />
+
+            <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+                android:id="@+id/MyViewAbout1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/app_name"
+                android:textColor="@color/BLACK"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+            
+            <Button
+                android:id="@+id/button_about3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/button1"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/about_button_help3"
+                android:textColor="@color/Gold"
+                android:textSize="16sp" />
+            
+            <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+                android:id="@+id/MyViewAbout2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:text="@string/name_developer"
+                android:textColor="@color/BLACK"
+                android:textSize="20sp" />
+
+            <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+                android:id="@+id/MyViewAbout3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:autoLink="email"
+                android:linksClickable="true"
+                android:text="@string/email_program"
+                android:textColor="@color/Blue_lite"
+                android:textColorLink="@color/Blue_lite"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+                android:id="@+id/MyView4About"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:text="@string/program_version"
+                android:textColor="@color/BLACK"
+                android:textSize="16sp" />
+            
+            <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+                android:id="@+id/MyViewAbout5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="25dp"
+                android:text="@string/program_date"
+                android:textColor="@color/BLACK"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+    </ScrollView>

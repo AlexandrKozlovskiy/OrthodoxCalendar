@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/llViewGospelReading"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/rx1"
+    android:orientation="vertical"
+    android:descendantFocusability="beforeDescendants"
+    android:focusable="true"
+    android:focusableInTouchMode="true" 
+    android:keepScreenOn="true">
+   
+
+    <ScrollView
+        android:id="@+id/scrollViewGospelReading1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+            android:id="@+id/MyViewGospelReading1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
+            android:layout_marginTop="5dp"
+            android:text="oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView"
+            android:textColor="@color/BLACK"
+            android:textColorLink="@color/Blue_My2"
+            android:textIsSelectable="true"
+            android:textSize="22sp" />
+
+    </ScrollView>
+
+</LinearLayout>

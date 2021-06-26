@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="entries">
+        <item>Включено</item>
+        <item>Выключено</item>
+    </string-array>
+    <string-array name="entry_values">
+        <item>1</item>
+        <item>0</item>
+    </string-array>
+    <string-array name="entries_prayers">
+        <item>Гражданский</item>
+        <item>Церковно-славянский</item>
+    </string-array>
+    <string-array name="entry_prayers_values">
+        <item>ru</item>
+        <item>cs</item>
+    </string-array>
+    <string-array name="entries_prayers_fonts_ru">
+        <item>Arial</item>
+        <item>Calibri</item>
+        <item>Cambria</item>
+        <item>DroidSans</item>
+        <item>DroidSerif</item>
+        <item>Times</item>
+        <item>Verdana</item>
+    </string-array>
+    <string-array name="entry_prayers_fonts_ru_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+    <string-array name="entries_prayers_fonts_cs">
+        <item>Canonic</item>
+        <item>Orthodox</item>
+        <item>Triodion</item>
+    </string-array>
+    <string-array name="entry_prayers_fonts_cs_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="widget_spiner1">
+        <item>Без прозрачности</item>
+        <item>Легкая прозрачность</item>
+        <item>Средняя прозрачность</item>
+        <item>Сильная прозрачность</item>
+    </string-array>
+    <string-array name="widget_spiner1_values">
+        <item>0</item>
+        <item>20</item>
+        <item>40</item>
+        <item>60</item>
+    </string-array>
+    <string-array name="widget_spiner2">
+        <item>Показывать</item>
+        <item>Не показывать</item>
+    </string-array>
+    <string-array name="widget_spiner2_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="widget_spiner3">
+        <item>Стандартный -1</item>
+        <item>Стандартный</item>
+        <item>Стандартный +1</item>
+        <item>Стандартный +2</item>
+    </string-array>
+    <string-array name="widget_spiner3_values">
+        <item>-1</item>
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="entries_text_size">
+        <item>Стандартный -5</item>
+        <item>Стандартный -4</item>
+        <item>Стандартный -3</item>
+        <item>Стандартный -2</item>
+        <item>Стандартный -1</item>
+        <item>Стандартный</item>
+        <item>Стандартный +1</item>
+        <item>Стандартный +2</item>
+        <item>Стандартный +3</item>
+        <item>Стандартный +4</item>
+        <item>Стандартный +5</item>
+        <item>Стандартный +6</item>
+        <item>Стандартный +7</item>
+        <item>Стандартный +8</item>
+    </string-array>
+    <string-array name="entries_text_size_values">
+        <item>-5</item>
+        <item>-4</item>
+        <item>-3</item>
+        <item>-2</item>
+        <item>-1</item>
+        <item>0</item>
+        <item>+1</item>
+        <item>+2</item>
+        <item>+3</item>
+        <item>+4</item>
+        <item>+5</item>
+        <item>+6</item>
+        <item>+7</item>
+        <item>+8</item>
+    </string-array>
+    <string-array name="entries_notifi_time">
+        <item>07:00</item>
+        <item>08:00</item>
+        <item>09:00</item>
+        <item>10:00</item>
+        <item>16:00</item>
+        <item>18:00</item>
+        <item>20:00</item>
+        <item>22:00</item>
+        <item>00:00</item>
+    </string-array>
+    <string-array name="entries_notifi_time_values">
+        <item>07</item>
+        <item>08</item>
+        <item>09</item>
+        <item>10</item>
+        <item>16</item>
+        <item>18</item>
+        <item>20</item>
+        <item>22</item>
+        <item>24</item>
+    </string-array>
+    <string-array name="entries_bibli_search_group">
+        <item>ВСЯ БИБЛИЯ</item>
+        <item>ВЕТХИЙ ЗАВЕТ</item>
+        <item>Пятикнижие</item>
+        <item>Исторические</item>
+        <item>Учительные</item>
+        <item>Пророческие</item>
+        <item>Неканонические</item>
+        <item>НОВЫЙ ЗАВЕТ</item>
+        <item>Евангелия</item>
+        <item>Деяния</item>
+        <item>Соборные послания</item>
+        <item>Послания св. Ап. Павла</item>
+        <item>Откровение</item>
+    </string-array>
+    <string-array name="entries_bibli_search_item_group1">
+        <item>Все книги</item>
+        <item>Бытие</item>
+        <item>Исход</item>
+        <item>Левит</item>
+        <item>Числа</item>
+        <item>Второзаконие</item>
+        <item>Иисуса Навина</item>
+        <item>Судей Израилевых</item>
+        <item>Руфь</item>
+        <item>1 Царств</item>
+        <item>2 Царств</item>
+        <item>3 Царств</item>
+        <item>4 Царств</item>
+        <item>1 Паралипоменон</item>
+        <item>2 Паралипоменон</item>
+        <item>Ездры</item>
+        <item>Неемии</item>
+        <item>Есфирь</item>
+        <item>Иова</item>
+        <item>Псалтирь</item>
+        <item>Притчи</item>
+        <item>Екклесиаст</item>
+        <item>Песни Песней</item>
+        <item>Исаии</item>
+        <item>Иеремии</item>
+        <item>Плач Иеремии</item>
+        <item>Иезекииля</item>
+        <item>Даниила</item>
+        <item>Осии</item>
+        <item>Иоиля</item>
+        <item>Амоса</item>
+        <item>Авдия</item>
+        <item>Ионы</item>
+        <item>Михея</item>
+        <item>Наума</item>
+        <item>Аввакума</item>
+        <item>Софонии</item>
+        <item>Аггея</item>
+        <item>Захарии</item>
+        <item>Малахии</item>
+        <item>[2 Ездры]</item>
+        <item>[Товита]</item>
+        <item>[Иудифи]</item>
+        <item>[Премудрости Соломона]</item>
+        <item>[Премудрости Иисуса]</item>
+        <item>[Иеремии]</item>
+        <item>[Варуха]</item>
+        <item>[1 Маккавевейская]</item>
+        <item>[2 Маккавевейская]</item>
+        <item>[3 Маккавевейская]</item>
+        <item>[3 Ездры]</item>
+        <item>От Матфея</item>
+        <item>От Марка</item>
+        <item>От Луки</item>
+        <item>От Иоанна</item>
+        <item>Деяния</item>
+        <item>Иакова</item>
+        <item>1 Петра</item>
+        <item>2 Петра</item>
+        <item>1 Иоанна</item>
+        <item>2 Иоанна</item>
+        <item>3 Иоанна</item>
+        <item>Иуды</item>
+        <item>Римлянам</item>
+        <item>1 Коринфянам</item>
+        <item>2 Коринфянам</item>
+        <item>Галатам</item>
+        <item>Ефесянам</item>
+        <item>Филиппийцам</item>
+        <item>Колоссянам</item>
+        <item>1 Фессалоникийцам</item>
+        <item>2 Фессалоникийцам</item>
+        <item>1 Тимофею</item>
+        <item>2 Тимофею</item>
+        <item>Титу</item>
+        <item>Филимону</item>
+        <item>Евреям</item>
+        <item>Откровение</item>
+    </string-array>
+    <string-array name="entries_bibli_search_item_group2">
+        <item>Все книги</item>
+        <item>Бытие</item>
+        <item>Исход</item>
+        <item>Левит</item>
+        <item>Числа</item>
+        <item>Второзаконие</item>
+        <item>Иисуса Навина</item>
+        <item>Судей Израилевых</item>
+        <item>Руфь</item>
+        <item>1 Царств</item>
+        <item>2 Царств</item>
+        <item>3 Царств</item>
+        <item>4 Царств</item>
+        <item>1 Паралипоменон</item>
+        <item>2 Паралипоменон</item>
+        <item>Ездры</item>
+        <item>Неемии</item>
+        <item>Есфирь</item>
+        <item>Иова</item>
+        <item>Псалтирь</item>
+        <item>Притчи</item>
+        <item>Екклесиаст</item>
+        <item>Песни Песней</item>
+        <item>Исаии</item>
+        <item>Иеремии</item>
+        <item>Плач Иеремии</item>
+        <item>Иезекииля</item>
+        <item>Даниила</item>
+        <item>Осии</item>
+        <item>Иоиля</item>
+        <item>Амоса</item>
+        <item>Авдия</item>
+        <item>Ионы</item>
+        <item>Михея</item>
+        <item>Наума</item>
+        <item>Аввакума</item>
+        <item>Софонии</item>
+        <item>Аггея</item>
+        <item>Захарии</item>
+        <item>Малахии</item>
+        <item>[2 Ездры]</item>
+        <item>[Товита]</item>
+        <item>[Иудифи]</item>
+        <item>[Премудрости Соломона]</item>
+        <item>[Премудрости Иисуса]</item>
+        <item>[Иеремии]</item>
+        <item>[Варуха]</item>
+        <item>[1 Маккавевейская]</item>
+        <item>[2 Маккавевейская]</item>
+        <item>[3 Маккавевейская]</item>
+        <item>[3 Ездры]</item>
+    </string-array>
+    <string-array name="entries_bibli_search_item_group3">
+        <item>Все книги</item>
+        <item>Бытие</item>
+        <item>Исход</item>
+        <item>Левит</item>
+        <item>Числа</item>
+        <item>Второзаконие</item>
+    </string-array>
+    <string-array name="entries_bibli_search_item_group4">
+        <item>Все книги</item>
+        <item>Иисуса Навина</item>
+        <item>Судей Израилевых</item>
+        <item>Руфь</item>
+        <item>1 Царств</item>
+        <item>2 Царств</item>
+        <item>3 Царств</item>
+        <item>4 Царств</item>
+        <item>1 Паралипоменон</item>
+        <item>2 Паралипоменон</item>
+        <item>Ездры</item>
+        <item>Неемии</item>
+        <item>Есфирь</item>
+    </string-array>
+    <string-array name="entries_bibli_search_item_group5">
+        <item>Все книги</item>
+        <item>Иова</item>
+        <item>Псалтирь</item>
+        <item>Притчи</item>
+        <item>Екклесиаст</item>
+        <item>Песни Песней</item>
+    </string-array>
+    <string-array name="entries_bibli_search_item_group6">
+        <item>Все книги</item>
+        <item>Исаии</item>
+        <item>Иеремии</item>
+        <item>Плач Иеремии</item>
+        <item>Иезекииля</item>
+        <item>Даниила</item>
+        <item>Осии</item>
+        <item>Иоиля</item>
+        <item>Амоса</item>
+        <item>Авдия</item>
+        <item>Ионы</item>
+        <item>Михея</item>
+        <item>Наума</item>
+        <item>Аввакума</item>
+        <item>Софонии</item>
+        <item>Аггея</item>
+        <item>Захарии</item>
+        <item>Малахии</item>
+    </string-array>
+    <string-array name="entries_bibli_search_item_group7">
+        <item>Все книги</item>
+        <item>[2 Ездры]</item>
+        <item>[Товита]</item>
+        <item>[Иудифи]</item>
+        <item>[Премудрости Соломона]</item>
+        <item>[Премудрости Иисуса]</item>
+        <item>[Иеремии]</item>
+        <item>[Варуха]</item>
+        <item>[1 Маккавевейская]</item>
+        <item>[2 Маккавевейская]</item>
+        <item>[3 Маккавевейская]</item>
+        <item>[3 Ездры]</item>
+    </string-array>
+    <string-array name="entries_bibli_search_item_group8">
+        <item>Все книги</item>
+        <item>От Матфея</item>
+        <item>От Марка</item>
+        <item>От Луки</item>
+        <item>От Иоанна</item>
+        <item>Деяния</item>
+        <item>Иакова</item>
+        <item>1 Петра</item>
+        <item>2 Петра</item>
+        <item>1 Иоанна</item>
+        <item>2 Иоанна</item>
+        <item>3 Иоанна</item>
+        <item>Иуды</item>
+        <item>Римлянам</item>
+        <item>1 Коринфянам</item>
+        <item>2 Коринфянам</item>
+        <item>Галатам</item>
+        <item>Ефесянам</item>
+        <item>Филиппийцам</item>
+        <item>Колоссянам</item>
+        <item>1 Фессалоникийцам</item>
+        <item>2 Фессалоникийцам</item>
+        <item>1 Тимофею</item>
+        <item>2 Тимофею</item>
+        <item>Титу</item>
+        <item>Филимону</item>
+        <item>Евреям</item>
+        <item>Откровение</item>
+    </string-array>
+    <string-array name="entries_bibli_search_item_group9">
+        <item>Все книги</item>
+        <item>От Матфея</item>
+        <item>От Марка</item>
+        <item>От Луки</item>
+        <item>От Иоанна</item>
+    </string-array>
+    <string-array name="entries_bibli_search_item_group10">
+        <item>Все книги</item>
+        <item>Деяния</item>
+    </string-array>
+    <string-array name="entries_bibli_search_item_group11">
+        <item>Все книги</item>
+        <item>Иакова</item>
+        <item>1 Петра</item>
+        <item>2 Петра</item>
+        <item>1 Иоанна</item>
+        <item>2 Иоанна</item>
+        <item>3 Иоанна</item>
+        <item>Иуды</item>
+    </string-array>
+    <string-array name="entries_bibli_search_item_group12">
+        <item>Все книги</item>
+        <item>Римлянам</item>
+        <item>1 Коринфянам</item>
+        <item>2 Коринфянам</item>
+        <item>Галатам</item>
+        <item>Ефесянам</item>
+        <item>Филиппийцам</item>
+        <item>Колоссянам</item>
+        <item>1 Фессалоникийцам</item>
+        <item>2 Фессалоникийцам</item>
+        <item>1 Тимофею</item>
+        <item>2 Тимофею</item>
+        <item>Титу</item>
+        <item>Филимону</item>
+        <item>Евреям</item>
+    </string-array>
+    <string-array name="entries_bibli_search_item_group13">
+        <item>Все книги</item>
+        <item>Откровение</item>
+    </string-array>
+    <string-array name="entries_black_fon_color">
+        <item>Черный</item>
+        <item>Темно-зеленый</item>
+        <item>Синий</item>
+        <item>Темно-синий</item>
+    </string-array>
+    <string-array name="entry_black_fon_color_values">
+        <item>black</item>
+        <item>dark_green</item>
+        <item>blue</item>
+        <item>dark_blue</item>
+    </string-array>
+
+</resources>

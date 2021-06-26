@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+        android:id="@+id/tvItemTextWidgetFZ"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="1dp"
+        android:textColor="@color/BLACK"
+        android:textSize="17sp" >
+
+    </oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView>
+    <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+        android:id="@+id/tvItemTextWidgetFZ2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="1dp"
+        android:layout_marginRight="1dp"
+        android:textColor="@color/red"
+        android:textSize="19sp" >
+
+    </oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView>
+
+</RelativeLayout>

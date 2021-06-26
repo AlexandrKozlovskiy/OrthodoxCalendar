@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout_month1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:layout_marginTop="10dp"
+    android:minHeight="65dp"
+    android:orientation="horizontal" >
+
+    <LinearLayout
+        android:id="@+id/LinearLayout_month2"
+        android:layout_width="55dp"
+        android:layout_height="match_parent"
+        android:background="@drawable/ro1"
+        android:minHeight="65dp"
+        android:orientation="vertical" >
+
+        <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+            android:id="@+id/MyView_data_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="3dp"
+            android:gravity="center"
+            android:text="25"
+            android:textColor="@color/palegoldenrod"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+            android:id="@+id/MyView_day_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+            android:text="ВТ"
+            android:textColor="@color/Dark_orange"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LinearLayout_month3"
+        android:layout_width="2dp"
+        android:layout_height="match_parent"
+        android:minHeight="65dp"
+        android:orientation="vertical" >
+
+        <View
+            android:id="@+id/view_separator"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/separator3" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LinearLayout_month4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rx3"
+        android:minHeight="65dp"
+        android:orientation="vertical" >
+
+        <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+            android:id="@+id/MyView_values_big_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="3dp"
+            android:layout_weight="1"
+            android:text="dghd dhdfhfd"
+            android:textColor="@color/BLACK"
+            android:textColorLink="@color/BLACK"
+            android:textSize="21sp" 
+            android:lineSpacingMultiplier="1.2"/>
+
+            <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+                android:id="@+id/MyView_values_post_list"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center"
+                android:layout_marginBottom="3dp"
+                android:layout_marginRight="3dp"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:text="Пост"
+                android:textColor="@color/Lincoln_green"
+                android:textSize="19sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

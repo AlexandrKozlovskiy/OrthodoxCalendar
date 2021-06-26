@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/rx1"
+    android:orientation="vertical" >
+
+    <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+        android:id="@+id/MyViewPosts1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:text="@string/posts_title1"
+        android:textColor="@color/red_black"
+        android:textSize="26sp"
+        android:textStyle="bold" />
+    
+    <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+        android:id="@+id/MyViewPosts10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/select_year"
+        android:textColor="@color/BLACK"
+        android:textSize="19sp" />
+
+    <Spinner
+        android:id="@+id/spinnerPosts1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal" 
+        android:popupBackground="@color/list_item_title" />
+
+    <ScrollView
+        android:id="@+id/scrollViewPosts1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
+            android:orientation="vertical" >
+
+            <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+                android:id="@+id/MyViewPosts2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="@string/posts_title2"
+                android:textColor="@color/BLACK"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+            
+            <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+                android:id="@+id/MyViewPosts3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView"
+                android:textColor="@color/BLACK"
+                android:textColorLink="@color/BLACK"
+                android:textSize="21sp" 
+                android:lineSpacingMultiplier="1.2"/>
+            
+            <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+                android:id="@+id/MyViewPosts4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/posts_title3"
+                android:textColor="@color/BLACK"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+            
+            <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+                android:id="@+id/MyViewPosts5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:text="oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView"
+                android:textColor="@color/BLACK"
+                android:textColorLink="@color/BLACK"
+                android:textSize="21sp" 
+                android:lineSpacingMultiplier="1.2"/>
+            
+            <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+                android:id="@+id/MyViewPosts6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/posts_title4"
+                android:textColor="@color/BLACK"
+                android:textSize="21sp"
+                android:textStyle="bold" />
+            
+            <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+                android:id="@+id/MyViewPosts7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:text="oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView"
+                android:textColor="@color/BLACK"
+                android:textColorLink="@color/BLACK"
+                android:textSize="21sp" 
+                android:lineSpacingMultiplier="1.2"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

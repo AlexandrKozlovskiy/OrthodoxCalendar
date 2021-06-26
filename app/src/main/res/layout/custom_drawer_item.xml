@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <LinearLayout
+        android:id="@+id/headerLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:orientation="vertical" >
+
+        <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+            android:id="@+id/drawerTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:clickable="false"
+            android:gravity="bottom"
+            android:minHeight="?android:attr/listPreferredItemHeightSmall"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/list_item" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/itemLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/drawer_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:gravity="center_vertical"
+            android:src="@drawable/ic_action_calendar1" />
+
+        <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+            android:id="@+id/drawer_itemName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:minHeight="?android:attr/listPreferredItemHeightSmall"
+            android:text="dfgddgdgdgd"
+            android:textAppearance="?android:attr/textAppearanceListItemSmall"
+            android:textColor="@color/list_item_title" />
+
+    </LinearLayout>
+
+</RelativeLayout>

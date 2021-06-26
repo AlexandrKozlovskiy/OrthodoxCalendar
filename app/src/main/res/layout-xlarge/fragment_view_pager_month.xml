@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ro1"
+        android:orientation="vertical" >
+
+        <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+            android:id="@+id/MyView_month_name_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="4dp"
+            android:gravity="center"
+            android:minHeight="45dp"
+            android:text="Октябрь 2014г.(Нов. ст.)"
+            android:textColor="@color/WHITE"
+            android:textSize="28sp"
+            android:textStyle="bold" >
+
+        </oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView>
+
+        <View
+            android:id="@+id/view_separator"
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:background="@drawable/separator1" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@id/android:list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </ListView>
+
+</LinearLayout>

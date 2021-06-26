@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="BLACK">#000000</color>
+    <color name="BLACK1">#19181d</color>
+    <color name="BLACK2">#2d2c32</color>
+    <color name="WHITE">#FFFFFF</color>
+    <color name="WHITE1">#ebebeb</color>
+    <color name="WHITE2_OLD">#c4c4c4</color>
+    <color name="WHITE2">#a7a7a7</color>
+    <color name="red">#FF0000</color>
+    <color name="red_black">#7e0000</color>
+    <color name="palegoldenrod">#EEE8AA</color>
+    <color name="palegoldenrod_b">#eae295</color>
+    <color name="goldenrod">#DAA520</color>
+    <color name="Gold">#ffd700</color>
+    <color name="Dark_orange">#ff8c00</color>
+    <color name="Green">#00ff00</color>
+    <color name="Malachite">#0bda51</color>
+    <color name="Aqua">#00ffff</color>
+    <color name="Onyx">#0f0f0f</color>
+    <color name="Celeste">#b2ffff</color>
+    <color name="Celeste_My">#c9d7e1</color>
+    <color name="Lincoln_green">#195905</color>
+    <color name="Blue_lite">#2781ff</color>
+    <color name="Blue_My">#c4d4e2</color>
+    <color name="Blue_My2">#0000ff</color>
+    <color name="Red_My">#ffbcaa</color>
+    
+    <color name="list_item_title">#e0e0e0</color>
+    <color name="list_item">#969696</color>
+    <color name="list_background">#303030</color>
+    <color name="list_divider">#272727</color>
+    
+    <color name="dark_green">#013220</color>
+    <color name="blue">#0000ff</color>
+    <color name="dark_blue">#000080</color>
+</resources>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/rx1"
+    android:orientation="vertical" >
+
+    <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+        android:id="@+id/MyViewEaster1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        android:gravity="center"
+        android:text="@string/full_name_easter"
+        android:textColor="@color/red_black"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+        android:id="@+id/MyViewEaster2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/select_year"
+        android:textColor="@color/BLACK"
+        android:textSize="17sp" />
+
+    <Spinner
+        android:id="@+id/spinnerEaster1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:popupBackground="@color/list_item_title" />
+
+    <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+        android:id="@+id/MyViewEaster3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/name_easter_sanday"
+        android:textColor="@color/BLACK"
+        android:textSize="19sp" />
+
+    <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+        android:id="@+id/MyViewEaster4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        android:text="22.05.2014"
+        android:textColor="@color/red_black"
+        android:textSize="21sp"
+        android:textStyle="bold" />
+
+    <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+        android:id="@+id/MyViewEaster5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="2dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginRight="3dp"
+        android:gravity="center"
+        android:text="oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView"
+        android:textColor="@color/red"
+        android:textSize="19sp"
+        android:textStyle="bold" />
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+            android:id="@+id/MyViewEaster6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
+            android:text="oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView"
+            android:textColor="@color/BLACK"
+            android:textSize="19sp" />
+
+    </ScrollView>
+
+</LinearLayout>

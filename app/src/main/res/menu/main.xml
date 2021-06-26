@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:yourapp="http://schemas.android.com/apk/res-auto" >
+
+<item
+        android:id="@+id/item1_bookmarks_menu"
+        android:title="@string/menu_item1_bookmarks"
+        yourapp:showAsAction="always">
+    </item>
+    <item
+        android:id="@+id/item1"
+        android:icon="@drawable/ic_action_calendar2"
+        android:title="@string/menu_item1"
+        yourapp:showAsAction="always">
+    </item>
+    <item
+        android:id="@+id/item2"
+        android:icon="@drawable/ic_action_calendar1"
+        android:title="@string/menu_item2"
+        yourapp:showAsAction="always">
+    </item>
+        <item
+        android:id="@+id/item3"
+        android:icon="@drawable/ic_action_last_read_psaltur"
+        android:title="@string/psaltur_dialog2"
+        yourapp:showAsAction="always">
+    </item>
+    <item
+        android:id="@+id/item5"
+        android:icon="@drawable/ic_action_search"
+        android:title="@string/prayers_search"
+        yourapp:showAsAction="always">
+    </item>
+    <item
+        android:id="@+id/item9"
+        android:icon="@drawable/ic_action_psaltur_view1"
+        android:title="@string/psaltur_dialog4"
+        yourapp:showAsAction="always">
+    </item>
+    <item
+        android:id="@+id/item10"
+        android:icon="@drawable/ic_action_psaltur_view2"
+        android:title="@string/psaltur_dialog5"
+        yourapp:showAsAction="always">
+    </item>
+    <item
+        android:id="@+id/item8"
+        android:icon="@drawable/ic_action_fonts"
+        android:title="@string/prayers_fonts_ru_cs"
+        yourapp:showAsAction="always">
+    </item>
+    <item
+        android:id="@+id/item6"
+        android:icon="@drawable/ic_action_prayers_language_cs"
+        android:title="@string/prayers_language_ru_cs"
+        yourapp:showAsAction="always">
+    </item>
+    <item
+        android:id="@+id/item7"
+        android:icon="@drawable/ic_action_prayers_language_ru"
+        android:title="@string/prayers_language_ru_cs"
+        yourapp:showAsAction="always">
+    </item>
+
+</menu>

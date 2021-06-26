@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/rx1"
+    android:orientation="vertical" >
+
+    <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+        android:id="@+id/MyViewBible1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="2dp"
+        android:gravity="center"
+        android:text="@string/bible_title1"
+        android:textColor="@color/red_black"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <ScrollView
+        android:id="@+id/scrollViewBible1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_marginRight="3dp"
+            android:orientation="vertical" >
+            
+            <Button
+                android:id="@+id/button_Bible1"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="15dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/button1"
+                android:minHeight="38dp"
+                android:onClick="onClickButton"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/bible_title2"
+                android:textColor="@color/Gold"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/button_Bible2"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/button1"
+                android:minHeight="38dp"
+                android:onClick="onClickButton"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/bible_title3"
+                android:textColor="@color/Gold"
+                android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/button_Bible3"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/button1"
+                android:minHeight="38dp"
+                android:onClick="onClickButton"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/bible_title4"
+                android:textColor="@color/Gold"
+                android:textSize="20sp" />
+            
+            <Button
+                android:id="@+id/button_Bible4"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/button1"
+                android:minHeight="38dp"
+                android:onClick="onClickButton"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/bible_title5"
+                android:textColor="@color/Gold"
+                android:textSize="20sp" />
+            
+            <Button
+                android:id="@+id/button_Bible5"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/button1"
+                android:minHeight="38dp"
+                android:onClick="onClickButton"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/bible_title6"
+                android:textColor="@color/Gold"
+                android:textSize="20sp" />
+            <Button
+                android:id="@+id/button_Bible6"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/button1"
+                android:minHeight="38dp"
+                android:onClick="onClickButton"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="@string/bible_title8"
+                android:textColor="@color/Gold"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

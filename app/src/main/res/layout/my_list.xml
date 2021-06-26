@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+  <ImageView
+      android:id="@id/drag_handle"
+      android:layout_width="40dp"
+      android:layout_height="match_parent"
+      android:background="@drawable/drag_new" />
+
+  <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+      android:id="@+id/text"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignParentBottom="true"
+      android:layout_alignParentTop="true"
+      android:layout_toLeftOf="@id/click_remove"
+      android:layout_toRightOf="@id/drag_handle"
+      android:layout_weight="1"
+      android:gravity="center_vertical"
+      android:minHeight="?android:attr/listPreferredItemHeightSmall"
+      android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
+      android:paddingLeft="8dp"
+      android:paddingStart="?android:attr/listPreferredItemPaddingStart"
+      android:textAppearance="?android:attr/textAppearanceListItemSmall"
+      android:textColor="@color/red"
+      android:textSize="22sp" />
+
+  <ImageView
+      android:id="@id/click_remove"
+      android:layout_width="40dp"
+      android:layout_height="match_parent"
+      android:layout_alignParentRight="true"
+      android:layout_alignParentTop="true"
+      android:background="@drawable/delete_x_new" />
+
+</RelativeLayout>

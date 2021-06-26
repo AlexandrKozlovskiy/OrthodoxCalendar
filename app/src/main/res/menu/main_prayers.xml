@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:yourapp="http://schemas.android.com/apk/res-auto" >
+
+    <item
+        android:id="@+id/item3_prayers_menu"
+        android:icon="@drawable/ic_action_day_night"
+        android:title="@string/menu_item3_prayers"
+        yourapp:showAsAction="always">
+    </item> 
+    <item
+        android:id="@+id/item1_prayers_menu"
+        android:icon="@drawable/ic_action_content_add_circle"
+        android:title="@string/menu_item1_prayers"
+        yourapp:showAsAction="always">
+    </item>
+	<item
+        android:id="@+id/item2_prayers_menu"
+        android:icon="@drawable/ic_action_content_remove_circle"
+        android:title="@string/menu_item2_prayers"
+        yourapp:showAsAction="always">
+    </item>    
+
+</menu>
