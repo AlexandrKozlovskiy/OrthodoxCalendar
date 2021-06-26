@@ -12,7 +12,7 @@
         android:contentDescription="@string/splash_activity_text"
         android:src="@drawable/logo" />
 
-    <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+    <oleksandr.kotyuk.orthodoxcalendar.MyView
         android:id="@+id/MyView_splash"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

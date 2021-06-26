@@ -21,11 +21,12 @@
                 android:layout_gravity="center"
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="10dp"
+                android:importantForAccessibility="no"
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/logo" />
 
-            <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
-                android:id="@+id/oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyViewAbout1"
+            <oleksandr.kotyuk.orthodoxcalendar.MyView
+                android:id="@+id/MyViewAbout1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -48,8 +49,8 @@
                 android:textColor="@color/Gold"
                 android:textSize="20sp" />
             
-            <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
-                android:id="@+id/oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyViewAbout2"
+            <oleksandr.kotyuk.orthodoxcalendar.MyView
+                android:id="@+id/MyViewAbout2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -58,8 +59,8 @@
                 android:textColor="@color/BLACK"
                 android:textSize="24sp" />
 
-            <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
-                android:id="@+id/oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyViewAbout3"
+            <oleksandr.kotyuk.orthodoxcalendar.MyView
+                android:id="@+id/MyViewAbout3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -72,8 +73,16 @@
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
-            <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
-                android:id="@+id/oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView4About"
+           <oleksandr.kotyuk.orthodoxcalendar.MyView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:id="@+id/source"
+android:text="@string/source_code"
+               android:clickable="true"
+               android:linksClickable="true"/>
+
+            <oleksandr.kotyuk.orthodoxcalendar.MyView
+                android:id="@+id/MyView4About"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -82,8 +91,8 @@
                 android:textColor="@color/BLACK"
                 android:textSize="20sp" />
             
-            <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
-                android:id="@+id/oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyViewAbout5"
+            <oleksandr.kotyuk.orthodoxcalendar.MyView
+                android:id="@+id/MyViewAbout5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

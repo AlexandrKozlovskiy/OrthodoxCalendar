@@ -12,6 +12,7 @@
     <string name="menu_list2">Месяц</string>
     <string name="list1_title">Ежедневное уведомление</string>
     <string name="list1_summary">Включено</string>
+    <string name="tomorrow_date">Включено (уведомления будут отображаться на завтрашнюю дату).</string>
     <string name="list2_title">Язык молитвослова</string>
     <string name="list2_summary1">Гражданский</string>
     <string name="list2_summary2">Церковно-славянский</string>
@@ -20,7 +21,6 @@
     <string name="list4_title">Звук уведомления</string>
     <string name="list4_summary1">Отключен</string>
     <string name="list5_title">Время уведомления</string>
-    <string name="list5_summary1">00:00</string>
     <string name="list6_title">Автоповорот экрана молитвослова</string>
     <string name="list6_summary">Включен</string>
     <string name="list7_title">Гражданский шрифт</string>
@@ -96,6 +96,7 @@
     <string name="title_update_news">Что нового</string>
     <string name="program_date">2021</string>
     <string name="email_program">Oleksandr.Kotyuk@gmail.com</string>
+    <string name="source_code">Вы можете посмотреть и скачать исходный код приложения на <a href="https://github.com/AlexandrKozlovskiy/orthodoxCalendar/">github</a>.</string>
     <string name="help_project">Помочь проекту</string>
     <string name="help_project_text1">Поддержать проект можно добрым словом и идеями по улучшению программы, написав на адрес:</string>
     <string name="help_project_text1_1">а также, поддержав одним из указанных способов:</string>
@@ -133,7 +134,9 @@
 	<string name="app_dictionary_terms">Краткий словарь терминов</string>
 	<string name="button_dialog_update1">Ещё&#8230;</string>
 	<string name="button_dialog_update2">ОК</string>
-	<string name="text_update_news">"Version 1.14.18
+    <string name="action_move_to_first">Переместить в начало</string>
+    <string name="action_move_after">Переместить после пункта %s</string>
+<string name="text_update_news">"Version 1.14.18
 Исправлены ошибки и опечатки в программе.
  Также в молитвослов добавлены:
  1. Молитва звонаря;

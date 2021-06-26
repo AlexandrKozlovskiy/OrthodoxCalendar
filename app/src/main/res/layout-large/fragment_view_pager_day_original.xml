@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/ro1" >
 
-        <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+        <oleksandr.kotyuk.orthodoxcalendar.MyView
             android:id="@+id/MyView_weekday_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -20,7 +20,7 @@
             android:textSize="24sp"
             android:textStyle="bold" />
 
-        <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+        <oleksandr.kotyuk.orthodoxcalendar.MyView
             android:id="@+id/MyView_new_style_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -32,7 +32,7 @@
             android:textSize="16sp"
             android:textStyle="italic" />
 
-        <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+        <oleksandr.kotyuk.orthodoxcalendar.MyView
             android:id="@+id/MyView_old_style_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
             android:textSize="16sp"
             android:textStyle="italic" />
 
-        <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+        <oleksandr.kotyuk.orthodoxcalendar.MyView
             android:id="@+id/MyView_year"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -56,7 +56,7 @@
             android:textSize="28sp"
             android:textStyle="bold" />
 
-        <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+        <oleksandr.kotyuk.orthodoxcalendar.MyView
             android:id="@+id/MyView_new_style_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -69,7 +69,7 @@
             android:textSize="21sp"
             android:textStyle="bold" />
 
-        <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+        <oleksandr.kotyuk.orthodoxcalendar.MyView
             android:id="@+id/MyView_old_style_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -82,7 +82,7 @@
             android:textSize="21sp"
             android:textStyle="bold" />
 
-        <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+        <oleksandr.kotyuk.orthodoxcalendar.MyView
             android:id="@+id/MyView_sedmitsa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -94,7 +94,7 @@
             android:textColor="@color/Gold"
             android:textSize="18sp" />
 
-        <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+        <oleksandr.kotyuk.orthodoxcalendar.MyView
             android:id="@+id/MyView_post"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -136,7 +136,7 @@
                 android:orientation="vertical"
                 android:paddingBottom="20dp" >
 
-                <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+                <oleksandr.kotyuk.orthodoxcalendar.MyView
                     android:id="@+id/MyView_gr_holiday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -147,7 +147,7 @@
                     android:textSize="23sp"
                     android:textStyle="bold" />
 
-                <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+                <oleksandr.kotyuk.orthodoxcalendar.MyView
                     android:id="@+id/MyView_big_holiday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -156,7 +156,7 @@
                     android:textColor="@color/BLACK"
                     android:textSize="21sp" />
 
-                <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+                <oleksandr.kotyuk.orthodoxcalendar.MyView
                     android:id="@+id/MyView_holiday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -165,7 +165,7 @@
                     android:textColor="@color/BLACK"
                     android:textSize="20sp" />
 
-                <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+                <oleksandr.kotyuk.orthodoxcalendar.MyView
                     android:id="@+id/MyView_icon_holiday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -174,7 +174,7 @@
                     android:textColor="@color/BLACK"
                     android:textSize="20sp" />
 
-                <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+                <oleksandr.kotyuk.orthodoxcalendar.MyView
                     android:id="@+id/MyView_gospel_reading_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -192,7 +192,7 @@
                     android:textStyle="bold" 
                     android:clickable="true"/>
 			
-                <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+                <oleksandr.kotyuk.orthodoxcalendar.MyView
                     android:id="@+id/MyView_gospel_reading_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -211,7 +211,7 @@
                     android:textSize="20sp"
                     android:visibility="gone" />
                 
-                <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+                <oleksandr.kotyuk.orthodoxcalendar.MyView
                     android:id="@+id/MyView_think_feofan_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -229,7 +229,7 @@
                     android:textStyle="bold" 
                     android:clickable="true"/>
 			
-                <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+                <oleksandr.kotyuk.orthodoxcalendar.MyView
                     android:id="@+id/MyView_think_feofan_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

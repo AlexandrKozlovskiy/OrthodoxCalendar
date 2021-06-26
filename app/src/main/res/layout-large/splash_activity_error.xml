@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/BLACK" >
 
-    <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+    <oleksandr.kotyuk.orthodoxcalendar.MyView
         android:id="@+id/MyView_splash_error"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

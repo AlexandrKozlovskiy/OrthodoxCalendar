@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--  
-<oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView xmlns:android="http://schemas.android.com/apk/res/android"
+<oleksandr.kotyuk.orthodoxcalendar.MyView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/text_list_group"
     android:layout_width="match_parent"
     android:layout_height="?android:attr/listPreferredItemHeight"
@@ -12,7 +12,7 @@
     android:textSize="22sp"/>
 -->
 
-<oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView xmlns:android="http://schemas.android.com/apk/res/android"
+<oleksandr.kotyuk.orthodoxcalendar.MyView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/text_list_group"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"

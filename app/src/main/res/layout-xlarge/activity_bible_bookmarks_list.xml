@@ -5,7 +5,7 @@
     android:orientation="vertical" 
     android:background="@drawable/rx1" >
 
-    <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+    <oleksandr.kotyuk.orthodoxcalendar.MyView
         android:id="@+id/tvBibleBookmarks"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -16,7 +16,7 @@
         android:textSize="26sp"
         android:textStyle="bold" >
 
-    </oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView>
+    </oleksandr.kotyuk.orthodoxcalendar.MyView>
 
     <ListView
         android:id="@+id/lvBibleBookmarks"

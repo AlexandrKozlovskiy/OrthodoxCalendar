@@ -15,14 +15,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
-        <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+        <oleksandr.kotyuk.orthodoxcalendar.MyView
             android:id="@+id/MyViewDescription1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="7dp"
             android:layout_marginRight="7dp"
             android:layout_marginTop="5dp"
-            android:text="oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView"
+            android:text="MyView"
             android:textColor="@color/BLACK"
             android:textSize="20sp" 
             android:textIsSelectable="true"/>

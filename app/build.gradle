@@ -1,44 +1,53 @@
 apply plugin: 'com.android.application'
 
 android {
+    applicationVariants.all { variant ->
+        //variant.packageApplicationProvider.get().outputDirectory = new File(project.getRootDir().absolutePath + "/" + variant.buildType.name + "/")
+        variant.outputs.all { output ->
+            output.outputFileName=variant.flavorName+(variant.buildType.name.toLowerCase().contains("release")?"":"-"+variant.buildType.name)+".apk"
+        }
+    }
+
     signingConfigs {
-                release {
-                    def f = file("../keystore.properties")
-                    if (f.exists()) {
-                        def props = new Properties()
-                        f.withInputStream { props.load(it) }
-                        storeFile file(props.RELEASE_KEY_PATH)
-                        storePassword props.RELEASE_STORE_PASSWORD
-                        keyAlias props.RELEASE_KEY_ALIAS
-                        keyPassword props.RELEASE_KEY_PASSWORD
-                    }
-                    else {
-def writer=new FileWriter(f.path)
-writer.write("RELEASE_KEY_PATH=\n")
-                        writer.write("RELEASE_KEY_PASSWORD=\n")
-                        writer.write("RELEASE_KEY_ALIAS=\n")
-                        writer.write("RELEASE_STORE_PASSWORD=")
-writer.close()
-                    throw new IOException("File $f.name was created. please fill it by values of your release key.")
-                    }
-                }
+        release {
+            def f = file("../keystore.properties")
+            if (f.exists()) {
+                def props = new Properties()
+                f.withInputStream { props.load(it) }
+                storeFile file(props.RELEASE_KEY_PATH)
+                storePassword props.RELEASE_STORE_PASSWORD
+                keyAlias props.RELEASE_KEY_ALIAS
+                keyPassword props.RELEASE_KEY_PASSWORD
+            }
+            else {
+                def writer=new FileWriter(f.path)
+                writer.write("RELEASE_KEY_PATH=\n")
+                writer.write("RELEASE_KEY_PASSWORD=\n")
+                writer.write("RELEASE_KEY_ALIAS=\n")
+                writer.write("RELEASE_STORE_PASSWORD=")
+                writer.close()
+                throw new IOException("File $f.name was created. please fill it by values of your release key.")
+            }
+        }
     }
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
     defaultConfig {
-        applicationId "oleksandr.kotyuk.orthodoxcalendarfree"
         minSdkVersion 14
         targetSdkVersion 30
         versionCode 109
         versionName '1.14.19'
         signingConfig signingConfigs.release
     }
-
     buildTypes {
         release {
-            minifyEnabled true
-            proguardFiles 'proguard.cfg'
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles 'proguard-rules.pro'
             signingConfig signingConfigs.release
+        }
+        debug {
+            signingConfig signingConfigs.debug
         }
     }
     lintOptions {
@@ -47,6 +56,17 @@ writer.close()
     compileOptions {
         targetCompatibility JavaVersion.VERSION_1_8
         sourceCompatibility JavaVersion.VERSION_1_8
+    }
+    flavorDimensions 'orthodoxCalendar'
+    productFlavors {
+        orthodoxcalendarfree {
+            dimension 'orthodoxCalendar'
+            applicationId "oleksandr.kotyuk.orthodoxcalendarfree"
+        }
+        orthodoxCalendarpaid {
+            dimension 'orthodoxCalendar'
+            applicationId "oleksandr.kotyuk.orthodoxcalendarpaid"
+        }
     }
 }
 

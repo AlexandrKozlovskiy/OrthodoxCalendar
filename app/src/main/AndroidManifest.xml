@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="oleksandr.kotyuk.orthodoxcalendarfree"
+    package="oleksandr.kotyuk.orthodoxcalendar"
     android:installLocation="auto">
    <!--   <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> -->
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+<uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/>
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -13,7 +14,7 @@
         android:theme="@style/AppTheme" >
        	<meta-data android:name="android.max_aspect" android:value="2.1" />
         <activity
-            android:name="oleksandr.kotyuk.orthodoxcalendarfree.SplashScreen"
+            android:name="oleksandr.kotyuk.orthodoxcalendar.SplashScreen"
             android:launchMode="singleTask"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/app_name"
@@ -25,23 +26,23 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="oleksandr.kotyuk.orthodoxcalendarfree.MainActivity"
+            android:name="oleksandr.kotyuk.orthodoxcalendar.MainActivity"
             android:launchMode="singleTask"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
         </activity>
         <activity
-            android:name="oleksandr.kotyuk.orthodoxcalendarfree.PreferencesActivity"
+            android:name="oleksandr.kotyuk.orthodoxcalendar.PreferencesActivity"
             android:launchMode="singleTask"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:parentActivityName="oleksandr.kotyuk.orthodoxcalendarfree.MainActivity"
+            android:parentActivityName="oleksandr.kotyuk.orthodoxcalendar.MainActivity"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
 
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="oleksandr.kotyuk.orthodoxcalendarfree.MainActivity" />
+                android:value="oleksandr.kotyuk.orthodoxcalendar.MainActivity" />
         </activity>
         <activity
             android:name="DescriptionActivity"
@@ -50,18 +51,17 @@
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
         </activity>
-
         <service
-            android:name="oleksandr.kotyuk.orthodoxcalendarfree.widget.MyService"
+            android:name="oleksandr.kotyuk.orthodoxcalendar.widget.MyService"
             android:permission="android.permission.BIND_REMOTEVIEWS" >
         </service>
         <service
-            android:name="oleksandr.kotyuk.orthodoxcalendarfree.widget.MyServiceFZ"
+            android:name="oleksandr.kotyuk.orthodoxcalendar.widget.MyServiceFZ"
             android:permission="android.permission.BIND_REMOTEVIEWS" >
         </service>
 
         <receiver
-            android:name="oleksandr.kotyuk.orthodoxcalendarfree.widget.MyWidget"
+            android:name="oleksandr.kotyuk.orthodoxcalendar.widget.MyWidget"
             android:icon="@drawable/ic_launcher"
             android:label="@string/app_name" >
             <intent-filter>
@@ -75,7 +75,7 @@
             </meta-data>
         </receiver>
         <receiver
-            android:name="oleksandr.kotyuk.orthodoxcalendarfree.widget.MyWidgetFZ"
+            android:name="oleksandr.kotyuk.orthodoxcalendar.widget.MyWidgetFZ"
             android:icon="@drawable/ic_launcher"
             android:label="@string/app_name_fz" >
             <intent-filter>
@@ -90,7 +90,7 @@
         </receiver>
 
         <activity
-            android:name="oleksandr.kotyuk.orthodoxcalendarfree.widget.ConfigActivity"
+            android:name="oleksandr.kotyuk.orthodoxcalendar.widget.ConfigActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/widget_app_name"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
@@ -99,7 +99,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="oleksandr.kotyuk.orthodoxcalendarfree.widget.ConfigActivityFZ"
+            android:name="oleksandr.kotyuk.orthodoxcalendar.widget.ConfigActivityFZ"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/widget_app_name"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
@@ -107,25 +107,19 @@
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
             </intent-filter>
         </activity>
-
-        <service
-            android:name="oleksandr.kotyuk.orthodoxcalendarfree.widget.MyServiceNotifi"
-            android:enabled="true"
-            android:process=":myservice_notifi" >
-        </service>
-
-        <receiver android:name="oleksandr.kotyuk.orthodoxcalendarfree.widget.MyScheduledReceiver" />
-        <receiver android:name="oleksandr.kotyuk.orthodoxcalendarfree.widget.NotificationCancel" />
         <receiver
-            android:name="oleksandr.kotyuk.orthodoxcalendarfree.widget.AutoStart"
+            android:name=".MyScheduledReceiver"
             android:enabled="true"
-            android:exported="true" >
+android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-
-                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.DATE_CHANGED"/>
+                <action android:name="android.intent.action.TIME_SET"/>
+                <action android:name="android.intent.action.TIMEZONE_CHANGED"/>
+                <category android:name="android.intent.category.DEFAULT"/>
             </intent-filter>
         </receiver>
+        <receiver android:name="oleksandr.kotyuk.orthodoxcalendar.widget.NotificationCancel" />
 
         <activity
             android:name="GospelReadingActivity"

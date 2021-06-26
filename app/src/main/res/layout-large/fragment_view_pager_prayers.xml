@@ -13,7 +13,7 @@
         android:layout_marginRight="2dp" >
     </ListView>
 
-    <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+    <oleksandr.kotyuk.orthodoxcalendar.MyView
         android:id="@id/android:empty"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,6 +21,6 @@
         android:text="@string/empty"
         android:textColor="@color/BLACK" >
 
-    </oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView>
+    </oleksandr.kotyuk.orthodoxcalendar.MyView>
 
 </LinearLayout>

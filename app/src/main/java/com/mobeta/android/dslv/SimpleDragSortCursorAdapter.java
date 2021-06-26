@@ -20,7 +20,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.view.View;
-import oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView;
+import oleksandr.kotyuk.orthodoxcalendar.MyView;
 import android.widget.ImageView;
 
 // taken from sdk/sources/android-16/android/widget/SimpleCursorAdapter.java

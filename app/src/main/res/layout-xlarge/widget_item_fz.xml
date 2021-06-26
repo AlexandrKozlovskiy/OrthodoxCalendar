@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+    <oleksandr.kotyuk.orthodoxcalendar.MyView
         android:id="@+id/tvItemTextWidgetFZ"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -12,8 +12,8 @@
         android:textColor="@color/BLACK"
         android:textSize="18sp" >
 
-    </oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView>
-    <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+    </oleksandr.kotyuk.orthodoxcalendar.MyView>
+    <oleksandr.kotyuk.orthodoxcalendar.MyView
         android:id="@+id/tvItemTextWidgetFZ2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,6 +22,6 @@
         android:textColor="@color/red"
         android:textSize="20sp" >
 
-    </oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView>
+    </oleksandr.kotyuk.orthodoxcalendar.MyView>
 
 </RelativeLayout>

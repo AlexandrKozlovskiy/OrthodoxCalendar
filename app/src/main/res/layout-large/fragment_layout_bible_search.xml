@@ -46,7 +46,7 @@
         android:textColor="@color/BLACK"
         android:textSize="21sp" />
 
-    <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+    <oleksandr.kotyuk.orthodoxcalendar.MyView
         android:id="@+id/MyView_bible_search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

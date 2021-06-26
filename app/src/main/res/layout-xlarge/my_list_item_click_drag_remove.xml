@@ -17,7 +17,7 @@
             android:layout_centerVertical="true"
             android:background="@drawable/drag_new" />
 
-        <oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView
+        <oleksandr.kotyuk.orthodoxcalendar.MyView
             android:id="@+id/text"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

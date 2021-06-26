@@ -28,6 +28,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.os.Environment;
 import android.os.SystemClock;
 import android.util.AttributeSet;
@@ -44,12 +45,16 @@ import android.widget.Checkable;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import androidx.core.view.AccessibilityDelegateCompat;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import oleksandr.kotyuk.orthodoxcalendarfree.R;
+import oleksandr.kotyuk.orthodoxcalendar.R;
 
 /**
  * ListView subclass that mediates drag and drop resorting of items.
@@ -60,8 +65,7 @@ import oleksandr.kotyuk.orthodoxcalendarfree.R;
  */
 public class DragSortListView extends ListView {
     
-    
-    /**
+        /**
      * The View that floats above the ListView and represents
      * the dragged item.
      */
@@ -300,11 +304,45 @@ public class DragSortListView extends ListView {
      * The touch y-coord at which drag started
      */
     private int mDragStartY;
+/**
+ * accessibilityDelegate для каждого view адаптера,чтобы незрячие тоже могли перетаскивать элементы.
+ */
+private AccessibilityDelegateCompat dropDelegate =new AccessibilityDelegateCompat(){
+    private final int startAction=0x01FFFFFF+1; //См. Исходники talkback.
 
+    @Override
+    public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfoCompat info) {
+        super.onInitializeAccessibilityNodeInfo(host, info);
+        info.setClickable(isClickable());
+        int count=mAdapterWrapper.getCount();
+        if(count>1) {
+            int startAction = this.startAction;
+            int position = Integer.parseInt(host.getTag()+"");
+            if (position > 0) {
+                info.addAction(new AccessibilityNodeInfoCompat.AccessibilityActionCompat(startAction, getContext().getString(R.string.action_move_to_first)));
+                startAction++;
+            }
+            for (int a = 0; a < count; a++)
+                if(a!=position &&a-position!=-1)
+                    info.addAction(new AccessibilityNodeInfoCompat.AccessibilityActionCompat(startAction + a, getContext().getString(R.string.action_move_after, mAdapterWrapper.getItem(a))));
+        }
+    }
+
+    @Override
+    public boolean performAccessibilityAction(View host, int action, Bundle args) {
+        int position=Integer.parseInt(host.getTag()+"");
+        if(action<startAction) return super.performAccessibilityAction(host,action,args); else if(mDropListener!=null) {
+            mDropListener.drop(position,action-startAction);
+            return true;
+        }
+        return false;
+    }
+};
     /**
      * Drag flag bit. Floating View can move in the positive
      * x direction.
      */
+
     public final static int DRAG_POS_X = 0x1;
 
     /**
@@ -718,7 +756,6 @@ public class DragSortListView extends ListView {
             if (convertView != null) {
                 v = (DragSortItemView) convertView;
                 View oldChild = v.getChildAt(0);
-
                 child = mAdapter.getView(position, oldChild, DragSortListView.this);
                 if (child != oldChild) {
                     // shouldn't get here if user is reusing convertViews
@@ -744,7 +781,8 @@ public class DragSortListView extends ListView {
             // Set the correct item height given drag state; passed
             // View needs to be measured if measurement is required.
             adjustItem(position + getHeaderViewsCount(), v, true);
-
+if(!(position+"").equals(v.getTag())) v.setTag(position+"");
+ViewCompat.setAccessibilityDelegate(v,dropDelegate);
             return v;
         }
     }

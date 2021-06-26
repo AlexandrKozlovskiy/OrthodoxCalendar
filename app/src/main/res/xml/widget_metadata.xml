@@ -1,6 +1,6 @@
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
     android:initialLayout="@layout/widget"
-    android:configure="oleksandr.kotyuk.orthodoxcalendarfree.widget.ConfigActivity"
+    android:configure="oleksandr.kotyuk.orthodoxcalendar.widget.ConfigActivity"
     android:minHeight="110dp"
     android:minWidth="250dp"
     android:minResizeWidth="110dp"

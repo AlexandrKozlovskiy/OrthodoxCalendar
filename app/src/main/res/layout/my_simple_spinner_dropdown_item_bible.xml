@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<oleksandr.kotyuk.orthodoxcalendarfree.accessibility.MyView xmlns:android="http://schemas.android.com/apk/res/android"
+<oleksandr.kotyuk.orthodoxcalendar.MyView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@android:id/text1"
     style="?android:attr/spinnerDropDownItemStyle"
     android:layout_width="match_parent"

@@ -54,17 +54,15 @@
             android:key="pref_notifi_sound"
             android:summary="@string/list4_summary1"
             android:title="@string/list4_title" />
-
         <!-- <Preference
             android:key="pref_notifi_time"
             android:summary="@string/list5_summary1"
             android:title="@string/list5_title" /> -->
         <ListPreference
-            android:defaultValue="24"
             android:entries="@array/entries_notifi_time"
             android:entryValues="@array/entries_notifi_time_values"
             android:key="pref_notifi_time"
-            android:summary="@string/list5_summary1"
+            android:defaultValue="0"
             android:title="@string/list5_title" >
         </ListPreference>
     </PreferenceCategory>
