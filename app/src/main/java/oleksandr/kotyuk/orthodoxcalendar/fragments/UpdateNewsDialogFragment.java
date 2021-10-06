@@ -25,7 +25,7 @@ public class UpdateNewsDialogFragment extends DialogFragment {
                 // Set Dialog Title
                 .setTitle(R.string.title_update_news)
                 // Set Dialog Message
-                .setMessage(R.string.text_update_news)
+                .setMessage(getResources().getStringArray(R.array.versions)[0])
 
                 // Negative Button
                 .setNegativeButton(R.string.button_dialog_update1, new DialogInterface.OnClickListener() {

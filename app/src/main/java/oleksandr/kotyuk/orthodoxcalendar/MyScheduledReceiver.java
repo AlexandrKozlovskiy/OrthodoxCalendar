@@ -48,6 +48,9 @@ public void onReceive(Context context, Intent intent) {
   if (millis > wholeDayInMillis) setAlarm(context);
   else if (wholeDayInMillis == millis) onAlarm(context);
 }
+ else if(AlarmManager.ACTION_SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED.equals(intent.getAction())) {
+setAlarm(context);
+ }
 else onAlarm(context);
 }
 }
@@ -292,7 +295,7 @@ Intent myIntentR1 = new Intent(context, MyScheduledReceiver.class);
 PendingIntent pendingIntentR1 = PendingIntent.getBroadcast(context, 1, myIntentR1, PendingIntent.FLAG_UPDATE_CURRENT);
 manager.cancel(pendingIntentR1);
 int type=AlarmManager.RTC;
-if(Build.VERSION.SDK_INT<Build.VERSION_CODES.KITKAT) manager.set(type, time, pendingIntentR1);
+if(Build.VERSION.SDK_INT<Build.VERSION_CODES.KITKAT ||(Build.VERSION.SDK_INT<Build.VERSION_CODES.S &&!manager.canScheduleExactAlarms())) manager.set(type, time, pendingIntentR1);
 else if(Build.VERSION.SDK_INT<Build.VERSION_CODES.M) manager.setExact(type, time, pendingIntentR1);
 else manager.setExactAndAllowWhileIdle(type, time, pendingIntentR1);
 Log.d(TAG,"!!!setAlarm!!! "+(time-System.currentTimeMillis())/60000);

@@ -1,6 +1,7 @@
 package oleksandr.kotyuk.orthodoxcalendar;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import oleksandr.kotyuk.orthodoxcalendar.db.DatabaseHelper;
 import androidx.appcompat.app.ActionBar;
@@ -364,7 +365,8 @@ public void onCreate(Bundle savedInstanceState) {
   ///////////////////////////////////////
   //Toast.makeText(this, "DescriptionActivity...id_description-2", Toast.LENGTH_LONG).show();
   /////////////////////////////////////////
-  tvDescriptionActivity.setText(Html.fromHtml(info +"<b>ќбновлени¤</b><br><br>"+ getResources().getString(R.string.text_update_news_list).replace("\n", "<br>") + text_br));
+   String[] versions=getResources().getStringArray(R.array.versions);
+     tvDescriptionActivity.setText(Html.fromHtml(info +"<b>обновление</b><br><br>"+ String.join("", Arrays.copyOfRange(versions,1,versions.length)).replace("\n", "<br>") + text_br));
   ///////////////////////////////////////
   //Toast.makeText(this, "DescriptionActivity...id_description-3", Toast.LENGTH_LONG).show();
   /////////////////////////////////////////

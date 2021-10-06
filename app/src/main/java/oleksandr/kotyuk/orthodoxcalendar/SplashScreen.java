@@ -40,7 +40,7 @@ protected void onCreate(Bundle savedInstanceState) {
  if(num_prog==0){
   text_load="”—“јЌќ¬ ј Ѕј«џ ƒјЌЌџ’";
  }else{
-  if(Integer.parseInt(getResources().getString(R.string.program_version_number))>num_prog){
+  if(Integer.parseInt(BuildConfig.VERSION_NAME.replace(".",""))>num_prog){
   text_load="ќЅЌќ¬Ћ≈Ќ»≈ Ѕј«џ ƒјЌЌџ’";
   }else{
   text_load="«ј√–”« ј";

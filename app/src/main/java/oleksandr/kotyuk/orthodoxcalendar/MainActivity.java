@@ -229,12 +229,13 @@ invalidateOptionsMenu(); // creates call to
 
  SharedPreferences sp = getSharedPreferences(WIDGET_PREF, MODE_PRIVATE);
  int num_prog = sp.getInt(NUMBER_PROGRAM, 0);
-if(Integer.parseInt(getResources().getString(R.string.program_version_number))>num_prog) {
+ int correct_num_prog=Integer.parseInt(BuildConfig.VERSION_NAME.replace(".",""));
+if(correct_num_prog>num_prog) {
  //открываем диалоговое окно
  UpdateNewsDialogFragment undf = new UpdateNewsDialogFragment();
 undf.show(getSupportFragmentManager(), "dialog_update_news");
  Editor editor = sp.edit();
- editor.putInt(NUMBER_PROGRAM, Integer.parseInt(getResources().getString(R.string.program_version_number)));
+ editor.putInt(NUMBER_PROGRAM, correct_num_prog);
  editor.commit();
 }
 }

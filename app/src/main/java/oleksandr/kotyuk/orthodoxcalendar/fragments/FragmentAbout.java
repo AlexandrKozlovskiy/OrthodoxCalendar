@@ -1,6 +1,8 @@
 package oleksandr.kotyuk.orthodoxcalendar.fragments;
 
+import oleksandr.kotyuk.orthodoxcalendar.BuildConfig;
 import oleksandr.kotyuk.orthodoxcalendar.DescriptionActivity;
+import oleksandr.kotyuk.orthodoxcalendar.MyView;
 import oleksandr.kotyuk.orthodoxcalendar.R;
 import android.content.Intent;
 import android.os.Bundle;
@@ -46,7 +48,7 @@ Button button_help3=(Button) view.findViewById(R.id.button_about3);
   startActivity(intent);
  }
  });
-
+ ((MyView) view.findViewById(R.id.MyView4About)).setText(getString(R.string.program_version,BuildConfig.VERSION_NAME));
  return view;
 }
 

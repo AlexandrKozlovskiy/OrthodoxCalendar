@@ -7,19 +7,21 @@ import android.os.Bundle;
 
 import androidx.fragment.app.DialogFragment;
 
+import java.util.Arrays;
+
 import oleksandr.kotyuk.orthodoxcalendar.R;
 
 public class UpdateNewsDialogFragmentList extends DialogFragment {
 
     public Dialog onCreateDialog(Bundle savedInstanceState) {
+        String[] versions=getResources().getStringArray(R.array.versions);
         return new AlertDialog.Builder(getActivity())
                 // Set Dialog Icon
                 //.setIcon(R.drawable.androidhappy)
                 // Set Dialog Title
                 .setTitle(R.string.title_update_news)
                 // Set Dialog Message
-                .setMessage(R.string.text_update_news_list)
-
+                .setMessage(String.join("", Arrays.copyOfRange(versions,1,versions.length)))
                 // Positive button
                 .setPositiveButton(R.string.button_dialog_update2, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {

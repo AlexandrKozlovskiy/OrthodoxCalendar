@@ -30,15 +30,16 @@ android {
             }
         }
     }
-    compileSdkVersion 30
-    buildToolsVersion "30.0.3"
+    compileSdkVersion 31
+    buildToolsVersion '31.0.0'
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 30
-        versionCode 109
-        versionName '1.14.19'
+        versionCode 110
+        versionName '1.14.20'
         signingConfig signingConfigs.release
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -54,25 +55,29 @@ android {
         abortOnError false
     }
     compileOptions {
-        targetCompatibility JavaVersion.VERSION_1_8
-        sourceCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_15
+        targetCompatibility JavaVersion.VERSION_15
     }
     flavorDimensions 'orthodoxCalendar'
     productFlavors {
         orthodoxcalendarfree {
             dimension 'orthodoxCalendar'
             applicationId "oleksandr.kotyuk.orthodoxcalendarfree"
+            versionCode defaultConfig.versionCode
+            versionName defaultConfig.versionName
         }
         orthodoxCalendarpaid {
             dimension 'orthodoxCalendar'
             applicationId "oleksandr.kotyuk.orthodoxcalendarpaid"
+            versionCode defaultConfig.versionCode
+            versionName defaultConfig.versionName
         }
     }
 }
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.3.0'
-    implementation 'androidx.fragment:fragment:1.3.5'
+    implementation 'androidx.appcompat:appcompat:1.3.1'
+    implementation 'androidx.fragment:fragment:1.3.6'
     implementation 'androidx.cursoradapter:cursoradapter:1.0.0'
     implementation 'androidx.viewpager:viewpager:1.0.0'
 }

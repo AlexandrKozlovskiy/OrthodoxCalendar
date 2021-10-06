@@ -8,7 +8,9 @@ import android.text.Layout;
 import android.text.SpannableStringBuilder;
 import android.text.style.URLSpan;
 import android.util.AttributeSet;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
+import android.view.View;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
@@ -75,6 +77,7 @@ startClick=layout.getLineLeft(endLine);
                 r.right=(int)(r.left+endClick-startClick);
                 info.setBoundsInScreen(r);
                 info.setClickable(true);
+                if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.P) info.setScreenReaderFocusable(true);
                                 info.setText(content);
                 info.setContentDescription(content);
 info.setParent(MyView.this);
@@ -106,7 +109,6 @@ else if(action== AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_SH
             }
         }
     };
-
     final SpannableStringBuilder builder = new SpannableStringBuilder(getText());
     private URLSpan[] spans = builder.getSpans(0, builder.length(), URLSpan.class);
     private int accessibilityFocusedId = -1;
@@ -197,7 +199,26 @@ if(isExpandable()) setExpanded(!isExpanded());
         boolean touch=touch(event);
         if(!touch) return super.dispatchHoverEvent(event); else return touch;
     }
+    /*@Override
+    public View focusSearch(int direction) {
+        if((direction==FOCUS_DOWN ||direction==FOCUS_RIGHT) &&accessibilityFocusedId<spans.length-1) {
+            getAccessibilityNodeProvider().performAction(accessibilityFocusedId+1,AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS,null);
+            return this;
+        }
+        else if((direction==FOCUS_UP ||direction==FOCUS_LEFT) &&accessibilityFocusedId>NO_ID) {
+            getAccessibilityNodeProvider().performAction(accessibilityFocusedId-1,AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS,null);
+            return this;
+        }
+        else return super.focusSearch(direction);
+    }
 
+    @Override
+    public boolean dispatchKeyEventPreIme(KeyEvent event) {
+        if(event.hasNoModifiers() &&event.getAction()==KeyEvent.ACTION_DOWN &&(event.getKeyCode()==KeyEvent.KEYCODE_DPAD_DOWN ||event.getKeyCode()== KeyEvent.KEYCODE_DPAD_UP)) {
+            return focusSearch(event.getKeyCode()==KeyEvent.KEYCODE_DPAD_DOWN?FOCUS_DOWN:FOCUS_UP)!=null;
+}
+else return super.dispatchKeyEventPreIme(event);
+    }*/
     @Override
     public CharSequence getAccessibilityClassName() {
 return MyView.class.getName();
