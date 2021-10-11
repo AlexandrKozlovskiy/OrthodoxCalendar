@@ -16,7 +16,7 @@ public class SplashScreen extends Activity {
 // Splash screen timer
 private int SPLASH_TIME = 1;
 
-String text_load="«ј√–”« ј";
+String text_load="ЗАГРУЗКА";
 
 private boolean flag_activity=false;
 MyCalendar cal = MyCalendar.getInstance();
@@ -38,12 +38,12 @@ protected void onCreate(Bundle savedInstanceState) {
  SharedPreferences sp = getSharedPreferences(WIDGET_PREF, MODE_PRIVATE);
  int num_prog = sp.getInt(NUMBER_PROGRAM, 0);
  if(num_prog==0){
-  text_load="”—“јЌќ¬ ј Ѕј«џ ƒјЌЌџ’";
+  text_load="УСТАНОВКА БАЗЫ ДАННЫХ";
  }else{
   if(Integer.parseInt(BuildConfig.VERSION_NAME.replace(".",""))>num_prog){
-  text_load="ќЅЌќ¬Ћ≈Ќ»≈ Ѕј«џ ƒјЌЌџ’";
+  text_load="ОБНОВЛЕНИЕ БАЗЫ ДАННЫХ";
   }else{
-  text_load="«ј√–”« ј";
+  text_load="ЗАГРУЗКА";
   }
  }
  tvSplashActivity = (MyView) this.findViewById(R.id.MyView_splash);
