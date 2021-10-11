@@ -69,6 +69,7 @@ private CharSequence mDrawerTitle;
 private CharSequence mTitle;
 CustomDrawerAdapter adapter;
 
+
 List<DrawerItem> dataList;
 
 MenuItem menu_item1;

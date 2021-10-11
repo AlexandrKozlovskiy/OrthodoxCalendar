@@ -49,7 +49,6 @@ protected void onCreate(Bundle savedInstanceState) {
  tvSplashActivity = (MyView) this.findViewById(R.id.MyView_splash);
  tvSplashActivity.setText(text_load);
 
-
  /*SharedPreferences sPref = PreferenceManager
   .getDefaultSharedPreferences(this);
  String str = sPref.getString("calendar_list", "");

@@ -16,6 +16,7 @@ private static MyCalendarWidget calendar;
          "апреля", "мая", "июня", "июля", "августа", "сентября", "октября",
          "ноября", "декабря" };
 
+
 private MyCalendarWidget() {
  this.cal = new GregorianCalendar();
 }

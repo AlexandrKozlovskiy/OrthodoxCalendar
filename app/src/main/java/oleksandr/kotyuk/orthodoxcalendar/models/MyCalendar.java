@@ -25,6 +25,7 @@ private static MyCalendar calendar;
  static final String[] day_week_names_short = { "", "Вс", "Пн", "Вт", "Ср",
          "Чт", "Пт", "Сб", };
 
+
 int r2014 = 365;
 int r2015 = 365;
 int r2016 = 366;
