@@ -69,6 +69,7 @@ private CharSequence mDrawerTitle;
 private CharSequence mTitle;
 CustomDrawerAdapter adapter;
 
+
 List<DrawerItem> dataList;
 
 MenuItem menu_item1;
@@ -1693,7 +1694,7 @@ public void onBackPressed() {
  Log.d(LOG_TAG, "R_MainActivity: onBackPressed()");
  super.onBackPressed();
  } else
- Toast.makeText(getApplicationContext(), "Нажмите еще ​​раз для выхода",
+ Toast.makeText(getApplicationContext(), "Нажмите еще раз для выхода",
   Toast.LENGTH_SHORT).show();
  back_pressed = System.currentTimeMillis();
 }

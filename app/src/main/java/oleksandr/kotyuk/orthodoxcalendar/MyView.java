@@ -104,7 +104,7 @@ else if(action==AccessibilityNodeInfo.ACTION_CLEAR_ACCESSIBILITY_FOCUS) sendAcce
 spans[virtualViewId].onClick(MyView.this);
 sendAccessibilityEventForVirtualView(AccessibilityEvent.TYPE_VIEW_CLICKED,virtualViewId);
                 }
-else if(action== AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_SHOW_ON_SCREEN.getId()) return false;
+//else if(action== AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_SHOW_ON_SCREEN.getId()) return false;
                 return true;
             }
         }

@@ -8,13 +8,14 @@ public class MyCalendarWidget {
 private Calendar cal;
 private static MyCalendarWidget calendar;
 
-static final String[] day_week_names_long_caps_widget = { "",
- "¬ќ— –≈—≈Ќ№≈", "ѕќЌ≈ƒ≈Ћ№Ќ» ", "  ¬“ќ–Ќ»   ", "   —–≈ƒј   ",
- "  „≈“¬≈–√  ", "  ѕя“Ќ»÷ј  ", "  —”ЅЅќ“ј  ", };
+ static final String[] day_week_names_long_caps_widget = { "",
+         "ВОСКРЕСЕНЬЕ", "ПОНЕДЕЛЬНИК", "  ВТОРНИК  ", "   СРЕДА   ",
+         "  ЧЕТВЕРГ  ", "  ПЯТНИЦА  ", "  СУББОТА  ", };
 
-static final String[] month_names_widget = { "¤нвар¤", "феврал¤", "марта",
- "апрел¤", "ма¤", "июн¤", "июл¤", "августа", "сент¤бр¤", "окт¤бр¤",
- "но¤бр¤", "декабр¤" };
+ static final String[] month_names_widget = { "января", "февраля", "марта",
+         "апреля", "мая", "июня", "июля", "августа", "сентября", "октября",
+         "ноября", "декабря" };
+
 
 private MyCalendarWidget() {
  this.cal = new GregorianCalendar();
@@ -59,7 +60,7 @@ public String getYear() {
  return Integer.toString(cal.get(Calendar.YEAR));
 }
 
-// название дн¤ недели (ѕќЌ≈ƒ≈Ћ№Ќ» , ¬“ќ–Ќ» ...)
+ // название дня недели (ПОНЕДЕЛЬНИК, ВТОРНИК...)
 public String getDayWeekNamesLongCaps() {
  return day_week_names_long_caps_widget[cal.get(Calendar.DAY_OF_WEEK)];
 }

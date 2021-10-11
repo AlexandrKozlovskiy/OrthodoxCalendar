@@ -8,22 +8,23 @@ public class MyCalendar{
 Calendar cal;
 private static MyCalendar calendar;
 
-static final String[] month_names = { "¤нвар¤", "феврал¤", "марта",
- "апрел¤", "ма¤", "июн¤", "июл¤", "августа", "сент¤бр¤", "окт¤бр¤",
- "но¤бр¤", "декабр¤" };
+ static final String[] month_names = { "января", "февраля", "марта",
+         "апреля", "мая", "июня", "июля", "августа", "сентября", "октября",
+         "ноября", "декабря" };
 
-static final String[] month_names2 = { "январь", "‘евраль", "ћарт",
- "јпрель", "ћай", "»юнь", "»юль", "јвгуст", "—ент¤брь", "ќкт¤брь",
- "Ќо¤брь", "ƒекабрь" };
+ static final String[] month_names2 = { "Январь", "Февраль", "Март",
+         "Апрель", "Май", "Июнь", "Июль", "Август", "Сентябрь", "Октябрь",
+         "Ноябрь", "Декабрь" };
 
-static final String[] day_week_names_long = { "", "¬оскресенье",
- "ѕонедельник", "  ¬торник  ", "   —реда   ", "  „етверг  ", "  ѕ¤тница  ", "  —уббота  ", };
+ static final String[] day_week_names_long = { "", "Воскресенье",
+         "Понедельник", "  Вторник  ", "   Среда   ", "  Четверг  ", "  Пятница  ", "  Суббота  ", };
 
-static final String[] day_week_names_long_caps = { "", "¬ќ— –≈—≈Ќ№≈",
- "ѕќЌ≈ƒ≈Ћ№Ќ» ", "  ¬“ќ–Ќ»   ", "   —–≈ƒј   ", "  „≈“¬≈–√  ", "  ѕя“Ќ»÷ј  ", "  —”ЅЅќ“ј  ", };
+ static final String[] day_week_names_long_caps = { "", "ВОСКРЕСЕНЬЕ",
+         "ПОНЕДЕЛЬНИК", "  ВТОРНИК  ", "   СРЕДА   ", "  ЧЕТВЕРГ  ", "  ПЯТНИЦА  ", "  СУББОТА  ", };
 
-static final String[] day_week_names_short = { "", "¬с", "ѕн", "¬т", "—р",
- "„т", "ѕт", "—б", };
+ static final String[] day_week_names_short = { "", "Вс", "Пн", "Вт", "Ср",
+         "Чт", "Пт", "Сб", };
+
 
 int r2014 = 365;
 int r2015 = 365;
@@ -131,17 +132,17 @@ public int getDayWeek() {
  return cal.get(Calendar.DAY_OF_WEEK);
 }
 
-// название дн¤ недели (¬оскресенье,ѕонедельник...)
+// название дн¤ недели (Воскресенье,Понедельник...)
 public String getDayWeekNamesLong() {
  return day_week_names_long[cal.get(Calendar.DAY_OF_WEEK)];
 }
 
-// название дн¤ недели (ѕќЌ≈ƒ≈Ћ№Ќ» , ¬“ќ–Ќ» ...)
+ // название дня недели (ПОНЕДЕЛЬНИК, ВТОРНИК...)
 public String getDayWeekNamesLongCaps() {
  return day_week_names_long_caps[cal.get(Calendar.DAY_OF_WEEK)];
 }
 
-// название дн¤ недели (¬с, ѕн...)
+ // название дня недели (Вс, Пн...)
 public String getDayWeekNamesShort(int year, int month, int day) {
  Calendar cal_tmp=new GregorianCalendar(year,month,day);
  return day_week_names_short[cal_tmp.get(Calendar.DAY_OF_WEEK)];

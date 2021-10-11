@@ -295,11 +295,10 @@ Intent myIntentR1 = new Intent(context, MyScheduledReceiver.class);
 PendingIntent pendingIntentR1 = PendingIntent.getBroadcast(context, 1, myIntentR1, PendingIntent.FLAG_UPDATE_CURRENT);
 manager.cancel(pendingIntentR1);
 int type=AlarmManager.RTC;
-if(Build.VERSION.SDK_INT<Build.VERSION_CODES.KITKAT ||(Build.VERSION.SDK_INT<Build.VERSION_CODES.S &&!manager.canScheduleExactAlarms())) manager.set(type, time, pendingIntentR1);
+if(Build.VERSION.SDK_INT<Build.VERSION_CODES.KITKAT ||(Build.VERSION.SDK_INT>=Build.VERSION_CODES.S &&!manager.canScheduleExactAlarms())) manager.set(type, time, pendingIntentR1);
 else if(Build.VERSION.SDK_INT<Build.VERSION_CODES.M) manager.setExact(type, time, pendingIntentR1);
 else manager.setExactAndAllowWhileIdle(type, time, pendingIntentR1);
 Log.d(TAG,"!!!setAlarm!!! "+(time-System.currentTimeMillis())/60000);
-//Toast.makeText(context,(time-System.currentTimeMillis())/60000+"",1).show();
 }
 public void setAlarm(Context context) {
 time=Integer.parseInt(PreferencesActivity.MyPreferenceFragment.ReadString(context, "pref_notifi_time", "0"));
