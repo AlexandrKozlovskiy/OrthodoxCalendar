@@ -21,7 +21,7 @@
                 android:layout_gravity="center"
                 android:layout_marginBottom="5dp"
                 android:layout_marginTop="10dp"
-android:importantForAccessibility="no"
+                android:importantForAccessibility="no"
                 android:src="@drawable/logo" />
 
             <oleksandr.kotyuk.orthodoxcalendar.MyView
@@ -76,10 +76,11 @@ android:importantForAccessibility="no"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
                android:layout_gravity="center"
+               android:layout_margin="20dp"
                android:id="@+id/source"
                android:text="@string/source_code"
-               android:clickable="true"
-               android:linksClickable="true"/>
+               android:textColor="@color/BLACK"
+               android:textSize="16sp" />
 
             <oleksandr.kotyuk.orthodoxcalendar.MyView
                 android:id="@+id/MyView4About"
@@ -87,6 +88,7 @@ android:importantForAccessibility="no"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="20dp"
+                android:text="@string/program_version"
                 android:textColor="@color/BLACK"
                 android:textSize="16sp" />
             

@@ -131,6 +131,8 @@ protected void onCreate(Bundle savedInstanceState) {
  // getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
  bar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
 
+
+
  ArrayAdapter<String> list_adapter = new ArrayAdapter<String>(this,
   R.layout.my_simple_spinner_item, data_list);
  list_adapter
@@ -183,6 +185,10 @@ mTitle = mDrawerTitle = getTitle();
  // getSupportActionBar().setHomeButtonEnabled(true);
  bar.setDisplayHomeAsUpEnabled(true);
  bar.setHomeButtonEnabled(true);
+
+ bar.setLogo(R.drawable.ic_launcher);
+ bar.setDisplayUseLogoEnabled(true);
+
 
  mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,R.string.drawer_open,
   R.string.drawer_close) {

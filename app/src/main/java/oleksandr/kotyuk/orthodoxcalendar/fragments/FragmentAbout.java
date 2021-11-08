@@ -9,11 +9,14 @@ import android.os.Bundle;
 
 import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
+
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class FragmentAbout extends Fragment {
 
@@ -33,6 +36,9 @@ public View onCreateView(LayoutInflater inflater, ViewGroup container,
   false);
 ViewCompat.setAccessibilityHeading(view.findViewById(R.id.MyViewAbout1),true);
  ViewCompat.setAccessibilityHeading(view.findViewById(R.id.MyViewAbout2),true);
+
+ TextView getapp =(TextView) view.findViewById(R.id.source);
+ getapp.setMovementMethod(LinkMovementMethod.getInstance());
 
 Button button_help3=(Button) view.findViewById(R.id.button_about3);
  button_help3.setOnClickListener(new OnClickListener() {

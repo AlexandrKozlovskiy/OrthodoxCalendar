@@ -366,7 +366,7 @@ public void onCreate(Bundle savedInstanceState) {
   //Toast.makeText(this, "DescriptionActivity...id_description-2", Toast.LENGTH_LONG).show();
   /////////////////////////////////////////
    String[] versions=getResources().getStringArray(R.array.versions);
-     tvDescriptionActivity.setText(Html.fromHtml(info +"<b>обновление</b><br><br>"+ String.join("", Arrays.copyOfRange(versions,1,versions.length)).replace("\n", "<br>") + text_br));
+     tvDescriptionActivity.setText(Html.fromHtml(info +"<b>Обновление</b><br><br>"+ String.join("", Arrays.copyOfRange(versions,1,versions.length)).replace("\n", "<br>") + text_br));
   ///////////////////////////////////////
   //Toast.makeText(this, "DescriptionActivity...id_description-3", Toast.LENGTH_LONG).show();
   /////////////////////////////////////////

@@ -74,12 +74,14 @@
                 android:textStyle="bold" />
 
            <oleksandr.kotyuk.orthodoxcalendar.MyView
+               android:id="@+id/source"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:id="@+id/source"
-                              android:text="@string/source_code"
-               android:clickable="true"
-               android:linksClickable="true"/>
+               android:layout_gravity="center"
+               android:layout_margin="20dp"
+               android:text="@string/source_code"
+               android:textColor="@color/BLACK"
+               android:textSize="18sp" />
 
             <oleksandr.kotyuk.orthodoxcalendar.MyView
                 android:id="@+id/MyView4About"

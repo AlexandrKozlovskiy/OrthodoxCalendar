@@ -73,6 +73,7 @@ protected void onCreate(Bundle savedInstanceState) {
  // Enabling Up / Back navigation
  actionBar.setDisplayHomeAsUpEnabled(true);
 
+
  tvCountSearch = (MyView) findViewById(R.id.MyView_bible_search);
  //tvspinner1=(MyView)findViewById(R.id.MyView1);
  checkboxRegistr = (CheckBox) findViewById(R.id.checkBoxSearchBible);
