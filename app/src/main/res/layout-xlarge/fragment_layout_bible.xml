@@ -44,7 +44,8 @@
                 android:paddingRight="10dp"
                 android:text="@string/bible_title2"
                 android:textColor="@color/Gold"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:textAllCaps="false"/>
 
             <Button
                 android:id="@+id/button_Bible2"
@@ -59,7 +60,8 @@
                 android:paddingRight="10dp"
                 android:text="@string/bible_title3"
                 android:textColor="@color/Gold"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:textAllCaps="false"/>
 
             <Button
                 android:id="@+id/button_Bible3"
@@ -74,7 +76,8 @@
                 android:paddingRight="10dp"
                 android:text="@string/bible_title4"
                 android:textColor="@color/Gold"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:textAllCaps="false"/>
             
             <Button
                 android:id="@+id/button_Bible4"
@@ -89,7 +92,8 @@
                 android:paddingRight="10dp"
                 android:text="@string/bible_title5"
                 android:textColor="@color/Gold"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:textAllCaps="false"/>
             
             <Button
                 android:id="@+id/button_Bible5"
@@ -104,7 +108,8 @@
                 android:paddingRight="10dp"
                 android:text="@string/bible_title6"
                 android:textColor="@color/Gold"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:textAllCaps="false"/>
             
             <Button
                 android:id="@+id/button_Bible6"
@@ -119,7 +124,8 @@
                 android:paddingRight="10dp"
                 android:text="@string/bible_title8"
                 android:textColor="@color/Gold"
-                android:textSize="24sp" />
+                android:textSize="24sp"
+                android:textAllCaps="false"/>
 
         </LinearLayout>
     </ScrollView>

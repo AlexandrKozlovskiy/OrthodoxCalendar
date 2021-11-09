@@ -47,6 +47,7 @@
             android:minHeight="?android:attr/listPreferredItemHeightSmall"
             android:text="dfgddgdgdgd"
             android:textAppearance="?android:attr/textAppearanceListItemSmall"
+            android:textSize="20sp"
             android:textColor="@color/list_item_title" />
 
     </LinearLayout>

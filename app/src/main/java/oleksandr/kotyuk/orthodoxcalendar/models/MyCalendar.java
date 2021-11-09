@@ -265,6 +265,6 @@ public String getEasterDate(String year) {
 byte[] results=getEaster(year);
 if(results.length==1) return "";
 //else return (results[0]+13)%(results[1]==2?31:30)+" "+month_names[results[1]+(results[0]+13>(results[1]==2?31:30)?1:0)];
-else return results[0]+month_names[results[1]];
+else return results[0]+" "+month_names[results[1]];
 }
 }

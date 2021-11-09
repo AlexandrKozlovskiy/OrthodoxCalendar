@@ -95,7 +95,7 @@
 	<string name="title_update_news">Что нового</string>
 	<string name="program_date">2021</string>
 	<string name="email_program">Oleksandr.Kotyuk@gmail.com</string>
-	<string name="source_code">Вы можете посмотреть и скачать исходный код приложения на <a href="https://github.com/AlexandrKozlovskiy/orthodoxCalendar/">github</a>.</string>
+	<string name="source_code">Вы можете посмотреть и скачать исходный код приложения на <a href="https://github.com/AlexandrKozlovskiy/orthodoxCalendar/">GitHub</a>.</string>
 	<string name="help_project">Помочь проекту</string>
 	<string name="help_project_text1">Поддержать проект можно добрым словом и идеями по улучшению программы, написав на адрес:</string>
 	<string name="help_project_text1_1">а также, поддержав одним из указанных способов:</string>

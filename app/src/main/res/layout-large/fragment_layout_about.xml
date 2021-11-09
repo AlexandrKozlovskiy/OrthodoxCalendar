@@ -83,7 +83,7 @@
                android:textColor="@color/BLACK"
                android:textSize="18sp" />
 
-            <oleksandr.kotyuk.orthodoxcalendar.MyView
+           <oleksandr.kotyuk.orthodoxcalendar.MyView
                 android:id="@+id/MyView4About"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
