@@ -27,462 +27,462 @@ import java.util.Arrays;
 
 public class PreferencesActivity extends AppCompatActivity {
 
-public void onCreate(Bundle savedInstanceState) {
- super.onCreate(savedInstanceState);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
- ActionBar actionBar = getSupportActionBar();
+        ActionBar actionBar = getSupportActionBar();
 
- // Enabling Up / Back navigation
- actionBar.setDisplayHomeAsUpEnabled(true);
+        // Enabling Up / Back navigation
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
- setTitle("Настройки");
- getFragmentManager().beginTransaction()
-  .replace(android.R.id.content, new MyPreferenceFragment())
-  .commit();
+        setTitle("Настройки");
+        getFragmentManager().beginTransaction()
+                .replace(android.R.id.content, new MyPreferenceFragment())
+                .commit();
 
-}
+    }
 
-@Override
-public void onBackPressed() {
- // TODO Auto-generated method stub
- super.onBackPressed();
-}
+    @Override
+    public void onBackPressed() {
+        // TODO Auto-generated method stub
+        super.onBackPressed();
+    }
 
 
-@Override
-public boolean onOptionsItemSelected(MenuItem item) {
- switch (item.getItemId()) {
- case android.R.id.home:
- // NavUtils.navigateUpFromSameTask(this);
- onBackPressed();
- return true;
- default:
- return super.onOptionsItemSelected(item);
- }
-}
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // NavUtils.navigateUpFromSameTask(this);
+                onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
-public static class MyPreferenceFragment extends PreferenceFragment
- implements OnSharedPreferenceChangeListener {
+    public static class MyPreferenceFragment extends PreferenceFragment
+            implements OnSharedPreferenceChangeListener {
 
- public static final String KEY_PREF_NOTIFI = "pref_notifi_setting";
-public static final String TAG = "my_log";
-public int time;
-//Время,после которого мы будем получать уведомления на завтрашнюю дату.
-public static final int minTimeForNextDate=20;
-public Boolean Noti_flag;
-Context cont;
- Preference cbp1;
- Preference cbp2;
- Preference cbp3;
-ListPreference cbp4;
- Preference cbp5;
- Preference cbp6;
- Preference cbp7;
- Preference cbp8;
- Preference cbp9;
- SharedPreferences prefs;
- MyScheduledReceiver mSH = new MyScheduledReceiver();
+        public static final String KEY_PREF_NOTIFI = "pref_notifi_setting";
+        public static final String TAG = "my_log";
+        public int time;
+        //Время,после которого мы будем получать уведомления на завтрашнюю дату.
+        public static final int minTimeForNextDate = 15;
+        public Boolean Noti_flag;
+        Context cont;
+        Preference cbp1;
+        Preference cbp2;
+        Preference cbp3;
+        ListPreference cbp4;
+        Preference cbp5;
+        Preference cbp6;
+        Preference cbp7;
+        Preference cbp8;
+        Preference cbp9;
+        SharedPreferences prefs;
+        MyScheduledReceiver mSH = new MyScheduledReceiver();
 
- public void onCreate(Bundle savedInstanceState) {
- super.onCreate(savedInstanceState);
- cont = getActivity();
- prefs = PreferenceManager.getDefaultSharedPreferences(cont);
- prefs.registerOnSharedPreferenceChangeListener(this);
- addPreferencesFromResource(R.xml.pref1);
-cbp1 = (Preference) findPreference("pref_notifi_setting");
- cbp2 = (Preference) findPreference("pref_prayers_language");
- cbp3 = (Preference) findPreference("pref_text_size");
- cbp4 = (ListPreference) findPreference("pref_notifi_time");
- cbp5 = (Preference) findPreference("pref_notifi_sound");
- cbp6 = (Preference) findPreference("pref_rotate_screen_setting");
- cbp7 = (Preference) findPreference("pref_prayers_fonts_ru");
- cbp8 = (Preference) findPreference("pref_prayers_fonts_cs");
- cbp9 = (Preference) findPreference("pref_black_fon_color");
-getNotifiSetting();
-cbp1.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-  @Override
-  public boolean onPreferenceChange(Preference preference,Object newValue) {
-  // TODO Auto-generated method stub
-Noti_flag=(boolean) newValue;
-if (Noti_flag) {
-   // Log.d(TAG, "mSH.setAlarm(cont)");
-mSH.setAlarm(cont);
-} else {
-   // Log.d(TAG, "mSH.cancelAlarm(cont)");
-   mSH.cancelAlarm(cont);
-  }
-  return true;
-  }
-});
-cbp4.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-@Override
-public boolean onPreferenceChange(Preference preference, Object newValue) {
-if(Noti_flag &&time!=Integer.parseInt((String) newValue)) {
-time = Integer.parseInt((String) newValue);
-cbp4.setSummary(cbp4.getEntries()[cbp4.findIndexOfValue((String) newValue)]);
-cbp1.setSummary(tomorrowDate());
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            cont = getActivity();
+            prefs = PreferenceManager.getDefaultSharedPreferences(cont);
+            prefs.registerOnSharedPreferenceChangeListener(this);
+            addPreferencesFromResource(R.xml.pref1);
+            cbp1 = (Preference) findPreference("pref_notifi_setting");
+            cbp2 = (Preference) findPreference("pref_prayers_language");
+            cbp3 = (Preference) findPreference("pref_text_size");
+            cbp4 = (ListPreference) findPreference("pref_notifi_time");
+            cbp5 = (Preference) findPreference("pref_notifi_sound");
+            cbp6 = (Preference) findPreference("pref_rotate_screen_setting");
+            cbp7 = (Preference) findPreference("pref_prayers_fonts_ru");
+            cbp8 = (Preference) findPreference("pref_prayers_fonts_cs");
+            cbp9 = (Preference) findPreference("pref_black_fon_color");
+            getNotifiSetting();
+            cbp1.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference, Object newValue) {
+                    // TODO Auto-generated method stub
+                    Noti_flag = (boolean) newValue;
+                    if (Noti_flag) {
+                        // Log.d(TAG, "mSH.setAlarm(cont)");
+                        mSH.setAlarm(cont);
+                    } else {
+                        // Log.d(TAG, "mSH.cancelAlarm(cont)");
+                        mSH.cancelAlarm(cont);
+                    }
+                    return true;
+                }
+            });
+            cbp4.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference, Object newValue) {
+                    if (Noti_flag && time != Integer.parseInt((String) newValue)) {
+                        time = Integer.parseInt((String) newValue);
+                        cbp4.setSummary(cbp4.getEntries()[cbp4.findIndexOfValue((String) newValue)]);
+                        cbp1.setSummary(tomorrowDate());
 //mSH.setAlarm(cont,time);
-}
- mSH.setAlarm(cont,time);
-return true;
-}
-});
- cbp6.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-  @Override
-  public boolean onPreferenceChange(Preference preference,
-   Object newValue) {
-  // TODO Auto-generated method stub
-  if ((Boolean) newValue) {
-   Log.d(TAG, "orientation_1="+getResources().getConfiguration().orientation);
-   WriteInt(cont, "pref_rotate_screen_orientation", 0);
+                    }
+                    mSH.setAlarm(cont, time);
+                    return true;
+                }
+            });
+            cbp6.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference,
+                                                  Object newValue) {
+                    // TODO Auto-generated method stub
+                    if ((Boolean) newValue) {
+                        Log.d(TAG, "orientation_1=" + getResources().getConfiguration().orientation);
+                        WriteInt(cont, "pref_rotate_screen_orientation", 0);
 
-  } else {
-   Log.d(TAG, "orientation_2="+getResources().getConfiguration().orientation);
-   WriteInt(cont, "pref_rotate_screen_orientation", getResources().getConfiguration().orientation);
-   
-  }
-  return true;
-  }
- });
+                    } else {
+                        Log.d(TAG, "orientation_2=" + getResources().getConfiguration().orientation);
+                        WriteInt(cont, "pref_rotate_screen_orientation", getResources().getConfiguration().orientation);
 
- /*
-  * cbp4.setOnPreferenceClickListener(new OnPreferenceClickListener()
-  * {
-  * 
-  * @Override public boolean onPreferenceClick(Preference preference)
-  * { // TODO Auto-generated method stub DialogFragment newFragment =
-  * new TimePickerFragment();
-  * newFragment.show(getFragmentManager(),"TimePicker"); return
-  * false; } });
-  */
- }
+                    }
+                    return true;
+                }
+            });
 
- public class TimePickerFragment extends DialogFragment implements
-  TimePickerDialog.OnTimeSetListener {
+            /*
+             * cbp4.setOnPreferenceClickListener(new OnPreferenceClickListener()
+             * {
+             *
+             * @Override public boolean onPreferenceClick(Preference preference)
+             * { // TODO Auto-generated method stub DialogFragment newFragment =
+             * new TimePickerFragment();
+             * newFragment.show(getFragmentManager(),"TimePicker"); return
+             * false; } });
+             */
+        }
 
- @Override
- public Dialog onCreateDialog(Bundle savedInstanceState) {
-  // Use the current time as the default values for the time
-  // picker
+        public class TimePickerFragment extends DialogFragment implements
+                TimePickerDialog.OnTimeSetListener {
 
-  /*
-   * final Calendar c = Calendar.getInstance(); int hour =
-   * c.get(Calendar.HOUR_OF_DAY); int minute =
-   * c.get(Calendar.MINUTE);
-   */
+            @Override
+            public Dialog onCreateDialog(Bundle savedInstanceState) {
+                // Use the current time as the default values for the time
+                // picker
 
-  int hour = prefs.getInt("pref_notifi_time_h", 0);
-  int minute = prefs.getInt("pref_notifi_time_m", 0);
+                /*
+                 * final Calendar c = Calendar.getInstance(); int hour =
+                 * c.get(Calendar.HOUR_OF_DAY); int minute =
+                 * c.get(Calendar.MINUTE);
+                 */
 
-  // Create and return a new instance of TimePickerDialog
-  /*
-   * public constructor..... TimePickerDialog(Context context, int
-   * theme, TimePickerDialog.OnTimeSetListener callBack, int
-   * hourOfDay, int minute, boolean is24HourView)
-   * 
-   * The 'theme' parameter allow us to specify the theme of
-   * TimePickerDialog
-   * 
-   * .......List of Themes....... THEME_DEVICE_DEFAULT_DARK
-   * THEME_DEVICE_DEFAULT_LIGHT THEME_HOLO_DARK THEME_HOLO_LIGHT
-   * THEME_TRADITIONAL
-   */
-  TimePickerDialog tpd = new TimePickerDialog(getActivity(),
-   AlertDialog.THEME_DEVICE_DEFAULT_LIGHT, this, hour,
-   minute, DateFormat.is24HourFormat(getActivity()));
+                int hour = prefs.getInt("pref_notifi_time_h", 0);
+                int minute = prefs.getInt("pref_notifi_time_m", 0);
 
-  // You can set a simple text title for TimePickerDialog
-  // tpd.setTitle("Title Of Time Picker Dialog");
+                // Create and return a new instance of TimePickerDialog
+                /*
+                 * public constructor..... TimePickerDialog(Context context, int
+                 * theme, TimePickerDialog.OnTimeSetListener callBack, int
+                 * hourOfDay, int minute, boolean is24HourView)
+                 *
+                 * The 'theme' parameter allow us to specify the theme of
+                 * TimePickerDialog
+                 *
+                 * .......List of Themes....... THEME_DEVICE_DEFAULT_DARK
+                 * THEME_DEVICE_DEFAULT_LIGHT THEME_HOLO_DARK THEME_HOLO_LIGHT
+                 * THEME_TRADITIONAL
+                 */
+                TimePickerDialog tpd = new TimePickerDialog(getActivity(),
+                        AlertDialog.THEME_DEVICE_DEFAULT_LIGHT, this, hour,
+                        minute, DateFormat.is24HourFormat(getActivity()));
 
-  /* .........Set a custom title for picker........ */
-  /*
-   * MyView tvTitle = new MyView(getActivity());
-   * tvTitle.setText("Время уведомления");
-   * 
-   * //tvTitle.setBackgroundColor(Color.parseColor("#EEE8AA"));
-   * tvTitle.setPadding(15, 15, 15, 15);
-   * tvTitle.setGravity(Gravity.CENTER_HORIZONTAL);
-   * tpd.setCustomTitle(tvTitle);
-   */
-  /* .........End custom title section........ */
-  return tpd;
- }
+                // You can set a simple text title for TimePickerDialog
+                // tpd.setTitle("Title Of Time Picker Dialog");
 
- // onTimeSet() callback method
- public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-  Log.d(TAG, "hourOfDay=" + hourOfDay + " minute=" + minute);
-  WriteInt(cont, "pref_notifi_time_h", hourOfDay);
-  WriteInt(cont, "pref_notifi_time_m", minute);
- }
- }
+                /* .........Set a custom title for picker........ */
+                /*
+                 * MyView tvTitle = new MyView(getActivity());
+                 * tvTitle.setText("Время уведомления");
+                 *
+                 * //tvTitle.setBackgroundColor(Color.parseColor("#EEE8AA"));
+                 * tvTitle.setPadding(15, 15, 15, 15);
+                 * tvTitle.setGravity(Gravity.CENTER_HORIZONTAL);
+                 * tpd.setCustomTitle(tvTitle);
+                 */
+                /* .........End custom title section........ */
+                return tpd;
+            }
 
- private void getNotifiSetting() {
- // TODO Auto-generated method stub
- /*
-  * if (cbp1 != null) Log.d(TAG, "getNotifiSetting() not NULL"); else
-  * Log.d(TAG, "getNotifiSetting() NULL");
-  */
-if (cbp1 != null) {
-time=Integer.parseInt(prefs.getString("pref_notifi_time","0"));
-Noti_flag=prefs.getBoolean("pref_notifi_setting", true);
-  if(Noti_flag) {
-cbp1.setSummary(tomorrowDate());
-  cbp5.setEnabled(true);
-  }
-else {
-  cbp1.setSummary("Выключено");
-  cbp5.setEnabled(false);
-  }
- }
+            // onTimeSet() callback method
+            public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                Log.d(TAG, "hourOfDay=" + hourOfDay + " minute=" + minute);
+                WriteInt(cont, "pref_notifi_time_h", hourOfDay);
+                WriteInt(cont, "pref_notifi_time_m", minute);
+            }
+        }
 
- if (prefs.getString("pref_prayers_language", "ru").equals("ru")) {
-  if (cbp2 != null)
-  cbp2.setSummary(getResources().getString(
-   R.string.list2_summary1));
- }
-else {
-  if (cbp2 != null)
-  cbp2.setSummary(getResources().getString(
-   R.string.list2_summary2));
- }
- if (cbp3 != null) {
-  String tmp = prefs.getString("pref_text_size", "0");
-  if (tmp.equals("0"))
-  tmp = "";
-  else
-  tmp = " " + tmp;
-  cbp3.setSummary(getResources().getString(
-   R.string.list3_summary1)
-   + tmp);
- }
- if (cbp4 != null) {
-time=Integer.parseInt(prefs.getString("pref_notifi_time","0"));
-cbp4.setSummary(cbp4.getEntry());
-cbp4.setEnabled(Noti_flag);
-}
- if (cbp5 != null) {
-  if (prefs.getBoolean("pref_notifi_sound", true))
-  cbp5.setSummary("Включен");
-  else
-  cbp5.setSummary("Отключен");
- }
- if (cbp6 != null) {
-  if (prefs.getBoolean("pref_rotate_screen_setting", true))
-  cbp6.setSummary("Включен");
-  else
-  cbp6.setSummary("Отключен");
- }
- 
- if (cbp7 != null) {
-  String fonts_ru = prefs.getString("pref_prayers_fonts_ru","1");
-  if(fonts_ru.equals("1")) cbp7.setSummary("Arial");
-  if(fonts_ru.equals("2")) cbp7.setSummary("Calibri");
-  if(fonts_ru.equals("3")) cbp7.setSummary("Cambria");
-  if(fonts_ru.equals("4")) cbp7.setSummary("DroidSans");
-  if(fonts_ru.equals("5")) cbp7.setSummary("DroidSerif");
-  if(fonts_ru.equals("6")) cbp7.setSummary("Times");
-  if(fonts_ru.equals("7")) cbp7.setSummary("Verdana");
- }
- 
- if (cbp8 != null) {
-  String fonts_cs = prefs.getString("pref_prayers_fonts_cs","1");
-  if(fonts_cs.equals("1")) cbp8.setSummary("Canonic");
-  if(fonts_cs.equals("2")) cbp8.setSummary("Orthodox");
-  if(fonts_cs.equals("3")) cbp8.setSummary("Triodion");
- }
- 
- if (cbp9 != null) {
-  String black_fon_color = prefs.getString("pref_black_fon_color","black");
-  if(black_fon_color.equals("black")) cbp9.setSummary("Черный");
-  if(black_fon_color.equals("dark_green")) cbp9.setSummary("Темно-зеленый");
-  if(black_fon_color.equals("blue")) cbp9.setSummary("Синий");
-  if(black_fon_color.equals("dark_blue")) cbp9.setSummary("Темно-синий");
- }
+        private void getNotifiSetting() {
+            // TODO Auto-generated method stub
+            /*
+             * if (cbp1 != null) Log.d(TAG, "getNotifiSetting() not NULL"); else
+             * Log.d(TAG, "getNotifiSetting() NULL");
+             */
+            if (cbp1 != null) {
+                time = Integer.parseInt(prefs.getString("pref_notifi_time", "0"));
+                Noti_flag = prefs.getBoolean("pref_notifi_setting", true);
+                if (Noti_flag) {
+                    cbp1.setSummary(tomorrowDate());
+                    cbp5.setEnabled(true);
+                } else {
+                    cbp1.setSummary("Выключено");
+                    cbp5.setEnabled(false);
+                }
+            }
 
- }
-public String tomorrowDate() {
-return getString(time<minTimeForNextDate?R.string.list1_summary:R.string.tomorrow_date);
-}
- public static boolean ReadBoolean(Context context, final String key,
-  final boolean defaultValue) {
- SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context);
- return settings.getBoolean(key, defaultValue);
- }
+            if (prefs.getString("pref_prayers_language", "ru").equals("ru")) {
+                if (cbp2 != null)
+                    cbp2.setSummary(getResources().getString(
+                            R.string.list2_summary1));
+            } else {
+                if (cbp2 != null)
+                    cbp2.setSummary(getResources().getString(
+                            R.string.list2_summary2));
+            }
+            if (cbp3 != null) {
+                String tmp = prefs.getString("pref_text_size", "0");
+                if (tmp.equals("0"))
+                    tmp = "";
+                else
+                    tmp = " " + tmp;
+                cbp3.setSummary(getResources().getString(
+                        R.string.list3_summary1)
+                        + tmp);
+            }
+            if (cbp4 != null) {
+                time = Integer.parseInt(prefs.getString("pref_notifi_time", "0"));
+                cbp4.setSummary(cbp4.getEntry());
+                cbp4.setEnabled(Noti_flag);
+            }
+            if (cbp5 != null) {
+                if (prefs.getBoolean("pref_notifi_sound", true))
+                    cbp5.setSummary("Включен");
+                else
+                    cbp5.setSummary("Отключен");
+            }
+            if (cbp6 != null) {
+                if (prefs.getBoolean("pref_rotate_screen_setting", true))
+                    cbp6.setSummary("Включен");
+                else
+                    cbp6.setSummary("Отключен");
+            }
 
- public static void WriteBoolean(Context context, final String key,
-  final boolean value) {
- SharedPreferences settings = PreferenceManager
-  .getDefaultSharedPreferences(context);
- SharedPreferences.Editor editor = settings.edit();
- editor.putBoolean(key, value);
- editor.commit();
- }
+            if (cbp7 != null) {
+                String fonts_ru = prefs.getString("pref_prayers_fonts_ru", "1");
+                if (fonts_ru.equals("1")) cbp7.setSummary("Arial");
+                if (fonts_ru.equals("2")) cbp7.setSummary("Calibri");
+                if (fonts_ru.equals("3")) cbp7.setSummary("Cambria");
+                if (fonts_ru.equals("4")) cbp7.setSummary("DroidSans");
+                if (fonts_ru.equals("5")) cbp7.setSummary("DroidSerif");
+                if (fonts_ru.equals("6")) cbp7.setSummary("Times");
+                if (fonts_ru.equals("7")) cbp7.setSummary("Verdana");
+            }
 
- public static String ReadString(Context context, final String key,
-  final String defaultValue) {
- SharedPreferences settings = PreferenceManager
-  .getDefaultSharedPreferences(context);
- return settings.getString(key, defaultValue);
- }
- 
- public static void WriteString(Context context, final String key,
-  final String value) {
- SharedPreferences settings = PreferenceManager
-  .getDefaultSharedPreferences(context);
- SharedPreferences.Editor editor = settings.edit();
- editor.putString(key, value);
- editor.commit();
- }
+            if (cbp8 != null) {
+                String fonts_cs = prefs.getString("pref_prayers_fonts_cs", "1");
+                if (fonts_cs.equals("1")) cbp8.setSummary("Canonic");
+                if (fonts_cs.equals("2")) cbp8.setSummary("Orthodox");
+                if (fonts_cs.equals("3")) cbp8.setSummary("Triodion");
+            }
 
- public static int ReadInt(Context context, final String key,
-  final int defaultValue) {
- SharedPreferences settings = PreferenceManager
-  .getDefaultSharedPreferences(context);
- return settings.getInt(key, defaultValue);
- }
+            if (cbp9 != null) {
+                String black_fon_color = prefs.getString("pref_black_fon_color", "black");
+                if (black_fon_color.equals("black")) cbp9.setSummary("Черный");
+                if (black_fon_color.equals("dark_green")) cbp9.setSummary("Темно-зеленый");
+                if (black_fon_color.equals("blue")) cbp9.setSummary("Синий");
+                if (black_fon_color.equals("dark_blue")) cbp9.setSummary("Темно-синий");
+            }
 
- public static void WriteInt(Context context, final String key,
-  final int value) {
- SharedPreferences settings = PreferenceManager
-  .getDefaultSharedPreferences(context);
- SharedPreferences.Editor editor = settings.edit();
- editor.putInt(key, value);
- editor.commit();
- }
+        }
 
- public static float ReadFloat(Context context, final String key,
-  final float defaultValue) {
- SharedPreferences settings = PreferenceManager
-  .getDefaultSharedPreferences(context);
- return settings.getFloat(key, defaultValue);
- }
+        public String tomorrowDate() {
+            return getString(time < minTimeForNextDate ? R.string.list1_summary : R.string.tomorrow_date);
+        }
 
- public static void WriteFloat(Context context, final String key,
-  final float value) {
- SharedPreferences settings = PreferenceManager
-  .getDefaultSharedPreferences(context);
- SharedPreferences.Editor editor = settings.edit();
- editor.putFloat(key, value);
- editor.commit();
- }
+        public static boolean ReadBoolean(Context context, final String key,
+                                          final boolean defaultValue) {
+            SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context);
+            return settings.getBoolean(key, defaultValue);
+        }
 
-public static void putList(Context context, String key,
-  ArrayList<String> marray) {
- SharedPreferences settings = PreferenceManager
-  .getDefaultSharedPreferences(context);
- SharedPreferences.Editor editor = settings.edit();
- String[] mystringlist = marray.toArray(new String[marray.size()]);
- // the comma like character used below is not a comma it is the
- // SINGLE
- // LOW-9 QUOTATION MARK unicode 201A and unicode 2017 they are used
- // for
- // seprating the items in the list
- editor.putString(key, TextUtils.join("‚#‚", mystringlist));
- editor.apply();
- }
+        public static void WriteBoolean(Context context, final String key,
+                                        final boolean value) {
+            SharedPreferences settings = PreferenceManager
+                    .getDefaultSharedPreferences(context);
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putBoolean(key, value);
+            editor.commit();
+        }
 
- public static ArrayList<String> getList(Context context, String key) {
- // the comma like character used below is not a comma it is the
- // SINGLE
- // LOW-9 QUOTATION MARK unicode 201A and unicode 2017 they are used
- // for
- // seprating the items in the list
- SharedPreferences settings = PreferenceManager
-  .getDefaultSharedPreferences(context);
- String tmp = settings.getString(key, "");
- if (tmp.equals(""))
-  return null;
- String[] mylist = TextUtils.split(tmp, "‚#‚");
- return new ArrayList<String>(Arrays.asList(mylist));
- }
+        public static String ReadString(Context context, final String key,
+                                        final String defaultValue) {
+            SharedPreferences settings = PreferenceManager
+                    .getDefaultSharedPreferences(context);
+            return settings.getString(key, defaultValue);
+        }
 
- @Override
- public void onSharedPreferenceChanged(
-  SharedPreferences sharedPreferences, String key) {
- // TODO Auto-generated method stub
+        public static void WriteString(Context context, final String key,
+                                       final String value) {
+            SharedPreferences settings = PreferenceManager
+                    .getDefaultSharedPreferences(context);
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putString(key, value);
+            editor.commit();
+        }
 
- Log.d(TAG, "KEY==" + key);
+        public static int ReadInt(Context context, final String key,
+                                  final int defaultValue) {
+            SharedPreferences settings = PreferenceManager
+                    .getDefaultSharedPreferences(context);
+            return settings.getInt(key, defaultValue);
+        }
 
-getNotifiSetting();
+        public static void WriteInt(Context context, final String key,
+                                    final int value) {
+            SharedPreferences settings = PreferenceManager
+                    .getDefaultSharedPreferences(context);
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putInt(key, value);
+            editor.commit();
+        }
 
- Editor editor = PreferenceManager.getDefaultSharedPreferences(cont)
-  .edit();
- editor.putBoolean("pref_notifi_setting",
-  prefs.getBoolean("pref_notifi_setting", true));
- editor.putString("pref_prayers_language",
-  prefs.getString("pref_prayers_language", "ru"));
- editor.putString("pref_text_size",
-  prefs.getString("pref_text_size", "0"));
- editor.commit();
+        public static float ReadFloat(Context context, final String key,
+                                      final float defaultValue) {
+            SharedPreferences settings = PreferenceManager
+                    .getDefaultSharedPreferences(context);
+            return settings.getFloat(key, defaultValue);
+        }
 
- /*
-  * if (key.equals(KEY_PREF_NOTIFI)) { Log.d(TAG,
-  * "KEY_PREF_NOTIFI1="+key); boolean
-  * visible_notifi=sharedPreferences.getBoolean(key, true);
-  * if(visible_notifi){ Log.d(TAG,"onSharedPreferenceChanged=true");
-  * mSH.setAlarm(cont); }else{
-  * Log.d(TAG,"onSharedPreferenceChanged=false");
-  * mSH.cancelAlarm(cont);
-  * 
-  * } }
-  */
- /*
-  * if (key.equals(KEY_PREF_NOTIFI)) { Log.d(TAG,
-  * "KEY_PREF_NOTIFI1="+key); boolean
-  * visible_notifi=sharedPreferences.getBoolean(key, true);
-  * if(visible_notifi){ //включаем отображение уведомлений Intent
-  * myIntent = new Intent(getApplicationContext(),
-  * MyReceiverNotifi.class); PendingIntent pendingIntent =
-  * PendingIntent.getBroadcast(getApplicationContext(), 0,
-  * myIntent,0);
-  * 
-  * AlarmManager alarmManager =
-  * (AlarmManager)getSystemService(ALARM_SERVICE);
-  * //alarmManager.set(AlarmManager.RTC, calendar.getTimeInMillis(),
-  * pendingIntent);
-  * alarmManager.setRepeating(AlarmManager.ELAPSED_REALTIME,
-  * SystemClock.elapsedRealtime() + 3000, 12000, pendingIntent);
-  * //startService(new Intent(getApplicationContext(),
-  * MyServiceNotifi.class)); }else{ Log.d(TAG,
-  * "KEY_PREF_NOTIFI2="+key); //выключаем отображение уведомлений
-  * Intent myIntent = new Intent(getApplicationContext(),
-  * MyReceiverNotifi.class); PendingIntent pendingIntent =
-  * PendingIntent.getBroadcast(getApplicationContext(), 0,
-  * myIntent,0);
-  * 
-  * AlarmManager alarmManager =
-  * (AlarmManager)getSystemService(ALARM_SERVICE);
-  * alarmManager.cancel(pendingIntent); //stopService(new
-  * Intent(getApplicationContext(), MyServiceNotifi.class)); } }
-  */
- }
+        public static void WriteFloat(Context context, final String key,
+                                      final float value) {
+            SharedPreferences settings = PreferenceManager
+                    .getDefaultSharedPreferences(context);
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putFloat(key, value);
+            editor.commit();
+        }
 
- @Override
- public void onResume() {
- super.onResume();
- // Set up a listener whenever a key changes
- getPreferenceScreen().getSharedPreferences()
-  .registerOnSharedPreferenceChangeListener(this);
- }
+        public static void putList(Context context, String key,
+                                   ArrayList<String> marray) {
+            SharedPreferences settings = PreferenceManager
+                    .getDefaultSharedPreferences(context);
+            SharedPreferences.Editor editor = settings.edit();
+            String[] mystringlist = marray.toArray(new String[marray.size()]);
+            // the comma like character used below is not a comma it is the
+            // SINGLE
+            // LOW-9 QUOTATION MARK unicode 201A and unicode 2017 they are used
+            // for
+            // seprating the items in the list
+            editor.putString(key, TextUtils.join("‚#‚", mystringlist));
+            editor.apply();
+        }
 
- @Override
- public void onPause() {
- super.onPause();
- // Set up a listener whenever a key changes
- getPreferenceScreen().getSharedPreferences()
-  .unregisterOnSharedPreferenceChangeListener(this);
- }
+        public static ArrayList<String> getList(Context context, String key) {
+            // the comma like character used below is not a comma it is the
+            // SINGLE
+            // LOW-9 QUOTATION MARK unicode 201A and unicode 2017 they are used
+            // for
+            // seprating the items in the list
+            SharedPreferences settings = PreferenceManager
+                    .getDefaultSharedPreferences(context);
+            String tmp = settings.getString(key, "");
+            if (tmp.equals(""))
+                return null;
+            String[] mylist = TextUtils.split(tmp, "‚#‚");
+            return new ArrayList<String>(Arrays.asList(mylist));
+        }
 
-}
+        @Override
+        public void onSharedPreferenceChanged(
+                SharedPreferences sharedPreferences, String key) {
+            // TODO Auto-generated method stub
+
+            Log.d(TAG, "KEY==" + key);
+
+            getNotifiSetting();
+
+            Editor editor = PreferenceManager.getDefaultSharedPreferences(cont)
+                    .edit();
+            editor.putBoolean("pref_notifi_setting",
+                    prefs.getBoolean("pref_notifi_setting", true));
+            editor.putString("pref_prayers_language",
+                    prefs.getString("pref_prayers_language", "ru"));
+            editor.putString("pref_text_size",
+                    prefs.getString("pref_text_size", "0"));
+            editor.commit();
+
+            /*
+             * if (key.equals(KEY_PREF_NOTIFI)) { Log.d(TAG,
+             * "KEY_PREF_NOTIFI1="+key); boolean
+             * visible_notifi=sharedPreferences.getBoolean(key, true);
+             * if(visible_notifi){ Log.d(TAG,"onSharedPreferenceChanged=true");
+             * mSH.setAlarm(cont); }else{
+             * Log.d(TAG,"onSharedPreferenceChanged=false");
+             * mSH.cancelAlarm(cont);
+             *
+             * } }
+             */
+            /*
+             * if (key.equals(KEY_PREF_NOTIFI)) { Log.d(TAG,
+             * "KEY_PREF_NOTIFI1="+key); boolean
+             * visible_notifi=sharedPreferences.getBoolean(key, true);
+             * if(visible_notifi){ //включаем отображение уведомлений Intent
+             * myIntent = new Intent(getApplicationContext(),
+             * MyReceiverNotifi.class); PendingIntent pendingIntent =
+             * PendingIntent.getBroadcast(getApplicationContext(), 0,
+             * myIntent,0);
+             *
+             * AlarmManager alarmManager =
+             * (AlarmManager)getSystemService(ALARM_SERVICE);
+             * //alarmManager.set(AlarmManager.RTC, calendar.getTimeInMillis(),
+             * pendingIntent);
+             * alarmManager.setRepeating(AlarmManager.ELAPSED_REALTIME,
+             * SystemClock.elapsedRealtime() + 3000, 12000, pendingIntent);
+             * //startService(new Intent(getApplicationContext(),
+             * MyServiceNotifi.class)); }else{ Log.d(TAG,
+             * "KEY_PREF_NOTIFI2="+key); //выключаем отображение уведомлений
+             * Intent myIntent = new Intent(getApplicationContext(),
+             * MyReceiverNotifi.class); PendingIntent pendingIntent =
+             * PendingIntent.getBroadcast(getApplicationContext(), 0,
+             * myIntent,0);
+             *
+             * AlarmManager alarmManager =
+             * (AlarmManager)getSystemService(ALARM_SERVICE);
+             * alarmManager.cancel(pendingIntent); //stopService(new
+             * Intent(getApplicationContext(), MyServiceNotifi.class)); } }
+             */
+        }
+
+        @Override
+        public void onResume() {
+            super.onResume();
+            // Set up a listener whenever a key changes
+            getPreferenceScreen().getSharedPreferences()
+                    .registerOnSharedPreferenceChangeListener(this);
+        }
+
+        @Override
+        public void onPause() {
+            super.onPause();
+            // Set up a listener whenever a key changes
+            getPreferenceScreen().getSharedPreferences()
+                    .unregisterOnSharedPreferenceChangeListener(this);
+        }
+
+    }
 
 // позволяет востановить данные
-/*
- * protected void onRestoreInstanceState(Bundle savedInstanceState) {
- * super.onRestoreInstanceState(savedInstanceState); //Log.d(LOG_TAG,
- * "onRestoreInstanceState"); }
- * 
- * // позволяет сохранить данные protected void onSaveInstanceState(Bundle
- * outState) { super.onSaveInstanceState(outState); //Log.d(LOG_TAG,
- * "onSaveInstanceState"); }
- */
+    /*
+     * protected void onRestoreInstanceState(Bundle savedInstanceState) {
+     * super.onRestoreInstanceState(savedInstanceState); //Log.d(LOG_TAG,
+     * "onRestoreInstanceState"); }
+     *
+     * // позволяет сохранить данные protected void onSaveInstanceState(Bundle
+     * outState) { super.onSaveInstanceState(outState); //Log.d(LOG_TAG,
+     * "onSaveInstanceState"); }
+     */
 }
