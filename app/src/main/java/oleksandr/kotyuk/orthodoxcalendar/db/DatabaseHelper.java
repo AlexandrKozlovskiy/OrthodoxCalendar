@@ -69,7 +69,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
  private static final String DATABASE_NAME = "calendar.db";
 
  // Номер версии этой БД
- private static final int DATABASE_VERSION = 84;
+ private static final int DATABASE_VERSION = 85;
 
  private static DatabaseHelper dbHelper = null;
 
