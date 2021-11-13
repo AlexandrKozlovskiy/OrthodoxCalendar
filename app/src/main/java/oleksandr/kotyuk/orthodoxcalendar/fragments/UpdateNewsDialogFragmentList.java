@@ -21,7 +21,7 @@ public class UpdateNewsDialogFragmentList extends DialogFragment {
                 // Set Dialog Title
                 .setTitle(R.string.title_update_news)
                 // Set Dialog Message
-                .setMessage(String.join("", Arrays.copyOfRange(versions,1,versions.length)))
+                .setMessage(String.join("", Arrays.copyOfRange(versions,0,versions.length)))
                 // Positive button
                 .setPositiveButton(R.string.button_dialog_update2, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
