@@ -115,6 +115,7 @@
 	<string name="widget_ok">ОК</string>
 	<string name="widget_radio_group_name">Степень прозрачности виджета:</string>
 	<string name="widget_app_name">Настройки виджета</string>
+	<string name="widget_app_name2">Обновить виджет</string>
 	<string name="about_button_help"> СПРАВОЧНИК ПОЛЬЗОВАТЕЛЯ </string>
 	<string name="about_button_help2">КРАТКИЙ СЛОВАРЬ ТЕРМИНОВ</string>
 	<string name="about_button_help3">ПОСЛЕДНИЕ ОБНОВЛЕНИЯ</string>

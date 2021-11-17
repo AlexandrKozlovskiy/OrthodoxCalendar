@@ -49,7 +49,7 @@ static void updateWidget(Context context,
  // Log.d(TAG, "MyProvider ListWidget");
  RemoteViews rv = new RemoteViews(context.getPackageName(),
   R.layout.widget);
-
+rv.setContentDescription(R.id.imageView1,context.getString(R.string.widget_app_name2));
 rv.setContentDescription(R.id.imageView2,context.getString(R.string.widget_app_name));
  setUpdateTV(rv, context, appWidgetId, sp);
 
