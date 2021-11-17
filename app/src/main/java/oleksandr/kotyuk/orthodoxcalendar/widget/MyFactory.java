@@ -1,11 +1,5 @@
 package oleksandr.kotyuk.orthodoxcalendar.widget;
 
-import java.util.ArrayList;
-
-import oleksandr.kotyuk.orthodoxcalendar.R;
-import oleksandr.kotyuk.orthodoxcalendar.db.DatabaseHelper;
-import oleksandr.kotyuk.orthodoxcalendar.models.MyCalendar;
-import oleksandr.kotyuk.orthodoxcalendar.models.MyCalendarWidget;
 import android.annotation.SuppressLint;
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
@@ -16,6 +10,13 @@ import android.text.Html;
 import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService.RemoteViewsFactory;
+
+import java.util.ArrayList;
+
+import oleksandr.kotyuk.orthodoxcalendar.R;
+import oleksandr.kotyuk.orthodoxcalendar.db.DatabaseHelper;
+import oleksandr.kotyuk.orthodoxcalendar.models.MyCalendar;
+import oleksandr.kotyuk.orthodoxcalendar.models.MyCalendarWidget;
 
 public class MyFactory implements RemoteViewsFactory {
 
@@ -70,8 +71,7 @@ public void onCreate() {
 @Override
 public int getCount() {
  // Log.d(TAG, "MyFactory-getCount()");
- return data.size();
-}
+ return data.size();}
 
 @Override
 public long getItemId(int position) {

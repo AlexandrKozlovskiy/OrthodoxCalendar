@@ -2,15 +2,14 @@ package oleksandr.kotyuk.orthodoxcalendar;
 
 import android.content.Context;
 import android.graphics.Rect;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Layout;
 import android.text.SpannableStringBuilder;
 import android.text.style.URLSpan;
 import android.util.AttributeSet;
-import android.view.KeyEvent;
 import android.view.MotionEvent;
-import android.view.View;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
@@ -19,7 +18,7 @@ import android.view.accessibility.AccessibilityNodeProvider;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatTextView;
-import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
+import androidx.core.view.ViewCompat;
 
 public class MyView extends AppCompatTextView {
     private final AccessibilityNodeProvider MyProvider =new AccessibilityNodeProvider() {
@@ -41,6 +40,7 @@ public class MyView extends AppCompatTextView {
                 /*info.removeAction(AccessibilityNodeInfo.ACTION_EXPAND);
                 info.removeAction(AccessibilityNodeInfo.ACTION_COLLAPSE);*/
                 if(isExpandable()) info.addAction(isExpanded()? AccessibilityNodeInfo.ACTION_COLLAPSE:AccessibilityNodeInfo.ACTION_EXPAND);
+                if(!isExpandable() &&virtualViewId==NO_ID &&spans.length==1 &&builder.getSpanStart(spans[0])+builder.getSpanEnd(spans[0])==builder.length()) info.setVisibleToUser(false);
             }
             else {
 Layout layout=getLayout();
@@ -124,6 +124,12 @@ sendAccessibilityEventForVirtualView(AccessibilityEvent.TYPE_VIEW_CLICKED,virtua
 
     public MyView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+    }
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        if(getTypeface()!=null &&getTypeface().getStyle()==Typeface.BOLD) ViewCompat.setAccessibilityHeading(this,true);
     }
 
     private void sendAccessibilityEventForVirtualView(int eventType, int virtualViewId) {

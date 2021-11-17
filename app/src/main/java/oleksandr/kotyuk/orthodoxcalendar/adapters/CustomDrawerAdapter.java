@@ -8,14 +8,13 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import androidx.core.view.ViewCompat;
 
 import java.util.List;
 
-import oleksandr.kotyuk.orthodoxcalendar.R;
 import oleksandr.kotyuk.orthodoxcalendar.MyView;
+import oleksandr.kotyuk.orthodoxcalendar.R;
 import oleksandr.kotyuk.orthodoxcalendar.models.DrawerItem;
 
 public class CustomDrawerAdapter extends ArrayAdapter<DrawerItem> {

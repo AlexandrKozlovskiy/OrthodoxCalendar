@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <oleksandr.kotyuk.orthodoxcalendar.MyView
+    <TextView
         android:id="@+id/tvItemTextWidget"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -13,6 +13,6 @@
         android:textColorLink="@color/BLACK"
         android:textSize="18sp" >
 
-    </oleksandr.kotyuk.orthodoxcalendar.MyView>
+    </TextView>
 
 </RelativeLayout>

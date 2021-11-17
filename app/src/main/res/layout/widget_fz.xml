@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/ro1_widget" >
 
-        <oleksandr.kotyuk.orthodoxcalendar.MyView
+        <TextView
             android:id="@+id/MyView_widget_weekday_nameFZ"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -20,9 +20,9 @@
             android:textColor="@color/Dark_orange"
             android:textSize="17sp"
             android:textStyle="bold" >
-        </oleksandr.kotyuk.orthodoxcalendar.MyView>
+        </TextView>
 
-        <oleksandr.kotyuk.orthodoxcalendar.MyView
+        <TextView
             android:id="@+id/MyView_widget_dateFZ"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -31,9 +31,9 @@
             android:textColor="@color/palegoldenrod"
             android:textSize="17sp"
             android:textStyle="bold" >
-        </oleksandr.kotyuk.orthodoxcalendar.MyView>
+        </TextView>
         
-        <oleksandr.kotyuk.orthodoxcalendar.MyView
+        <TextView
             android:id="@+id/MyView_widget_sedmitsa_weekFZ"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -44,9 +44,9 @@
             android:textSize="14sp"
             android:visibility="gone" >
 
-        </oleksandr.kotyuk.orthodoxcalendar.MyView>
+        </TextView>
 
-        <oleksandr.kotyuk.orthodoxcalendar.MyView
+        <TextView
             android:id="@+id/MyView_widget_postFZ"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
             android:textColor="@color/Celeste"
             android:textSize="14sp" >
 
-        </oleksandr.kotyuk.orthodoxcalendar.MyView>
+        </TextView>
 
         <ImageView
             android:id="@+id/imageView1FZ"
@@ -95,7 +95,7 @@
         </ListView>
         <!-- Empty view is show if list items are empty -->
 
-        <oleksandr.kotyuk.orthodoxcalendar.MyView
+        <TextView
             android:id="@+id/empty_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

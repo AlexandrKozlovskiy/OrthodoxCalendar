@@ -135,9 +135,10 @@
 	<string name="button_dialog_update2">ОК</string>
 	<string name="action_move_to_first">Переместить в начало</string>
 	<string name="action_move_after">Переместить после пункта %s</string>
-<string name="program_version">Версия 1.14.20</string>
+<string name="program_version">Версия %s</string>
 <string-array name="versions">
 	<item>Version 1.14.20\nИсправлены ошибки и опечатки в программе.\n
+		Улучшина доступность для незрячих.\n
 		Исправлена работа уведомлений.\n
 		Также в молитвослов добавлены:\n
 		1. Молитва Николая Сербского о русском народе;\n

@@ -1,9 +1,5 @@
 package oleksandr.kotyuk.orthodoxcalendar.widget;
 
-import oleksandr.kotyuk.orthodoxcalendar.R;
-import oleksandr.kotyuk.orthodoxcalendar.SplashScreen;
-import oleksandr.kotyuk.orthodoxcalendar.db.DatabaseHelper;
-import oleksandr.kotyuk.orthodoxcalendar.models.MyCalendarWidget;
 import android.annotation.SuppressLint;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
@@ -16,6 +12,11 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.view.View;
 import android.widget.RemoteViews;
+
+import oleksandr.kotyuk.orthodoxcalendar.R;
+import oleksandr.kotyuk.orthodoxcalendar.SplashScreen;
+import oleksandr.kotyuk.orthodoxcalendar.db.DatabaseHelper;
+import oleksandr.kotyuk.orthodoxcalendar.models.MyCalendarWidget;
 
 public class MyWidget extends AppWidgetProvider {
 static final String TAG = "myLogs";
@@ -49,6 +50,7 @@ static void updateWidget(Context context,
  RemoteViews rv = new RemoteViews(context.getPackageName(),
   R.layout.widget);
 
+rv.setContentDescription(R.id.imageView2,context.getString(R.string.widget_app_name));
  setUpdateTV(rv, context, appWidgetId, sp);
 
  setOpenApp(rv, context, appWidgetId);
@@ -281,12 +283,13 @@ static void setUpdateTV(RemoteViews rv, Context context, int appWidgetId,
     tmp);
  
   } catch (NumberFormatException e) {
-   // Log.d(TAG, "ERROR=" + e.toString());
+   //Log.d(TAG, "ERROR=" + e.toString());
   }
   }
  } else {
   rv.setTextViewText(R.id.MyView_widget_post, "");
   rv.setTextViewText(R.id.MyView_widget_sedmitsa_week, "");
+  //Log.d(TAG,"cursor is null");
  }
  } else {
  rv.setTextViewText(R.id.MyView_widget_post, "");
@@ -338,6 +341,7 @@ static void setList(RemoteViews rv, Context context, int appWidgetId) {
  adapter.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
  Uri data = Uri.parse(adapter.toUri(Intent.URI_INTENT_SCHEME));
  adapter.setData(data);
+
  rv.setRemoteAdapter(R.id.lvList, adapter);
 }
 

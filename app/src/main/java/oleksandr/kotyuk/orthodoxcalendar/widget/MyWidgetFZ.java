@@ -50,6 +50,7 @@ static void updateWidget(Context context,
  RemoteViews rv = new RemoteViews(context.getPackageName(),
   R.layout.widget_fz);
 
+ rv.setContentDescription(R.id.imageView2,context.getString(R.string.widget_app_name));
  setUpdateTV(rv, context, appWidgetId, sp);
 
  setOpenApp(rv, context, appWidgetId);
