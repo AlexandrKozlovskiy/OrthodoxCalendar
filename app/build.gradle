@@ -4,7 +4,7 @@ android {
     applicationVariants.all { variant ->
         //variant.packageApplicationProvider.get().outputDirectory = new File(project.getRootDir().absolutePath + "/" + variant.buildType.name + "/")
         variant.outputs.all { output ->
-            output.outputFileName=variant.flavorName+(variant.buildType.name.toLowerCase().contains("release")?"":"-"+variant.buildType.name)+".apk"
+            output.outputFileName = variant.flavorName + (variant.buildType.name.toLowerCase().contains("release") ? "" : "-" + variant.buildType.name) + ".apk"
         }
     }
 
@@ -18,9 +18,8 @@ android {
                 storePassword props.RELEASE_STORE_PASSWORD
                 keyAlias props.RELEASE_KEY_ALIAS
                 keyPassword props.RELEASE_KEY_PASSWORD
-            }
-            else {
-                def writer=new FileWriter(f.path)
+            } else {
+                def writer = new FileWriter(f.path)
                 writer.write("RELEASE_KEY_PATH=\n")
                 writer.write("RELEASE_KEY_PASSWORD=\n")
                 writer.write("RELEASE_KEY_ALIAS=\n")
@@ -66,15 +65,21 @@ android {
             versionCode defaultConfig.versionCode
             versionName defaultConfig.versionName
         }
-        orthodoxCalendarpaid {
+        orthodoxcalendarpaid {
             dimension 'orthodoxCalendar'
             applicationId "oleksandr.kotyuk.orthodoxcalendarpaid"
             versionCode defaultConfig.versionCode
             versionName defaultConfig.versionName
         }
     }
+    sourceSets {
+        main {
+        }
+        orthodoxcalendarpaid {
+            res.srcDirs = ['res_paid']
+        }
+    }
 }
-
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.3.1'
     implementation 'androidx.fragment:fragment:1.3.6'

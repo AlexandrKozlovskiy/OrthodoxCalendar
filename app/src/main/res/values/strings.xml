@@ -2,9 +2,9 @@
 <resources>
 
 	<string name="app_name">Православный календарь</string>
-	<string name="app_name_fz">Православный календарь(ФЗ)</string>
-	<string name="drawer_open">Open drawer</string>
-	<string name="drawer_close">Close drawer</string>
+<string name="app_name_fz">Православный календарь(ФЗ)</string>
+	<string name="drawer_open">Меню</string>
+	<string name="drawer_close">Закрыть меню</string>
 	<string name="menu_item1">На сегодняшнюю дату</string>
 	<string name="menu_item2">Выбрать дату</string>
 	<string name="menu_item3">Поиск</string>
