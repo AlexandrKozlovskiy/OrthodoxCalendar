@@ -101,7 +101,7 @@
 	<string name="help_project_text1_1">а также, поддержав одним из указанных способов:</string>
 	<string name="help_project_text2">1)Написав о всех возникающих ошибках, или неточностях в программе</string>
 	<string name="help_project_text3">2)Купив платную версию программы(в платной версии функционал аналогичен бесплатной версии)</string>
-	<string name="help_project_text6">Если Вам не подходит ни один из вариантов, напишите мне - постараюсь найти другие варианты.\n\nЗаранее огромное Вам спасибо!</string>
+	<string name="help_project_text6">Заранее огромное Вам спасибо!</string>
 	<string name="link_program">Скачать платную версию</string>
 	<string name="splash_activity_text">ЗАГРУЗКА</string>
 	<string name="splash_activity_text_error">Пожалуйста проверьте дату на устройстве, эта версия программы работает в интервале 2019г-2022г.</string>
