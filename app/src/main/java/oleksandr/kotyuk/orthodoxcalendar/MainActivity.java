@@ -956,7 +956,7 @@ public void SelectItem(int position) {
 
   Intent intent_m = new Intent(Intent.ACTION_VIEW);
   intent_m.setData(Uri
-   .parse("market://details?id=oleksandr.kotyuk.orthodoxcalendar"));
+   .parse(getString(R.string.link_rating)));
   startActivity(intent_m);
   }
  /*if(position==10){

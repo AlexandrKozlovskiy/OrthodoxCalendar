@@ -2,4 +2,5 @@
 <resources>
 	<string name="app_name">Календарь Православный</string>
 	<string name="app_name_fz">Календарь Православный(ФЗ)</string>
+	<string name="link_rating">market://details?id=oleksandr.kotyuk.orthodoxcalendarpaid</string>
 </resources>
