@@ -64,12 +64,14 @@ android {
             applicationId "oleksandr.kotyuk.orthodoxcalendarfree"
             versionCode defaultConfig.versionCode
             versionName defaultConfig.versionName
+            buildConfigField "boolean", "isPaid", "false"
         }
         orthodoxcalendarpaid {
             dimension 'orthodoxCalendar'
             applicationId "oleksandr.kotyuk.orthodoxcalendarpaid"
             versionCode defaultConfig.versionCode
             versionName defaultConfig.versionName
+            buildConfigField "boolean", "isPaid", "true"
         }
     }
     sourceSets {

@@ -129,7 +129,7 @@ sendAccessibilityEventForVirtualView(AccessibilityEvent.TYPE_VIEW_CLICKED,virtua
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if(getTypeface()!=null &&getTypeface().getStyle()==Typeface.BOLD) ViewCompat.setAccessibilityHeading(this,true);
+        if(getTypeface()!=null &&getTypeface().getStyle()==Typeface.BOLD &&!isExpandable()) ViewCompat.setAccessibilityHeading(this,true);
     }
 
     private void sendAccessibilityEventForVirtualView(int eventType, int virtualViewId) {
