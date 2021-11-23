@@ -61,11 +61,19 @@ public View onCreateView(LayoutInflater inflater, ViewGroup container,
  ViewCompat.setAccessibilityHeading(text_help,true);
  text_help.setTypeface(FontsHelper.getTypeFace(getActivity()
   .getApplicationContext(), FONT_PATH1));
-
  return view;
 }
 
-@Override
+ @Override
+ public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+  super.onViewCreated(view, savedInstanceState);
+  if(BuildConfig.isPaid&&text_help4!=null &&button_help_2!=null) {
+   ((ViewGroup) text_help4.getParent()).removeView(text_help4);
+   ((ViewGroup) button_help_2.getParent()).removeView(button_help_2);
+  }
+ }
+
+ @Override
 public void onStart() {
  // TODO Auto-generated method stub
  super.onStart();
@@ -89,9 +97,5 @@ public void onStart() {
   if(!BuildConfig.isPaid) text_help4.setTextSize(TypedValue.COMPLEX_UNIT_PX, standart_text_size3 + fontSize * 2);
   text_help5.setTextSize(TypedValue.COMPLEX_UNIT_PX, standart_text_size3 + fontSize * 2);
 }
- if(BuildConfig.isPaid ) {
-  ((ViewGroup) text_help4.getParent()).removeView(text_help4);
-  ((ViewGroup) button_help_2.getParent()).removeView(button_help_2);
- }
 }
 }

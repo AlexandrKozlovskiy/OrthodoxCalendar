@@ -131,8 +131,6 @@ protected void onCreate(Bundle savedInstanceState) {
  // getSupportActionBar().setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
  bar.setNavigationMode(ActionBar.NAVIGATION_MODE_LIST);
 
-
-
  ArrayAdapter<String> list_adapter = new ArrayAdapter<String>(this,
   R.layout.my_simple_spinner_item, data_list);
  list_adapter
@@ -192,22 +190,26 @@ mTitle = mDrawerTitle = getTitle();
 
  mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout,R.string.drawer_open,
   R.string.drawer_close) {
+
  public void onDrawerClosed(View view) {
   // getSupportActionBar().setTitle(mTitle);
   // getSupportActionBar().setTitle(mTitle);
   bar.setTitle(mTitle);
   invalidateOptionsMenu(); // вызывает метод
      // onPrepareOptionsMenu()
+  if(getDrawerToggleDelegate() !=null) getDrawerToggleDelegate().setActionBarDescription(R.string.drawer_open);
  }
 
  public void onDrawerOpened(View drawerView) {
   // getSupportActionBar().setTitle(mDrawerTitle);
   getSupportActionBar().setTitle(mDrawerTitle);
+ if(getDrawerToggleDelegate() !=null) getDrawerToggleDelegate().setActionBarDescription(R.string.drawer_close);
 invalidateOptionsMenu(); // creates call to
 // onPrepareOptionsMenu()
+
 }
 };
-
+mDrawerToggle.setDrawerIndicatorEnabled(true);
  mDrawerLayout.setDrawerListener(mDrawerToggle);
 
  ////////////////////////////////////////////////////

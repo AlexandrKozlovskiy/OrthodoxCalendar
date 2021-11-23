@@ -1102,7 +1102,6 @@ public boolean onCreateOptionsMenu(Menu menu) {
  menu_item2 = (MenuItem) menu.findItem(R.id.item2_prayers_menu);
  menu_item3 = (MenuItem) menu.findItem(R.id.item3_prayers_menu);
  }
-
  return super.onCreateOptionsMenu(menu);
 }
 
@@ -1197,52 +1196,6 @@ protected void onSaveInstanceState(Bundle outState) {
  outState.putInt("scrollX", posX);*/
 
 }
-
-@Override
-public boolean dispatchKeyEvent(KeyEvent event) {
- // TODO Auto-generated method stub
- DisplayMetrics dm = new DisplayMetrics();
- getWindowManager().getDefaultDisplay().getMetrics(dm);
- final int height=dm.heightPixels;
-
- final ScrollView scrollViewKey = (ScrollView) findViewById(R.id.scrollViewDescription1);
- if (event.getAction() == KeyEvent.ACTION_DOWN) {
-        switch (event.getKeyCode()) {
-        case KeyEvent.KEYCODE_VOLUME_UP:
-        scrollViewKey.post(new Runnable() {
-            public void run() {
-            //scrollViewKey.scrollBy(0, -(height/8));
-            scrollViewKey.pageScroll(View.FOCUS_UP);
-
-            scrollViewKey.computeScroll();
-            }
-        });
-        //scrollViewKey.pageScroll(View.FOCUS_UP);
-        //scrollToPrevious();
-            return true;
-        case KeyEvent.KEYCODE_VOLUME_DOWN:
-        scrollViewKey.post(new Runnable() {
-            public void run() {
-            //scrollViewKey.scrollBy(0, +(height/8));
-            scrollViewKey.pageScroll(View.FOCUS_DOWN);
-
-            scrollViewKey.computeScroll();
-            }
-        });
-        //scrollViewKey.pageScroll(View.FOCUS_DOWN);
-           //scrollToNext();
-            return true;
-        }
-    }
-    if (event.getAction() == KeyEvent.ACTION_UP
-        && (event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_UP
-            || event.getKeyCode() == KeyEvent.KEYCODE_VOLUME_DOWN)) {
-        return true;
-    }
- return super.dispatchKeyEvent(event);
-}
-
-
 
 // перерисовка меню/ActionBar
 /*

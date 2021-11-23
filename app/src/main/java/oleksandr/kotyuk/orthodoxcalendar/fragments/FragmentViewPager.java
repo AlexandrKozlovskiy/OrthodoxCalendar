@@ -98,8 +98,7 @@ public View onCreateView(LayoutInflater inflater, ViewGroup container,
  public void onPageScrollStateChanged(int state) {
  }
  });
-//view.setFocusable(true);
- return view;
+  return view;
 }
 
 private class MyFragmentPagerAdapter extends FragmentStatePagerAdapter {

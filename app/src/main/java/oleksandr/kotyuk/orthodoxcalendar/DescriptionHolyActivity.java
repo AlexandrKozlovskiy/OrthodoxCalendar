@@ -79,10 +79,9 @@ protected void onCreate(Bundle savedInstanceState) {
  tvDescriptionActivityLink = (MyView) this.findViewById(R.id.MyViewDescriptionLink);
  tvDescriptionActivityLink.setLinksClickable(true);
  tvDescriptionActivityLink.setMovementMethod(new LinkMovementMethod());
- 
  black_fon_color = PreferencesActivity.MyPreferenceFragment.ReadString(
   this, "pref_black_fon_color", "black");
- 
+
  if(description_style){
  if(black_fon_color.equals("black")) llDescriptionActivity.setBackgroundColor(getResources().getColor(R.color.BLACK));
  if(black_fon_color.equals("dark_green")) llDescriptionActivity.setBackgroundColor(getResources().getColor(R.color.dark_green));

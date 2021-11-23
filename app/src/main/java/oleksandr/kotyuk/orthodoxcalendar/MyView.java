@@ -10,6 +10,8 @@ import android.text.SpannableStringBuilder;
 import android.text.style.URLSpan;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewParent;
 import android.view.WindowManager;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityManager;
@@ -19,13 +21,14 @@ import android.view.accessibility.AccessibilityNodeProvider;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.view.ViewCompat;
+import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
 
 public class MyView extends AppCompatTextView {
     private final AccessibilityNodeProvider MyProvider =new AccessibilityNodeProvider() {
         @Override
         public AccessibilityNodeInfo createAccessibilityNodeInfo(int virtualViewId) {
-            AccessibilityNodeInfo info = AccessibilityNodeInfo.obtain(MyView.this,virtualViewId);
-            onInitializeAccessibilityNodeInfo(info);
+                        AccessibilityNodeInfoCompat info = AccessibilityNodeInfoCompat.obtain(MyView.this,virtualViewId);
+            onInitializeAccessibilityNodeInfo(info.unwrap());
             if (virtualViewId == NO_ID) {
                 if (!getText().toString().equals(builder.toString())) {
                     builder.clear();
@@ -84,12 +87,13 @@ info.setParent(MyView.this);
                 /*info.addAction(AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS);
                                     info.addAction(AccessibilityNodeInfo.ACTION_CLEAR_ACCESSIBILITY_FOCUS);*/
                 info.addAction(AccessibilityNodeInfo.ACTION_CLICK);
+                info.setHeading(false);
             }
             if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.KITKAT &&spans.length>0) {
-                //if(virtualViewId==NO_ID) info.setCollectionInfo(AccessibilityNodeInfo.CollectionInfo.obtain(spans.length,1,false));
-                info.setCollectionItemInfo(AccessibilityNodeInfo.CollectionItemInfo.obtain(virtualViewId,1,0,1,false));
+                //if(virtualViewId==NO_ID) info.setCollectionInfo(AccessibilityNodeInfoCompat.CollectionInfoCompat.obtain(spans.length,1,false));
+                if(virtualViewId>NO_ID)info.setCollectionItemInfo(AccessibilityNodeInfoCompat.CollectionItemInfoCompat.obtain(virtualViewId,1,0,1,false));
             }
-            return info;
+            return info.unwrap();
         }
 
         @Override
@@ -129,7 +133,9 @@ sendAccessibilityEventForVirtualView(AccessibilityEvent.TYPE_VIEW_CLICKED,virtua
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        if(getTypeface()!=null &&getTypeface().getStyle()==Typeface.BOLD &&!isExpandable()) ViewCompat.setAccessibilityHeading(this,true);
+if(isClickable() ||isLongClickable() ||isTextSelectable() ||isExpandable()) {
+    setFocusable(true);
+}
     }
 
     private void sendAccessibilityEventForVirtualView(int eventType, int virtualViewId) {
@@ -166,6 +172,18 @@ event.setSource(MyView.this, virtualViewId);
         }
         return false;
     }
+
+    @Override
+    public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo info) {
+        super.onInitializeAccessibilityNodeInfo(info);
+        if(info.isClickable() ||info.isLongClickable() ||info.isScrollable() ||info.isCheckable() ||info.isScrollable() ||isExpandable()) {
+            info.setFocusable(true);
+            info.setScreenReaderFocusable(true);
+            info.setImportantForAccessibility(true);
+        }
+        if(getTypeface()!=null &&getTypeface().getStyle()==Typeface.BOLD &&!isExpandable()) info.setHeading(true);
+    }
+
     public void setExpanded(boolean isExpanded) {
         this.isExpanded=isExpanded;
         this.isExpandable=true;
@@ -205,26 +223,6 @@ if(isExpandable()) setExpanded(!isExpanded());
         boolean touch=touch(event);
         if(!touch) return super.dispatchHoverEvent(event); else return touch;
     }
-    /*@Override
-    public View focusSearch(int direction) {
-        if((direction==FOCUS_DOWN ||direction==FOCUS_RIGHT) &&accessibilityFocusedId<spans.length-1) {
-            getAccessibilityNodeProvider().performAction(accessibilityFocusedId+1,AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS,null);
-            return this;
-        }
-        else if((direction==FOCUS_UP ||direction==FOCUS_LEFT) &&accessibilityFocusedId>NO_ID) {
-            getAccessibilityNodeProvider().performAction(accessibilityFocusedId-1,AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS,null);
-            return this;
-        }
-        else return super.focusSearch(direction);
-    }
-
-    @Override
-    public boolean dispatchKeyEventPreIme(KeyEvent event) {
-        if(event.hasNoModifiers() &&event.getAction()==KeyEvent.ACTION_DOWN &&(event.getKeyCode()==KeyEvent.KEYCODE_DPAD_DOWN ||event.getKeyCode()== KeyEvent.KEYCODE_DPAD_UP)) {
-            return focusSearch(event.getKeyCode()==KeyEvent.KEYCODE_DPAD_DOWN?FOCUS_DOWN:FOCUS_UP)!=null;
-}
-else return super.dispatchKeyEventPreIme(event);
-    }*/
     @Override
     public CharSequence getAccessibilityClassName() {
 return MyView.class.getName();
