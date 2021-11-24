@@ -130,14 +130,6 @@ sendAccessibilityEventForVirtualView(AccessibilityEvent.TYPE_VIEW_CLICKED,virtua
         super(context, attrs, defStyleAttr);
     }
 
-    @Override
-    protected void onAttachedToWindow() {
-        super.onAttachedToWindow();
-if(isClickable() ||isLongClickable() ||isTextSelectable() ||isExpandable()) {
-    setFocusable(true);
-}
-    }
-
     private void sendAccessibilityEventForVirtualView(int eventType, int virtualViewId) {
         if (getParent() != null && ((AccessibilityManager) getContext().getSystemService(Context.ACCESSIBILITY_SERVICE)).isTouchExplorationEnabled()) {
             AccessibilityEvent event = AccessibilityEvent.obtain(eventType);
