@@ -139,7 +139,8 @@
 	<string name="link_rating">market://details?id=oleksandr.kotyuk.orthodoxcalendarfree</string>
 <string name="program_version">Версия %s</string>
 <string-array name="versions">
-	<item>Version 1.14.20\nИсправлены ошибки и опечатки в программе.\n
+	<item>Version 1.14.21\nИсправлена нестабильная работа приложения на старых Android версиях.\n\n
+		Version 1.14.20\nИсправлены ошибки и опечатки в программе.\n
 		Улучшина доступность для незрячих.\n
 		Исправлена работа уведомлений.\n
 		Небольшое исправление в виджете (возможно понадобится переустановить виджет).\n
