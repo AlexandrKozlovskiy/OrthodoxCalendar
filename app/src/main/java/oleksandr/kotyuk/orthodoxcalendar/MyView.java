@@ -170,8 +170,8 @@ event.setSource(MyView.this, virtualViewId);
         super.onInitializeAccessibilityNodeInfo(info);
         if(info.isClickable() ||info.isLongClickable() ||info.isScrollable() ||info.isCheckable() ||info.isScrollable() ||isExpandable()) {
             info.setFocusable(true);
-            if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.N) info.setScreenReaderFocusable(true);
-            if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP)info.setImportantForAccessibility(true);
+            if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.P) info.setScreenReaderFocusable(true);
+            if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.N)info.setImportantForAccessibility(true);
         }
         if(getTypeface()!=null &&getTypeface().getStyle()==Typeface.BOLD &&!isExpandable() &&Build.VERSION.SDK_INT>=Build.VERSION_CODES.P) info.setHeading(true);
     }
