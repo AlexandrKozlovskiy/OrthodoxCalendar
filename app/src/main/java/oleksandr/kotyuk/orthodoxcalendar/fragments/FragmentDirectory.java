@@ -161,42 +161,36 @@ ViewCompat.setAccessibilityHeading(tvDirectoryTitle,true);
  
  tvDescriptionDirectory1.setOnClickListener(this);
  tvDescriptionDirectory1.setText(text_directory1);
- 
+tvDescriptionDirectory1.setExpandable(true);
  tvDescriptionDirectory2.setLinksClickable(true);
  tvDescriptionDirectory2.setMovementMethod(new LinkMovementMethod());
  text_directory2=text_directory2.replace("DescriptionOtherActivityHost", GlobalData.getDESCRIPTION_OTHER_ACTIVITY_HOST());
  tvDescriptionDirectory2.setText(Html.fromHtml(text_directory2));
- 
  tvDescriptionDirectory3.setOnClickListener(this);
  tvDescriptionDirectory3.setText(text_directory3);
- 
  tvDescriptionDirectory4.setOnClickListener(this);
  tvDescriptionDirectory4.setText(text_directory4);
- 
  tvDescriptionDirectory5.setOnClickListener(this);
  tvDescriptionDirectory5.setText(text_directory5);
- 
+ tvDescriptionDirectory5.setExpandable(true);
  tvDescriptionDirectory6.setLinksClickable(true);
  tvDescriptionDirectory6.setMovementMethod(new LinkMovementMethod());
  text_directory6=text_directory6.replace("DescriptionOtherActivityHost", GlobalData.getDESCRIPTION_OTHER_ACTIVITY_HOST());
  tvDescriptionDirectory6.setText(Html.fromHtml(text_directory6));
- 
  tvDescriptionDirectory7.setOnClickListener(this);
  tvDescriptionDirectory7.setText(text_directory7);
- 
+ tvDescriptionDirectory7.setExpandable(true);
  tvDescriptionDirectory8.setLinksClickable(true);
  tvDescriptionDirectory8.setMovementMethod(new LinkMovementMethod());
  text_directory8=text_directory8.replace("DescriptionOtherActivityHost", GlobalData.getDESCRIPTION_OTHER_ACTIVITY_HOST());
  tvDescriptionDirectory8.setText(Html.fromHtml(text_directory8));
- 
  tvDescriptionDirectory9.setOnClickListener(this);
  tvDescriptionDirectory9.setText(text_directory9);
- 
+ tvDescriptionDirectory9.setExpandable(true);
  tvDescriptionDirectory10.setLinksClickable(true);
  tvDescriptionDirectory10.setMovementMethod(new LinkMovementMethod());
  text_directory10=text_directory10.replace("DescriptionOtherActivityHost", GlobalData.getDESCRIPTION_OTHER_ACTIVITY_HOST());
  tvDescriptionDirectory10.setText(Html.fromHtml(text_directory10));
- 
  return view;
 }
 

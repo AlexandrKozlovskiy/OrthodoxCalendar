@@ -32,7 +32,6 @@ import oleksandr.kotyuk.orthodoxcalendar.adapters.CustomDrawerAdapter;
 import oleksandr.kotyuk.orthodoxcalendar.db.DatabaseHelper;
 import oleksandr.kotyuk.orthodoxcalendar.fragments.DatePickerFragment1;
 import oleksandr.kotyuk.orthodoxcalendar.fragments.FragmentAbout;
-import oleksandr.kotyuk.orthodoxcalendar.fragments.FragmentAkafistKondak;
 import oleksandr.kotyuk.orthodoxcalendar.fragments.FragmentBible;
 import oleksandr.kotyuk.orthodoxcalendar.fragments.FragmentDirectory;
 import oleksandr.kotyuk.orthodoxcalendar.fragments.FragmentDirectory2;
@@ -43,7 +42,6 @@ import oleksandr.kotyuk.orthodoxcalendar.fragments.FragmentPosts;
 import oleksandr.kotyuk.orthodoxcalendar.fragments.FragmentPrayers;
 import oleksandr.kotyuk.orthodoxcalendar.fragments.FragmentPrayersBookmarks2;
 import oleksandr.kotyuk.orthodoxcalendar.fragments.FragmentPrayersTroparKondakDay;
-import oleksandr.kotyuk.orthodoxcalendar.fragments.FragmentPsaltur;
 import oleksandr.kotyuk.orthodoxcalendar.fragments.FragmentSouls;
 import oleksandr.kotyuk.orthodoxcalendar.fragments.FragmentViewPager;
 import oleksandr.kotyuk.orthodoxcalendar.fragments.LastReadPsalturDialogFragment;
@@ -500,10 +498,11 @@ picker.show(getSupportFragmentManager(), "datePicker");
   menuActivPrayers();
   invalidateOptionsMenu();
   cal.setTodayDate();
-  fragment2 = new FragmentAkafistKondak();
-  args2.putString(FragmentAkafistKondak.ITEM_NAME,
+  fragment2 = new FragmentPrayers();
+args2.putString("prayers_type","ak");
+  args2.putString(FragmentPrayers.ITEM_NAME,
    dataList.get(2).getItemName());
-  args2.putInt(FragmentAkafistKondak.IMAGE_RESOURCE_ID,
+  args2.putInt(FragmentPrayers.IMAGE_RESOURCE_ID,
    dataList.get(2).getImgResID());
   break;
   case 3:
@@ -518,10 +517,11 @@ picker.show(getSupportFragmentManager(), "datePicker");
 
   invalidateOptionsMenu();
   cal.setTodayDate();
-  fragment2 = new FragmentPsaltur();
-  args2.putString(FragmentPsaltur.ITEM_NAME,
+  fragment2 = new FragmentPrayers();
+   args2.putString("prayers_type","kafisma");
+  args2.putString(FragmentPrayers.ITEM_NAME,
    dataList.get(2).getItemName());
-  args2.putInt(FragmentPsaltur.IMAGE_RESOURCE_ID,
+  args2.putInt(FragmentPrayers.IMAGE_RESOURCE_ID,
    dataList.get(2).getImgResID());
   break;
   default:
@@ -601,10 +601,11 @@ picker.show(getSupportFragmentManager(), "datePicker");
   menuActivPrayers();
   invalidateOptionsMenu();
   cal.setTodayDate();
-  fragment3 = new FragmentAkafistKondak();
-  args3.putString(FragmentAkafistKondak.ITEM_NAME,
+  fragment3 = new FragmentPrayers();
+   args3.putString("prayers_type","ak");
+  args3.putString(FragmentPrayers.ITEM_NAME,
    dataList.get(2).getItemName());
-  args3.putInt(FragmentAkafistKondak.IMAGE_RESOURCE_ID,
+  args3.putInt(FragmentPrayers.IMAGE_RESOURCE_ID,
    dataList.get(2).getImgResID());
   break;
   case 3:
@@ -619,10 +620,10 @@ picker.show(getSupportFragmentManager(), "datePicker");
 
   invalidateOptionsMenu();
   cal.setTodayDate();
-  fragment3 = new FragmentPsaltur();
-  args3.putString(FragmentPsaltur.ITEM_NAME,
+  fragment3 = new FragmentPrayers();
+  args3.putString(FragmentPrayers.ITEM_NAME,
    dataList.get(2).getItemName());
-  args3.putInt(FragmentPsaltur.IMAGE_RESOURCE_ID,
+  args3.putInt(FragmentPrayers.IMAGE_RESOURCE_ID,
    dataList.get(2).getImgResID());
   break;
   default:
@@ -753,10 +754,11 @@ picker.show(getSupportFragmentManager(), "datePicker");
   menuActivPrayers();
   invalidateOptionsMenu();
   cal.setTodayDate();
-  fragment4 = new FragmentAkafistKondak();
-  args4.putString(FragmentAkafistKondak.ITEM_NAME,
+  fragment4 = new FragmentPrayers();
+   args4.putString("prayers_type","ak");
+  args4.putString(FragmentPrayers.ITEM_NAME,
    dataList.get(2).getItemName());
-  args4.putInt(FragmentAkafistKondak.IMAGE_RESOURCE_ID,
+  args4.putInt(FragmentPrayers.IMAGE_RESOURCE_ID,
    dataList.get(2).getImgResID());
   break;
   case 3:
@@ -771,10 +773,11 @@ picker.show(getSupportFragmentManager(), "datePicker");
 
   invalidateOptionsMenu();
   cal.setTodayDate();
-  fragment4 = new FragmentPsaltur();
-  args4.putString(FragmentPsaltur.ITEM_NAME,
+  fragment4 = new FragmentPrayers();
+   args4.putString("prayers_type","kafisma");
+  args4.putString(FragmentPrayers.ITEM_NAME,
    dataList.get(2).getItemName());
-  args4.putInt(FragmentPsaltur.IMAGE_RESOURCE_ID,
+  args4.putInt(FragmentPrayers.IMAGE_RESOURCE_ID,
    dataList.get(2).getImgResID());
   break;
   default:
@@ -815,10 +818,11 @@ picker.show(getSupportFragmentManager(), "datePicker");
   case 3:
   invalidateOptionsMenu();
   cal.setTodayDate();
-  fragment5 = new FragmentPsaltur();
-  args5.putString(FragmentPsaltur.ITEM_NAME,
+  fragment5 = new FragmentPrayers();
+   args5.putString("prayers_type","kafisma");
+  args5.putString(FragmentPrayers.ITEM_NAME,
    dataList.get(2).getItemName());
-  args5.putInt(FragmentPsaltur.IMAGE_RESOURCE_ID,
+  args5.putInt(FragmentPrayers.IMAGE_RESOURCE_ID,
    dataList.get(2).getImgResID());
   break;
   default:
@@ -859,10 +863,11 @@ picker.show(getSupportFragmentManager(), "datePicker");
   case 3:
   invalidateOptionsMenu();
   cal.setTodayDate();
-  fragment6 = new FragmentPsaltur();
-  args6.putString(FragmentPsaltur.ITEM_NAME,
+  fragment6 = new FragmentPrayers();
+   args6.putString("prayers_type","kafisma");
+  args6.putString(FragmentPrayers.ITEM_NAME,
    dataList.get(2).getItemName());
-  args6.putInt(FragmentPsaltur.IMAGE_RESOURCE_ID,
+  args6.putInt(FragmentPrayers.IMAGE_RESOURCE_ID,
    dataList.get(2).getImgResID());
   break;
   default:
@@ -1428,10 +1433,11 @@ public void onTabSelected(ActionBar.Tab arg0,
   menuActivPrayers();
   invalidateOptionsMenu();
   cal.setTodayDate();
-  fragment = new FragmentAkafistKondak();
-  args.putString(FragmentAkafistKondak.ITEM_NAME,
+  fragment = new FragmentPrayers();
+  args.putString("prayers_type","ak");
+  args.putString(FragmentPrayers.ITEM_NAME,
    dataList.get(2).getItemName());
-  args.putInt(FragmentAkafistKondak.IMAGE_RESOURCE_ID,
+  args.putInt(FragmentPrayers.IMAGE_RESOURCE_ID,
    dataList.get(2).getImgResID());
   break;
  case 3:
@@ -1462,10 +1468,11 @@ public void onTabSelected(ActionBar.Tab arg0,
 
   invalidateOptionsMenu();
   cal.setTodayDate();
-  fragment = new FragmentPsaltur();
-  args.putString(FragmentPsaltur.ITEM_NAME,
+  fragment = new FragmentPrayers();
+  args.putString("prayers_type","kafisma");
+  args.putString(FragmentPrayers.ITEM_NAME,
    dataList.get(2).getItemName());
-  args.putInt(FragmentPsaltur.IMAGE_RESOURCE_ID,
+  args.putInt(FragmentPrayers.IMAGE_RESOURCE_ID,
    dataList.get(2).getImgResID());
   break;
  case 4:

@@ -168,12 +168,13 @@ event.setSource(MyView.this, virtualViewId);
     @Override
     public void onInitializeAccessibilityNodeInfo(AccessibilityNodeInfo info) {
         super.onInitializeAccessibilityNodeInfo(info);
-        if(info.isClickable() ||info.isLongClickable() ||info.isScrollable() ||info.isCheckable() ||info.isScrollable() ||isExpandable()) {
-            info.setFocusable(true);
-            if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.P) info.setScreenReaderFocusable(true);
-            if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.N)info.setImportantForAccessibility(true);
+        AccessibilityNodeInfoCompat infoCompat=AccessibilityNodeInfoCompat.wrap(info);
+        if(infoCompat.isClickable() ||infoCompat.isLongClickable() ||infoCompat.isScrollable() ||infoCompat.isCheckable() ||infoCompat.isScrollable() ||isExpandable()) {
+            infoCompat.setFocusable(true);
+infoCompat.setScreenReaderFocusable(true);
+infoCompat.setImportantForAccessibility(true);
         }
-        if(getTypeface()!=null &&getTypeface().getStyle()==Typeface.BOLD &&!isExpandable() &&Build.VERSION.SDK_INT>=Build.VERSION_CODES.P) info.setHeading(true);
+        if(getTypeface()!=null &&getTypeface().getStyle()==Typeface.BOLD &&spans.length ==0 &&!isExpandable()) infoCompat.setHeading(true);
     }
 
     public void setExpanded(boolean isExpanded) {

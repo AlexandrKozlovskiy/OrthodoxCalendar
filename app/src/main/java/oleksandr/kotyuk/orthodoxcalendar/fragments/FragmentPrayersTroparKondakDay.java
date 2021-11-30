@@ -1,23 +1,25 @@
 package oleksandr.kotyuk.orthodoxcalendar.fragments;
 
-import java.util.ArrayList;
-
-import oleksandr.kotyuk.orthodoxcalendar.PrayersTroparKondarActivity;
-import oleksandr.kotyuk.orthodoxcalendar.R;
-import oleksandr.kotyuk.orthodoxcalendar.adapters.MyPrayersTKArrayAdapter;
-import oleksandr.kotyuk.orthodoxcalendar.db.DatabaseHelper;
-import oleksandr.kotyuk.orthodoxcalendar.models.MyCalendar;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import androidx.fragment.app.ListFragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ListView;
+
+import androidx.fragment.app.ListFragment;
+
+import java.util.ArrayList;
+
+import oleksandr.kotyuk.orthodoxcalendar.DescriptionOtherActivity;
+import oleksandr.kotyuk.orthodoxcalendar.R;
+import oleksandr.kotyuk.orthodoxcalendar.adapters.MyPrayersTKArrayAdapter;
+import oleksandr.kotyuk.orthodoxcalendar.db.DatabaseHelper;
+import oleksandr.kotyuk.orthodoxcalendar.models.MyCalendar;
 
 public class FragmentPrayersTroparKondakDay extends ListFragment implements
  OnClickListener {
@@ -496,7 +498,7 @@ public void onListItemClick(ListView l, View v, int position, long id) {
  prayers_tk=replace_tk(prayers_tk);
  
  Intent intent = new Intent(getActivity(),
-  PrayersTroparKondarActivity.class);
+  DescriptionOtherActivity.class);
  intent.putExtra("prayers_tk", prayers_tk);
  startActivity(intent);
 
