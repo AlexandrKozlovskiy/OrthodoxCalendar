@@ -14,7 +14,8 @@
     <ScrollView
         android:id="@+id/scrollViewGospelReading1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:scrollbarThumbVertical="@drawable/custom_scroll_style">
 
         <oleksandr.kotyuk.orthodoxcalendar.MyView
             android:id="@+id/MyViewGospelReading1"

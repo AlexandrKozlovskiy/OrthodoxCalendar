@@ -25,7 +25,8 @@
         android:layout_marginLeft="7dp"
         android:layout_marginRight="7dp"
         android:divider="@color/list_item_title"
-        android:dividerHeight="0dp" >
+        android:dividerHeight="0dp"
+        android:scrollbarThumbVertical="@drawable/custom_scroll_style">
 
     </ListView>
 
