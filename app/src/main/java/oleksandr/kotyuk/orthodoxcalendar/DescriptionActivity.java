@@ -360,8 +360,7 @@ public class DescriptionActivity extends MenuActivity {
      size = tvDescriptionActivity.getTextSize();
      // Log.d(TAG, "size =" + size);
      size = size + size_default_MyView;
-     tvDescriptionActivity.setTextSize(
-             TypedValue.COMPLEX_UNIT_PX, size);
+     tvDescriptionActivity.setTextSize(TypedValue.COMPLEX_UNIT_PX,size_default_MyView);
      ///////////////////////////////////////
      //Toast.makeText(this, "DescriptionActivity...id_description-2", Toast.LENGTH_LONG).show();
      /////////////////////////////////////////

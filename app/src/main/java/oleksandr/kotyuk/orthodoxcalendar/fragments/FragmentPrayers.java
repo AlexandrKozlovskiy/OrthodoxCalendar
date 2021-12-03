@@ -71,11 +71,10 @@ db =null;
     }
     db = DatabaseHelper.getInstance(getActivity()
             .getApplicationContext());
-    String language=!prayers_language.equals("ru") &&prayersType.equals("kafisma")?"sc":prayers_language;
-    if(prayersType.equals("kafisma")) cursor = db.executeQuery("SELECT _id, kafisma_"+language+" FROM psaltur_group;");
-    else cursor = db.executeQuery("SELECT _id, name_group FROM prayers_"+language+"_"+prayersType+"_group;");
+    if(prayersType.equals("kafisma")) cursor = db.executeQuery("SELECT _id, kafisma_"+prayers_language+" FROM psaltur_group;");
+    else cursor = db.executeQuery("SELECT _id, name_group FROM prayers_"+prayers_language+"_"+prayersType+"_group;");
     // сопоставление данных и View для групп
-    if(prayersType.equals("kafisma")) groupFrom = new String[] {"kafisma_"+language};
+    if(prayersType.equals("kafisma")) groupFrom = new String[] {"kafisma_"+prayers_language};
     else groupFrom =new String []{ "name_group" };
     groupTo =new int [] { R.id.text_list_group };
     // сопоставление данных и View для элементов

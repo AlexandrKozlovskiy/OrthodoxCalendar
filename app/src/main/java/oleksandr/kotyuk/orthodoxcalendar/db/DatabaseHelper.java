@@ -3,6 +3,7 @@ package oleksandr.kotyuk.orthodoxcalendar.db;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -11,16 +12,16 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Handler;
 import android.util.Log;
+import android.view.accessibility.AccessibilityEvent;
+import android.view.accessibility.AccessibilityManager;
+import android.widget.Toast;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
  static boolean update_flag=false;
  static final String TAG = "myLogs";
-
- //private final static String DB_NAME_ZIP = "create.zip";
- //private final static String[] DB_NAME_ZIP_MAS={"create1.zip","create2.zip","create2_1.zip","create2_2.zip","create3.zip","create3_1.zip","create3_2.zip","create3_3.zip","create4.zip"};
- //private final static String[] DB_NAME_ZIP_MAS={"create1_1.zip","create1_2.zip","create1_3.zip","create2_1.zip","create2_2.zip","create2_3.zip","create2_4.zip","create3_0_1.zip","create3_0_2.zip","create3_1_1.zip","create3_1_2.zip","create3_1_3.zip","create3_1_4.zip","create3_1_5.zip"};
  private final static String[] DB_NAME_ZIP_MAS={"create1_1.zip",
          "create1_2.zip",
          "create1_3.zip",
@@ -69,7 +70,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
  private static final String DATABASE_NAME = "calendar.db";
 
  // Номер версии этой БД
- private static final int DATABASE_VERSION = 85;
+ private static final int DATABASE_VERSION = 86;
 
  private static DatabaseHelper dbHelper = null;
 
@@ -119,18 +120,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
    db = null;
   }
  }
-
+private void executeScripts(SQLiteDatabase database) {
+  for (int i = 0; i < DB_NAME_ZIP_MAS.length; i++) {
+    executeSQLScriptZIP(database, "db/"+DB_NAME_ZIP_MAS[i]);
+    Log.d("myLogs", "executeSQLScriptZIPMAS-" + i);
+  }
+ }
  @Override
  public void onCreate(SQLiteDatabase database) {
   // DBTable.onCreate(database);
   Log.d(TAG, "DB onCreate()");
-
   //executeSQLScriptZIP(database, DB_NAME_ZIP);
-  for(int i=0;i<DB_NAME_ZIP_MAS.length;i++){
-   executeSQLScriptZIP(database, DB_NAME_ZIP_MAS[i]);
-   Log.d("myLogs", "executeSQLScriptZIPMAS-"+i);
-  }
-
+executeScripts(database);
  }
 
  // Метод вызывается во время обновления базы данных ,
@@ -213,12 +214,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
   database.execSQL("DROP TABLE oneday_post_years;");
   database.execSQL("DROP TABLE sedmitsa_post_years;");
   database.execSQL("DROP TABLE unmovable_holiday;");
-
-  for(int i=0;i<DB_NAME_ZIP_MAS.length;i++){
-   executeSQLScriptZIP(database, DB_NAME_ZIP_MAS[i]);
-   Log.d("myLogs", "executeSQLScriptZIPMAS-"+i);
-  }
-
+onCreate(database);
   update_flag=false;
  }
 
@@ -253,9 +249,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
    }
   } catch (IOException e) {
    Log.d("myLogs", "Zip InputStream-" + e.toString());
-  } catch (Exception e) {
-   Log.d("myLogs", "Exception-" + e.toString());
-  } finally {
+  }
+finally {
    try {
     zis.close();
    } catch (IOException e) {
@@ -271,7 +266,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     e.printStackTrace();
    }
    database.endTransaction();
-  }
+     }
  }
 
 

@@ -18,7 +18,7 @@
     </oleksandr.kotyuk.orthodoxcalendar.MyView>
 
     <ListView
-        android:id="@id/android:list"
+        android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="15dp"
