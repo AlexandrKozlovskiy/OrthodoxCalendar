@@ -108,9 +108,9 @@ public static PageFragmentViewPagerPsalturRead newInstance(int page) {
  } else {
  db = DatabaseHelper.getInstance(getActivity()
   .getApplicationContext());
- //SELECT p.psalom_text_sc, (select kafisma_csfrom psaltur_group where _id = p.id_kafist) as kaf_name FROM psaltur p where p._id=150
- cursor = db.executeQuery("SELECT p.psalom_text_sc, (select kafisma_csfrom psaltur_group where _id = p.id_kafist) as kaf_name FROM psaltur p where p._id="+(pageNumber+1)+";");
- //cursor = db.executeQuery("SELECT psalom_text_csFROM psaltur where _id="+(pageNumber+1)+";");
+ //SELECT p.psalom_text_sc, (select kafisma_cs from psaltur_group where _id = p.id_kafist) as kaf_name FROM psaltur p where p._id=150
+ cursor = db.executeQuery("SELECT p.psalom_text_sc, (select kafisma_cs from psaltur_group where _id = p.id_kafist) as kaf_name FROM psaltur p where p._id="+(pageNumber+1)+";");
+ //cursor = db.executeQuery("SELECT psalom_text_cs FROM psaltur where _id="+(pageNumber+1)+";");
  }
     String text="";
     String text_title="";
@@ -343,7 +343,7 @@ public static PageFragmentViewPagerPsalturRead newInstance(int page) {
    } 
    if (prayers_language.equals("cs")) {
    db = DatabaseHelper.getInstance(getActivity().getApplicationContext());
-   cursor = db.executeQuery("SELECT _id, psalom_text_csFROM psaltur_description;");
+   cursor = db.executeQuery("SELECT _id, psalom_text_cs FROM psaltur_description;");
    
    if (cursor != null) {
   if (cursor.moveToFirst()) {

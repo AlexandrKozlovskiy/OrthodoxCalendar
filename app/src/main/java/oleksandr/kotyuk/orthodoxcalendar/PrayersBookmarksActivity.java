@@ -140,7 +140,7 @@ public void onCreate(Bundle savedInstanceState) {
   sql = "SELECT psalom_text_ru FROM psaltur where _id="
    + prayers_position;
  else
-  sql = "SELECT psalom_text_csFROM psaltur where _id="
+  sql = "SELECT psalom_text_cs FROM psaltur where _id="
    + prayers_position;
  }
 

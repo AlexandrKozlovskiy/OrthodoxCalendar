@@ -282,7 +282,7 @@ cursor.close();
  }
  
  cursor = null;
- sql = "SELECT psalom_name_csFROM psaltur where _id="+prayers_id;
+ sql = "SELECT psalom_name_cs FROM psaltur where _id="+prayers_id;
  db = DatabaseHelper.getInstance(this);
  cursor = db.executeQuery(sql);
 
