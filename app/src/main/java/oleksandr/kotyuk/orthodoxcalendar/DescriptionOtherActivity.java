@@ -350,11 +350,7 @@ return;
  public String textDescriptionOther(){
 
   String column_index="";
-  if(description_id_link_akafist!=null){
-   sql="select text_prayers, name_prayers from prayers_"+(host.equals(GlobalData.getDESCRIPTION_OTHER_ACTIVITY_HOST_CS())?"cs":"ru")+"_ak where id2="+description_id_link_akafist;
-   column_index="text_prayers";
-  }
-  else if(host.equals(GlobalData.getDESCRIPTION_OTHER_ACTIVITY_HOST())) {
+  if(host.equals(GlobalData.getDESCRIPTION_OTHER_ACTIVITY_HOST()) ||host.equals(GlobalData.getDESCRIPTION_OTHER_ACTIVITY_HOST_CS())) {
    if (description_id_multi != null) {
     sql = "select description from multiday_post_years where _id=" + description_id_multi;
     column_index = "description";
@@ -379,12 +375,14 @@ return;
     sql = "select text_prayers, name_prayers from prayers_ru_pr where id2=" + description_id_link_prayer_gospel;
     column_index = "text_prayers";
    }
-
-
-   if (description_id_bible_prayer_gospel == 173) {
-    sql = "select text_prayers, name_prayers from prayers_ru_pr where id2=" + description_id_bible_prayer_gospel;
-    column_index = "text_prayers";
-   }
+  }
+  if(description_id_link_akafist!=null){
+   sql="select text_prayers, name_prayers from prayers_"+(host.equals(GlobalData.getDESCRIPTION_OTHER_ACTIVITY_HOST_CS())?"cs":"ru")+"_ak where id2="+description_id_link_akafist;
+   column_index="text_prayers";
+  }
+  if (description_id_bible_prayer_gospel == 173) {
+   sql = "select text_prayers, name_prayers from prayers_ru_pr where id2=" + description_id_bible_prayer_gospel;
+   column_index = "text_prayers";
   }
   String text="";
 
