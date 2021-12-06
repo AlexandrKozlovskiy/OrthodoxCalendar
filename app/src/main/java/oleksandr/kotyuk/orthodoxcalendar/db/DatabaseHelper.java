@@ -123,7 +123,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 private void executeScripts(SQLiteDatabase database) {
   for (int i = 0; i < DB_NAME_ZIP_MAS.length; i++) {
     executeSQLScriptZIP(database, "db/"+DB_NAME_ZIP_MAS[i]);
-    Log.d("myLogs", "executeSQLScr                                                                                                      ptZIPMAS-" + i);
+    Log.d("myLogs", "executeSQLScrptZIPMAS-" + i);
   }
  }
  @Override
