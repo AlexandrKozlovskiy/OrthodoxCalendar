@@ -621,6 +621,7 @@ args2.putString("prayers_type","ak");
   invalidateOptionsMenu();
   cal.setTodayDate();
   fragment3 = new FragmentPrayers();
+  args3.putString("prayers_type","kafisma");
   args3.putString(FragmentPrayers.ITEM_NAME,
    dataList.get(2).getItemName());
   args3.putInt(FragmentPrayers.IMAGE_RESOURCE_ID,
