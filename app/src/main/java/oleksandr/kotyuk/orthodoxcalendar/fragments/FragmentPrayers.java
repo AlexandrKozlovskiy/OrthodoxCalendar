@@ -78,7 +78,7 @@ db =null;
     else groupFrom =new String []{ "name_group" };
     groupTo =new int [] { R.id.text_list_group };
     // сопоставление данных и View для элементов
-    childFrom = prayersType.equals("kafisma")? new String[]{"psalom_name_ru"}:new String []{"name_prayers"};
+    childFrom = prayersType.equals("kafisma")? new String[]{"psalom_name_"+prayers_language}:new String []{"name_prayers"};
     childTo = new int [] { R.id.text_list_child };
 
     // создаем адаптер и настраиваем список
