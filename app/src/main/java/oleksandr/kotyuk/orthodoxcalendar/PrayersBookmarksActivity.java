@@ -186,7 +186,7 @@ public void onCreate(Bundle savedInstanceState) {
      + "<br><br>");
    else
     text.append(cursor.getString(cursor
-     .getColumnIndex("psalom_text_sc"))
+     .getColumnIndex("psalom_text_cs"))
      + "<br><br>");
    }
   } catch (NumberFormatException e) {

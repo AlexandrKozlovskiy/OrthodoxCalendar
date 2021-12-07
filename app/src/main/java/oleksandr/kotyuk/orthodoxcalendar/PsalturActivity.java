@@ -290,7 +290,7 @@ cursor.close();
   if (cursor.moveToFirst()) {
   do {
    try {
-    text=cursor.getString(cursor.getColumnIndex("psalom_name_sc"));
+    text=cursor.getString(cursor.getColumnIndex("psalom_name_cs"));
    } catch (NumberFormatException e) {
    // Log.d(TAG, "ERROR=" + e.toString());
    }

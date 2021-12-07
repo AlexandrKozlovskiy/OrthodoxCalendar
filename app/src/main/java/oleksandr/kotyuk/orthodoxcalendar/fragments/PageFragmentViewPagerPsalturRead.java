@@ -108,8 +108,8 @@ public static PageFragmentViewPagerPsalturRead newInstance(int page) {
  } else {
  db = DatabaseHelper.getInstance(getActivity()
   .getApplicationContext());
- //SELECT p.psalom_text_sc, (select kafisma_cs from psaltur_group where _id = p.id_kafist) as kaf_name FROM psaltur p where p._id=150
- cursor = db.executeQuery("SELECT p.psalom_text_sc, (select kafisma_cs from psaltur_group where _id = p.id_kafist) as kaf_name FROM psaltur p where p._id="+(pageNumber+1)+";");
+ //SELECT p.psalom_text_cs, (select kafisma_cs from psaltur_group where _id = p.id_kafist) as kaf_name FROM psaltur p where p._id=150
+ cursor = db.executeQuery("SELECT p.psalom_text_cs, (select kafisma_cs from psaltur_group where _id = p.id_kafist) as kaf_name FROM psaltur p where p._id="+(pageNumber+1)+";");
  //cursor = db.executeQuery("SELECT psalom_text_cs FROM psaltur where _id="+(pageNumber+1)+";");
  }
     String text="";
@@ -127,7 +127,7 @@ public static PageFragmentViewPagerPsalturRead newInstance(int page) {
    text_title="<FONT COLOR=#aa2c2c><b>"+cursor.getString(cursor.getColumnIndex("kaf_name"))+"</b></FONT><br>";
    if(p==1 || p==10 || p==19 || p==27 || p==36 || p==42 || p==52 || p==62 || p==72 || p==79 || p==87 || p==96 || p==103 || p==114 || p==119 || p==124 || p==134 || p==136 || p==152 || p==162 || p>171)
    text_title="";
-   text = text_title+cursor.getString(cursor.getColumnIndex("psalom_text_sc"));
+   text = text_title+cursor.getString(cursor.getColumnIndex("psalom_text_cs"));
   }
   } catch (NumberFormatException e) {
   text="";
@@ -350,9 +350,9 @@ public static PageFragmentViewPagerPsalturRead newInstance(int page) {
    do {
    try {
     int _id=cursor.getInt(cursor.getColumnIndex("_id"));
-    if(_id==1) text_replacement1="<br>"+cursor.getString(cursor.getColumnIndex("psalom_text_sc")).replace("\r\n", "<br>");;
-    if(_id==2) text_replacement2="<br>"+cursor.getString(cursor.getColumnIndex("psalom_text_sc")).replace("\r\n", "<br>");;
-    if(_id==3) text_replacement3=cursor.getString(cursor.getColumnIndex("psalom_text_sc")).replace("\r\n", "<br>");;
+    if(_id==1) text_replacement1="<br>"+cursor.getString(cursor.getColumnIndex("psalom_text_cs")).replace("\r\n", "<br>");;
+    if(_id==2) text_replacement2="<br>"+cursor.getString(cursor.getColumnIndex("psalom_text_cs")).replace("\r\n", "<br>");;
+    if(_id==3) text_replacement3=cursor.getString(cursor.getColumnIndex("psalom_text_cs")).replace("\r\n", "<br>");;
    } catch (NumberFormatException e) {
     // Log.d(TAG, "ERROR=" + e.toString());
    }
