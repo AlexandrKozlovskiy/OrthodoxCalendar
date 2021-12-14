@@ -47,10 +47,11 @@ public class MyScheduledReceiver extends BroadcastReceiver {
             } else if (Intent.ACTION_DATE_CHANGED.equals(intent.getAction()) || Intent.ACTION_TIME_CHANGED.equals(intent.getAction()) || Intent.ACTION_TIMEZONE_CHANGED.equals(intent.getAction())) {
                 long millis = Long.parseLong(PreferencesActivity.MyPreferenceFragment.ReadString(context, millisKey, "0")) - System.currentTimeMillis();
                 if (millis > wholeDayInMillis) setAlarm(context);
-                else if (wholeDayInMillis == millis) onAlarm(context);
-            } else if (AlarmManager.ACTION_SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED.equals(intent.getAction())) {
-                setAlarm(context);
-            } else onAlarm(context);
+//Проверяем разницу между временем,в которое должно поступить уведомление,и реальным системным временем. Возьмём,к примеру,10 секунд.
+                else if (wholeDayInMillis-millis<=10000) onAlarm(context);
+            } else if (AlarmManager.ACTION_SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED.equals(intent.getAction())) setAlarm(context);
+                //else if(wholeDayInMillis==millis) onAlarm(context);
+            else onAlarm(context);
         }
     }
 

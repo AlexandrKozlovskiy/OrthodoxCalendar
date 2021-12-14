@@ -1,6 +1,7 @@
 package oleksandr.kotyuk.orthodoxcalendar;
 
 import android.app.Application;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -11,8 +12,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
 public class MyApp extends Application {
-class ExceptionCatcher implements Thread.UncaughtExceptionHandler {
-    private Thread.UncaughtExceptionHandler h;
+static abstract class ExceptionCatcher implements Thread.UncaughtExceptionHandler {
+protected abstract Context getContext();
+    protected Thread.UncaughtExceptionHandler h;
     ExceptionCatcher(Thread.UncaughtExceptionHandler h) {
 this.h=h;
     }
@@ -28,10 +30,10 @@ String info="version: "+BuildConfig.VERSION_NAME+" version code: "+BuildConfig.V
             i.putExtra(Intent.EXTRA_TEXT,info);
             i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             try {
-                startActivity(i);
+                getContext().startActivity(i);
             }
             catch (Exception ex) {
-                //h.uncaughtException(t,ex);
+                h.uncaughtException(t,ex);
             }
 h.uncaughtException(t,e);
         }
@@ -40,7 +42,12 @@ h.uncaughtException(t,e);
     @Override
     public void onCreate() {
         super.onCreate();
-        if(!(Thread.getDefaultUncaughtExceptionHandler() instanceof ExceptionCatcher)) Thread.setDefaultUncaughtExceptionHandler(new ExceptionCatcher(Thread.getDefaultUncaughtExceptionHandler()));
+        if(!(Thread.getDefaultUncaughtExceptionHandler() instanceof ExceptionCatcher)) Thread.setDefaultUncaughtExceptionHandler(new ExceptionCatcher(Thread.getDefaultUncaughtExceptionHandler()) {
+            @Override
+            protected Context getContext() {
+                return MyApp.this;
+            }
+        });
 }
 
     @Override
