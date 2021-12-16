@@ -1,22 +1,18 @@
 package oleksandr.kotyuk.orthodoxcalendar.db;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Arrays;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
-
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.os.Handler;
 import android.util.Log;
-import android.view.accessibility.AccessibilityEvent;
-import android.view.accessibility.AccessibilityManager;
-import android.widget.Toast;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -70,8 +66,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
  private static final String DATABASE_NAME = "calendar.db";
 
  // Номер версии этой БД
- private static final int DATABASE_VERSION = 86;
-
+ public static final int DATABASE_VERSION = 86;
+public static String DBVersion="db_version";
  private static DatabaseHelper dbHelper = null;
 
  private static SQLiteDatabase db = null;
@@ -89,18 +85,31 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
   Log.d(TAG, "DB DatabaseHelper()");
  }
+ public static byte shouldUpdateDb(SharedPreferences sp) {
+  int num =sp.getInt(DBVersion,0);
+  return num==0?(byte) -1:num!=DATABASE_VERSION?(byte) 0:(byte) 1;
+ }
 
- public static synchronized DatabaseHelper getInstance(Context context) {
+
+ public static void saveDBVersion(SharedPreferences sp) {
+  if(sp.getInt(DBVersion,0)!=DATABASE_VERSION) sp.edit().putInt(DBVersion,DATABASE_VERSION).commit();
+ }
+
+public static synchronized DatabaseHelper getInstance(Context context, SharedPreferences sp) {
   Log.d(TAG, "DatabaseHelper getInstance()");
   if (dbHelper == null) {
    dbHelper = new DatabaseHelper(context);
    openConnecion();
+   if(sp!=null) saveDBVersion(sp);
   }
+
   Log.d(TAG, "DatabaseHelper getInstance() SLEEP!!!");
 
   return dbHelper;
  }
-
+ public static DatabaseHelper getInstance(Context context) {
+return getInstance(context,null);
+ }
  // будет вызван только один раз, когда Синглтон создается
  private static void openConnecion() {
   Log.d(TAG, "openConnecion()");

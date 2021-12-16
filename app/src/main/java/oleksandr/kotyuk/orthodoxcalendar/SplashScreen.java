@@ -23,7 +23,7 @@ public class SplashScreen extends Activity {
 
  public final static String NUMBER_PROGRAM = "number_program";
  public final static String WIDGET_PREF = "widget_pref";
-
+ private ExecutorService service =null;
  MyView tvSplashActivity;
 
  @Override
@@ -35,37 +35,40 @@ public class SplashScreen extends Activity {
   } else {
    setContentView(R.layout.splash_activity);
    SharedPreferences sp = getSharedPreferences(WIDGET_PREF, MODE_PRIVATE);
-   int num_prog = sp.getInt(NUMBER_PROGRAM, 0);
-   if (num_prog == 0) {
+   byte state = DatabaseHelper.shouldUpdateDb(sp);
+   if (state == -1) {
     text_load = "УСТАНОВКА БАЗЫ ДАННЫХ";
+   } else if (state == 0) {
+    text_load = "ОБНОВЛЕНИЕ БАЗЫ ДАННЫХ";
    } else {
-    if (Integer.parseInt(BuildConfig.VERSION_NAME.replace(".", "")) > num_prog) {
-     text_load = "ОБНОВЛЕНИЕ БАЗЫ ДАННЫХ";
-    } else {
-     text_load = "ЗАГРУЗКА";
-    }
+    text_load = "ЗАГРУЗКА";
    }
    tvSplashActivity = (MyView) this.findViewById(R.id.MyView_splash);
    tvSplashActivity.setText(text_load);
-   ExecutorService service = Executors.newSingleThreadExecutor();
-   service.execute(() -> {
-            DatabaseHelper db = DatabaseHelper.getInstance(getApplicationContext());
-            new Handler(getMainLooper()).post(() -> {
-                     getIntent().setClass(SplashScreen.this, MainActivity.class);
-                     startActivity(getIntent());
-                     finish();
-                     service.shutdownNow();
-                    }
-            );
-           }
-   );
+   Runnable r = () -> {
+    getIntent().setClass(SplashScreen.this, MainActivity.class);
+    startActivity(getIntent());
+    finish();
+    if (service != null) {
+service.shutdownNow();
+service =null;
+    }
+   };
+   if (state < 1) {
+    service = Executors.newSingleThreadExecutor();
+    service.execute(() -> {
+             DatabaseHelper db = DatabaseHelper.getInstance(getApplicationContext());
+             new Handler(getMainLooper()).post(r);
+            }
+    );
+   } else r.run();
   }
  }
  public void onBackPressed() {
-  if (flag_activity) {
+  /*if (flag_activity) {
    finish();
    android.os.Process.killProcess(android.os.Process.myPid());
-  }
+  }*/
  }
 
 }

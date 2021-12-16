@@ -112,14 +112,12 @@ boolean notifi_date_app_start_flag=true;
 @Override
 protected void onCreate(Bundle savedInstanceState) {
  super.onCreate(savedInstanceState);
-
  setContentView(R.layout.activity_main);
  //старт уведомления
  /*Noti_flag = PreferencesActivity.MyPreferenceFragment.ReadBoolean(getApplicationContext(), "pref_notifi_setting", true);
  Log.d(LOG_TAG, "Noti_flag="+Noti_flag.toString());
  if(Noti_flag){
- MyScheduledReceiver alarm = new MyScheduledReceiver();
- alarm.setAlarm(this);
+MyScheduledReceiver.setAlarm(this);
  }*/
 
  data_list = new String[] { getString(R.string.menu_list1),

@@ -265,7 +265,7 @@ static void setUpdateTV(RemoteViews rv, Context context, int appWidgetId,
  String sql = "SELECT p" + cal.getYear() + ", r" + cal.getYear()
   + " FROM data_calendar WHERE month=" + (cal.getMonth() + 1)
   + " AND day=" + cal.getDayMonth() + ";";
- db = DatabaseHelper.getInstance(context.getApplicationContext());
+ db = DatabaseHelper.getInstance(context.getApplicationContext(),context.getSharedPreferences(SplashScreen.WIDGET_PREF,Context.MODE_PRIVATE));
  cursor = db.executeQuery(sql);
  if (cursor != null) {
   if (cursor.moveToFirst()) {

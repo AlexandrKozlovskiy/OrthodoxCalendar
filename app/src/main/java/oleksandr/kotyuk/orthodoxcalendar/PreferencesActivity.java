@@ -81,8 +81,6 @@ public class PreferencesActivity extends AppCompatActivity {
         Preference cbp8;
         Preference cbp9;
         SharedPreferences prefs;
-        MyScheduledReceiver mSH = new MyScheduledReceiver();
-
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             cont = getActivity();
@@ -105,11 +103,11 @@ public class PreferencesActivity extends AppCompatActivity {
                     // TODO Auto-generated method stub
                     Noti_flag = (boolean) newValue;
                     if (Noti_flag) {
-                        // Log.d(TAG, "mSH.setAlarm(cont)");
-                        mSH.setAlarm(cont);
+                        // Log.d(TAG, "MyScheduledReceiver.setAlarm(cont)");
+                        MyScheduledReceiver.setAlarm(cont);
                     } else {
-                        // Log.d(TAG, "mSH.cancelAlarm(cont)");
-                        mSH.cancelAlarm(cont);
+                        // Log.d(TAG, "MyScheduledReceiver.cancelAlarm(cont)");
+                        MyScheduledReceiver.cancelAlarm(cont);
                     }
                     return true;
                 }
@@ -123,7 +121,7 @@ public class PreferencesActivity extends AppCompatActivity {
                         cbp1.setSummary(tomorrowDate());
 //mSH.setAlarm(cont,time);
                     }
-                    mSH.setAlarm(cont, time);
+                    MyScheduledReceiver.setAlarm(cont, time);
                     return true;
                 }
             });
