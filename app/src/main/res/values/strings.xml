@@ -139,6 +139,8 @@
 	<string name="link_rating">market://details?id=oleksandr.kotyuk.orthodoxcalendarfree</string>
 <string name="program_version">Версия %s</string>
 <string-array name="versions">
+	<item>Version 1.14.23\nНебольшие исправления в работе уведомлений.\n\n
+	</item>
 	<item>Version 1.14.22\nИсправлены ошибки и опечатки в программе.\n
 		Добавлена возможность отправки отчета разработчику, при вылете приложения.\n
 		Также в молитвослов добавлены:\n
