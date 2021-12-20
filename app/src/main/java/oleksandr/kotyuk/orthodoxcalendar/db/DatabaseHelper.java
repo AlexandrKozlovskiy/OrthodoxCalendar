@@ -33,6 +33,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
          "create1_3_10.zip",
          "create1_3_11.zip",
          "create1_3_12.zip",
+         "create1_3_13.zip",
+         "create1_3_14.zip",
          "create2_1.zip",
          "create2_2.zip",
          "create2_3.zip",
@@ -66,7 +68,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
  private static final String DATABASE_NAME = "calendar.db";
 
  // Номер версии этой БД
- public static final int DATABASE_VERSION = 86;
+ public static final int DATABASE_VERSION = 87;
 public static String DBVersion="db_version";
  private static DatabaseHelper dbHelper = null;
 
