@@ -80,7 +80,7 @@ if(Build.VERSION.SDK_INT<Build.VERSION_CODES.O) context.startService(i); else co
     public static void onAlarm(Context context) {
         cal.setTodayDate();
         time = Integer.parseInt(PreferencesActivity.MyPreferenceFragment.ReadString(context, "pref_notifi_time", "0"));
-        if (cal.getHours() == time && cal.getMinutes() == 0) {
+        if (cal.getHours()  == time && cal.getMinutes() == 0) {
             Log.d(TAG, "cal.getFullNameDate()= " + cal.getFullNameDate());
             SharedPreferences sp=context.getSharedPreferences(SplashScreen.WIDGET_PREF,Context.MODE_PRIVATE);
                         Runnable r=() -> {
@@ -202,6 +202,11 @@ return sendNotif(context,ticker, channelTitle,title,text,false);
         Log.d(TAG, "sendNotif3= " + sb.toString());
 sendNotif(context,context.getString(R.string.app_name),context.getString(R.string.app_name),Html.fromHtml(str),post);
     }
+
+public static void cancelNotification(Context context,int id) {
+    NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context.getApplicationContext());
+    notificationManager.cancel(id);
+}
 
     public static String findTextVisYear(Context context) {
         String text_holiday_vis_year = "";

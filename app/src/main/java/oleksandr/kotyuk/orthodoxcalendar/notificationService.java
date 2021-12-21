@@ -23,7 +23,10 @@ public class notificationService extends Service {
         MyScheduledReceiver.l=new MyScheduledReceiver.StopServiceListener() {
             @Override
             public void stopService() {
-                if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.N) stopForeground(0);
+                if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.N) {
+                    stopForeground(0);
+                    MyScheduledReceiver.cancelNotification(notificationService.this,1);
+                }
                 stopSelf();
             }
         };
