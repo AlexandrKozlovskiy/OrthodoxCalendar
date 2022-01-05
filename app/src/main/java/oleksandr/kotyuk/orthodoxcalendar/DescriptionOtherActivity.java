@@ -16,6 +16,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
+import android.text.method.ScrollingMovementMethod;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.KeyEvent;
@@ -134,7 +135,6 @@ public class DescriptionOtherActivity  extends AppCompatActivity{
   if(host.equals(GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())) {
    tvDescriptionActivityLink.setLinksClickable(true);
    tvDescriptionActivityLink.setMovementMethod(new LinkMovementMethod());
-   if(description_style) tvDescriptionActivityLink.setTextColor(getResources().getColor(R.color.WHITE2));
   }
   else tvDescriptionActivityLink.setVisibility(View.GONE);
   if(description_id_link_akafist!=null){
@@ -147,13 +147,13 @@ public class DescriptionOtherActivity  extends AppCompatActivity{
   if(host.equals(GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())) tvDescriptionActivityLink.setTypeface(tvDescriptionActivity.getTypeface());
   black_fon_color = PreferencesActivity.MyPreferenceFragment.ReadString(
          this, "pref_black_fon_color", "black");
-
  if(description_style){
   if(black_fon_color.equals("black")) llDescriptionActivity.setBackgroundColor(getResources().getColor(R.color.BLACK));
   if(black_fon_color.equals("dark_green")) llDescriptionActivity.setBackgroundColor(getResources().getColor(R.color.dark_green));
   if(black_fon_color.equals("blue")) llDescriptionActivity.setBackgroundColor(getResources().getColor(R.color.blue));
   if(black_fon_color.equals("dark_blue")) llDescriptionActivity.setBackgroundColor(getResources().getColor(R.color.dark_blue));
   tvDescriptionActivity.setTextColor(getResources().getColor(R.color.WHITE2));
+  if(host.equals(GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())) tvDescriptionActivityLink.setTextColor(getResources().getColor(R.color.WHITE2));
  }
 
  size_default_MyView =PreferencesActivity.MyPreferenceFragment.ReadFloat(this, fontSizeKey, 0);
