@@ -3,18 +3,18 @@
     package="oleksandr.kotyuk.orthodoxcalendar"
     android:installLocation="auto">
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
-   <!-- <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
-    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/> -->
-   <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <!-- <uses-permission android:name="android.permission.INTERNET" />
+     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+     <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
+     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/> -->
+      <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
     <application
         android:allowBackup="true"
         android:name="oleksandr.kotyuk.orthodoxcalendar.MyApp"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-       	<meta-data android:name="android.max_aspect" android:value="2.1" />
+        <meta-data android:name="android.max_aspect" android:value="2.1" />
         <activity
             android:name="oleksandr.kotyuk.orthodoxcalendar.SplashScreen"
             android:launchMode="singleTask"
@@ -62,11 +62,11 @@
             android:name="oleksandr.kotyuk.orthodoxcalendar.widget.MyServiceFZ"
             android:permission="android.permission.BIND_REMOTEVIEWS" >
         </service>
-<service
-    android:name="oleksandr.kotyuk.orthodoxcalendar.notificationService"
-    android:exported="false">
+        <service
+            android:name="oleksandr.kotyuk.orthodoxcalendar.notificationService"
+            android:exported="false">
 
-</service>
+        </service>
         <receiver
             android:name="oleksandr.kotyuk.orthodoxcalendar.widget.MyWidget"
             android:icon="@drawable/ic_launcher"
@@ -117,7 +117,7 @@
         <receiver
             android:name=".MyScheduledReceiver"
             android:enabled="true"
-android:exported="true">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
                 <action android:name="android.intent.action.DATE_CHANGED"/>
@@ -128,7 +128,28 @@ android:exported="true">
             </intent-filter>
         </receiver>
         <receiver android:name="oleksandr.kotyuk.orthodoxcalendar.widget.NotificationCancel" />
+        <activity
+            android:name="DescriptionHolyActivity"
+            android:launchMode="singleTask"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
+            <intent-filter>
+                <data
+                    android:host="DescriptionHolyActivityHostFree"
+                    android:scheme="activity-run" />
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
 
+        <activity
+            android:name="DescriptionActivity"
+            android:launchMode="singleTask"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
+        </activity>
         <activity
             android:name="GospelReadingActivity"
             android:launchMode="singleTask"
@@ -186,15 +207,13 @@ android:exported="true">
                     android:host="DescriptionOtherActivityHostCSFree"
                     android:scheme="activity-run" />
                 <data
-                    android:host="DescriptionHolyActivityHostFree"
-                    android:scheme="activity-run" />
-                <data
                     android:host="DescriptionLessonsActivityHostFree"
                     android:scheme="activity-run" />
                 <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
+
         </activity>
         <activity
             android:name="PrayersBookmarksActivity"
@@ -211,7 +230,7 @@ android:exported="true">
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
         </activity>
-         <activity
+        <activity
             android:name="PrayersSearchActivity"
             android:launchMode="singleTask"
             android:configChanges="keyboardHidden|orientation|screenSize"
