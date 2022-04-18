@@ -52,7 +52,7 @@ public class DescriptionOtherActivity  extends AppCompatActivity{
  String description_id_sedmitsa="";
  String description_id_other="";
  String description_id_link_prayer_gospel="";
- String description_id_link_akafist="";
+ String description_id_link_akafist=null;
  String description_id_prayers_day_sedmits="";
  String id="";
  String top_prayer_gospel="<FONT COLOR=#aa2c2c> <b>Молитвы пред и по чтении Евангелия</b> </FONT><br>";
@@ -137,8 +137,7 @@ public class DescriptionOtherActivity  extends AppCompatActivity{
    tvDescriptionActivityLink.setMovementMethod(new LinkMovementMethod());
   }
   else tvDescriptionActivityLink.setVisibility(View.GONE);
-  if(description_id_link_akafist!=null){
-   //if(description_id_link_akafist!=null && description_id_link_akafist.equals("63"))
+if(description_id_link_akafist!=null && description_id_link_akafist.equals("63")) {
    tvDescriptionActivity.setLinksClickable(true);
    tvDescriptionActivity.setMovementMethod(new LinkMovementMethod());
   }
@@ -193,7 +192,7 @@ return;
   }
   else {
    try{
-    tvDescriptionActivity.setText(Html.fromHtml(textDescription(description_id).replace("\r\n", "<br>")));
+   tvDescriptionActivity.setText(Html.fromHtml(textDescription(description_id).replace("\r\n ", "<br>")));
     if(host.equals(GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())) tvDescriptionActivityLink.setText(Html.fromHtml(textDescriptionHolyLink(description_id).replace("\r\n", "<br>")));
    }catch(Exception e){
     tvDescriptionActivity.setText("Произошла ошибка!!!");
