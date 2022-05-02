@@ -87,6 +87,9 @@ infoCompat.setScreenReaderFocusable(true);
 infoCompat.setImportantForAccessibility(true);
         }
         if(getTypeface()!=null &&getTypeface().getStyle()==Typeface.BOLD &&spans.length ==0 &&!isExpandable()) infoCompat.setHeading(true);
+        info.addAction(AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD);
+        info.addAction(AccessibilityNodeInfo.ACTION_SCROLL_FORWARD);
+        info.setScrollable(true);
     }
 
     public void setExpanded(boolean isExpanded) {

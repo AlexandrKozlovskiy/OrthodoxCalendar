@@ -52,7 +52,7 @@ public class DescriptionOtherActivity  extends AppCompatActivity{
  String description_id_sedmitsa="";
  String description_id_other="";
  String description_id_link_prayer_gospel="";
- String description_id_link_akafist=null;
+ String description_id_link_akafist="";
  String description_id_prayers_day_sedmits="";
  String id="";
  String top_prayer_gospel="<FONT COLOR=#aa2c2c> <b>Молитвы пред и по чтении Евангелия</b> </FONT><br>";
@@ -191,8 +191,8 @@ return;
    }
   }
   else {
-   try{
-   tvDescriptionActivity.setText(Html.fromHtml(textDescription(description_id).replace("\r\n ", "<br>")));
+      try{
+    tvDescriptionActivity.setText(Html.fromHtml(textDescription(description_id).replace("\r\n", "<br>")));
     if(host.equals(GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())) tvDescriptionActivityLink.setText(Html.fromHtml(textDescriptionHolyLink(description_id).replace("\r\n", "<br>")));
    }catch(Exception e){
     tvDescriptionActivity.setText("Произошла ошибка!!!");
@@ -561,7 +561,7 @@ return;
   getWindowManager().getDefaultDisplay().getMetrics(dm);
   //final int height=dm.heightPixels;
 
-  final ScrollView scrollViewKey = (ScrollView) findViewById(R.id.scrollViewDescription1);
+  final  ScrollView scrollViewKey = (ScrollView) findViewById(R.id.scrollViewDescription1);
   if (event.getAction() == KeyEvent.ACTION_DOWN) {
    switch (event.getKeyCode()) {
     case KeyEvent.KEYCODE_VOLUME_UP:
