@@ -87,9 +87,7 @@ infoCompat.setScreenReaderFocusable(true);
 infoCompat.setImportantForAccessibility(true);
         }
         if(getTypeface()!=null &&getTypeface().getStyle()==Typeface.BOLD &&spans.length ==0 &&!isExpandable()) infoCompat.setHeading(true);
-        info.addAction(AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD);
-        info.addAction(AccessibilityNodeInfo.ACTION_SCROLL_FORWARD);
-        info.setScrollable(true);
+infoCompat.setContentDescription(getText()); //Чтобы talkback самостоятельно реализовывал навигацию по символам,словам и т.д,вместо фреймворка.
     }
 
     public void setExpanded(boolean isExpanded) {

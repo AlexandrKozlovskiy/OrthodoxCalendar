@@ -10,7 +10,23 @@
 	<string name="menu_item3">Поиск</string>
 	<string name="menu_list1">День</string>
 	<string name="menu_list2">Месяц</string>
-	<string name="list1_title">Ежедневное уведомление</string>
+<string name="main_options">ОСНОВНЫЕ ОПЦИИ</string>
+<string name="calendar">Календарь</string>
+<string name="prayers">Молитвослов</string>
+	<string name="bible">Библия</string>
+<string name="easter">Пасха Христова</string>
+	<string name="holidays">Праздники</string>
+<string name="souls">Дни поминовения</string>
+	<string name="posts">Посты</string>
+<string name="help">Справочник</string>
+	<string name="other_options">ДРУГИЕ ОПЦИИ</string>
+	<string name="settings">Настройки</string>
+<string name="save_settings">Сохранить настройки</string>
+	<string name="load_settings">Загрузить настройки</string>
+<string name="help_to_project">Помочь проекту</string>
+<string name="rate_project">Оценить проект</string>
+<string name="about">О программе</string>
+<string name="list1_title">Ежедневное уведомление</string>
 	<string name="list1_summary">Включено</string>
 	<string name="tomorrow_date">Включено (уведомления будут отображаться на завтрашнюю дату).</string>
 	<string name="list2_title">Язык молитвослова</string>
@@ -95,7 +111,7 @@
 	<string name="program_date">2022</string>
 	<string name="email_program">Oleksandr.Kotyuk@gmail.com</string>
 	<string name="source_code">Вы можете посмотреть и скачать исходный код приложения на <a href="https://github.com/AlexandrKozlovskiy/orthodoxCalendar/">GitHub</a>.</string>
-	<string name="help_project">Помочь проекту</string>
+	<string name="help_project">Помощь проекту</string>
 	<string name="help_project_text1">Поддержать проект можно добрым словом и идеями по улучшению программы, написав на адрес:</string>
 	<string name="help_project_text1_1">А также:</string>
 	<string name="help_project_text2">Написав о всех возникающих ошибках, или неточностях в программе.</string>

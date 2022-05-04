@@ -146,27 +146,29 @@ mTitle = mDrawerTitle = getTitle();
 
  // Add Drawer Item to dataList
 
- dataList.add(new DrawerItem("ОСНОВНЫЕ ОПЦИИ"));// добавляємо заголовок в
+ dataList.add(new DrawerItem(getString(R.string.main_options)));// добавляємо заголовок в
        // список
- dataList.add(new DrawerItem("Календарь",
+ dataList.add(new DrawerItem(getString(R.string.calendar),
   R.drawable.ic_action_crucifixion));
- dataList.add(new DrawerItem("Молитвослов", R.drawable.ic_action_crucifixion));
- dataList.add(new DrawerItem("Библия", R.drawable.ic_action_crucifixion));
- dataList.add(new DrawerItem("Пасха Христова",
+ dataList.add(new DrawerItem(getString(R.string.prayers), R.drawable.ic_action_crucifixion));
+ dataList.add(new DrawerItem(getString(R.string.bible), R.drawable.ic_action_crucifixion));
+ dataList.add(new DrawerItem(getString(R.string.easter),
   R.drawable.ic_action_crucifixion));
- dataList.add(new DrawerItem("Праздники",
+ dataList.add(new DrawerItem(getString(R.string.holidays),
   R.drawable.ic_action_crucifixion));
- dataList.add(new DrawerItem("Дни поминовения",
+ dataList.add(new DrawerItem(getString(R.string.souls),
   R.drawable.ic_action_crucifixion));
- dataList.add(new DrawerItem("Посты", R.drawable.ic_action_crucifixion));
- dataList.add(new DrawerItem("Справочник", R.drawable.ic_action_crucifixion));
+ dataList.add(new DrawerItem(getString(R.string.posts), R.drawable.ic_action_crucifixion));
+ dataList.add(new DrawerItem(getString(R.string.help), R.drawable.ic_action_crucifixion));
 
  // добавляємо заголовок в список
- dataList.add(new DrawerItem("ДРУГИЕ ОПЦИИ"));
- dataList.add(new DrawerItem("Настройки", R.drawable.ic_action_settings));
- dataList.add(new DrawerItem("Помочь проекту", R.drawable.ic_action_help));
- dataList.add(new DrawerItem("Оценить проект", R.drawable.ic_action_rating));
- dataList.add(new DrawerItem("О программе", R.drawable.ic_action_about));
+ dataList.add(new DrawerItem(getString(R.string.other_options)));
+  dataList.add(new DrawerItem(getString(R.string.settings), R.drawable.ic_action_settings));
+ dataList.add(new DrawerItem(getString(R.string.save_settings), R.drawable.ic_action_settings));
+ dataList.add(new DrawerItem(getString(R.string.load_settings), R.drawable.ic_action_settings));
+ dataList.add(new DrawerItem(getString(R.string.help_to_project), R.drawable.ic_action_help));
+ dataList.add(new DrawerItem(getString(R.string.rate_project), R.drawable.ic_action_rating));
+ dataList.add(new DrawerItem(getString(R.string.about), R.drawable.ic_action_about));
 
  adapter = new CustomDrawerAdapter(this, R.layout.custom_drawer_item,
   dataList);
@@ -947,19 +949,22 @@ public void SelectItemDayMonth() {
 public void SelectItem(int position) {
  if (list_position_st != position) {
 
- if (position == 10 || position == 12) {
-  if (position == 10) {
+ if (position >= 10 && position <= 14 &&position!=13) {
   //menu_flag_group=false;
   mDrawerList.setItemChecked(list_position_st, true);
   mDrawerLayout.closeDrawer(mDrawerList);
+  if (position == 10) {
   // вызываем активити Preferences
   Intent intent_p = new Intent(this, PreferencesActivity.class);
   startActivity(intent_p);
-  } else {
-  //menu_flag_group=false;
-  mDrawerList.setItemChecked(list_position_st, true);
-  mDrawerLayout.closeDrawer(mDrawerList);
+  }
+  else if(position==11) {
 
+  }
+  else if(position==12) {
+
+  }
+  else {
   Intent intent_m = new Intent(Intent.ACTION_VIEW);
   intent_m.setData(Uri
    .parse(getString(R.string.link_rating)));
@@ -1209,7 +1214,7 @@ menuActivPrayers ();
   args.putInt(FragmentDirectory.IMAGE_RESOURCE_ID,
    dataList.get(position).getImgResID());
   break;
-  case 11:
+  case 13:
   menu_flag_group_st=false;
   bar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
   menu_activ_st = false;
@@ -1230,7 +1235,7 @@ menuActivPrayers ();
   args.putInt(FragmentHelp.IMAGE_RESOURCE_ID,
    dataList.get(position).getImgResID());
   break;
-  case 13:
+  case 15:
   menu_flag_group_st=false;
   bar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
   menu_activ_st = false;
