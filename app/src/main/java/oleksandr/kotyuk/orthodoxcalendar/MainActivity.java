@@ -1,6 +1,7 @@
 package oleksandr.kotyuk.orthodoxcalendar;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -16,6 +17,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -247,7 +249,27 @@ undf.show(getSupportFragmentManager(), "dialog_update_news");
 }
 }
 
-void complain(String message) {
+ @Override
+ protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+  super.onActivityResult(requestCode, resultCode, data);
+  if(resultCode!=RESULT_OK ||data==null) return;
+try {
+ if (requestCode == 1) {
+  PreferencesActivity.MyPreferenceFragment.saveSettings(getApplicationContext(), getContentResolver().openOutputStream(data.getData()));
+ } else
+  PreferencesActivity.MyPreferenceFragment.loadSettings(getApplicationContext(), getContentResolver().openInputStream(data.getData()));
+}
+catch (Exception e) {
+new MyApp.ExceptionCatcher(Thread.getDefaultUncaughtExceptionHandler()) {
+ @Override
+ protected Context getContext() {
+  return getApplicationContext();
+ }
+}.uncaughtException(Thread.currentThread(),e);
+}
+}
+
+ void complain(String message) {
  alert("ОШИБКА: " + message);
 }
 
@@ -958,11 +980,15 @@ public void SelectItem(int position) {
   Intent intent_p = new Intent(this, PreferencesActivity.class);
   startActivity(intent_p);
   }
-  else if(position==11) {
-
-  }
-  else if(position==12) {
-
+  else if(position==11 ||position==12) {
+//Сохраняем или загружаем настройки.
+   Intent i=new Intent(position==11?Intent.ACTION_CREATE_DOCUMENT:Intent.ACTION_OPEN_DOCUMENT);
+   i.addCategory(Intent.CATEGORY_OPENABLE);
+   if(position==11) i.putExtra(Intent.EXTRA_TITLE,"prefs.txt");
+   i.putExtra("android.content.extra.SHOW_ADVANCED", true).putExtra("android.provider.extra.SHOW_ADVANCED", true)
+           //.putExtra(Intent.EXTRA_MIME_TYPES,new String[] {"text/plain"})
+   .setType("text/plain");
+startActivityForResult(i,position-10); //один или два.
   }
   else {
   Intent intent_m = new Intent(Intent.ACTION_VIEW);
@@ -1004,13 +1030,13 @@ public void SelectItem(int position) {
   args.putInt(FragmentViewPager.IMAGE_RESOURCE_ID,
    dataList.get(position).getImgResID());
   //**************************************
-  if(notifi_date_app_start_flag){
+  /*if(notifi_date_app_start_flag){
    Intent intent = getIntent();
    int notifi_date_app_start = intent.getIntExtra("notifi_date_app_start", 0);
    args.putInt("notifi_date_app_start",
     notifi_date_app_start);
    notifi_date_app_start_flag=false;
-  }
+  }*/
   //**************************************
   break;
   case 2:

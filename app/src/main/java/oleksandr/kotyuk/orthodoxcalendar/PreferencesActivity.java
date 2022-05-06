@@ -22,8 +22,17 @@ import android.widget.TimePicker;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class PreferencesActivity extends AppCompatActivity {
 
@@ -69,7 +78,7 @@ public class PreferencesActivity extends AppCompatActivity {
         public int time;
         //Время,после которого мы будем получать уведомления на завтрашнюю дату.
         public static final int minTimeForNextDate = 15;
-        public Boolean Noti_flag;
+        private static Boolean Noti_flag;
         Context cont;
         Preference cbp1;
         Preference cbp2;
@@ -393,7 +402,56 @@ public class PreferencesActivity extends AppCompatActivity {
             String[] mylist = TextUtils.split(tmp, "‚#‚");
             return new ArrayList<String>(Arrays.asList(mylist));
         }
+public static void saveSettings(Context context, OutputStream stream) throws IOException {
+    SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context);
+    ObjectOutputStream o=new ObjectOutputStream(stream);
+    o.writeObject(settings.getAll());
+    o.flush();
+    o.close();
+    stream.flush();
+    stream.close();
+}
+public static void loadSettings(Context context,InputStream stream) throws IOException {
+    Editor prefs = PreferenceManager.getDefaultSharedPreferences(context).edit();
+    ObjectInputStream o = new ObjectInputStream(stream);
+    try {
+        Map<String, ?> settings = (Map<String, ?>) o.readObject();
+        prefs.clear();
+        for (Map.Entry<String, ?> entry : settings.entrySet()) {
+            Object v = entry.getValue();
+            if (v instanceof Boolean) {
+                prefs.putBoolean(entry.getKey(), ((Boolean) v).booleanValue());
+                if (entry.getKey().equals(KEY_PREF_NOTIFI))
+                    Noti_flag = ((Boolean) v).booleanValue();
+            } else if (v instanceof Float)
+                prefs.putFloat(entry.getKey(), ((Float) v).floatValue());
+            else if (v instanceof Integer)
+                prefs.putInt(entry.getKey(), ((Integer) v).intValue());
+            else if (v instanceof Long)
+                prefs.putLong(entry.getKey(), ((Long) v).longValue());
+            else if (v instanceof String)
+                prefs.putString(entry.getKey(), ((String) v));
+            else if (v instanceof Set)
+                prefs.putStringSet(entry.getKey(), ((Set) v));
+        }
+        stream.close();
+        o.close();
+        prefs.commit();
+        if (Noti_flag) MyScheduledReceiver.setAlarm(context);
+        else MyScheduledReceiver.cancelAlarm(context);
+    }
+    catch (ClassNotFoundException e) {
+    }
+    finally {
+try {
+    if(o!=null) o.close();
+    if(stream!=null) stream.close();
+}
+catch(IOException ex) {
 
+}
+    }
+}
         @Override
         public void onSharedPreferenceChanged(
                 SharedPreferences sharedPreferences, String key) {
