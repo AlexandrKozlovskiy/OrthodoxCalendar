@@ -5,24 +5,36 @@ import android.app.Dialog;
 import android.app.DialogFragment;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
+import android.os.Build;
 import android.os.Bundle;
-import android.preference.ListPreference;
-import android.preference.Preference;
-import android.preference.PreferenceFragment;
-import android.preference.PreferenceManager;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.preference.CheckBoxPreference;
+import androidx.preference.ListPreference;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragment;
+import androidx.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.ObjectInputStream;
@@ -35,7 +47,7 @@ import java.util.Map;
 import java.util.Set;
 
 public class PreferencesActivity extends AppCompatActivity {
-
+public final MyPreferenceFragment pF=new MyPreferenceFragment();
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
@@ -46,17 +58,20 @@ public class PreferencesActivity extends AppCompatActivity {
 
         setTitle("Настройки");
         getFragmentManager().beginTransaction()
-                .replace(android.R.id.content, new MyPreferenceFragment())
+                .replace(android.R.id.content, pF)
                 .commit();
-
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        pF.onActivityResult(requestCode, resultCode, data);
+    }
     @Override
     public void onBackPressed() {
         // TODO Auto-generated method stub
         super.onBackPressed();
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -89,7 +104,83 @@ public class PreferencesActivity extends AppCompatActivity {
         Preference cbp7;
         Preference cbp8;
         Preference cbp9;
+        saveAndLoadPreference saveLoadPref;
         SharedPreferences prefs;
+public final View.OnClickListener l=new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+startLoadOrSaveSettings(v.getId()==R.id.save_settings);
+    }
+};
+public final Preference.OnPreferenceChangeListener pL = new Preference.OnPreferenceChangeListener() {
+    @Override
+    public boolean onPreferenceChange(Preference preference, Object newValue) {
+        if (preference == null) return false;
+        else if (preference.getKey().equals(cbp1.getKey())) {
+            Noti_flag = (boolean) newValue;
+            if (Noti_flag) {
+                // Log.d(TAG, "MyScheduledReceiver.setAlarm(cont)");
+                MyScheduledReceiver.setAlarm(cont);
+            } else {
+                // Log.d(TAG, "MyScheduledReceiver.cancelAlarm(cont)");
+                MyScheduledReceiver.cancelAlarm(cont);
+            }
+            return true;
+        }
+            else if(preference.getKey().equals(cbp4.getKey())) {
+            if (Noti_flag && time != Integer.parseInt((String) newValue)) {
+                time = Integer.parseInt((String) newValue);
+                cbp4.setSummary(cbp4.getEntries()[cbp4.findIndexOfValue((String) newValue)]);
+                cbp1.setSummary(tomorrowDate());
+//mSH.setAlarm(cont,time);
+            }
+            MyScheduledReceiver.setAlarm(cont, time);
+            return true;
+        }
+                else if(preference.getKey().equals(cbp6.getKey())) {
+            if ((Boolean) newValue) {
+                Log.d(TAG, "orientation_1=" + getResources().getConfiguration().orientation);
+                WriteInt(cont, "pref_rotate_screen_orientation", 0);
+            } else {
+                Log.d(TAG, "orientation_2=" + getResources().getConfiguration().orientation);
+                WriteInt(cont, "pref_rotate_screen_orientation", getResources().getConfiguration().orientation);
+            }
+            return true;
+        }
+else return false;
+    }
+            };
+public void startLoadOrSaveSettings(boolean save) {
+    Intent i=new Intent(save?Intent.ACTION_CREATE_DOCUMENT:Intent.ACTION_OPEN_DOCUMENT).addCategory(Intent.CATEGORY_OPENABLE).putExtra("android.content.extra.SHOW_ADVANCED", true).putExtra("android.provider.extra.SHOW_ADVANCED", true)
+            //.putExtra(Intent.EXTRA_MIME_TYPES,new String[] {"text/plain"})
+            .setType("text/plain");
+    if(save) i.putExtra(Intent.EXTRA_TITLE,"prefs.txt");
+    getActivity().startActivityForResult(i,save?1:2);
+}
+
+        @Override
+        public void onActivityResult(int requestCode, int resultCode, Intent data) {
+            if (resultCode != RESULT_OK || data == null) return;
+            try {
+                if (requestCode == 1) {
+                    saveSettings(getContext().getContentResolver().openOutputStream(data.getData()));
+                } else
+                    loadSettings(getContext().getContentResolver().openInputStream(data.getData()));
+            } catch (Exception e  ) {
+                new MyApp.ExceptionCatcher(Thread.getDefaultUncaughtExceptionHandler()) {
+                    @Override
+                    protected Context getContext() {
+                        return MyPreferenceFragment.this.getContext();
+                    }
+                }.uncaughtException(Thread.currentThread(), e);
+            }
+}
+        @Override
+        public void onCreatePreferences(@Nullable Bundle savedInstanceState, String rootKey) {
+
+        }
+
+        @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             cont = getActivity();
@@ -105,52 +196,12 @@ public class PreferencesActivity extends AppCompatActivity {
             cbp7 = (Preference) findPreference("pref_prayers_fonts_ru");
             cbp8 = (Preference) findPreference("pref_prayers_fonts_cs");
             cbp9 = (Preference) findPreference("pref_black_fon_color");
+            saveLoadPref=(saveAndLoadPreference) findPreference("save_and_load_settings");
+            if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.KITKAT) saveLoadPref.setOnClickListener(l); else saveLoadPref.setVisible(false);
             getNotifiSetting();
-            cbp1.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-                @Override
-                public boolean onPreferenceChange(Preference preference, Object newValue) {
-                    // TODO Auto-generated method stub
-                    Noti_flag = (boolean) newValue;
-                    if (Noti_flag) {
-                        // Log.d(TAG, "MyScheduledReceiver.setAlarm(cont)");
-                        MyScheduledReceiver.setAlarm(cont);
-                    } else {
-                        // Log.d(TAG, "MyScheduledReceiver.cancelAlarm(cont)");
-                        MyScheduledReceiver.cancelAlarm(cont);
-                    }
-                    return true;
-                }
-            });
-            cbp4.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-                @Override
-                public boolean onPreferenceChange(Preference preference, Object newValue) {
-                    if (Noti_flag && time != Integer.parseInt((String) newValue)) {
-                        time = Integer.parseInt((String) newValue);
-                        cbp4.setSummary(cbp4.getEntries()[cbp4.findIndexOfValue((String) newValue)]);
-                        cbp1.setSummary(tomorrowDate());
-//mSH.setAlarm(cont,time);
-                    }
-                    MyScheduledReceiver.setAlarm(cont, time);
-                    return true;
-                }
-            });
-            cbp6.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-                @Override
-                public boolean onPreferenceChange(Preference preference,
-                                                  Object newValue) {
-                    // TODO Auto-generated method stub
-                    if ((Boolean) newValue) {
-                        Log.d(TAG, "orientation_1=" + getResources().getConfiguration().orientation);
-                        WriteInt(cont, "pref_rotate_screen_orientation", 0);
-
-                    } else {
-                        Log.d(TAG, "orientation_2=" + getResources().getConfiguration().orientation);
-                        WriteInt(cont, "pref_rotate_screen_orientation", getResources().getConfiguration().orientation);
-
-                    }
-                    return true;
-                }
-            });
+            cbp1.setOnPreferenceChangeListener(pL);
+            cbp4.setOnPreferenceChangeListener(pL);
+            cbp6.setOnPreferenceChangeListener(pL);
 
             /*
              * cbp4.setOnPreferenceClickListener(new OnPreferenceClickListener()
@@ -162,6 +213,7 @@ public class PreferencesActivity extends AppCompatActivity {
              * newFragment.show(getFragmentManager(),"TimePicker"); return
              * false; } });
              */
+
         }
 
         public class TimePickerFragment extends DialogFragment implements
@@ -234,9 +286,11 @@ public class PreferencesActivity extends AppCompatActivity {
                 Noti_flag = prefs.getBoolean("pref_notifi_setting", true);
                 if (Noti_flag) {
                     cbp1.setSummary(tomorrowDate());
+                    ((CheckBoxPreference) cbp1).setChecked(true);
                     cbp5.setEnabled(true);
                 } else {
                     cbp1.setSummary("Выключено");
+                    ((CheckBoxPreference) cbp1).setChecked(false);
                     cbp5.setEnabled(false);
                 }
             }
@@ -262,20 +316,29 @@ public class PreferencesActivity extends AppCompatActivity {
             }
             if (cbp4 != null) {
                 time = Integer.parseInt(prefs.getString("pref_notifi_time", "0"));
+                cbp4.setValueIndex(time);
                 cbp4.setSummary(cbp4.getEntry());
                 cbp4.setEnabled(Noti_flag);
             }
             if (cbp5 != null) {
-                if (prefs.getBoolean("pref_notifi_sound", true))
+                if (prefs.getBoolean("pref_notifi_sound", true)) {
                     cbp5.setSummary("Включен");
-                else
+                    ((CheckBoxPreference) cbp5).setChecked(true);
+                }
+                else {
                     cbp5.setSummary("Отключен");
+                    ((CheckBoxPreference) cbp5).setChecked(false);
+                }
             }
             if (cbp6 != null) {
-                if (prefs.getBoolean("pref_rotate_screen_setting", true))
+                if (prefs.getBoolean("pref_rotate_screen_setting", true)) {
                     cbp6.setSummary("Включен");
-                else
+                    ((CheckBoxPreference) cbp6).setChecked(true);
+                }
+                else {
                     cbp6.setSummary("Отключен");
+                    ((CheckBoxPreference) cbp6).setChecked(false);
+                }
             }
 
             if (cbp7 != null) {
@@ -402,8 +465,8 @@ public class PreferencesActivity extends AppCompatActivity {
             String[] mylist = TextUtils.split(tmp, "‚#‚");
             return new ArrayList<String>(Arrays.asList(mylist));
         }
-public static void saveSettings(Context context, OutputStream stream) throws IOException {
-    SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(context);
+public  void saveSettings(OutputStream stream) throws IOException {
+    SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(getContext());
     ObjectOutputStream o=new ObjectOutputStream(stream);
     o.writeObject(settings.getAll());
     o.flush();
@@ -411,34 +474,48 @@ public static void saveSettings(Context context, OutputStream stream) throws IOE
     stream.flush();
     stream.close();
 }
-public static void loadSettings(Context context,InputStream stream) throws IOException {
-    Editor prefs = PreferenceManager.getDefaultSharedPreferences(context).edit();
-    ObjectInputStream o = new ObjectInputStream(stream);
+public void loadSettings(InputStream stream) throws IOException {
+    SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(getActivity());
+    Editor prefs =settings.edit();
+    //Для отладки,чтобы понять,какие ключи изменились.
+    List<Map.Entry<String,?>> entries= new ArrayList<>(12);
+    Map<String,?> keys=settings.getAll();
+                ObjectInputStream o = new ObjectInputStream(stream);
     try {
-        Map<String, ?> settings = (Map<String, ?>) o.readObject();
-        prefs.clear();
-        for (Map.Entry<String, ?> entry : settings.entrySet()) {
+        Map<String, ?> params = (Map<String, ?>) o.readObject();
+        for (Map.Entry<String, ?> entry : params.entrySet()) {
             Object v = entry.getValue();
-            if (v instanceof Boolean) {
+                        if (v instanceof Boolean &&((Boolean) v).booleanValue()!=((Boolean) keys.get(entry.getKey())).booleanValue()) {
                 prefs.putBoolean(entry.getKey(), ((Boolean) v).booleanValue());
-                if (entry.getKey().equals(KEY_PREF_NOTIFI))
-                    Noti_flag = ((Boolean) v).booleanValue();
-            } else if (v instanceof Float)
-                prefs.putFloat(entry.getKey(), ((Float) v).floatValue());
-            else if (v instanceof Integer)
-                prefs.putInt(entry.getKey(), ((Integer) v).intValue());
-            else if (v instanceof Long)
-                prefs.putLong(entry.getKey(), ((Long) v).longValue());
-            else if (v instanceof String)
+                if (entry.getKey().equals(KEY_PREF_NOTIFI)) Noti_flag = ((Boolean) v).booleanValue();
+                entries.add(entry);
+            } else if (v instanceof Float &&((Float) v).floatValue()!=((Float) keys.get(entry.getKey())).floatValue()) {
+                            prefs.putFloat(entry.getKey(), ((Float) v).floatValue());
+                                                   entries.add(entry);
+                        }
+            else if (v instanceof Integer &&((Integer) v).intValue()!=((Integer) keys.get(entry.getKey())).intValue()) {
+                            prefs.putInt(entry.getKey(), ((Integer) v).intValue());
+                            if (entry.getKey().equals(KEY_PREF_NOTIFI)) Noti_flag = ((Boolean) v).booleanValue();
+                            entries.add(entry);
+                        }
+            else if (v instanceof Long &&((Long) v).longValue()!=((Long) keys.get(entry.getKey())).longValue()) {
+                            prefs.putLong(entry.getKey(), ((Long) v).longValue());
+                            entries.add(entry);
+                        }
+            else if (v instanceof String &&!((String) v).equals(((String) keys.get(entry.getKey())))) {
                 prefs.putString(entry.getKey(), ((String) v));
-            else if (v instanceof Set)
+                entries.add(entry);
+            }
+            else if (v instanceof Set &&!((Set) v).equals(((Set) keys.get(entry.getKey())))) {
                 prefs.putStringSet(entry.getKey(), ((Set) v));
+                entries.add(entry);
+            }
         }
         stream.close();
         o.close();
         prefs.commit();
-        if (Noti_flag) MyScheduledReceiver.setAlarm(context);
-        else MyScheduledReceiver.cancelAlarm(context);
+        if (Noti_flag) MyScheduledReceiver.setAlarm(getActivity());
+        else MyScheduledReceiver.cancelAlarm(getActivity());
     }
     catch (ClassNotFoundException e) {
     }
@@ -450,6 +527,9 @@ try {
 catch(IOException ex) {
 
 }
+    }
+    if(entries.size()>0) {
+        getNotifiSetting();
     }
 }
         @Override

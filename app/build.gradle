@@ -32,7 +32,7 @@ android {
     compileSdkVersion 31
     buildToolsVersion '31.0.0'
     defaultConfig {
-        minSdkVersion 19
+        minSdkVersion 14
         targetSdkVersion 30
         versionCode 118
         versionName '1.14.28'
@@ -87,4 +87,5 @@ dependencies {
     implementation 'androidx.fragment:fragment:1.4.1'
     implementation 'androidx.cursoradapter:cursoradapter:1.0.0'
     implementation 'androidx.viewpager:viewpager:1.0.0'
+    implementation 'androidx.preference:preference:1.2.0'
 }

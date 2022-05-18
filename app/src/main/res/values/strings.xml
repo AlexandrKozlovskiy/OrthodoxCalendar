@@ -21,8 +21,6 @@
 <string name="help">Справочник</string>
 	<string name="other_options">ДРУГИЕ ОПЦИИ</string>
 	<string name="settings">Настройки</string>
-<string name="save_settings">Сохранить настройки</string>
-	<string name="load_settings">Загрузить настройки</string>
 <string name="help_to_project">Помочь проекту</string>
 <string name="rate_project">Оценить проект</string>
 <string name="about">О программе</string>
@@ -54,6 +52,8 @@
 	<string name="preference_category1">Уведомления</string>
 	<string name="preference_category2">Внешний вид</string>
 	<string name="preference_category3">Общие</string>
+	<string name="save_settings">Сохранить настройки</string>
+	<string name="load_settings">Загрузить настройки</string>
 	<string name="new_style_name">Новый стиль</string>
 	<string name="old_style_name">Старый стиль</string>
 	<string name="full_name_easter">Пасха. Воскресение Христово</string>

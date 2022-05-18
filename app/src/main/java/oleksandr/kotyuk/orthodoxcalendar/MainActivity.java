@@ -166,8 +166,6 @@ mTitle = mDrawerTitle = getTitle();
  // добавляємо заголовок в список
  dataList.add(new DrawerItem(getString(R.string.other_options)));
   dataList.add(new DrawerItem(getString(R.string.settings), R.drawable.ic_action_settings));
- dataList.add(new DrawerItem(getString(R.string.save_settings), R.drawable.ic_action_settings));
- dataList.add(new DrawerItem(getString(R.string.load_settings), R.drawable.ic_action_settings));
  dataList.add(new DrawerItem(getString(R.string.help_to_project), R.drawable.ic_action_help));
  dataList.add(new DrawerItem(getString(R.string.rate_project), R.drawable.ic_action_rating));
  dataList.add(new DrawerItem(getString(R.string.about), R.drawable.ic_action_about));
@@ -246,26 +244,6 @@ undf.show(getSupportFragmentManager(), "dialog_update_news");
  Editor editor = sp.edit();
  editor.putInt(NUMBER_PROGRAM, correct_num_prog);
  editor.commit();
-}
-}
-
- @Override
- protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-  super.onActivityResult(requestCode, resultCode, data);
-  if(resultCode!=RESULT_OK ||data==null) return;
-try {
- if (requestCode == 1) {
-  PreferencesActivity.MyPreferenceFragment.saveSettings(getApplicationContext(), getContentResolver().openOutputStream(data.getData()));
- } else
-  PreferencesActivity.MyPreferenceFragment.loadSettings(getApplicationContext(), getContentResolver().openInputStream(data.getData()));
-}
-catch (Exception e) {
-new MyApp.ExceptionCatcher(Thread.getDefaultUncaughtExceptionHandler()) {
- @Override
- protected Context getContext() {
-  return getApplicationContext();
- }
-}.uncaughtException(Thread.currentThread(),e);
 }
 }
 
@@ -971,7 +949,7 @@ public void SelectItemDayMonth() {
 public void SelectItem(int position) {
  if (list_position_st != position) {
 
- if (position >= 10 && position <= 14 &&position!=13) {
+ if (position ==10 || position == 12) {
   //menu_flag_group=false;
   mDrawerList.setItemChecked(list_position_st, true);
   mDrawerLayout.closeDrawer(mDrawerList);
@@ -980,16 +958,7 @@ public void SelectItem(int position) {
   Intent intent_p = new Intent(this, PreferencesActivity.class);
   startActivity(intent_p);
   }
-  else if(position==11 ||position==12) {
-//Сохраняем или загружаем настройки.
-   Intent i=new Intent(position==11?Intent.ACTION_CREATE_DOCUMENT:Intent.ACTION_OPEN_DOCUMENT);
-   i.addCategory(Intent.CATEGORY_OPENABLE);
-   if(position==11) i.putExtra(Intent.EXTRA_TITLE,"prefs.txt");
-   i.putExtra("android.content.extra.SHOW_ADVANCED", true).putExtra("android.provider.extra.SHOW_ADVANCED", true)
-           //.putExtra(Intent.EXTRA_MIME_TYPES,new String[] {"text/plain"})
-   .setType("text/plain");
-startActivityForResult(i,position-10); //один или два.
-  }
+
   else {
   Intent intent_m = new Intent(Intent.ACTION_VIEW);
   intent_m.setData(Uri
@@ -1240,7 +1209,7 @@ menuActivPrayers ();
   args.putInt(FragmentDirectory.IMAGE_RESOURCE_ID,
    dataList.get(position).getImgResID());
   break;
-  case 13:
+  case 11:
   menu_flag_group_st=false;
   bar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
   menu_activ_st = false;
@@ -1261,7 +1230,7 @@ menuActivPrayers ();
   args.putInt(FragmentHelp.IMAGE_RESOURCE_ID,
    dataList.get(position).getImgResID());
   break;
-  case 15:
+  case 13:
   menu_flag_group_st=false;
   bar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
   menu_activ_st = false;
