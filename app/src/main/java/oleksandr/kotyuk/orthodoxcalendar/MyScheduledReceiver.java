@@ -52,7 +52,7 @@ public class MyScheduledReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Noti_flag = PreferencesActivity.MyPreferenceFragment.ReadBoolean(context, "pref_notifi_setting", true);
+        Noti_flag = PreferencesActivity.MyPreferenceFragment.ReadBoolean(context, PreferencesActivity.MyPreferenceFragment.KEY_PREF_NOTIFI, true);
         if (Noti_flag) {
             if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
                 Log.i("Autostart", "Boot was completed with action " + intent.getAction() + ".");

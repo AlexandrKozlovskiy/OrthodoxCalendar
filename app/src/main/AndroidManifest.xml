@@ -14,8 +14,7 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <meta-data android:name="android.max_aspect" android:value="2.1" />
-        <activity
+<activity
             android:name="oleksandr.kotyuk.orthodoxcalendar.SplashScreen"
             android:launchMode="singleTask"
             android:configChanges="keyboardHidden|orientation|screenSize"
@@ -128,20 +127,6 @@
             </intent-filter>
         </receiver>
         <receiver android:name="oleksandr.kotyuk.orthodoxcalendar.widget.NotificationCancel" />
-        <activity
-            android:name="DescriptionHolyActivity"
-            android:launchMode="singleTask"
-            android:configChanges="keyboardHidden|orientation|screenSize"
-            android:exported="true"
-            android:theme="@style/Theme.AppCompat.Light.DarkActionBar" >
-            <intent-filter>
-                <data
-                    android:host="DescriptionHolyActivityHostFree"
-                    android:scheme="activity-run" />
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
 
         <activity
             android:name="DescriptionActivity"
@@ -208,6 +193,9 @@
                     android:scheme="activity-run" />
                 <data
                     android:host="DescriptionLessonsActivityHostFree"
+                    android:scheme="activity-run" />
+                <data
+                    android:host="DescriptionHolyActivityHostFree"
                     android:scheme="activity-run" />
                 <action android:name="android.intent.action.VIEW" />
 

@@ -1,55 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <PreferenceCategory android:title="@string/preference_category2" >
-        <ListPreference
+    <androidx.preference.PreferenceCategory android:title="@string/preference_category2" >
+        <androidx.preference.ListPreference
             android:defaultValue="0"
             android:entries="@array/entries_text_size"
             android:entryValues="@array/entries_text_size_values"
             android:key="pref_text_size"
             android:summary="@string/list3_summary1"
             android:title="@string/list3_title" >
-        </ListPreference>
-        <ListPreference
+        </androidx.preference.ListPreference>
+        <androidx.preference.ListPreference
             android:defaultValue="black"
             android:entries="@array/entries_black_fon_color"
             android:entryValues="@array/entry_black_fon_color_values"
             android:key="pref_black_fon_color"
             android:summary="@string/list9_summary"
             android:title="@string/list9_title" >
-        </ListPreference>
-        <ListPreference
+        </androidx.preference.ListPreference>
+        <androidx.preference.ListPreference
             android:defaultValue="ru"
             android:entries="@array/entries_prayers"
             android:entryValues="@array/entry_prayers_values"
             android:key="pref_prayers_language"
             android:summary="@string/list2_summary1"
             android:title="@string/list2_title" >
-        </ListPreference>
-        <ListPreference
+        </androidx.preference.ListPreference>
+        <androidx.preference.ListPreference
             android:defaultValue="1"
             android:entries="@array/entries_prayers_fonts_ru"
             android:entryValues="@array/entry_prayers_fonts_ru_values"
             android:key="pref_prayers_fonts_ru"
             android:summary="@string/list7_summary"
             android:title="@string/list7_title" >
-        </ListPreference>
-        <ListPreference
+        </androidx.preference.ListPreference>
+        <androidx.preference.ListPreference
             android:defaultValue="1"
             android:entries="@array/entries_prayers_fonts_cs"
             android:entryValues="@array/entry_prayers_fonts_cs_values"
             android:key="pref_prayers_fonts_cs"
             android:summary="@string/list8_summary"
             android:title="@string/list8_title" >
-        </ListPreference>
-    </PreferenceCategory>
-    <PreferenceCategory android:title="@string/preference_category1" >
-        <CheckBoxPreference
+        </androidx.preference.ListPreference>
+    </androidx.preference.PreferenceCategory>
+    <androidx.preference.PreferenceCategory android:title="@string/preference_category1" >
+        <androidx.preference.CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_notifi_setting"
             android:summary="@string/list1_summary"
             android:title="@string/list1_title" />
-        <CheckBoxPreference
+        <androidx.preference.CheckBoxPreference
             android:defaultValue="false"
             android:key="pref_notifi_sound"
             android:summary="@string/list4_summary1"
@@ -58,21 +58,23 @@
             android:key="pref_notifi_time"
             android:summary="@string/list5_summary1"
             android:title="@string/list5_title" /> -->
-        <ListPreference
+        <androidx.preference.ListPreference
             android:entries="@array/entries_notifi_time"
             android:entryValues="@array/entries_notifi_time_values"
             android:key="pref_notifi_time"
             android:defaultValue="0"
             android:title="@string/list5_title" >
-        </ListPreference>
-    </PreferenceCategory>
-    <PreferenceCategory android:title="@string/preference_category3" >
-        <CheckBoxPreference
+        </androidx.preference.ListPreference>
+    </androidx.preference.PreferenceCategory>
+    <androidx.preference.PreferenceCategory android:title="@string/preference_category3" >
+        <androidx.preference.CheckBoxPreference
             android:defaultValue="true"
             android:key="pref_rotate_screen_setting"
             android:summary="@string/list6_summary"
             android:title="@string/list6_title" />
 
-    </PreferenceCategory>
+    </androidx.preference.PreferenceCategory>
+<oleksandr.kotyuk.orthodoxcalendar.saveAndLoadPreference
+    android:key="save_and_load_settings"/>
 
-</PreferenceScreen>
+</androidx.preference.PreferenceScreen>
