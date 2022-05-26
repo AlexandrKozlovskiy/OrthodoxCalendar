@@ -81,6 +81,7 @@ public class PreferencesActivity extends AppCompatActivity {
         Preference cbp8;
         Preference cbp9;
         SharedPreferences prefs;
+
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             cont = getActivity();

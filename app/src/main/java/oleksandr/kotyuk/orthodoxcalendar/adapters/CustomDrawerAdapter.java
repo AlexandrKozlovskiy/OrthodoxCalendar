@@ -19,18 +19,19 @@ import oleksandr.kotyuk.orthodoxcalendar.models.DrawerItem;
 
 public class CustomDrawerAdapter extends ArrayAdapter<DrawerItem> {
 
-Context context;
-List<DrawerItem> drawerItemList;
-int layoutResID;
+    Context context;
+    List<DrawerItem> drawerItemList;
+    int layoutResID;
 
-public CustomDrawerAdapter(Context context, int layoutResourceID,
- List<DrawerItem> listItems) {
- super(context, layoutResourceID, listItems);
- this.context = context;
- this.drawerItemList = listItems;
- this.layoutResID = layoutResourceID;
+    public CustomDrawerAdapter(Context context, int layoutResourceID,
+                               List<DrawerItem> listItems) {
+        super(context, layoutResourceID, listItems);
+        this.context = context;
+        this.drawerItemList = listItems;
+        this.layoutResID = layoutResourceID;
 
-}
+    }
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         DrawerItemHolder drawerHolder;
@@ -47,16 +48,14 @@ public CustomDrawerAdapter(Context context, int layoutResourceID,
             drawerHolder.itemLayout = (LinearLayout) convertView
                     .findViewById(R.id.itemLayout);
             convertView.setTag(drawerHolder);
-        }
-        else drawerHolder = (DrawerItemHolder) convertView.getTag();
+        } else drawerHolder = (DrawerItemHolder) convertView.getTag();
         DrawerItem dItem = (DrawerItem) this.drawerItemList.get(position);
         if (dItem.getTitle() != null) {
             drawerHolder.headerLayout.setVisibility(LinearLayout.VISIBLE);
             drawerHolder.itemLayout.setVisibility(LinearLayout.INVISIBLE);
             drawerHolder.title.setText(dItem.getTitle());
-            ViewCompat.setAccessibilityHeading(convertView,true);
-}
-        else {
+            ViewCompat.setAccessibilityHeading(convertView, true);
+        } else {
             drawerHolder.headerLayout.setVisibility(LinearLayout.INVISIBLE);
             drawerHolder.itemLayout.setVisibility(LinearLayout.VISIBLE);
             drawerHolder.icon.setImageDrawable(convertView.getResources().getDrawable(
@@ -66,9 +65,9 @@ public CustomDrawerAdapter(Context context, int layoutResourceID,
         return convertView;
     }
 
-private static class DrawerItemHolder {
- MyView ItemName, title;
- ImageView icon;
- LinearLayout headerLayout, itemLayout;
-}
+    private static class DrawerItemHolder {
+        MyView ItemName, title;
+        ImageView icon;
+        LinearLayout headerLayout, itemLayout;
+    }
 }

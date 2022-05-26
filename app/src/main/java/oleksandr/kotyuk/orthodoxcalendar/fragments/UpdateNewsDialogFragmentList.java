@@ -14,7 +14,7 @@ import oleksandr.kotyuk.orthodoxcalendar.R;
 public class UpdateNewsDialogFragmentList extends DialogFragment {
 
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        String[] versions=getResources().getStringArray(R.array.versions);
+        String[] versions = getResources().getStringArray(R.array.versions);
         return new AlertDialog.Builder(getActivity())
                 // Set Dialog Icon
                 //.setIcon(R.drawable.androidhappy)

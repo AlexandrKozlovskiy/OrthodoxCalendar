@@ -30,9 +30,10 @@ import oleksandr.kotyuk.orthodoxcalendar.db.DatabaseHelper;
 import oleksandr.kotyuk.orthodoxcalendar.models.MyCalendar;
 
 public class MyScheduledReceiver extends BroadcastReceiver {
-static interface StopServiceListener {
+    static interface StopServiceListener {
         void stopService();
     }
+
     private static String ru_great_holiday = "";
     private static String ru_big_holiday = "";
     private static String post = "";
@@ -46,8 +47,9 @@ static interface StopServiceListener {
     private static Boolean Noti_flag;
     private static String millisKey = "millis";
     private static final int NOTIFICATION_ID = 123;
-    private static             ExecutorService service;
+    private static ExecutorService service;
     public static StopServiceListener l;
+
     @Override
     public void onReceive(Context context, Intent intent) {
         Noti_flag = PreferencesActivity.MyPreferenceFragment.ReadBoolean(context, "pref_notifi_setting", true);
@@ -58,13 +60,14 @@ static interface StopServiceListener {
             } else if (Intent.ACTION_DATE_CHANGED.equals(intent.getAction()) || Intent.ACTION_TIME_CHANGED.equals(intent.getAction()) || Intent.ACTION_TIMEZONE_CHANGED.equals(intent.getAction())) {
                 long millis = Long.parseLong(PreferencesActivity.MyPreferenceFragment.ReadString(context, millisKey, "0")) - System.currentTimeMillis();
                 //Проверяем разницу между временем,в которое должно поступить уведомление,и реальным системным временем. Возьмём,к примеру,10 секунд.
-                if(wholeDayInMillis-millis<=10000) {
-Intent i=new Intent(context,notificationService.class);
-if(Build.VERSION.SDK_INT<Build.VERSION_CODES.O) context.startService(i); else context.startForegroundService(i);
-}
-                else setAlarm(context);
-            } else if (AlarmManager.ACTION_SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED.equals(intent.getAction())) setAlarm(context);
-                //else if(wholeDayInMillis==millis) onAlarm(context);
+                if (wholeDayInMillis - millis <= 10000) {
+                    Intent i = new Intent(context, notificationService.class);
+                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) context.startService(i);
+                    else context.startForegroundService(i);
+                } else setAlarm(context);
+            } else if (AlarmManager.ACTION_SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED.equals(intent.getAction()))
+                setAlarm(context);
+            //else if(wholeDayInMillis==millis) onAlarm(context);
             //else onAlarm(context);
         }
     }
@@ -80,86 +83,88 @@ if(Build.VERSION.SDK_INT<Build.VERSION_CODES.O) context.startService(i); else co
     public static void onAlarm(Context context) {
         cal.setTodayDate();
         time = Integer.parseInt(PreferencesActivity.MyPreferenceFragment.ReadString(context, "pref_notifi_time", "0"));
-        if (cal.getHours()  == time && cal.getMinutes() == 0) {
+        if (cal.getHours() == time && cal.getMinutes() == 0) {
             Log.d(TAG, "cal.getFullNameDate()= " + cal.getFullNameDate());
-            SharedPreferences sp=context.getSharedPreferences(SplashScreen.WIDGET_PREF,Context.MODE_PRIVATE);
-                        Runnable r=() -> {
-                            cal.AddDayNew(time >= PreferencesActivity.MyPreferenceFragment.minTimeForNextDate ? 1 : 0);
-                            addDataArray(context);
+            SharedPreferences sp = context.getSharedPreferences(SplashScreen.WIDGET_PREF, Context.MODE_PRIVATE);
+            Runnable r = () -> {
+                cal.AddDayNew(time >= PreferencesActivity.MyPreferenceFragment.minTimeForNextDate ? 1 : 0);
+                addDataArray(context);
                 sendNotif(context);
                 cal.AddDayNew(time >= PreferencesActivity.MyPreferenceFragment.minTimeForNextDate ? -1 : 0);
 //Устанавливаем alarm на следующий день,но на это же время.
                 setAlarm(context, cal.getTimeInMillis() + wholeDayInMillis);
-                            if(service!=null) {
-service.shutdownNow();
-service =null;
-                            }
-                            if(l!=null) {
-l.stopService();
-l =null;
-                            }
+                if (service != null) {
+                    service.shutdownNow();
+                    service = null;
+                }
+                if (l != null) {
+                    l.stopService();
+                    l = null;
+                }
             };
-            if(DatabaseHelper.shouldUpdateDb(sp)<1) {
-service= Executors.newSingleThreadExecutor();
+            if (DatabaseHelper.shouldUpdateDb(sp) < 1) {
+                service = Executors.newSingleThreadExecutor();
                 service.execute(() -> {
-                    db = DatabaseHelper.getInstance(context,sp);
+                    db = DatabaseHelper.getInstance(context, sp);
                     new Handler(Looper.getMainLooper()).post(r);
-});
-            }
-else {
+                });
+            } else {
                 db = DatabaseHelper.getInstance(context);
                 r.run();
             }
         }
 //alarm не правильный,значит устанавливаем его на время согласно наших настроек.
         else {
-setAlarm(context, getTimeForAlarm(false));
-if(l!=null) {
-l.stopService();
-l=null;
-}
+            setAlarm(context, getTimeForAlarm(false));
+            if (l != null) {
+                l.stopService();
+                l = null;
+            }
         }
     }
-public static Notification sendNotif(Context context, CharSequence ticker, CharSequence channelTitle, CharSequence title,CharSequence text,boolean forground) {
-    Intent notificationIntent = new Intent(context, SplashScreen.class);
-    notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
-            | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-    //******************************************
-    notificationIntent.putExtra("notifi_date_app_start", cal.getTodayDay());
-    //******************************************
-    PendingIntent contentIntent = PendingIntent.getActivity(context,
-            0, notificationIntent,
-            PendingIntent.FLAG_CANCEL_CURRENT);
-    Resources res = context.getResources();
-    String channelId = "OrthodoxCalendar";
-    NotificationCompat.Builder builder = new NotificationCompat.Builder(context, channelId).setContentIntent(contentIntent)
-            .setSmallIcon(R.drawable.ic_stat_action_today)
-            // большая картинка
-            .setLargeIcon(BitmapFactory.decodeResource(res, R.drawable.ic_launcher))
-            // текст в строке состояния
-            .setTicker(ticker)
-            .setWhen(System.currentTimeMillis())
-            .setAutoCancel(!forground)
-            .setOngoing(forground)
-            // Заголовок уведомления
-            .setContentTitle(title)
-            // Текст уведомления
-            .setContentText(text)
-            .setDefaults(Notification.DEFAULT_LIGHTS)
-            //.setColor(context.getResources().getColor(R.color.BLACK));
-            .setPriority(NotificationManagerCompat.IMPORTANCE_DEFAULT);
-    Notification notification = builder.build();
-    if (PreferencesActivity.MyPreferenceFragment.ReadBoolean(context, "pref_notifi_sound", true))
-        notification.defaults |= Notification.DEFAULT_SOUND;
-    NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context.getApplicationContext());
-    if (notificationManager.getNotificationChannel(channelId) == null)
-        notificationManager.createNotificationChannel(new NotificationChannelCompat.Builder(channelId, NotificationManagerCompat.IMPORTANCE_DEFAULT).setName(channelTitle).build());
-    if(!forground)notificationManager.notify(NOTIFICATION_ID, notification);
-    return notification;
-}
-    public static Notification sendNotif(Context context, CharSequence ticker, CharSequence channelTitle, CharSequence title,CharSequence text) {
-return sendNotif(context,ticker, channelTitle,title,text,false);
+
+    public static Notification sendNotif(Context context, CharSequence ticker, CharSequence channelTitle, CharSequence title, CharSequence text, boolean forground) {
+        Intent notificationIntent = new Intent(context, SplashScreen.class);
+        notificationIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
+                | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        //******************************************
+        notificationIntent.putExtra("notifi_date_app_start", cal.getTodayDay());
+        //******************************************
+        PendingIntent contentIntent = PendingIntent.getActivity(context,
+                0, notificationIntent,
+                PendingIntent.FLAG_CANCEL_CURRENT);
+        Resources res = context.getResources();
+        String channelId = "OrthodoxCalendar";
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(context, channelId).setContentIntent(contentIntent)
+                .setSmallIcon(R.drawable.ic_stat_action_today)
+                // большая картинка
+                .setLargeIcon(BitmapFactory.decodeResource(res, R.drawable.ic_launcher))
+                // текст в строке состояния
+                .setTicker(ticker)
+                .setWhen(System.currentTimeMillis())
+                .setAutoCancel(!forground)
+                .setOngoing(forground)
+                // Заголовок уведомления
+                .setContentTitle(title)
+                // Текст уведомления
+                .setContentText(text)
+                .setDefaults(Notification.DEFAULT_LIGHTS)
+                //.setColor(context.getResources().getColor(R.color.BLACK));
+                .setPriority(NotificationManagerCompat.IMPORTANCE_DEFAULT);
+        Notification notification = builder.build();
+        if (PreferencesActivity.MyPreferenceFragment.ReadBoolean(context, "pref_notifi_sound", true))
+            notification.defaults |= Notification.DEFAULT_SOUND;
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context.getApplicationContext());
+        if (notificationManager.getNotificationChannel(channelId) == null)
+            notificationManager.createNotificationChannel(new NotificationChannelCompat.Builder(channelId, NotificationManagerCompat.IMPORTANCE_DEFAULT).setName(channelTitle).build());
+        if (!forground) notificationManager.notify(NOTIFICATION_ID, notification);
+        return notification;
     }
+
+    public static Notification sendNotif(Context context, CharSequence ticker, CharSequence channelTitle, CharSequence title, CharSequence text) {
+        return sendNotif(context, ticker, channelTitle, title, text, false);
+    }
+
     static void sendNotif(Context context) {
         StringBuilder sb = new StringBuilder("");
         if (!ru_great_holiday.equals("") && ru_great_holiday.length() > 1) {
@@ -183,7 +188,7 @@ return sendNotif(context,ticker, channelTitle,title,text,false);
             //Log.d(TAG,"StringIndexOutOfBoundsException1= " + i);
             //Log.d(TAG,"StringIndexOutOfBoundsException2= " + e.toString());
             //Log.d(TAG,"StringIndexOutOfBoundsException3= " + sb.toString());
-            sendNotif(context,"Смузи","Новое смузи","Смузи из банана",e.getMessage());
+            sendNotif(context, "Смузи", "Новое смузи", "Смузи из банана", e.getMessage());
         }
         //sb.replace(i, i+2, ("<br>"+values+"<br>"));
         Log.d(TAG, "sendNotif2= " + sb.toString());
@@ -200,13 +205,13 @@ return sendNotif(context,ticker, channelTitle,title,text,false);
             str = sb.toString();
         }
         Log.d(TAG, "sendNotif3= " + sb.toString());
-sendNotif(context,context.getString(R.string.app_name),context.getString(R.string.app_name),Html.fromHtml(str),post);
+        sendNotif(context, context.getString(R.string.app_name), context.getString(R.string.app_name), Html.fromHtml(str), post);
     }
 
-public static void cancelNotification(Context context,int id) {
-    NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context.getApplicationContext());
-    notificationManager.cancel(id);
-}
+    public static void cancelNotification(Context context, int id) {
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context.getApplicationContext());
+        notificationManager.cancel(id);
+    }
 
     public static String findTextVisYear(Context context) {
         String text_holiday_vis_year = "";
@@ -222,7 +227,7 @@ public static void cancelNotification(Context context,int id) {
                             .getColumnIndex("holiday_month"));
                 } catch (NumberFormatException e) {
                     // Log.d(TAG, "ERROR=" + e.toString());
-                    sendNotif(context,"тест","новый тест","ещё один тест",e.toString());
+                    sendNotif(context, "тест", "новый тест", "ещё один тест", e.toString());
                 }
             }
             cursor.close();
@@ -282,7 +287,7 @@ public static void cancelNotification(Context context,int id) {
             cursor.close();
         } else {
             ru_great_holiday = "Проверьте дату на устройстве";
-            post = "2019г-2022гг.";
+            post = "2020г-2023гг.";
         }
         int y = cal.getYear();
         int m = cal.getMonth() + 1;
@@ -346,13 +351,14 @@ public static void cancelNotification(Context context,int id) {
     public static Long getTimeForAlarm() {
         return getTimeForAlarm(true);
     }
+
     public static void setAlarm(Context context, Long time) {
         PreferencesActivity.MyPreferenceFragment.WriteString(context, millisKey, time + "");
         AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         Intent myIntentR1 = new Intent(context, notificationService.class);
         /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
             myIntentR1.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);*/
-PendingIntent pendingIntentR1 = Build.VERSION.SDK_INT <Build.VERSION_CODES.O ? PendingIntent.getService(context, 1, myIntentR1, PendingIntent.FLAG_UPDATE_CURRENT):PendingIntent.getForegroundService(context, 1, myIntentR1, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntentR1 = Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? PendingIntent.getService(context, 1, myIntentR1, PendingIntent.FLAG_UPDATE_CURRENT) : PendingIntent.getForegroundService(context, 1, myIntentR1, PendingIntent.FLAG_UPDATE_CURRENT);
         manager.cancel(pendingIntentR1);
         int type = AlarmManager.RTC_WAKEUP;
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT || (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && !manager.canScheduleExactAlarms()))
@@ -375,7 +381,7 @@ PendingIntent pendingIntentR1 = Build.VERSION.SDK_INT <Build.VERSION_CODES.O ? P
 
     public static void cancelAlarm(Context context) {
         Intent myIntent = new Intent(context, notificationService.class);
-        PendingIntent pendingIntent = Build.VERSION.SDK_INT <Build.VERSION_CODES.O ? PendingIntent.getService(context, 1, myIntent, PendingIntent.FLAG_UPDATE_CURRENT):PendingIntent.getForegroundService(context, 1, myIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntent = Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? PendingIntent.getService(context, 1, myIntent, PendingIntent.FLAG_UPDATE_CURRENT) : PendingIntent.getForegroundService(context, 1, myIntent, PendingIntent.FLAG_UPDATE_CURRENT);
         Log.d(TAG, "!!!cancelAlarm!!!");
         AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         manager.cancel(pendingIntent);

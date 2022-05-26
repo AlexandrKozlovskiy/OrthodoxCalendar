@@ -19,378 +19,378 @@ import oleksandr.kotyuk.orthodoxcalendar.db.DatabaseHelper;
 import oleksandr.kotyuk.orthodoxcalendar.models.MyCalendarWidget;
 
 public class MyWidget extends AppWidgetProvider {
-static final String TAG = "myLogs";
-final static String ACTION_ON_CLICK = "ua.sasha.kotuk.listwidget.itemonclick";
-final static String ITEM_POSITION = "item_position";
+    static final String TAG = "myLogs";
+    final static String ACTION_ON_CLICK = "ua.sasha.kotuk.listwidget.itemonclick";
+    final static String ITEM_POSITION = "item_position";
 
-static MyCalendarWidget cal;
+    static MyCalendarWidget cal;
 
-static private DatabaseHelper db;
-static Cursor cursor;
+    static private DatabaseHelper db;
+    static Cursor cursor;
 
-@SuppressLint("SimpleDateFormat")
+    @SuppressLint("SimpleDateFormat")
 // SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-@Override
-public void onUpdate(Context context, AppWidgetManager appWidgetManager,
- int[] appWidgetIds) {
- super.onUpdate(context, appWidgetManager, appWidgetIds);
+    @Override
+    public void onUpdate(Context context, AppWidgetManager appWidgetManager,
+                         int[] appWidgetIds) {
+        super.onUpdate(context, appWidgetManager, appWidgetIds);
 
- SharedPreferences sp = context.getSharedPreferences(
-  ConfigActivity.WIDGET_PREF, Context.MODE_PRIVATE);
- 
- for (int i : appWidgetIds) {
- updateWidget(context, appWidgetManager, i, sp);
- }
-}
+        SharedPreferences sp = context.getSharedPreferences(
+                ConfigActivity.WIDGET_PREF, Context.MODE_PRIVATE);
 
-static void updateWidget(Context context,
- AppWidgetManager appWidgetManager, int appWidgetId,
- SharedPreferences sp) {
- // Log.d(TAG, "MyProvider ListWidget");
- RemoteViews rv = new RemoteViews(context.getPackageName(),
-  R.layout.widget);
-rv.setContentDescription(R.id.imageView1,context.getString(R.string.widget_app_name2));
-rv.setContentDescription(R.id.imageView2,context.getString(R.string.widget_app_name));
- setUpdateTV(rv, context, appWidgetId, sp);
+        for (int i : appWidgetIds) {
+            updateWidget(context, appWidgetManager, i, sp);
+        }
+    }
 
- setOpenApp(rv, context, appWidgetId);
+    static void updateWidget(Context context,
+                             AppWidgetManager appWidgetManager, int appWidgetId,
+                             SharedPreferences sp) {
+        // Log.d(TAG, "MyProvider ListWidget");
+        RemoteViews rv = new RemoteViews(context.getPackageName(),
+                R.layout.widget);
+        rv.setContentDescription(R.id.imageView1, context.getString(R.string.widget_app_name2));
+        rv.setContentDescription(R.id.imageView2, context.getString(R.string.widget_app_name));
+        setUpdateTV(rv, context, appWidgetId, sp);
 
- setOpenConfigActivity(rv, context, appWidgetId);
+        setOpenApp(rv, context, appWidgetId);
 
- setList(rv, context, appWidgetId);
+        setOpenConfigActivity(rv, context, appWidgetId);
 
- setListClick(rv, context, appWidgetId);
+        setList(rv, context, appWidgetId);
 
- appWidgetManager.updateAppWidget(appWidgetId, rv);
- appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetId,
-  R.id.lvList);
-}
+        setListClick(rv, context, appWidgetId);
 
-static void setUpdateTV(RemoteViews rv, Context context, int appWidgetId,
- SharedPreferences sp) {
- cal = MyCalendarWidget.getInstance();
- cal.setTodayDate();
- int widgetColorTransparent = sp.getInt(
-  ConfigActivity.WIDGET_COLOR_TRANSPARENT + appWidgetId, 0);
- int widgetVisibleWeek = sp.getInt(ConfigActivity.WIDGET_VISIBLE_WEEK
-  + appWidgetId, 0);
+        appWidgetManager.updateAppWidget(appWidgetId, rv);
+        appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetId,
+                R.id.lvList);
+    }
+
+    static void setUpdateTV(RemoteViews rv, Context context, int appWidgetId,
+                            SharedPreferences sp) {
+        cal = MyCalendarWidget.getInstance();
+        cal.setTodayDate();
+        int widgetColorTransparent = sp.getInt(
+                ConfigActivity.WIDGET_COLOR_TRANSPARENT + appWidgetId, 0);
+        int widgetVisibleWeek = sp.getInt(ConfigActivity.WIDGET_VISIBLE_WEEK
+                + appWidgetId, 0);
  /*int widgetVisibleFZ = sp.getInt(ConfigActivity.WIDGET_VISIBLE_FZ
   + appWidgetId, 0);*/
- int widgetTextSize = sp.getInt(ConfigActivity.WIDGET_TEXT_SIZE
-  + appWidgetId, 0);
- // Log.d(TAG, "widgetColorTransparent="+widgetColorTransparent);
- switch (widgetColorTransparent) {
- case 0:
- if (cal.getDayWeek() == 1) {
-  rv.setInt(R.id.relativeLayout_widget1, "setBackgroundResource",
-   R.drawable.ro2_widget);
-  rv.setInt(R.id.relativeLayout_widget2, "setBackgroundResource",
-   R.drawable.rx2_widget);
- } else {
-  rv.setInt(R.id.relativeLayout_widget1, "setBackgroundResource",
-   R.drawable.ro1_widget);
-  rv.setInt(R.id.relativeLayout_widget2, "setBackgroundResource",
-   R.drawable.rx1_widget);
- }
- break;
- case 20:
- if (cal.getDayWeek() == 1) {
-  rv.setInt(R.id.relativeLayout_widget1, "setBackgroundResource",
-   R.drawable.ro2_widget_20);
-  rv.setInt(R.id.relativeLayout_widget2, "setBackgroundResource",
-   R.drawable.rx2_widget_20);
- } else {
-  rv.setInt(R.id.relativeLayout_widget1, "setBackgroundResource",
-   R.drawable.ro1_widget_20);
-  rv.setInt(R.id.relativeLayout_widget2, "setBackgroundResource",
-   R.drawable.rx1_widget_20);
- }
- break;
- case 40:
- if (cal.getDayWeek() == 1) {
-  rv.setInt(R.id.relativeLayout_widget1, "setBackgroundResource",
-   R.drawable.ro2_widget_40);
-  rv.setInt(R.id.relativeLayout_widget2, "setBackgroundResource",
-   R.drawable.rx2_widget_40);
- } else {
-  rv.setInt(R.id.relativeLayout_widget1, "setBackgroundResource",
-   R.drawable.ro1_widget_40);
-  rv.setInt(R.id.relativeLayout_widget2, "setBackgroundResource",
-   R.drawable.rx1_widget_40);
- }
- break;
- case 60:
- if (cal.getDayWeek() == 1) {
-  rv.setInt(R.id.relativeLayout_widget1, "setBackgroundResource",
-   R.drawable.ro2_widget_60);
-  rv.setInt(R.id.relativeLayout_widget2, "setBackgroundResource",
-   R.drawable.rx2_widget_60);
- } else {
-  rv.setInt(R.id.relativeLayout_widget1, "setBackgroundResource",
-   R.drawable.ro1_widget_60);
-  rv.setInt(R.id.relativeLayout_widget2, "setBackgroundResource",
-   R.drawable.rx1_widget_60);
- }
- break;
- default:
- if (cal.getDayWeek() == 1) {
-  rv.setInt(R.id.relativeLayout_widget1, "setBackgroundResource",
-   R.drawable.ro2_widget);
-  rv.setInt(R.id.relativeLayout_widget2, "setBackgroundResource",
-   R.drawable.rx2_widget);
- } else {
-  rv.setInt(R.id.relativeLayout_widget1, "setBackgroundResource",
-   R.drawable.ro1_widget);
-  rv.setInt(R.id.relativeLayout_widget2, "setBackgroundResource",
-   R.drawable.rx1_widget);
- }
- break;
- }
+        int widgetTextSize = sp.getInt(ConfigActivity.WIDGET_TEXT_SIZE
+                + appWidgetId, 0);
+        // Log.d(TAG, "widgetColorTransparent="+widgetColorTransparent);
+        switch (widgetColorTransparent) {
+            case 0:
+                if (cal.getDayWeek() == 1) {
+                    rv.setInt(R.id.relativeLayout_widget1, "setBackgroundResource",
+                            R.drawable.ro2_widget);
+                    rv.setInt(R.id.relativeLayout_widget2, "setBackgroundResource",
+                            R.drawable.rx2_widget);
+                } else {
+                    rv.setInt(R.id.relativeLayout_widget1, "setBackgroundResource",
+                            R.drawable.ro1_widget);
+                    rv.setInt(R.id.relativeLayout_widget2, "setBackgroundResource",
+                            R.drawable.rx1_widget);
+                }
+                break;
+            case 20:
+                if (cal.getDayWeek() == 1) {
+                    rv.setInt(R.id.relativeLayout_widget1, "setBackgroundResource",
+                            R.drawable.ro2_widget_20);
+                    rv.setInt(R.id.relativeLayout_widget2, "setBackgroundResource",
+                            R.drawable.rx2_widget_20);
+                } else {
+                    rv.setInt(R.id.relativeLayout_widget1, "setBackgroundResource",
+                            R.drawable.ro1_widget_20);
+                    rv.setInt(R.id.relativeLayout_widget2, "setBackgroundResource",
+                            R.drawable.rx1_widget_20);
+                }
+                break;
+            case 40:
+                if (cal.getDayWeek() == 1) {
+                    rv.setInt(R.id.relativeLayout_widget1, "setBackgroundResource",
+                            R.drawable.ro2_widget_40);
+                    rv.setInt(R.id.relativeLayout_widget2, "setBackgroundResource",
+                            R.drawable.rx2_widget_40);
+                } else {
+                    rv.setInt(R.id.relativeLayout_widget1, "setBackgroundResource",
+                            R.drawable.ro1_widget_40);
+                    rv.setInt(R.id.relativeLayout_widget2, "setBackgroundResource",
+                            R.drawable.rx1_widget_40);
+                }
+                break;
+            case 60:
+                if (cal.getDayWeek() == 1) {
+                    rv.setInt(R.id.relativeLayout_widget1, "setBackgroundResource",
+                            R.drawable.ro2_widget_60);
+                    rv.setInt(R.id.relativeLayout_widget2, "setBackgroundResource",
+                            R.drawable.rx2_widget_60);
+                } else {
+                    rv.setInt(R.id.relativeLayout_widget1, "setBackgroundResource",
+                            R.drawable.ro1_widget_60);
+                    rv.setInt(R.id.relativeLayout_widget2, "setBackgroundResource",
+                            R.drawable.rx1_widget_60);
+                }
+                break;
+            default:
+                if (cal.getDayWeek() == 1) {
+                    rv.setInt(R.id.relativeLayout_widget1, "setBackgroundResource",
+                            R.drawable.ro2_widget);
+                    rv.setInt(R.id.relativeLayout_widget2, "setBackgroundResource",
+                            R.drawable.rx2_widget);
+                } else {
+                    rv.setInt(R.id.relativeLayout_widget1, "setBackgroundResource",
+                            R.drawable.ro1_widget);
+                    rv.setInt(R.id.relativeLayout_widget2, "setBackgroundResource",
+                            R.drawable.rx1_widget);
+                }
+                break;
+        }
 
- switch (widgetVisibleWeek) {
- case 0:
- rv.setViewVisibility(R.id.MyView_widget_sedmitsa_week,
-  View.VISIBLE);
- break;
- case 1:
- rv.setViewVisibility(R.id.MyView_widget_sedmitsa_week, View.GONE);
- break;
- default:
- rv.setViewVisibility(R.id.MyView_widget_sedmitsa_week,
-  View.VISIBLE);
- break;
- }
- 
- switch (widgetTextSize) {
- case -5:
- rv.setFloat(R.id.MyView_widget_weekday_name, "setTextSize", 17-5);
- rv.setFloat(R.id.MyView_widget_date, "setTextSize", 17-5);
- rv.setFloat(R.id.MyView_widget_sedmitsa_week, "setTextSize", 14-5);
- rv.setFloat(R.id.MyView_widget_post, "setTextSize", 14-5);
- break;
- case -4:
- rv.setFloat(R.id.MyView_widget_weekday_name, "setTextSize", 17-4);
- rv.setFloat(R.id.MyView_widget_date, "setTextSize", 17-4);
- rv.setFloat(R.id.MyView_widget_sedmitsa_week, "setTextSize", 14-4);
- rv.setFloat(R.id.MyView_widget_post, "setTextSize", 14-4);
- break;
- case -3:
- rv.setFloat(R.id.MyView_widget_weekday_name, "setTextSize", 17-3);
- rv.setFloat(R.id.MyView_widget_date, "setTextSize", 17-3);
- rv.setFloat(R.id.MyView_widget_sedmitsa_week, "setTextSize", 14-3);
- rv.setFloat(R.id.MyView_widget_post, "setTextSize", 14-3);
- break;
- case -2:
- rv.setFloat(R.id.MyView_widget_weekday_name, "setTextSize", 17-2);
- rv.setFloat(R.id.MyView_widget_date, "setTextSize", 17-2);
- rv.setFloat(R.id.MyView_widget_sedmitsa_week, "setTextSize", 14-2);
- rv.setFloat(R.id.MyView_widget_post, "setTextSize", 14-2);
- break;
- case -1:
- rv.setFloat(R.id.MyView_widget_weekday_name, "setTextSize", 17-1);
- rv.setFloat(R.id.MyView_widget_date, "setTextSize", 17-1);
- rv.setFloat(R.id.MyView_widget_sedmitsa_week, "setTextSize", 14-1);
- rv.setFloat(R.id.MyView_widget_post, "setTextSize", 14-1);
- break;
- case 0:
- rv.setFloat(R.id.MyView_widget_weekday_name, "setTextSize", 17);
- rv.setFloat(R.id.MyView_widget_date, "setTextSize", 17);
- rv.setFloat(R.id.MyView_widget_sedmitsa_week, "setTextSize", 14);
- rv.setFloat(R.id.MyView_widget_post, "setTextSize", 14);
- break;
- case 1:
- rv.setFloat(R.id.MyView_widget_weekday_name, "setTextSize", 17+1);
- rv.setFloat(R.id.MyView_widget_date, "setTextSize", 17+1);
- rv.setFloat(R.id.MyView_widget_sedmitsa_week, "setTextSize", 14+1);
- rv.setFloat(R.id.MyView_widget_post, "setTextSize", 14+1);
- break;
- case 2:
- rv.setFloat(R.id.MyView_widget_weekday_name, "setTextSize", 17+2);
- rv.setFloat(R.id.MyView_widget_date, "setTextSize", 17+2);
- rv.setFloat(R.id.MyView_widget_sedmitsa_week, "setTextSize", 14+2);
- rv.setFloat(R.id.MyView_widget_post, "setTextSize", 14+2);
- break;
- case 3:
- rv.setFloat(R.id.MyView_widget_weekday_name, "setTextSize", 17+3);
- rv.setFloat(R.id.MyView_widget_date, "setTextSize", 17+3);
- rv.setFloat(R.id.MyView_widget_sedmitsa_week, "setTextSize", 14+3);
- rv.setFloat(R.id.MyView_widget_post, "setTextSize", 14+3);
- break;
- case 4:
- rv.setFloat(R.id.MyView_widget_weekday_name, "setTextSize", 17+4);
- rv.setFloat(R.id.MyView_widget_date, "setTextSize", 17+4);
- rv.setFloat(R.id.MyView_widget_sedmitsa_week, "setTextSize", 14+4);
- rv.setFloat(R.id.MyView_widget_post, "setTextSize", 14+4);
- break;
- case 5:
- rv.setFloat(R.id.MyView_widget_weekday_name, "setTextSize", 17+5);
- rv.setFloat(R.id.MyView_widget_date, "setTextSize", 17+5);
- rv.setFloat(R.id.MyView_widget_sedmitsa_week, "setTextSize", 14+5);
- rv.setFloat(R.id.MyView_widget_post, "setTextSize", 14+5);
- break;
- case 6:
- rv.setFloat(R.id.MyView_widget_weekday_name, "setTextSize", 17+6);
- rv.setFloat(R.id.MyView_widget_date, "setTextSize", 17+6);
- rv.setFloat(R.id.MyView_widget_sedmitsa_week, "setTextSize", 14+6);
- rv.setFloat(R.id.MyView_widget_post, "setTextSize", 14+6);
- break;
- case 7:
- rv.setFloat(R.id.MyView_widget_weekday_name, "setTextSize", 17+7);
- rv.setFloat(R.id.MyView_widget_date, "setTextSize", 17+7);
- rv.setFloat(R.id.MyView_widget_sedmitsa_week, "setTextSize", 14+7);
- rv.setFloat(R.id.MyView_widget_post, "setTextSize", 14+7);
- break;
- case 8:
- rv.setFloat(R.id.MyView_widget_weekday_name, "setTextSize", 17+8);
- rv.setFloat(R.id.MyView_widget_date, "setTextSize", 17+8);
- rv.setFloat(R.id.MyView_widget_sedmitsa_week, "setTextSize", 14+8);
- rv.setFloat(R.id.MyView_widget_post, "setTextSize", 14+8);
- break;
- default:
- rv.setFloat(R.id.MyView_widget_weekday_name, "setTextSize", 17);
- rv.setFloat(R.id.MyView_widget_date, "setTextSize", 17);
- rv.setFloat(R.id.MyView_widget_sedmitsa_week, "setTextSize", 14);
- rv.setFloat(R.id.MyView_widget_post, "setTextSize", 14);
- break;
- }
+        switch (widgetVisibleWeek) {
+            case 0:
+                rv.setViewVisibility(R.id.MyView_widget_sedmitsa_week,
+                        View.VISIBLE);
+                break;
+            case 1:
+                rv.setViewVisibility(R.id.MyView_widget_sedmitsa_week, View.GONE);
+                break;
+            default:
+                rv.setViewVisibility(R.id.MyView_widget_sedmitsa_week,
+                        View.VISIBLE);
+                break;
+        }
 
- rv.setTextViewText(R.id.MyView_widget_weekday_name,
-  cal.getDayWeekNamesLongCaps());
+        switch (widgetTextSize) {
+            case -5:
+                rv.setFloat(R.id.MyView_widget_weekday_name, "setTextSize", 17 - 5);
+                rv.setFloat(R.id.MyView_widget_date, "setTextSize", 17 - 5);
+                rv.setFloat(R.id.MyView_widget_sedmitsa_week, "setTextSize", 14 - 5);
+                rv.setFloat(R.id.MyView_widget_post, "setTextSize", 14 - 5);
+                break;
+            case -4:
+                rv.setFloat(R.id.MyView_widget_weekday_name, "setTextSize", 17 - 4);
+                rv.setFloat(R.id.MyView_widget_date, "setTextSize", 17 - 4);
+                rv.setFloat(R.id.MyView_widget_sedmitsa_week, "setTextSize", 14 - 4);
+                rv.setFloat(R.id.MyView_widget_post, "setTextSize", 14 - 4);
+                break;
+            case -3:
+                rv.setFloat(R.id.MyView_widget_weekday_name, "setTextSize", 17 - 3);
+                rv.setFloat(R.id.MyView_widget_date, "setTextSize", 17 - 3);
+                rv.setFloat(R.id.MyView_widget_sedmitsa_week, "setTextSize", 14 - 3);
+                rv.setFloat(R.id.MyView_widget_post, "setTextSize", 14 - 3);
+                break;
+            case -2:
+                rv.setFloat(R.id.MyView_widget_weekday_name, "setTextSize", 17 - 2);
+                rv.setFloat(R.id.MyView_widget_date, "setTextSize", 17 - 2);
+                rv.setFloat(R.id.MyView_widget_sedmitsa_week, "setTextSize", 14 - 2);
+                rv.setFloat(R.id.MyView_widget_post, "setTextSize", 14 - 2);
+                break;
+            case -1:
+                rv.setFloat(R.id.MyView_widget_weekday_name, "setTextSize", 17 - 1);
+                rv.setFloat(R.id.MyView_widget_date, "setTextSize", 17 - 1);
+                rv.setFloat(R.id.MyView_widget_sedmitsa_week, "setTextSize", 14 - 1);
+                rv.setFloat(R.id.MyView_widget_post, "setTextSize", 14 - 1);
+                break;
+            case 0:
+                rv.setFloat(R.id.MyView_widget_weekday_name, "setTextSize", 17);
+                rv.setFloat(R.id.MyView_widget_date, "setTextSize", 17);
+                rv.setFloat(R.id.MyView_widget_sedmitsa_week, "setTextSize", 14);
+                rv.setFloat(R.id.MyView_widget_post, "setTextSize", 14);
+                break;
+            case 1:
+                rv.setFloat(R.id.MyView_widget_weekday_name, "setTextSize", 17 + 1);
+                rv.setFloat(R.id.MyView_widget_date, "setTextSize", 17 + 1);
+                rv.setFloat(R.id.MyView_widget_sedmitsa_week, "setTextSize", 14 + 1);
+                rv.setFloat(R.id.MyView_widget_post, "setTextSize", 14 + 1);
+                break;
+            case 2:
+                rv.setFloat(R.id.MyView_widget_weekday_name, "setTextSize", 17 + 2);
+                rv.setFloat(R.id.MyView_widget_date, "setTextSize", 17 + 2);
+                rv.setFloat(R.id.MyView_widget_sedmitsa_week, "setTextSize", 14 + 2);
+                rv.setFloat(R.id.MyView_widget_post, "setTextSize", 14 + 2);
+                break;
+            case 3:
+                rv.setFloat(R.id.MyView_widget_weekday_name, "setTextSize", 17 + 3);
+                rv.setFloat(R.id.MyView_widget_date, "setTextSize", 17 + 3);
+                rv.setFloat(R.id.MyView_widget_sedmitsa_week, "setTextSize", 14 + 3);
+                rv.setFloat(R.id.MyView_widget_post, "setTextSize", 14 + 3);
+                break;
+            case 4:
+                rv.setFloat(R.id.MyView_widget_weekday_name, "setTextSize", 17 + 4);
+                rv.setFloat(R.id.MyView_widget_date, "setTextSize", 17 + 4);
+                rv.setFloat(R.id.MyView_widget_sedmitsa_week, "setTextSize", 14 + 4);
+                rv.setFloat(R.id.MyView_widget_post, "setTextSize", 14 + 4);
+                break;
+            case 5:
+                rv.setFloat(R.id.MyView_widget_weekday_name, "setTextSize", 17 + 5);
+                rv.setFloat(R.id.MyView_widget_date, "setTextSize", 17 + 5);
+                rv.setFloat(R.id.MyView_widget_sedmitsa_week, "setTextSize", 14 + 5);
+                rv.setFloat(R.id.MyView_widget_post, "setTextSize", 14 + 5);
+                break;
+            case 6:
+                rv.setFloat(R.id.MyView_widget_weekday_name, "setTextSize", 17 + 6);
+                rv.setFloat(R.id.MyView_widget_date, "setTextSize", 17 + 6);
+                rv.setFloat(R.id.MyView_widget_sedmitsa_week, "setTextSize", 14 + 6);
+                rv.setFloat(R.id.MyView_widget_post, "setTextSize", 14 + 6);
+                break;
+            case 7:
+                rv.setFloat(R.id.MyView_widget_weekday_name, "setTextSize", 17 + 7);
+                rv.setFloat(R.id.MyView_widget_date, "setTextSize", 17 + 7);
+                rv.setFloat(R.id.MyView_widget_sedmitsa_week, "setTextSize", 14 + 7);
+                rv.setFloat(R.id.MyView_widget_post, "setTextSize", 14 + 7);
+                break;
+            case 8:
+                rv.setFloat(R.id.MyView_widget_weekday_name, "setTextSize", 17 + 8);
+                rv.setFloat(R.id.MyView_widget_date, "setTextSize", 17 + 8);
+                rv.setFloat(R.id.MyView_widget_sedmitsa_week, "setTextSize", 14 + 8);
+                rv.setFloat(R.id.MyView_widget_post, "setTextSize", 14 + 8);
+                break;
+            default:
+                rv.setFloat(R.id.MyView_widget_weekday_name, "setTextSize", 17);
+                rv.setFloat(R.id.MyView_widget_date, "setTextSize", 17);
+                rv.setFloat(R.id.MyView_widget_sedmitsa_week, "setTextSize", 14);
+                rv.setFloat(R.id.MyView_widget_post, "setTextSize", 14);
+                break;
+        }
 
- rv.setTextViewText(R.id.MyView_widget_date, cal.getWidgetDate());
+        rv.setTextViewText(R.id.MyView_widget_weekday_name,
+                cal.getDayWeekNamesLongCaps());
 
- if (cal.getDateEntersPeriods()) {
- // db =
- // DatabaseHelperWidget.getInstance(context.getApplicationContext());
- String sql = "SELECT p" + cal.getYear() + ", r" + cal.getYear()
-  + " FROM data_calendar WHERE month=" + (cal.getMonth() + 1)
-  + " AND day=" + cal.getDayMonth() + ";";
- db = DatabaseHelper.getInstance(context.getApplicationContext(),context.getSharedPreferences(SplashScreen.WIDGET_PREF,Context.MODE_PRIVATE));
- cursor = db.executeQuery(sql);
- if (cursor != null) {
-  if (cursor.moveToFirst()) {
-  try {
+        rv.setTextViewText(R.id.MyView_widget_date, cal.getWidgetDate());
 
-   rv.setTextViewText(
-    R.id.MyView_widget_post,
-    cursor.getString(cursor.getColumnIndex("p"
-     + cal.getYear())));
-   String tmp = cursor.getString(cursor.getColumnIndex("r"
-    + cal.getYear()));
-   if (tmp.equals("#"))
-   tmp = "";
-   rv.setTextViewText(R.id.MyView_widget_sedmitsa_week,
-    tmp);
- 
-  } catch (NumberFormatException e) {
-   //Log.d(TAG, "ERROR=" + e.toString());
-  }
-  }
- } else {
-  rv.setTextViewText(R.id.MyView_widget_post, "");
-  rv.setTextViewText(R.id.MyView_widget_sedmitsa_week, "");
-  //Log.d(TAG,"cursor is null");
- }
- } else {
- rv.setTextViewText(R.id.MyView_widget_post, "");
- rv.setTextViewText(R.id.MyView_widget_sedmitsa_week, "");
- }
+        if (cal.getDateEntersPeriods()) {
+            // db =
+            // DatabaseHelperWidget.getInstance(context.getApplicationContext());
+            String sql = "SELECT p" + cal.getYear() + ", r" + cal.getYear()
+                    + " FROM data_calendar WHERE month=" + (cal.getMonth() + 1)
+                    + " AND day=" + cal.getDayMonth() + ";";
+            db = DatabaseHelper.getInstance(context.getApplicationContext(), context.getSharedPreferences(SplashScreen.WIDGET_PREF, Context.MODE_PRIVATE));
+            cursor = db.executeQuery(sql);
+            if (cursor != null) {
+                if (cursor.moveToFirst()) {
+                    try {
 
- if (cursor != null)
- cursor.close();
+                        rv.setTextViewText(
+                                R.id.MyView_widget_post,
+                                cursor.getString(cursor.getColumnIndex("p"
+                                        + cal.getYear())));
+                        String tmp = cursor.getString(cursor.getColumnIndex("r"
+                                + cal.getYear()));
+                        if (tmp.equals("#"))
+                            tmp = "";
+                        rv.setTextViewText(R.id.MyView_widget_sedmitsa_week,
+                                tmp);
 
- Intent updIntent = new Intent(context, MyWidget.class);
- updIntent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
- updIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS,
-  new int[] { appWidgetId });
- PendingIntent updPIntent = PendingIntent.getBroadcast(context,
-  appWidgetId, updIntent, 0);
- rv.setOnClickPendingIntent(R.id.imageView1, updPIntent);
-}
+                    } catch (NumberFormatException e) {
+                        //Log.d(TAG, "ERROR=" + e.toString());
+                    }
+                }
+            } else {
+                rv.setTextViewText(R.id.MyView_widget_post, "");
+                rv.setTextViewText(R.id.MyView_widget_sedmitsa_week, "");
+                //Log.d(TAG,"cursor is null");
+            }
+        } else {
+            rv.setTextViewText(R.id.MyView_widget_post, "");
+            rv.setTextViewText(R.id.MyView_widget_sedmitsa_week, "");
+        }
 
-// по клику шапки виджета открываем календарь
-static void setOpenApp(RemoteViews rv, Context context, int appWidgetId) {
- // Log.d(TAG, "MyWidget setOpenApp()");
- Intent intent = new Intent(context, SplashScreen.class);
- // intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appId); //
- // Identifies the particular widget...
- intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
-  | Intent.FLAG_ACTIVITY_NEW_TASK);
- // Make the pending intent unique...
- intent.setData(Uri.parse(intent.toUri(Intent.URI_INTENT_SCHEME)));
- PendingIntent pendIntent = PendingIntent.getActivity(context, 0,
-  intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        if (cursor != null)
+            cursor.close();
 
- rv.setOnClickPendingIntent(R.id.relativeLayout_widget1, pendIntent);
+        Intent updIntent = new Intent(context, MyWidget.class);
+        updIntent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+        updIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS,
+                new int[]{appWidgetId});
+        PendingIntent updPIntent = PendingIntent.getBroadcast(context,
+                appWidgetId, updIntent, 0);
+        rv.setOnClickPendingIntent(R.id.imageView1, updPIntent);
+    }
 
-}
+    // по клику шапки виджета открываем календарь
+    static void setOpenApp(RemoteViews rv, Context context, int appWidgetId) {
+        // Log.d(TAG, "MyWidget setOpenApp()");
+        Intent intent = new Intent(context, SplashScreen.class);
+        // intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appId); //
+        // Identifies the particular widget...
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
+                | Intent.FLAG_ACTIVITY_NEW_TASK);
+        // Make the pending intent unique...
+        intent.setData(Uri.parse(intent.toUri(Intent.URI_INTENT_SCHEME)));
+        PendingIntent pendIntent = PendingIntent.getActivity(context, 0,
+                intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-// по клику на кнопку открываем конфигурационный активити
-static void setOpenConfigActivity(RemoteViews rv, Context context,
- int appWidgetId) {
- Intent configIntent = new Intent(context, ConfigActivity.class);
- configIntent.setAction(AppWidgetManager.ACTION_APPWIDGET_CONFIGURE);
- configIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
- PendingIntent pIntent = PendingIntent.getActivity(context, appWidgetId,
-  configIntent, 0);
- rv.setOnClickPendingIntent(R.id.imageView2, pIntent);
-}
+        rv.setOnClickPendingIntent(R.id.relativeLayout_widget1, pendIntent);
 
-static void setList(RemoteViews rv, Context context, int appWidgetId) {
- Intent adapter = new Intent(context, MyService.class);
- adapter.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
- Uri data = Uri.parse(adapter.toUri(Intent.URI_INTENT_SCHEME));
- adapter.setData(data);
+    }
 
- rv.setRemoteAdapter(R.id.lvList, adapter);
-}
+    // по клику на кнопку открываем конфигурационный активити
+    static void setOpenConfigActivity(RemoteViews rv, Context context,
+                                      int appWidgetId) {
+        Intent configIntent = new Intent(context, ConfigActivity.class);
+        configIntent.setAction(AppWidgetManager.ACTION_APPWIDGET_CONFIGURE);
+        configIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
+        PendingIntent pIntent = PendingIntent.getActivity(context, appWidgetId,
+                configIntent, 0);
+        rv.setOnClickPendingIntent(R.id.imageView2, pIntent);
+    }
 
-static void setListClick(RemoteViews rv, Context context, int appWidgetId) {
- Intent listClickIntent = new Intent(context, MyWidget.class);
- listClickIntent.setAction(ACTION_ON_CLICK);
- PendingIntent listClickPIntent = PendingIntent.getBroadcast(context, 0,
-  listClickIntent, 0);
- rv.setPendingIntentTemplate(R.id.lvList, listClickPIntent);
-}
+    static void setList(RemoteViews rv, Context context, int appWidgetId) {
+        Intent adapter = new Intent(context, MyService.class);
+        adapter.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
+        Uri data = Uri.parse(adapter.toUri(Intent.URI_INTENT_SCHEME));
+        adapter.setData(data);
 
-@Override
-public void onReceive(Context context, Intent intent) {
- super.onReceive(context, intent);
+        rv.setRemoteAdapter(R.id.lvList, adapter);
+    }
 
-}
+    static void setListClick(RemoteViews rv, Context context, int appWidgetId) {
+        Intent listClickIntent = new Intent(context, MyWidget.class);
+        listClickIntent.setAction(ACTION_ON_CLICK);
+        PendingIntent listClickPIntent = PendingIntent.getBroadcast(context, 0,
+                listClickIntent, 0);
+        rv.setPendingIntentTemplate(R.id.lvList, listClickPIntent);
+    }
+
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        super.onReceive(context, intent);
+
+    }
 
 
-@Override
-public void onEnabled(Context context) {
- super.onEnabled(context);
- // Log.d(TAG, "onEnabled");
-}
+    @Override
+    public void onEnabled(Context context) {
+        super.onEnabled(context);
+        // Log.d(TAG, "onEnabled");
+    }
 
-@Override
-public void onDisabled(Context context) {
- super.onDisabled(context);
- // Log.d(TAG, "onDisabled");
-}
+    @Override
+    public void onDisabled(Context context) {
+        super.onDisabled(context);
+        // Log.d(TAG, "onDisabled");
+    }
 
-@Override
-public void onDeleted(Context context, int[] appWidgetIds) {
- super.onDeleted(context, appWidgetIds);
- // Log.d(TAG, "onDeleted " + Arrays.toString(appWidgetIds));
+    @Override
+    public void onDeleted(Context context, int[] appWidgetIds) {
+        super.onDeleted(context, appWidgetIds);
+        // Log.d(TAG, "onDeleted " + Arrays.toString(appWidgetIds));
 
- // ”дал¤ем Preferences
- Editor editor = context.getSharedPreferences(
-  ConfigActivity.WIDGET_PREF, Context.MODE_PRIVATE).edit();
- for (int widgetID : appWidgetIds) {
- // editor.remove(ConfigActivity.WIDGET_TEXT + widgetID);
- editor.remove(ConfigActivity.WIDGET_COLOR_TRANSPARENT + widgetID);
- editor.remove(ConfigActivity.WIDGET_VISIBLE_WEEK + widgetID);
- editor.remove(ConfigActivity.WIDGET_VISIBLE_FZ + widgetID);
- editor.remove(ConfigActivity.WIDGET_TEXT_SIZE + widgetID);
- }
- editor.commit();
+        // ”дал¤ем Preferences
+        Editor editor = context.getSharedPreferences(
+                ConfigActivity.WIDGET_PREF, Context.MODE_PRIVATE).edit();
+        for (int widgetID : appWidgetIds) {
+            // editor.remove(ConfigActivity.WIDGET_TEXT + widgetID);
+            editor.remove(ConfigActivity.WIDGET_COLOR_TRANSPARENT + widgetID);
+            editor.remove(ConfigActivity.WIDGET_VISIBLE_WEEK + widgetID);
+            editor.remove(ConfigActivity.WIDGET_VISIBLE_FZ + widgetID);
+            editor.remove(ConfigActivity.WIDGET_TEXT_SIZE + widgetID);
+        }
+        editor.commit();
 
- if (db != null)
- db.closeConnecion();
-}
+        if (db != null)
+            db.closeConnecion();
+    }
 
 }

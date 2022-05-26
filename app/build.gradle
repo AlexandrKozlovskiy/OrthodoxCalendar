@@ -35,7 +35,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 30
         versionCode 117
-        versionName '1.14.27'
+        versionName '1.14.28'
         signingConfig signingConfigs.release
     }
 

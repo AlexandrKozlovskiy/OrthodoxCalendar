@@ -35,17 +35,18 @@ public class MyCalendar {
     int r2020 = 366;
     int r2021 = 365;
     int r2022 = 365;
+    int r2023 = 365;
 
     //высокосный год
-    public int v_year = 2021;
-    //высокосный мес¤ц, начало от 0
+    public int v_year = 2020;
+    //высокосный месяц, начало от 0
     public int v_month = 1;
 
-    // к-во дней в период с 2019г - 2022г
+    // к-во дней в период с 2020г - 2023г
     @SuppressWarnings("unused")
     private final int PAGE_COUNT_DAY = 1461;
 
-    // к-во мес¤цев в период с 2019г - 2022г
+    // к-во мес¤цев в период с 2020г - 2023г
     @SuppressWarnings("unused")
     private final int PAGE_COUNT_MONTH = 48;
 
@@ -60,7 +61,7 @@ public class MyCalendar {
         return calendar;
     }
 
-    //устанавливаем календарь на определенную дату (мес¤ц)
+    //устанавливаем календарь на определенную дату (месяц)
     public void setDate(int year, int month, int day) {
         this.cal.set(year, month, day);
     }
@@ -97,13 +98,13 @@ public class MyCalendar {
         return str;
     }
 
-    // номер мес¤ца c 0 - 11
+    // номер месяца c 0 - 11
     public int getMonth() {
 
         return cal.get(Calendar.MONTH);
     }
 
-    // номер мес¤ца c 01 - 12
+    // номер месяца c 01 - 12
     public String getMonthString() {
 
         String str = "" + cal.get(Calendar.MONTH);
@@ -111,19 +112,19 @@ public class MyCalendar {
         return str;
     }
 
-    // название мес¤ца январ¤, ‘еврал¤...
+    // название месяца: январь, февраль...
     public String getMonthName() {
 
         return month_names[cal.get(Calendar.MONTH)];
     }
 
-    // название мес¤ца январь, ‘евраль...
+    // название месяца: январь, февраль...
     public String getMonthName2() {
 
         return month_names2[cal.get(Calendar.MONTH)];
     }
 
-    // день мес¤ца( какой по счету день в мес¤це 1 Ч 31)
+    // день месяца( какой по счету день в месяце 1 - 31)
     public int getDayMonth() {
         return cal.get(Calendar.DAY_OF_MONTH);
     }
@@ -138,7 +139,7 @@ public class MyCalendar {
         return cal.get(Calendar.DAY_OF_WEEK);
     }
 
-    // название дн¤ недели (Воскресенье,Понедельник...)
+    // название дня недели (Воскресенье, Понедельник...)
     public String getDayWeekNamesLong() {
         return day_week_names_long[cal.get(Calendar.DAY_OF_WEEK)];
     }
@@ -154,22 +155,22 @@ public class MyCalendar {
         return day_week_names_short[cal_tmp.get(Calendar.DAY_OF_WEEK)];
     }
 
-    // получаем номер сегодн¤шней даты относительно периода с 2019г - 2022г
+    // получаем номер сегодн¤шней даты относительно периода с 2020г - 2023г
     public int getTodayDay() {
         int year_today = getYear();
         int today_day = 0;
         switch (year_today) {
-            case 2019:
+            case 2020:
                 today_day = 0 + getDayYear() - 1;
                 break;
-            case 2020:
-                today_day = r2019 + getDayYear() - 1;
-                break;
             case 2021:
-                today_day = r2019 + r2020 + getDayYear() - 1;
+                today_day = r2020 + getDayYear() - 1;
                 break;
             case 2022:
-                today_day = r2019 + r2020 + r2021 + getDayYear() - 1;
+                today_day = r2020 + r2021 + getDayYear() - 1;
+                break;
+            case 2023:
+                today_day = r2020 + r2021 + r2022 + getDayYear() - 1;
                 break;
             default:
                 break;
@@ -178,21 +179,21 @@ public class MyCalendar {
         return today_day;
     }
 
-    // получаем номер сегодн¤шнего мес¤ца относительно периода с 2019г - 2022г
+    // получаем номер сегодняшнего месяца относительно периода с 2020г - 2023г
     public int getTodayMonth() {
         int year_today = getYear();
         int today_month = 0;
         switch (year_today) {
-            case 2019:
+            case 2020:
                 today_month = 0 + getMonth();
                 break;
-            case 2020:
+            case 2021:
                 today_month = 12 + getMonth();
                 break;
-            case 2021:
+            case 2022:
                 today_month = 24 + getMonth();
                 break;
-            case 2022:
+            case 2023:
                 today_month = 36 + getMonth();
                 break;
             default:
@@ -218,12 +219,12 @@ public class MyCalendar {
         cal.add(Calendar.DAY_OF_MONTH, value - day);
     }
 
-    // добавл¤ем (вычитаем) определенное количество дней дл¤ уведомлений
+    // добавляем (вычитаем) определенное количество дней для уведомлений
     public void AddDayNew(int value) {
         cal.add(Calendar.DAY_OF_YEAR, value);
     }
 
-    // добавл¤ем (вычитаем) определенное количество мес¤цев (перелистывание вперед-назад по мес¤цам)
+    // добавляем (вычитаем) определенное количество месяцев (перелистывание вперед-назад по месяцам)
     public void AddMonth(int value) {
         //if(value!=0)cal.add(Calendar.MONTH, value);
         int month = getTodayMonth();
@@ -237,14 +238,14 @@ public class MyCalendar {
         cal.set(Calendar.MILLISECOND, 0);
     }
 
-    //проверяем или дата на устройстве попадает в период с 2019 по 2022
+    //проверяем или дата на устройстве попадает в период с 2020 по 2023
     public boolean getDateEntersPeriods() {
         int today_year = this.getYear();
-        if (today_year > 2018 && today_year < 2023) return true;
+        if (today_year > 2019 && today_year < 2024) return true;
         else return false;
     }
 
-    //получаем полное название даты 15/02/2019
+    //получаем полное название даты 15/02/2023
     public String getFullNameDate() {
         return this.getDayMonth() + "/" + (this.getMonth() + 1) + "/" + this.getYear();
     }

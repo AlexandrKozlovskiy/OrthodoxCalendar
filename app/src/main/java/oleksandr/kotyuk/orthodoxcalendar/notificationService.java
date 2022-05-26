@@ -20,12 +20,12 @@ public class notificationService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        MyScheduledReceiver.l=new MyScheduledReceiver.StopServiceListener() {
+        MyScheduledReceiver.l = new MyScheduledReceiver.StopServiceListener() {
             @Override
             public void stopService() {
-                if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.N) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                     stopForeground(true);
-                    MyScheduledReceiver.cancelNotification(notificationService.this,1);
+                    MyScheduledReceiver.cancelNotification(notificationService.this, 1);
                 }
                 stopSelf();
             }
@@ -37,6 +37,6 @@ public class notificationService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        startForeground(1,MyScheduledReceiver.sendNotif(this,"",getString(R.string.app_name),"","",true));
+        startForeground(1, MyScheduledReceiver.sendNotif(this, "", getString(R.string.app_name), "", "", true));
     }
 }

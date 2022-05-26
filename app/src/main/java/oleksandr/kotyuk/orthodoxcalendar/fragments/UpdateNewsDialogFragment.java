@@ -29,7 +29,7 @@ public class UpdateNewsDialogFragment extends DialogFragment {
 
                 // Negative Button
                 .setNegativeButton(R.string.button_dialog_update1, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog,int which) {
+                    public void onClick(DialogInterface dialog, int which) {
                         //Toast.makeText(getActivity(), "Еще...", Toast.LENGTH_LONG).show();
                         UpdateNewsDialogFragmentList undf_list = new UpdateNewsDialogFragmentList();
                         undf_list.show(getFragmentManager(), "dialog_update_news_list");
