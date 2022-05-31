@@ -485,20 +485,20 @@ public void loadSettings(InputStream stream) throws IOException {
         Map<String, ?> params = (Map<String, ?>) o.readObject();
         for (Map.Entry<String, ?> entry : params.entrySet()) {
             Object v = entry.getValue();
-                        if (v instanceof Boolean &&((Boolean) v).booleanValue()!=((Boolean) keys.get(entry.getKey())).booleanValue()) {
+                        if (v instanceof Boolean &&(keys.get(entry.getKey())==null ||((Boolean) v).booleanValue()!=((Boolean) keys.get(entry.getKey())).booleanValue())) {
                 prefs.putBoolean(entry.getKey(), ((Boolean) v).booleanValue());
                 if (entry.getKey().equals(KEY_PREF_NOTIFI)) Noti_flag = ((Boolean) v).booleanValue();
                 entries.add(entry);
-            } else if (v instanceof Float &&((Float) v).floatValue()!=((Float) keys.get(entry.getKey())).floatValue()) {
+            } else if (v instanceof Float &&(keys.get(entry.getKey())==null ||((Float) v).floatValue()!=((Float) keys.get(entry.getKey())).floatValue())) {
                             prefs.putFloat(entry.getKey(), ((Float) v).floatValue());
                                                    entries.add(entry);
                         }
-            else if (v instanceof Integer &&((Integer) v).intValue()!=((Integer) keys.get(entry.getKey())).intValue()) {
+            else if (v instanceof Integer &&(keys.get(entry.getKey())==null ||((Integer) v).intValue()!=((Integer) keys.get(entry.getKey())).intValue())) {
                             prefs.putInt(entry.getKey(), ((Integer) v).intValue());
                             if (entry.getKey().equals(KEY_PREF_NOTIFI)) Noti_flag = ((Boolean) v).booleanValue();
                             entries.add(entry);
                         }
-            else if (v instanceof Long &&((Long) v).longValue()!=((Long) keys.get(entry.getKey())).longValue()) {
+            else if (v instanceof Long &&(keys.get(entry.getKey())==null ||((Long) v).longValue()!=((Long) keys.get(entry.getKey())).longValue())) {
                             prefs.putLong(entry.getKey(), ((Long) v).longValue());
                             entries.add(entry);
                         }
