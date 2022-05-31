@@ -72,9 +72,11 @@
             android:key="pref_rotate_screen_setting"
             android:summary="@string/list6_summary"
             android:title="@string/list6_title" />
-
     </androidx.preference.PreferenceCategory>
-<oleksandr.kotyuk.orthodoxcalendar.saveAndLoadPreference
-    android:key="save_and_load_settings"/>
+
+    <androidx.preference.PreferenceCategory android:title="@string/preference_category4" >
+    <oleksandr.kotyuk.orthodoxcalendar.saveAndLoadPreference
+        android:key="save_and_load_settings"/>
+    </androidx.preference.PreferenceCategory>
 
 </androidx.preference.PreferenceScreen>
