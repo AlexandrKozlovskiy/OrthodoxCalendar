@@ -11,29 +11,22 @@ import android.content.SharedPreferences.Editor;
 import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
 import android.os.Build;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.preference.CheckBoxPreference;
-import androidx.preference.ListPreference;
-import androidx.preference.Preference;
-import androidx.preference.PreferenceFragment;
-import androidx.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.preference.CheckBoxPreference;
+import androidx.preference.ListPreference;
+import androidx.preference.Preference;
+import androidx.preference.PreferenceFragment;
+import androidx.preference.PreferenceManager;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -281,8 +274,9 @@ public void startLoadOrSaveSettings(boolean save) {
              * if (cbp1 != null) Log.d(TAG, "getNotifiSetting() not NULL"); else
              * Log.d(TAG, "getNotifiSetting() NULL");
              */
+            time = Integer.parseInt(prefs.getString("pref_notifi_time", "0"));
+            if(time>=24) time=0; //В старых версиях почему-то время было равно 24.
             if (cbp1 != null) {
-                time = Integer.parseInt(prefs.getString("pref_notifi_time", "0"));
                 Noti_flag = prefs.getBoolean("pref_notifi_setting", true);
                 if (Noti_flag) {
                     cbp1.setSummary(tomorrowDate());
@@ -315,7 +309,6 @@ public void startLoadOrSaveSettings(boolean save) {
                         + tmp);
             }
             if (cbp4 != null) {
-                time = Integer.parseInt(prefs.getString("pref_notifi_time", "0"));
                 cbp4.setValueIndex(time);
                 cbp4.setSummary(cbp4.getEntry());
                 cbp4.setEnabled(Noti_flag);
