@@ -155,6 +155,8 @@
 	<string name="link_rating">market://details?id=oleksandr.kotyuk.orthodoxcalendarfree</string>
 <string name="program_version">Версия %s</string>
 <string-array name="versions">
+		<item>Version 1.14.29\nИсправлен вылет в приложении при открытии раздела «Настройки».\n\n
+	</item>
 	<item>Version 1.14.28\nИсправлены ошибки и опечатки в программе.\n
 	В программу добавлен календарь на 2023 год.\n
 	В календарь добавлены новые имена святых.\n
