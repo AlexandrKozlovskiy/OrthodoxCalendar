@@ -40,14 +40,8 @@ if(!view.getGlobalVisibleRect(rect)) return view;
         if(action== AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD ||action==AccessibilityNodeInfo.ACTION_SCROLL_FORWARD) {
 View view=getnearInvisibleView(action==AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD);
 if(view!=null) {
-int[] location=new int[2];
-view.getLocationOnScreen(location);
-int scrollX=getScrollX(),scrollY=getScrollY();
-if(action==AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD) {
-scrollX=-scrollX;
-scrollY=-scrollY;
-}
-scrollTo(location[0]+scrollX,location[1]+scrollY);
+    int inc=action==AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD?-1:1;
+scrollTo(inc*(view.getLeft()+getChildAt(0).getLeft()),inc*(view.getTop()+getChildAt(0).getTop()));
 return true;
 }
         }
