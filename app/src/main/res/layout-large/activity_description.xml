@@ -10,7 +10,7 @@
     android:focusableInTouchMode="true" 
     android:keepScreenOn="true">
    
-    <ScrollView
+    <oleksandr.kotyuk.orthodoxcalendar.MyScrollView
         android:id="@+id/scrollViewDescription1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -48,6 +48,6 @@
 				
 		</LinearLayout>
 
-    </ScrollView>
+	</oleksandr.kotyuk.orthodoxcalendar.MyScrollView>
 
 </LinearLayout>
