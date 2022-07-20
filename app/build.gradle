@@ -34,8 +34,8 @@ android {
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 30
-        versionCode 119
-        versionName '1.14.29'
+        versionCode 120
+        versionName '1.14.30'
         signingConfig signingConfigs.release
     }
 
