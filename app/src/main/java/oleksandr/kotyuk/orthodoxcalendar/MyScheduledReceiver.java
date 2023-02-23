@@ -358,7 +358,7 @@ public class MyScheduledReceiver extends BroadcastReceiver {
         Intent myIntentR1 = new Intent(context, notificationService.class);
         /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
             myIntentR1.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);*/
-        PendingIntent pendingIntentR1 = Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? PendingIntent.getService(context, 1, myIntentR1, PendingIntent.FLAG_UPDATE_CURRENT) : PendingIntent.getForegroundService(context, 1, myIntentR1, Build.VERSION.SDK_INT < Build.VERSION_CODES.S? PendingIntent.FLAG_UPDATE_CURRENT:PendingIntent.FLAG_UPDATE_CURRENT|PendingIntent.FLAG_MUTABLE);
+        PendingIntent pendingIntentR1 = Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? PendingIntent.getService(context, 1, myIntentR1, PendingIntent.FLAG_UPDATE_CURRENT) : PendingIntent.getForegroundService(context, 1, myIntentR1, Build.VERSION.SDK_INT < Build.VERSION_CODES.S? PendingIntent.FLAG_UPDATE_CURRENT:PendingIntent.FLAG_UPDATE_CURRENT|PendingIntent.FLAG_IMMUTABLE);
         manager.cancel(pendingIntentR1);
         int type = AlarmManager.RTC_WAKEUP;
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT || (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && !manager.canScheduleExactAlarms()))
@@ -381,7 +381,7 @@ public class MyScheduledReceiver extends BroadcastReceiver {
 
     public static void cancelAlarm(Context context) {
         Intent myIntent = new Intent(context, notificationService.class);
-        PendingIntent pendingIntent = Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? PendingIntent.getService(context, 1, myIntent, PendingIntent.FLAG_UPDATE_CURRENT) : PendingIntent.getForegroundService(context, 1, myIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntent = Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? PendingIntent.getService(context, 1, myIntent, PendingIntent.FLAG_UPDATE_CURRENT) : PendingIntent.getForegroundService(context, 1, myIntent, Build.VERSION.SDK_INT < Build.VERSION_CODES.S? PendingIntent.FLAG_UPDATE_CURRENT:PendingIntent.FLAG_UPDATE_CURRENT|PendingIntent.FLAG_IMMUTABLE);
         Log.d(TAG, "!!!cancelAlarm!!!");
         AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         manager.cancel(pendingIntent);
