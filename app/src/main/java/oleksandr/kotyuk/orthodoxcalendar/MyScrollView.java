@@ -21,29 +21,31 @@ public class MyScrollView extends ScrollView {
     public MyScrollView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
-private View getnearInvisibleView(boolean toFirst) {
+    private View getnearInvisibleView(boolean toFirst) {
         //Этот метод предполагает,что в нашем scrollView есть только одно viewGroup и больше ничего,а в этом layout есть ещё View. Посути это очень ленивый разбор,который в последствии нужно улучшить.
-    //Поскольку мы хотим делать быструю прокрутку и назад,а у нас всего два view,первое view видимое,поэтому если мы не находим невидимых view,мы возвращаем первое или последнее view в нашем layout.
-ViewGroup layout = getChildAt(0) instanceof ViewGroup?(ViewGroup) getChildAt(0):this;
+        //Поскольку мы хотим делать быструю прокрутку и назад,а у нас всего два view,первое view видимое,поэтому если мы не находим невидимых view,мы возвращаем первое или последнее view в нашем layout.
+        ViewGroup layout = getChildAt(0) instanceof ViewGroup?(ViewGroup) getChildAt(0):this;
         for(int i=0;i<layout.getChildCount();i++) {
-           View view =layout.getChildAt(!toFirst?i:layout.getChildCount()-i-1);
-           if(view !=null) {
-Rect rect =new Rect();
-getDrawingRect(rect);
-if(!view.getGlobalVisibleRect(rect)) return view;
-           }
-}
+            View view =layout.getChildAt(!toFirst?i:layout.getChildCount()-i-1);
+            if(view !=null) {
+                Rect rect =new Rect();
+                getDrawingRect(rect);
+                if(!view.getGlobalVisibleRect(rect)) return view;
+            }
+        }
         return layout.getChildAt(!toFirst?0:layout.getChildCount());
-}
+    }
     @Override
     public boolean performAccessibilityAction(int action, Bundle arguments) {
         if(action== AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD ||action==AccessibilityNodeInfo.ACTION_SCROLL_FORWARD) {
-View view=getnearInvisibleView(action==AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD);
-if(view!=null) {
-    int inc=action==AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD?-1:1;
-scrollTo(inc*(view.getLeft()+getChildAt(0).getLeft()),inc*(view.getTop()+getChildAt(0).getTop()));
-return true;
-}
+            View view=getnearInvisibleView(action==AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD);
+            if(view!=null) {
+                int inc=action==AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD?-1:1;
+                int[] loc=new int[2];
+                view.getLocationOnScreen(loc);
+                scrollTo(inc*loc[0],inc*loc[1]);
+                return true;
+            }
         }
         return super.performAccessibilityAction(action, arguments);
     }
