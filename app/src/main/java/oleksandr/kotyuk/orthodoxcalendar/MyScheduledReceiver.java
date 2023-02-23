@@ -91,7 +91,7 @@ public class MyScheduledReceiver extends BroadcastReceiver {
                 addDataArray(context);
                 sendNotif(context);
                 cal.AddDayNew(time >= PreferencesActivity.MyPreferenceFragment.minTimeForNextDate ? -1 : 0);
-//Устанавливаем alarm на следующий день,но на это же время.
+ //Устанавливаем alarm на следующий день,но на это же время.
                 setAlarm(context, cal.getTimeInMillis() + wholeDayInMillis);
                 if (service != null) {
                     service.shutdownNow();
