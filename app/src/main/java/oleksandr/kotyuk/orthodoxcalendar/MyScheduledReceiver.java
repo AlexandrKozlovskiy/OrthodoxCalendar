@@ -358,7 +358,7 @@ public class MyScheduledReceiver extends BroadcastReceiver {
         Intent myIntentR1 = new Intent(context, notificationService.class);
         /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
             myIntentR1.addFlags(Intent.FLAG_RECEIVER_FOREGROUND);*/
-        PendingIntent pendingIntentR1 = Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? PendingIntent.getService(context, 1, myIntentR1, PendingIntent.FLAG_UPDATE_CURRENT) : PendingIntent.getForegroundService(context, 1, myIntentR1, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntentR1 = Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? PendingIntent.getService(context, 1, myIntentR1, PendingIntent.FLAG_UPDATE_CURRENT) : PendingIntent.getForegroundService(context, 1, myIntentR1, Build.VERSION.SDK_INT < Build.VERSION_CODES.S? PendingIntent.FLAG_UPDATE_CURRENT:PendingIntent.FLAG_UPDATE_CURRENT|PendingIntent.FLAG_MUTABLE);
         manager.cancel(pendingIntentR1);
         int type = AlarmManager.RTC_WAKEUP;
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT || (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && !manager.canScheduleExactAlarms()))
