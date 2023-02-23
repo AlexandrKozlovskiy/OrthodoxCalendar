@@ -33,9 +33,9 @@ android {
     buildToolsVersion '31.0.0'
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 30
-        versionCode 120
-        versionName '1.14.30'
+        targetSdkVersion 31
+        versionCode 121
+        versionName '1.14.31'
         signingConfig signingConfigs.release
     }
 
