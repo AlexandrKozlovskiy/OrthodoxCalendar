@@ -113,7 +113,7 @@ public final Preference.OnPreferenceChangeListener pL = new Preference.OnPrefere
             Noti_flag = (boolean) newValue;
             if (Noti_flag) {
                 // Log.d(TAG, "MyScheduledReceiver.setAlarm(cont)");
-                MyScheduledReceiver.setAlarm(cont);
+                MyScheduledReceiver.setAlarm(cont,true);
             } else {
                 // Log.d(TAG, "MyScheduledReceiver.cancelAlarm(cont)");
                 MyScheduledReceiver.cancelAlarm(cont);
@@ -127,7 +127,7 @@ public final Preference.OnPreferenceChangeListener pL = new Preference.OnPrefere
                 cbp1.setSummary(tomorrowDate());
 //mSH.setAlarm(cont,time);
             }
-            MyScheduledReceiver.setAlarm(cont, time);
+            MyScheduledReceiver.setAlarm(cont, time,true);
             return true;
         }
                 else if(preference.getKey().equals(cbp6.getKey())) {
@@ -507,7 +507,7 @@ public void loadSettings(InputStream stream) throws IOException {
         stream.close();
         o.close();
         prefs.commit();
-        if (Noti_flag) MyScheduledReceiver.setAlarm(getActivity());
+        if (Noti_flag) MyScheduledReceiver.setAlarm(getActivity(),true);
         else MyScheduledReceiver.cancelAlarm(getActivity());
     }
     catch (ClassNotFoundException e) {
