@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
 import android.net.Uri;
+import android.os.Build;
 import android.view.View;
 import android.widget.RemoteViews;
 
@@ -304,7 +305,7 @@ public class MyWidget extends AppWidgetProvider {
         updIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS,
                 new int[]{appWidgetId});
         PendingIntent updPIntent = PendingIntent.getBroadcast(context,
-                appWidgetId, updIntent, 0);
+                appWidgetId, updIntent, Build.VERSION.SDK_INT < Build.VERSION_CODES.S? 0:PendingIntent.FLAG_IMMUTABLE);
         rv.setOnClickPendingIntent(R.id.imageView1, updPIntent);
     }
 

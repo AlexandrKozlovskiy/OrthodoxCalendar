@@ -10,9 +10,11 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
+import android.provider.Settings;
 import android.text.Html;
 import android.text.Spanned;
 import android.util.Log;
@@ -56,7 +58,7 @@ public class MyScheduledReceiver extends BroadcastReceiver {
         if (Noti_flag) {
             if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
                 Log.i("Autostart", "Boot was completed with action " + intent.getAction() + ".");
-                setAlarm(context);
+                setAlarm(context,false);
             } else if (Intent.ACTION_DATE_CHANGED.equals(intent.getAction()) || Intent.ACTION_TIME_CHANGED.equals(intent.getAction()) || Intent.ACTION_TIMEZONE_CHANGED.equals(intent.getAction())) {
                 long millis = Long.parseLong(PreferencesActivity.MyPreferenceFragment.ReadString(context, millisKey, "0")) - System.currentTimeMillis();
                 //Проверяем разницу между временем,в которое должно поступить уведомление,и реальным системным временем. Возьмём,к примеру,10 секунд.
@@ -64,9 +66,9 @@ public class MyScheduledReceiver extends BroadcastReceiver {
                     Intent i = new Intent(context, notificationService.class);
                     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) context.startService(i);
                     else context.startForegroundService(i);
-                } else setAlarm(context);
+                } else setAlarm(context,false);
             } else if (AlarmManager.ACTION_SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED.equals(intent.getAction()))
-                setAlarm(context);
+                setAlarm(context,false);
             //else if(wholeDayInMillis==millis) onAlarm(context);
             //else onAlarm(context);
         }
@@ -92,7 +94,7 @@ public class MyScheduledReceiver extends BroadcastReceiver {
                 sendNotif(context);
                 cal.AddDayNew(time >= PreferencesActivity.MyPreferenceFragment.minTimeForNextDate ? -1 : 0);
                 //Устанавливаем alarm на следующий день,но на это же время.
-                setAlarm(context, cal.getTimeInMillis() + wholeDayInMillis);
+                setAlarm(context, cal.getTimeInMillis() + wholeDayInMillis,true);
                 if (service != null) {
                     service.shutdownNow();
                     service = null;
@@ -115,7 +117,7 @@ public class MyScheduledReceiver extends BroadcastReceiver {
         }
 //alarm не правильный,значит устанавливаем его на время согласно наших настроек.
         else {
-            setAlarm(context, getTimeForAlarm(false));
+            setAlarm(context, getTimeForAlarm(),false);
             if (l != null) {
                 l.stopService();
                 l = null;
@@ -132,7 +134,7 @@ public class MyScheduledReceiver extends BroadcastReceiver {
         //******************************************
         PendingIntent contentIntent = PendingIntent.getActivity(context,
                 0, notificationIntent,
-                PendingIntent.FLAG_CANCEL_CURRENT);
+                Build.VERSION.SDK_INT < Build.VERSION_CODES.S? PendingIntent.FLAG_CANCEL_CURRENT:PendingIntent.FLAG_CANCEL_CURRENT|PendingIntent.FLAG_IMMUTABLE);
         Resources res = context.getResources();
         String channelId = "OrthodoxCalendar";
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, channelId).setContentIntent(contentIntent)
@@ -352,7 +354,7 @@ public class MyScheduledReceiver extends BroadcastReceiver {
         return getTimeForAlarm(true);
     }
 
-    public static void setAlarm(Context context, Long time) {
+    public static void setAlarm(Context context, Long time,boolean requestPermission) {
         PreferencesActivity.MyPreferenceFragment.WriteString(context, millisKey, time + "");
         AlarmManager manager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         Intent myIntentR1 = new Intent(context, notificationService.class);
@@ -361,7 +363,8 @@ public class MyScheduledReceiver extends BroadcastReceiver {
         PendingIntent pendingIntentR1 = Build.VERSION.SDK_INT < Build.VERSION_CODES.O ? PendingIntent.getService(context, 1, myIntentR1, PendingIntent.FLAG_UPDATE_CURRENT) : PendingIntent.getForegroundService(context, 1, myIntentR1, Build.VERSION.SDK_INT < Build.VERSION_CODES.S? PendingIntent.FLAG_UPDATE_CURRENT:PendingIntent.FLAG_UPDATE_CURRENT|PendingIntent.FLAG_IMMUTABLE);
         manager.cancel(pendingIntentR1);
         int type = AlarmManager.RTC_WAKEUP;
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT || (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && !manager.canScheduleExactAlarms()))
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && !manager.canScheduleExactAlarms() &&requestPermission) context.startActivity(new Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM, Uri.parse("package:"+ context.getPackageName())));
+        else if (Build.VERSION.SDK_INT < Build.VERSION_CODES.KITKAT || Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && !manager.canScheduleExactAlarms())
             manager.set(type, time, pendingIntentR1);
         else if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M)
             manager.setExact(type, time, pendingIntentR1);
@@ -369,14 +372,14 @@ public class MyScheduledReceiver extends BroadcastReceiver {
         Log.d(TAG, "!!!setAlarm!!! " + (time - System.currentTimeMillis()) / 60000);
     }
 
-    public static void setAlarm(Context context) {
+        public static void setAlarm(Context context,boolean requestPermission) {
         time = Integer.parseInt(PreferencesActivity.MyPreferenceFragment.ReadString(context, "pref_notifi_time", "0"));
-        setAlarm(context, getTimeForAlarm());
+        setAlarm(context, getTimeForAlarm(),requestPermission);
     }
 
-    public static void setAlarm(Context context, int time) {
+    public static void setAlarm(Context context, int time,boolean requestPermission) {
         MyScheduledReceiver.time = time;
-        setAlarm(context, getTimeForAlarm());
+        setAlarm(context, getTimeForAlarm(),requestPermission);
     }
 
     public static void cancelAlarm(Context context) {
