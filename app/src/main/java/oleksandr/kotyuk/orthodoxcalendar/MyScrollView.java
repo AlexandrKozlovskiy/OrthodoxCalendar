@@ -41,9 +41,7 @@ public class MyScrollView extends ScrollView {
             View view=getnearInvisibleView(action==AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD);
             if(view!=null) {
                 int inc=action==AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD?-1:1;
-                int[] loc=new int[2];
-                view.getLocationOnScreen(loc);
-                scrollTo(inc*loc[0],inc*loc[1]);
+                scrollTo(inc*view.getLeft(),inc*view.getTop());
                 return true;
             }
         }
