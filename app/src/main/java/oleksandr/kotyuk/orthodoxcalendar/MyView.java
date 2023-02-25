@@ -198,6 +198,7 @@ int paddingLeft=getCompoundPaddingLeft();*/
     @Override
     public boolean performAccessibilityAction(int action, Bundle arguments) {
         if (action == AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS ||action ==AccessibilityNodeInfo.ACTION_FOCUS) accessibilityFocusedId = -1;
+        else if(action ==AccessibilityNodeInfo.ACTION_EXPAND ||action==AccessibilityNodeInfo.ACTION_COLLAPSE) return performClick();
       return super.performAccessibilityAction(action, arguments);
     }
 
