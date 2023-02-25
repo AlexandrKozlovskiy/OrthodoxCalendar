@@ -320,7 +320,7 @@ public class MyWidget extends AppWidgetProvider {
         // Make the pending intent unique...
         intent.setData(Uri.parse(intent.toUri(Intent.URI_INTENT_SCHEME)));
         PendingIntent pendIntent = PendingIntent.getActivity(context, 0,
-                intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                intent, Build.VERSION.SDK_INT < Build.VERSION_CODES.S? PendingIntent.FLAG_UPDATE_CURRENT:PendingIntent.FLAG_UPDATE_CURRENT|PendingIntent.FLAG_IMMUTABLE);
 
         rv.setOnClickPendingIntent(R.id.relativeLayout_widget1, pendIntent);
 
@@ -333,7 +333,7 @@ public class MyWidget extends AppWidgetProvider {
         configIntent.setAction(AppWidgetManager.ACTION_APPWIDGET_CONFIGURE);
         configIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId);
         PendingIntent pIntent = PendingIntent.getActivity(context, appWidgetId,
-                configIntent, 0);
+                configIntent, Build.VERSION.SDK_INT < Build.VERSION_CODES.S? 0:PendingIntent.FLAG_IMMUTABLE);
         rv.setOnClickPendingIntent(R.id.imageView2, pIntent);
     }
 
@@ -350,7 +350,7 @@ public class MyWidget extends AppWidgetProvider {
         Intent listClickIntent = new Intent(context, MyWidget.class);
         listClickIntent.setAction(ACTION_ON_CLICK);
         PendingIntent listClickPIntent = PendingIntent.getBroadcast(context, 0,
-                listClickIntent, 0);
+                listClickIntent, Build.VERSION.SDK_INT < Build.VERSION_CODES.S? 0:PendingIntent.FLAG_IMMUTABLE);
         rv.setPendingIntentTemplate(R.id.lvList, listClickPIntent);
     }
 
