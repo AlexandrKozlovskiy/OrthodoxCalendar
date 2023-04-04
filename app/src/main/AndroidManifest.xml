@@ -109,7 +109,7 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/widget_app_name"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
-            android:exported="false">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
             </intent-filter>
@@ -119,7 +119,7 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/widget_app_name"
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
-            android:exported="false">
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
             </intent-filter>
