@@ -1,4 +1,6 @@
-apply plugin: 'com.android.application'
+plugins {
+    id 'com.android.application'
+}
 
 android {
     applicationVariants.all { variant ->
@@ -8,35 +10,13 @@ android {
         }
     }
 
-    signingConfigs {
-        release {
-            def f = file("../keystore.properties")
-            if (f.exists()) {
-                def props = new Properties()
-                f.withInputStream { props.load(it) }
-                storeFile file(props.RELEASE_KEY_PATH)
-                storePassword props.RELEASE_STORE_PASSWORD
-                keyAlias props.RELEASE_KEY_ALIAS
-                keyPassword props.RELEASE_KEY_PASSWORD
-            } else {
-                def writer = new FileWriter(f.path)
-                writer.write("RELEASE_KEY_PATH=\n")
-                writer.write("RELEASE_KEY_PASSWORD=\n")
-                writer.write("RELEASE_KEY_ALIAS=\n")
-                writer.write("RELEASE_STORE_PASSWORD=")
-                writer.close()
-                throw new IOException("File $f.name was created. please fill it by values of your release key.")
-            }
-        }
-    }
-    compileSdkVersion 33
-    buildToolsVersion '33.0.0'
+    compileSdk 33
+
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 33
         versionCode 121
         versionName '1.14.31'
-        signingConfig signingConfigs.release
     }
 
     buildTypes {
@@ -44,20 +24,20 @@ android {
             minifyEnabled false
             shrinkResources false
             proguardFiles 'proguard-rules.pro'
-            signingConfig signingConfigs.release
-        }
-        debug {
-            signingConfig signingConfigs.debug
         }
     }
+
     lintOptions {
         abortOnError false
     }
+
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
+
     flavorDimensions 'orthodoxCalendar'
+
     productFlavors {
         orthodoxcalendarfree {
             dimension 'orthodoxCalendar'
@@ -74,6 +54,7 @@ android {
             buildConfigField "boolean", "isPaid", "true"
         }
     }
+
     sourceSets {
         main {
         }
@@ -82,9 +63,10 @@ android {
         }
     }
 }
+
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'androidx.fragment:fragment:1.5.5'
+    implementation 'androidx.fragment:fragment:1.5.6'
     implementation 'androidx.cursoradapter:cursoradapter:1.0.0'
     implementation 'androidx.viewpager:viewpager:1.0.0'
     implementation 'androidx.preference:preference:1.2.0'
