@@ -1,10 +1,10 @@
 package oleksandr.kotyuk.orthodoxcalendar.fragments;
 
-import oleksandr.kotyuk.orthodoxcalendar.MainActivity;
-import oleksandr.kotyuk.orthodoxcalendar.R;
-import oleksandr.kotyuk.orthodoxcalendar.models.MyCalendar;
-
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -13,10 +13,9 @@ import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener;
 
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import oleksandr.kotyuk.orthodoxcalendar.MainActivity;
+import oleksandr.kotyuk.orthodoxcalendar.R;
+import oleksandr.kotyuk.orthodoxcalendar.models.MyCalendar;
 
 public class FragmentViewPager extends Fragment {
 

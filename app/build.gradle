@@ -1,6 +1,9 @@
-apply plugin: 'com.android.application'
+plugins {
+    id 'com.android.application'
+}
 
 android {
+    namespace 'oleksandr.kotyuk.orthodoxcalendar'
     applicationVariants.all { variant ->
         //variant.packageApplicationProvider.get().outputDirectory = new File(project.getRootDir().absolutePath + "/" + variant.buildType.name + "/")
         variant.outputs.all { output ->
@@ -29,11 +32,12 @@ android {
             }
         }
     }
-    compileSdkVersion 31
-    buildToolsVersion '31.0.0'
+
+    compileSdkVersion 33
+    buildToolsVersion '33.0.0'
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 31
+        targetSdkVersion 33
         versionCode 121
         versionName '1.14.31'
         signingConfig signingConfigs.release
@@ -54,8 +58,8 @@ android {
         abortOnError false
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_16
-        targetCompatibility JavaVersion.VERSION_16
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     flavorDimensions 'orthodoxCalendar'
     productFlavors {
@@ -83,9 +87,12 @@ android {
     }
 }
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.4.1'
-    implementation 'androidx.fragment:fragment:1.4.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.fragment:fragment:1.6.0'
     implementation 'androidx.cursoradapter:cursoradapter:1.0.0'
     implementation 'androidx.viewpager:viewpager:1.0.0'
     implementation 'androidx.preference:preference:1.2.0'
+}
+configurations.implementation {
+    exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib-jdk8'
 }
