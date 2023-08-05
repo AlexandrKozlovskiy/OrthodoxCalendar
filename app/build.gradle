@@ -1,6 +1,9 @@
-apply plugin: 'com.android.application'
+plugins {
+    id 'com.android.application'
+}
 
 android {
+    namespace 'oleksandr.kotyuk.orthodoxcalendar'
     applicationVariants.all { variant ->
         //variant.packageApplicationProvider.get().outputDirectory = new File(project.getRootDir().absolutePath + "/" + variant.buildType.name + "/")
         variant.outputs.all { output ->
@@ -29,6 +32,7 @@ android {
             }
         }
     }
+
     compileSdkVersion 33
     buildToolsVersion '33.0.0'
     defaultConfig {
@@ -84,8 +88,11 @@ android {
 }
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'androidx.fragment:fragment:1.5.5'
+    implementation 'androidx.fragment:fragment:1.6.0'
     implementation 'androidx.cursoradapter:cursoradapter:1.0.0'
     implementation 'androidx.viewpager:viewpager:1.0.0'
     implementation 'androidx.preference:preference:1.2.0'
+}
+configurations.implementation {
+    exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib-jdk8'
 }
