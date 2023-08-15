@@ -155,7 +155,8 @@
 	<string name="link_rating">market://details?id=oleksandr.kotyuk.orthodoxcalendarfree</string>
 <string name="program_version">Версия %s</string>
 <string-array name="versions">
-	<item>Version 1.14.32\nВ программу добавлен календарь на 2024 год.\n
+	<item>Version 1.14.33\nИсправлены небольшие ошибки.\n
+		Version 1.14.32\nВ программу добавлен календарь на 2024 год.\n
 		Исправлены ошибки и опечатки в программе.\n\n
 	</item>
 	<item>Version 1.14.31\nИсправлены ошибки и опечатки в программе.\n
