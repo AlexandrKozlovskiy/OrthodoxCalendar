@@ -333,7 +333,7 @@ return;
   }
   cal_tk.AddDay(pageNumber_tk);
 
-  if (year_tk == 2020) {
+  if (year_tk == 2024) {
    if ((month_tk == 2 && data_tk == 29) || (month_tk == 3 && (data_tk > 0 && data_tk < 14))) {
     text=newVisYearPrayers();
    }else{

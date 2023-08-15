@@ -197,7 +197,7 @@ public class DescriptionActivity extends MenuActivity {
 
         int data = intent.getIntExtra("data", 1);
         int month = intent.getIntExtra("month", 0);
-        int year = intent.getIntExtra("year", 2014);
+        int year = intent.getIntExtra("year", 2021);
         prayers_id = intent.getIntExtra("prayers_id", 1);
         int id_termin = intent.getIntExtra("id_termin", 1);
         String prayers_name = intent.getStringExtra("prayers_name");
@@ -936,7 +936,7 @@ public class DescriptionActivity extends MenuActivity {
                             .ReadFloat(this, "pref_description_text_size", 0);
 
                     size = tvDescriptionActivity.getTextSize();
-                    if (size < 12020) {
+                    if (size < 120) {
                         // Log.d(TAG, "size =" + size);
                         size = size + 3;
                         tvDescriptionActivity.setTextSize(TypedValue.COMPLEX_UNIT_PX, size);

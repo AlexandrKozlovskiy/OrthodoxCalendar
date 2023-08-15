@@ -37,9 +37,9 @@ public class FragmentHelp extends Fragment {
     MyView text_help1;
     MyView text_help2;
     MyView text_help3;
-    MyView text_help4;
+    //MyView text_help4;
     MyView text_help5;
-    Button button_help_2;
+    //Button button_help_2;
 
     public FragmentHelp() {
 
@@ -55,16 +55,16 @@ public class FragmentHelp extends Fragment {
         text_help1 = (MyView) view.findViewById(R.id.MyViewHelp2);
         text_help2 = (MyView) view.findViewById(R.id.MyViewHelp4);
         text_help3 = (MyView) view.findViewById(R.id.MyViewHelp5);
-        text_help4 = (MyView) view.findViewById(R.id.MyViewHelp6);
+        //text_help4 = (MyView) view.findViewById(R.id.MyViewHelp6);
         text_help5 = (MyView) view.findViewById(R.id.MyViewHelp10);
         text_help = (MyView) view.findViewById(R.id.MyViewHelp1);
-        button_help_2 = (Button) view.findViewById(R.id.button_help2);
+       // button_help_2 = (Button) view.findViewById(R.id.button_help2);
         ViewCompat.setAccessibilityHeading(text_help, true);
         text_help.setTypeface(FontsHelper.getTypeFace(getActivity()
                 .getApplicationContext(), FONT_PATH1));
         return view;
     }
-
+/*
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -72,7 +72,7 @@ public class FragmentHelp extends Fragment {
             ((ViewGroup) text_help4.getParent()).removeView(text_help4);
             ((ViewGroup) button_help_2.getParent()).removeView(button_help_2);
         }
-    }
+    }*/
 
     @Override
     public void onStart() {
@@ -95,8 +95,8 @@ public class FragmentHelp extends Fragment {
             text_help1.setTextSize(TypedValue.COMPLEX_UNIT_PX, standart_text_size3 + fontSize * 2);
             text_help2.setTextSize(TypedValue.COMPLEX_UNIT_PX, standart_text_size3 + fontSize * 2);
             text_help3.setTextSize(TypedValue.COMPLEX_UNIT_PX, standart_text_size3 + fontSize * 2);
-            if (!BuildConfig.isPaid)
-                text_help4.setTextSize(TypedValue.COMPLEX_UNIT_PX, standart_text_size3 + fontSize * 2);
+            /*if (!BuildConfig.isPaid)
+                text_help4.setTextSize(TypedValue.COMPLEX_UNIT_PX, standart_text_size3 + fontSize * 2);*/
             text_help5.setTextSize(TypedValue.COMPLEX_UNIT_PX, standart_text_size3 + fontSize * 2);
         }
     }

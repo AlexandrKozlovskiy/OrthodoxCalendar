@@ -279,7 +279,7 @@ public class FragmentPrayersTroparKondakDay extends ListFragment implements
     //создаем тропари для високосного года
     public void newVisYearPrayers() {
         String tmp_text_vis_years = "";
-        if (year == 2020) {
+        if (year == 2024) {
             if ((month == 2 && data == 29) || (month == 3 && (data > 0 && data < 14))) {
                 cursor = null;
                 sql = "select tropari_kondaki_day from data_calendar_leap_year where month=" + month + " AND day=" + data + ";";

@@ -33,7 +33,7 @@ public class FragmentHolidays extends Fragment implements OnClickListener {
     static final String TAG = "myLogs";
 
     private final String[] data_years_holidays = {"2014", "2015", "2016",
-            "2017", "2018", "2019", "2020", "2021", "2022", "2023"};
+            "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"};
 
     private final String[] text_years_holidays_easter = {"20.04.2014 - <a href=\"activity-run://DescriptionHolyActivityHost?id=1920\">ПАСХА ХРИСТОВА</a>",
             "12.04.2015 - <a href=\"activity-run://DescriptionHolyActivityHost?id=1920\">ПАСХА ХРИСТОВА</a>",
@@ -44,7 +44,8 @@ public class FragmentHolidays extends Fragment implements OnClickListener {
             "19.04.2020 - <a href=\"activity-run://DescriptionHolyActivityHost?id=1920\">ПАСХА ХРИСТОВА</a>",
             "02.05.2021 - <a href=\"activity-run://DescriptionHolyActivityHost?id=1920\">ПАСХА ХРИСТОВА</a>",
             "24.04.2022 - <a href=\"activity-run://DescriptionHolyActivityHost?id=1920\">ПАСХА ХРИСТОВА</a>",
-            "16.04.2023 - <a href=\"activity-run://DescriptionHolyActivityHost?id=1920\">ПАСХА ХРИСТОВА</a>"};
+            "16.04.2023 - <a href=\"activity-run://DescriptionHolyActivityHost?id=1920\">ПАСХА ХРИСТОВА</a>",
+            "05.05.2024 - <a href=\"activity-run://DescriptionHolyActivityHost?id=1920\">ПАСХА ХРИСТОВА</a>"};
 
     private final String[] text_years_holidays1 = {"13.04.2014 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1919\">Вход Господень в Иерусалим</a><br>" +
             "29.05.2014 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1921\">Вознесение Господне</a><br>" +
@@ -84,7 +85,11 @@ public class FragmentHolidays extends Fragment implements OnClickListener {
 
             "09.04.2023 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1919\">Вход Господень в Иерусалим</a><br>" +
                     "25.05.2023 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1921\">Вознесение Господне</a><br>" +
-                    "04.06.2023 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1922\">День Святой Троицы. Пятидесятница</a>"};
+                    "04.06.2023 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1922\">День Святой Троицы. Пятидесятница</a>",
+
+            "28.04.2024 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1919\">Вход Господень в Иерусалим</a><br>" +
+                    "13.06.2024 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1921\">Вознесение Господне</a><br>" +
+                    "23.06.2024 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1922\">День Святой Троицы. Пятидесятница</a>"};
 
     private final String[] text_years_holidays2 = {"07.01.2014 – <a href=\"activity-run://DescriptionHolyActivityHost?id=30\">Рождество Христово</a><br>" +
             "19.01.2014 – <a href=\"activity-run://DescriptionHolyActivityHost?id=83\">Крещение Господне. Богоявление</a><br>" +
@@ -184,7 +189,17 @@ public class FragmentHolidays extends Fragment implements OnClickListener {
                     "28.08.2023 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1227\">Успение Пресвятой Богородицы</a><br>" +
                     "21.09.2023 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1360\">Рождество Пресвятой Богородицы</a><br>" +
                     "27.09.2023 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1401\">Воздвижение Креста Господня</a><br>" +
-                    "04.12.2023 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1787\">Введение во храм Пресвятой Богородицы</a>"};
+                    "04.12.2023 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1787\">Введение во храм Пресвятой Богородицы</a>",
+
+            "07.01.2024 – <a href=\"activity-run://DescriptionHolyActivityHost?id=30\">Рождество Христово</a><br>" +
+                    "19.01.2024 – <a href=\"activity-run://DescriptionHolyActivityHost?id=83\">Крещение Господне. Богоявление</a><br>" +
+                    "15.02.2024 – <a href=\"activity-run://DescriptionHolyActivityHost?id=230\">Сретение Господне</a><br>" +
+                    "07.04.2024 – <a href=\"activity-run://DescriptionHolyActivityHost?id=478\">Благовещение Пресвятой Богородицы</a><br>" +
+                    "19.08.2024 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1184\">Преображение Господне</a><br>" +
+                    "28.08.2024 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1227\">Успение Пресвятой Богородицы</a><br>" +
+                    "21.09.2024 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1360\">Рождество Пресвятой Богородицы</a><br>" +
+                    "27.09.2024 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1401\">Воздвижение Креста Господня</a><br>" +
+                    "04.12.2024 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1787\">Введение во храм Пресвятой Богородицы</a>"};
 
     private final String[] text_years_holidays3 = {"14.01.2014 – <a href=\"activity-run://DescriptionHolyActivityHost?id=59\">Обрезание Господне</a><br>" +
             "07.07.2014 – <a href=\"activity-run://DescriptionHolyActivityHost?id=965\">Рождество Иоанна Предтечи</a><br>" +
@@ -244,7 +259,13 @@ public class FragmentHolidays extends Fragment implements OnClickListener {
                     "07.07.2023 – <a href=\"activity-run://DescriptionHolyActivityHost?id=965\">Рождество Иоанна Предтечи</a><br>" +
                     "12.07.2023 – <a href=\"activity-run://DescriptionHolyActivityHost?id=989\">Святых первоверховных апостолов Петра и Павла</a><br>" +
                     "11.09.2023 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1293\">Усекновение главы Иоанна Предтечи</a><br>" +
-                    "14.10.2023 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1499\">Покров Пресвятой Богородицы</a>"};
+                    "14.10.2023 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1499\">Покров Пресвятой Богородицы</a>",
+
+            "14.01.2024 – <a href=\"activity-run://DescriptionHolyActivityHost?id=59\">Обрезание Господне</a><br>" +
+                    "07.07.2024 – <a href=\"activity-run://DescriptionHolyActivityHost?id=965\">Рождество Иоанна Предтечи</a><br>" +
+                    "12.07.2024 – <a href=\"activity-run://DescriptionHolyActivityHost?id=989\">Святых первоверховных апостолов Петра и Павла</a><br>" +
+                    "11.09.2024 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1293\">Усекновение главы Иоанна Предтечи</a><br>" +
+                    "14.10.2024 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1499\">Покров Пресвятой Богородицы</a>"};
 
     private final String FONT_PATH1 = "fonts/Russo_One.ttf";
     Spinner spinnerHolidays;
@@ -378,6 +399,13 @@ public class FragmentHolidays extends Fragment implements OnClickListener {
                 tvHolidays1.setText(Html.fromHtml(text_years_holidays1[9].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
                 tvHolidays2.setText(Html.fromHtml(text_years_holidays2[9].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
                 tvHolidays3.setText(Html.fromHtml(text_years_holidays3[9].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
+                break;
+            case 2024:
+                spinnerHolidays.setSelection(10);
+                tvHolidaysEaster1.setText(Html.fromHtml(text_years_holidays_easter[10].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
+                tvHolidays1.setText(Html.fromHtml(text_years_holidays1[10].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
+                tvHolidays2.setText(Html.fromHtml(text_years_holidays2[10].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
+                tvHolidays3.setText(Html.fromHtml(text_years_holidays3[10].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
                 break;
             default:
                 spinnerHolidays.setSelection(0);

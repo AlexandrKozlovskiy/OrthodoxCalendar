@@ -73,30 +73,6 @@
                 android:textSize="19sp" />
 
             <oleksandr.kotyuk.orthodoxcalendar.MyView
-                android:id="@+id/MyViewHelp6"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:layout_marginTop="5dp"
-                android:text="@string/help_project_text3"
-                android:textColor="@color/BLACK"
-                android:textSize="19sp" />
-
-            <Button
-                android:id="@+id/button_help2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@drawable/button1"
-                android:minHeight="40dp"
-                android:onClick="onClickButton"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:text="@string/link_program"
-                android:textColor="@color/Gold"
-                android:textSize="18sp" />
-
-            <oleksandr.kotyuk.orthodoxcalendar.MyView
                 android:id="@+id/MyViewHelp10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

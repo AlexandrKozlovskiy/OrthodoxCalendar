@@ -255,7 +255,7 @@ public class MyFactory implements RemoteViewsFactory {
             int m = cal2.getMonth() + 1;
             int d = cal2.getDayMonth();
             Log.d(TAG, "cal2.getYear()= " + y + "  cal2.getMonth()+1=" + m + "  cal2.getDayMonth()=" + d);
-            if (y == 2020) {
+            if (y == 2024) {
                 if (m == 2 && d == 29) {
                     tmp = findTextVisYear(context.getApplicationContext(), m, d);
                     //Log.d(TAG,"ru_great_holiday=" + ru_great_holiday+"  ru_big_holiday="+ru_big_holiday);
@@ -289,7 +289,7 @@ public class MyFactory implements RemoteViewsFactory {
 
             }
         } else {
-            data.add("Пожалуйста проверьте дату на устройстве, программа работает в интервале 2020г - 2023г.");
+            data.add("Пожалуйста проверьте дату на устройстве, программа работает в интервале 2021г - 2024г.");
             data.add(" ");
         }
         // data.add("test");

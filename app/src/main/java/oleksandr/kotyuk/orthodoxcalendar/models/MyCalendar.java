@@ -36,17 +36,18 @@ public class MyCalendar {
     int r2021 = 365;
     int r2022 = 365;
     int r2023 = 365;
+    int r2024 = 366;
 
     //высокосный год
-    public int v_year = 2020;
+    public int v_year = 2024;
     //высокосный месяц, начало от 0
     public int v_month = 1;
 
-    // к-во дней в период с 2020г - 2023г
+    // к-во дней в период с 2021г - 2024г
     @SuppressWarnings("unused")
     private final int PAGE_COUNT_DAY = 1461;
 
-    // к-во мес¤цев в период с 2020г - 2023г
+    // к-во мес¤цев в период с 2021г - 2024г
     @SuppressWarnings("unused")
     private final int PAGE_COUNT_MONTH = 48;
 
@@ -155,22 +156,22 @@ public class MyCalendar {
         return day_week_names_short[cal_tmp.get(Calendar.DAY_OF_WEEK)];
     }
 
-    // получаем номер сегодн¤шней даты относительно периода с 2020г - 2023г
+    // получаем номер сегодн¤шней даты относительно периода с 2021г - 2024г
     public int getTodayDay() {
         int year_today = getYear();
         int today_day = 0;
         switch (year_today) {
-            case 2020:
+            case 2021:
                 today_day = 0 + getDayYear() - 1;
                 break;
-            case 2021:
-                today_day = r2020 + getDayYear() - 1;
-                break;
             case 2022:
-                today_day = r2020 + r2021 + getDayYear() - 1;
+                today_day = r2021 + getDayYear() - 1;
                 break;
             case 2023:
-                today_day = r2020 + r2021 + r2022 + getDayYear() - 1;
+                today_day = r2021 + r2022 + getDayYear() - 1;
+                break;
+            case 2024:
+                today_day = r2021 + r2022 + r2023 + getDayYear() - 1;
                 break;
             default:
                 break;
@@ -179,21 +180,21 @@ public class MyCalendar {
         return today_day;
     }
 
-    // получаем номер сегодняшнего месяца относительно периода с 2020г - 2023г
+    // получаем номер сегодняшнего месяца относительно периода с 2021г - 2024г
     public int getTodayMonth() {
         int year_today = getYear();
         int today_month = 0;
         switch (year_today) {
-            case 2020:
+            case 2021:
                 today_month = 0 + getMonth();
                 break;
-            case 2021:
+            case 2022:
                 today_month = 12 + getMonth();
                 break;
-            case 2022:
+            case 2023:
                 today_month = 24 + getMonth();
                 break;
-            case 2023:
+            case 2024:
                 today_month = 36 + getMonth();
                 break;
             default:
@@ -238,14 +239,14 @@ public class MyCalendar {
         cal.set(Calendar.MILLISECOND, 0);
     }
 
-    //проверяем или дата на устройстве попадает в период с 2020 по 2023
+    //проверяем или дата на устройстве попадает в период с 2021 по 2024
     public boolean getDateEntersPeriods() {
         int today_year = this.getYear();
-        if (today_year > 2019 && today_year < 2024) return true;
+        if (today_year > 2020 && today_year < 2025) return true;
         else return false;
     }
 
-    //получаем полное название даты 15/02/2023
+    //получаем полное название даты 15/02/2024
     public String getFullNameDate() {
         return this.getDayMonth() + "/" + (this.getMonth() + 1) + "/" + this.getYear();
     }

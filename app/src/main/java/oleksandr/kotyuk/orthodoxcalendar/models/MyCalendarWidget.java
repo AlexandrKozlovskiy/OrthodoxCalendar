@@ -75,11 +75,11 @@ public class MyCalendarWidget {
         return cal.get(Calendar.YEAR);
     }
 
-    //провер¤ем или дата на устройстве попадает в период с 2020 по 2023
+    //провер¤ем или дата на устройстве попадает в период с 2021 по 2024
     public boolean getDateEntersPeriods() {
         int today_year = this.getYearInt();
 
-        if (today_year > 2019 && today_year < 2024)
+        if (today_year > 2020 && today_year < 2025)
             return true;
         else
             return false;

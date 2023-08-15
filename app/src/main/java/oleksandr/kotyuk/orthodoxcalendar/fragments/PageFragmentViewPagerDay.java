@@ -160,7 +160,7 @@ public class PageFragmentViewPagerDay extends Fragment implements
         month = cal.getMonth() + 1;
         year = cal.getYear();
 
-        if (year == 2020) {
+        if (year == 2024) {
             if ((month == 2 && data == 29) || (month == 3 && (data > 0 && data < 14))) {
                 newVisYearPrayers();
                 newVisYearPrayersLink();
@@ -452,7 +452,7 @@ public class PageFragmentViewPagerDay extends Fragment implements
         String text_all_holidays = text_gr_holiday + text_big_holiday
                 + text_holiday + text_icon_holiday;
 
-        if (year == 2020) {
+        if (year == 2024) {
             if (month == 2 && data == 29) {
                 text_all_holidays = findTextVisYear().replace("\r\n", "<br>");
                 //////////////////////////////////////////////////////////////

@@ -110,7 +110,7 @@ public class PageFragmentViewPagerMonth extends ListFragment implements
 
     // если високосный год вносим изменения
     public void findTextVisYear() {
-        if (cal.getYear() == 2020) {
+        if (cal.getYear() == 2024) {
             if (cal.getMonth() + 1 == 2) {// && data==29
                 // text_all_holidays=findTextVisYear().replace("\r\n", "<br>");
                 cursor = null;

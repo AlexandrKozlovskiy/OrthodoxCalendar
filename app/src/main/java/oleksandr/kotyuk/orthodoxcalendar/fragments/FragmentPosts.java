@@ -31,7 +31,7 @@ public class FragmentPosts extends Fragment implements OnClickListener {
     public static final String ITEM_NAME = "itemName";
 
     private final String[] data_years_posts = {"2014", "2015", "2016",
-            "2017", "2018", "2019", "2020", "2021", "2022", "2023"};
+            "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"};
 
     private String[] data_posts1 = {"<a href=\"activity-run://DescriptionOtherActivityHost?id_multi=1\">Великий пост</a> - 03.03.2014 - 19.04.2014<br>" +
             "<a href=\"activity-run://DescriptionOtherActivityHost?id_multi=2\">Петров пост</a> - 16.06.2014 - 11.07.2014<br>" +
@@ -81,7 +81,12 @@ public class FragmentPosts extends Fragment implements OnClickListener {
             "<a href=\"activity-run://DescriptionOtherActivityHost?id_multi=1\">Великий пост</a> - 27.02.2023 - 15.04.2023<br>" +
                     "<a href=\"activity-run://DescriptionOtherActivityHost?id_multi=2\">Петров пост</a> - 12.06.2023 - 11.07.2023<br>" +
                     "<a href=\"activity-run://DescriptionOtherActivityHost?id_multi=3\">Успенский пост</a> - 14.08.2023 - 27.08.2023<br>" +
-                    "<a href=\"activity-run://DescriptionOtherActivityHost?id_multi=4\">Рождественский пост</a> - 28.11.2023 - 06.01.2024"};
+                    "<a href=\"activity-run://DescriptionOtherActivityHost?id_multi=4\">Рождественский пост</a> - 28.11.2023 - 06.01.2024",
+
+            "<a href=\"activity-run://DescriptionOtherActivityHost?id_multi=1\">Великий пост</a> - 18.03.2024 - 04.05.2024<br>" +
+                    "<a href=\"activity-run://DescriptionOtherActivityHost?id_multi=2\">Петров пост</a> - 01.07.2024 - 11.07.2024<br>" +
+                    "<a href=\"activity-run://DescriptionOtherActivityHost?id_multi=3\">Успенский пост</a> - 14.08.2024 - 27.08.2024<br>" +
+                    "<a href=\"activity-run://DescriptionOtherActivityHost?id_multi=4\">Рождественский пост</a> - 28.11.2024 - 06.01.2025"};
 
     private String[] data_posts2 = {"18.01.2014 - <a href=\"activity-run://DescriptionOtherActivityHost?id_one=1\">Крещенский сочельник (Навечерие Богоявления)</a><br>" +
             "11.09.2014 - <a href=\"activity-run://DescriptionOtherActivityHost?id_one=2\">Усекновение главы Иоанна Предтечи</a><br>" +
@@ -131,6 +136,11 @@ public class FragmentPosts extends Fragment implements OnClickListener {
             "18.01.2023 - <a href=\"activity-run://DescriptionOtherActivityHost?id_one=1\">Крещенский сочельник (Навечерие Богоявления)</a><br>" +
                     "11.09.2023 - <a href=\"activity-run://DescriptionOtherActivityHost?id_one=2\">Усекновение главы Иоанна Предтечи</a><br>" +
                     "27.09.2023 - <a href=\"activity-run://DescriptionOtherActivityHost?id_one=3\">Воздвижение Креста Господня</a><br>" +
+                    "Среда и пятница в течение всего года, за исключением сплошных седмиц и Святок",
+
+            "18.01.2024 - <a href=\"activity-run://DescriptionOtherActivityHost?id_one=1\">Крещенский сочельник (Навечерие Богоявления)</a><br>" +
+                    "11.09.2024 - <a href=\"activity-run://DescriptionOtherActivityHost?id_one=2\">Усекновение главы Иоанна Предтечи</a><br>" +
+                    "27.09.2024 - <a href=\"activity-run://DescriptionOtherActivityHost?id_one=3\">Воздвижение Креста Господня</a><br>" +
                     "Среда и пятница в течение всего года, за исключением сплошных седмиц и Святок"};
 
     private String[] data_posts3 = {"<a href=\"activity-run://DescriptionOtherActivityHost?id_sedmitsa=1\">Святки</a> - 07.01.2014 - 17.01.2014<br>" +
@@ -191,7 +201,13 @@ public class FragmentPosts extends Fragment implements OnClickListener {
                     "<a href=\"activity-run://DescriptionOtherActivityHost?id_sedmitsa=2\">Мытаря и фарисея</a> - 06.02.2023 - 12.02.2023<br>" +
                     "<a href=\"activity-run://DescriptionOtherActivityHost?id_sedmitsa=3\">Сырная (масленица)</a> - 20.02.2023 - 26.02.2023<br>" +
                     "<a href=\"activity-run://DescriptionOtherActivityHost?id_sedmitsa=4\">Пасхальная (Светлая)</a> - 17.04.2023 - 23.04.2023<br>" +
-                    "<a href=\"activity-run://DescriptionOtherActivityHost?id_sedmitsa=5\">Троицкая</a> - 05.06.2023 - 11.06.2023<br><br>"};
+                    "<a href=\"activity-run://DescriptionOtherActivityHost?id_sedmitsa=5\">Троицкая</a> - 05.06.2023 - 11.06.2023<br><br>",
+
+            "<a href=\"activity-run://DescriptionOtherActivityHost?id_sedmitsa=1\">Святки</a> - 07.01.2024 - 17.01.2024<br>" +
+                    "<a href=\"activity-run://DescriptionOtherActivityHost?id_sedmitsa=2\">Мытаря и фарисея</a> - 26.02.2024 - 03.03.2024<br>" +
+                    "<a href=\"activity-run://DescriptionOtherActivityHost?id_sedmitsa=3\">Сырная (масленица)</a> - 11.03.2024 - 17.03.2024<br>" +
+                    "<a href=\"activity-run://DescriptionOtherActivityHost?id_sedmitsa=4\">Пасхальная (Светлая)</a> - 06.05.2024 - 12.05.2024<br>" +
+                    "<a href=\"activity-run://DescriptionOtherActivityHost?id_sedmitsa=5\">Троицкая</a> - 24.06.2024 - 30.06.2024<br><br>"};
 
 /*private final String data_posts4=
  "1. <a href=\"activity-run://DescriptionOtherActivityHost?id_other=1\">Вступление</a><br>"+
@@ -338,6 +354,12 @@ public class FragmentPosts extends Fragment implements OnClickListener {
                 tvDescriptionPosts3.setText(Html.fromHtml(data_posts1[9].replace("DescriptionOtherActivityHost", GlobalData.getDESCRIPTION_OTHER_ACTIVITY_HOST())));
                 tvDescriptionPosts5.setText(Html.fromHtml(data_posts2[9].replace("DescriptionOtherActivityHost", GlobalData.getDESCRIPTION_OTHER_ACTIVITY_HOST())));
                 tvDescriptionPosts7.setText(Html.fromHtml(data_posts3[9].replace("DescriptionOtherActivityHost", GlobalData.getDESCRIPTION_OTHER_ACTIVITY_HOST())));
+                break;
+            case 2024:
+                spinnerPosts.setSelection(10);
+                tvDescriptionPosts3.setText(Html.fromHtml(data_posts1[10].replace("DescriptionOtherActivityHost", GlobalData.getDESCRIPTION_OTHER_ACTIVITY_HOST())));
+                tvDescriptionPosts5.setText(Html.fromHtml(data_posts2[10].replace("DescriptionOtherActivityHost", GlobalData.getDESCRIPTION_OTHER_ACTIVITY_HOST())));
+                tvDescriptionPosts7.setText(Html.fromHtml(data_posts3[10].replace("DescriptionOtherActivityHost", GlobalData.getDESCRIPTION_OTHER_ACTIVITY_HOST())));
                 break;
             default:
                 spinnerPosts.setSelection(0);

@@ -289,13 +289,13 @@ public class MyScheduledReceiver extends BroadcastReceiver {
             cursor.close();
         } else {
             ru_great_holiday = "Проверьте дату на устройстве";
-            post = "2020г-2023гг.";
+            post = "2021г-2024гг.";
         }
         int y = cal.getYear();
         int m = cal.getMonth() + 1;
         int d = cal.getDayMonth();
         Log.d(TAG, "cal.getYear()= " + y + "  cal.getMonth()+1=" + m + "  cal.getDayMonth()=" + d);
-        if (y == 2020) {
+        if (y == 2024) {
             if (m == 2 && d == 29) {
                 ru_great_holiday = "";
                 ru_big_holiday = findTextVisYear(context);

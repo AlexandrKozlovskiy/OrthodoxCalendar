@@ -262,12 +262,12 @@ void alert(String message) {
 // действия при нажати на кнопку
 public void onClickButton(View v) {
  switch (v.getId()) {
- case R.id.button_help2:
+ /*case R.id.button_help2:
   Intent intent = new Intent(Intent.ACTION_VIEW);
   intent.setData(Uri
    .parse("https://play.google.com/store/apps/details?id=oleksandr.kotyuk.orthodoxcalendarpaid"));
   startActivity(intent);
-  break;
+  break;*/
  case R.id.button_Bible1:
   Intent intent_bible1=new Intent(this, BibleListActivity.class);
   intent_bible1.putExtra("id", 1);
