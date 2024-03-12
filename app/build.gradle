@@ -13,31 +13,14 @@ android {
 
     signingConfigs {
         release {
-            def f = file("../keystore.properties")
-            if (f.exists()) {
-                def props = new Properties()
-                f.withInputStream { props.load(it) }
-                storeFile file(props.RELEASE_KEY_PATH)
-                storePassword props.RELEASE_STORE_PASSWORD
-                keyAlias props.RELEASE_KEY_ALIAS
-                keyPassword props.RELEASE_KEY_PASSWORD
-            } else {
-                def writer = new FileWriter(f.path)
-                writer.write("RELEASE_KEY_PATH=\n")
-                writer.write("RELEASE_KEY_PASSWORD=\n")
-                writer.write("RELEASE_KEY_ALIAS=\n")
-                writer.write("RELEASE_STORE_PASSWORD=")
-                writer.close()
-                throw new IOException("File $f.name was created. please fill it by values of your release key.")
-            }
-        }
+}
     }
 
-    compileSdkVersion 33
-    buildToolsVersion '33.0.0'
+    compileSdkVersion 34
+    buildToolsVersion '34.0.0'
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 33
+        targetSdkVersion 34
         versionCode 123
         versionName '1.14.33'
         signingConfig signingConfigs.release
@@ -48,6 +31,24 @@ android {
             minifyEnabled false
             shrinkResources false
             proguardFiles 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            def f = file("../keystore.properties")
+            if (f.exists()) {
+                def props = new Properties()
+                f.withInputStream { props.load(it) }
+                signingConfigs.release.storeFile file(props.RELEASE_KEY_PATH)
+                signingConfigs.release.storePassword props.RELEASE_STORE_PASSWORD
+                signingConfigs.release.keyAlias props.RELEASE_KEY_ALIAS
+                signingConfigs.release.keyPassword props.RELEASE_KEY_PASSWORD
+            } else {
+                def writer = new FileWriter(f.path)
+                writer.write("RELEASE_KEY_PATH=\n")
+                writer.write("RELEASE_KEY_PASSWORD=\n")
+                writer.write("RELEASE_KEY_ALIAS=\n")
+                writer.write("RELEASE_STORE_PASSWORD=")
+                writer.close()
+                throw new IOException("File $f.name was created. please fill it by values of your release key.")
+            }
             signingConfig signingConfigs.release
         }
         debug {
@@ -87,12 +88,12 @@ android {
     }
 }
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'androidx.fragment:fragment:1.6.0'
+    //implementation 'androidx.appcompat:appcompat:1.6.1'
+    //implementation 'androidx.fragment:fragment:1.6.2'
     implementation 'androidx.cursoradapter:cursoradapter:1.0.0'
     implementation 'androidx.viewpager:viewpager:1.0.0'
-    implementation 'androidx.preference:preference:1.2.0'
+    implementation 'androidx.preference:preference:1.2.1'
 }
 configurations.implementation {
-    exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib-jdk8'
+    //exclude group: 'org.jetbrains.kotlin', module: 'kotlin-stdlib-jdk8'
 }

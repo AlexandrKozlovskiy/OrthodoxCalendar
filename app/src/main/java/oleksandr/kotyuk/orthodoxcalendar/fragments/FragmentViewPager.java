@@ -59,7 +59,7 @@ public class FragmentViewPager extends Fragment {
             int notifi_date_app_start = getArguments().getInt("notifi_date_app_start");
             //Toast.makeText(getActivity(), "notifi_date_app_start="+notifi_date_app_start, Toast.LENGTH_LONG).show();
             if (notifi_date_app_start != 0 && notifi_date_app_start > 0 && notifi_date_app_start < 1462)
-                selected_item_position = notifi_date_app_start;
+                    selected_item_position = notifi_date_app_start;
             cal.setTodayDate();
             //******************************************************
             pager.setCurrentItem(selected_item_position);
