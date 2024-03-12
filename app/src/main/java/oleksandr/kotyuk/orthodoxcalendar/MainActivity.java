@@ -1,12 +1,14 @@
 package oleksandr.kotyuk.orthodoxcalendar;
 
+import android.Manifest;
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -16,8 +18,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
-
-import androidx.annotation.Nullable;
+import android.provider.Settings;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -245,7 +247,15 @@ undf.show(getSupportFragmentManager(), "dialog_update_news");
  editor.putInt(NUMBER_PROGRAM, correct_num_prog);
  editor.commit();
 }
+if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.TIRAMISU && checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS)!= PackageManager.PERMISSION_GRANTED &&shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS)) requestPermissions(new String[] {Manifest.permission.POST_NOTIFICATIONS},1);
 }
+
+ @Override
+ public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+  super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+  if(grantResults!=null &&grantResults.length>0)
+   if(grantResults[0]!=PackageManager.PERMISSION_GRANTED) startActivity(new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,Uri.parse("package:"+getApplicationContext().getPackageName())));
+ }
 
  void complain(String message) {
  alert("ОШИБКА: " + message);
