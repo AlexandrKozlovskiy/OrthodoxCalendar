@@ -247,7 +247,7 @@ undf.show(getSupportFragmentManager(), "dialog_update_news");
  editor.putInt(NUMBER_PROGRAM, correct_num_prog);
  editor.commit();
 }
-if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.TIRAMISU && checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS)!= PackageManager.PERMISSION_GRANTED &&shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS)) requestPermissions(new String[] {Manifest.permission.POST_NOTIFICATIONS},1);
+if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.TIRAMISU && checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS)!= PackageManager.PERMISSION_GRANTED /*&&shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS)*/) requestPermissions(new String[] {Manifest.permission.POST_NOTIFICATIONS},1);
 }
 
  @Override

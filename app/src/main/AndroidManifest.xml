@@ -71,6 +71,7 @@
         </service>
         <service
             android:name="oleksandr.kotyuk.orthodoxcalendar.notificationService"
+            android:foregroundServiceType="shortService"
             android:exported="true">
 
         </service>
