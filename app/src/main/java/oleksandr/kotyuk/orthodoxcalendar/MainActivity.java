@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements
 
 public final static String NUMBER_PROGRAM = "number_program";
 public final static String WIDGET_PREF = "widget_pref";
+public final static String requestedPermissionsKey="requested_permissions_key";
 //final int DIALOG_UPDATE_NEWS = 1;
 
 final String LOG_TAG = "myLogs";
@@ -117,8 +118,6 @@ boolean notifi_date_app_start_flag=true;
 protected void onCreate(Bundle savedInstanceState) {
  super.onCreate(savedInstanceState);
  setContentView(R.layout.activity_main);
-
-
  //старт уведомления
  /*Noti_flag = PreferencesActivity.MyPreferenceFragment.ReadBoolean(getApplicationContext(), "pref_notifi_setting", true);
  Log.d(LOG_TAG, "Noti_flag="+Noti_flag.toString());
@@ -249,23 +248,31 @@ undf.show(getSupportFragmentManager(), "dialog_update_news");
  editor.putInt(NUMBER_PROGRAM, correct_num_prog);
  editor.commit();
 }
-if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.TIRAMISU && checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS)!= PackageManager.PERMISSION_GRANTED /*&&shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS)*/) requestPermissions(new String[] {Manifest.permission.POST_NOTIFICATIONS},1);
+if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.TIRAMISU && checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS)!= PackageManager.PERMISSION_GRANTED &&!sp.getBoolean(requestedPermissionsKey,false) /*&&shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS)*/) requestPermissions(new String[] {Manifest.permission.POST_NOTIFICATIONS},1);
 }
 
 
  @Override
  public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
   super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-  if(grantResults!=null &&grantResults.length>0)
-   if(grantResults[0]!=PackageManager.PERMISSION_GRANTED) startActivity(new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS,Uri.parse("package:"+getApplicationContext().getPackageName())));
+    if(grantResults!=null &&grantResults.length>0) {
+     Editor e = getSharedPreferences(WIDGET_PREF, MODE_PRIVATE).edit();
+     if (grantResults[0] != PackageManager.PERMISSION_GRANTED) {
+      startActivity(new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:" + getApplicationContext().getPackageName())));
+      alert(getString(R.string.permission_error), getString(android.R.string.dialog_alert_title));
+     }
+     //Если разрешение было дано,то мы должны поместить значение false,чтобы,если разрешение будет отозвано каким-либо образом,этот диалог появился у нас снова один раз.
+     e.putBoolean(requestedPermissionsKey,grantResults[0] != PackageManager.PERMISSION_GRANTED).commit();
+    }
  }
 
  void complain(String message) {
- alert("ОШИБКА: " + message);
+ alert("Ошибка",message);
 }
 
-void alert(String message) {
+void alert(String message,String title) {
  AlertDialog.Builder bld = new AlertDialog.Builder(this);
+ bld.setTitle(title);
  bld.setMessage(message);
  bld.setNeutralButton("OK", null);
  //Log.d(TAG, "Showing alert dialog: " + message);

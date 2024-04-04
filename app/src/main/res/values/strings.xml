@@ -152,6 +152,7 @@
 	<string name="button_dialog_update2">ОК</string>
 	<string name="action_move_to_first">Переместить в начало</string>
 	<string name="action_move_after">Переместить после пункта %s</string>
+<string name="permission_error">Поскольку разрешение на уведомление не было дано,уведомления работать не будут,поэтому если Вам нужны уведомления,зайдите пожалуйста в настройки приложения и предоставьте разрешение для работы уведомлений.</string>
 	<string name="link_rating">market://details?id=oleksandr.kotyuk.orthodoxcalendarfree</string>
 <string name="program_version">Версия %s</string>
 <string-array name="versions">
