@@ -117,6 +117,8 @@ boolean notifi_date_app_start_flag=true;
 protected void onCreate(Bundle savedInstanceState) {
  super.onCreate(savedInstanceState);
  setContentView(R.layout.activity_main);
+
+
  //старт уведомления
  /*Noti_flag = PreferencesActivity.MyPreferenceFragment.ReadBoolean(getApplicationContext(), "pref_notifi_setting", true);
  Log.d(LOG_TAG, "Noti_flag="+Noti_flag.toString());
@@ -249,6 +251,7 @@ undf.show(getSupportFragmentManager(), "dialog_update_news");
 }
 if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.TIRAMISU && checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS)!= PackageManager.PERMISSION_GRANTED /*&&shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS)*/) requestPermissions(new String[] {Manifest.permission.POST_NOTIFICATIONS},1);
 }
+
 
  @Override
  public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
