@@ -45,11 +45,14 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="5dp"
-                android:autoLink="email"
+                android:autoLink="all"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
                 android:linksClickable="true"
                 android:text="@string/email_program"
                 android:textColor="@color/Blue_lite"
                 android:textColorLink="@color/Blue_lite"
+                android:textIsSelectable="true"
                 android:textSize="23sp"
                 android:textStyle="bold" />
             

@@ -258,8 +258,8 @@ if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.TIRAMISU && checkSelfPermission(Ma
     if(grantResults!=null &&grantResults.length>0) {
      Editor e = getSharedPreferences(WIDGET_PREF, MODE_PRIVATE).edit();
      if (grantResults[0] != PackageManager.PERMISSION_GRANTED) {
-      startActivity(new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:" + getApplicationContext().getPackageName())));
-      alert(getString(R.string.permission_error), getString(android.R.string.dialog_alert_title));
+      //startActivity(new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.parse("package:" + getApplicationContext().getPackageName())));
+      alert(getString(R.string.permission_error), getString(R.string.dialog_alert_title));
      }
      //Если разрешение было дано,то мы должны поместить значение false,чтобы,если разрешение будет отозвано каким-либо образом,этот диалог появился у нас снова один раз.
      e.putBoolean(requestedPermissionsKey,grantResults[0] != PackageManager.PERMISSION_GRANTED).commit();
@@ -313,7 +313,7 @@ public void onClickButton(View v) {
   intent_bible4.putExtra("id_bible_book", id_bible_book);
   intent_bible4.putExtra("line_text_bible_book", line_text_bible_book);
   startActivity(intent_bible4);
-  }else alert("Сохраненной страницы еще нет, поскольку Вы еще не читали!!!");
+  }else alert("Сохраненной страницы еще нет, поскольку Вы еще не читали!!!", "Внимание");
   break;
  case R.id.button_Bible5:
   Intent intent_bible5=new Intent(this, BibleSearchActivity.class);

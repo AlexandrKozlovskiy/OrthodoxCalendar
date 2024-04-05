@@ -113,7 +113,7 @@
 	<string name="email_program">Oleksandr.Kotyuk@gmail.com</string>
 	<string name="source_code">Вы можете посмотреть и скачать исходный код приложения на <a href="https://github.com/AlexandrKozlovskiy/orthodoxCalendar/">GitHub</a>.</string>
 	<string name="help_project">Помощь проекту</string>
-	<string name="help_project_text1">Поддержать проект можно добрым словом и идеями по улучшению программы, написав на адрес:</string>
+	<string name="help_project_text1">Поддержать проект можно пожертвовав на счет PayPal:</string>
 	<string name="help_project_text1_1">А также:</string>
 	<string name="help_project_text2">Написав о всех возникающих ошибках, или неточностях в программе.</string>
 	<string name="help_project_text3">Купив платную версию программы(в платной версии функционал аналогичен бесплатной версии).</string>
@@ -152,7 +152,8 @@
 	<string name="button_dialog_update2">ОК</string>
 	<string name="action_move_to_first">Переместить в начало</string>
 	<string name="action_move_after">Переместить после пункта %s</string>
-<string name="permission_error">Поскольку разрешение на уведомление не было дано,уведомления работать не будут,поэтому если Вам нужны уведомления,зайдите пожалуйста в настройки приложения и предоставьте разрешение для работы уведомлений.</string>
+	<string name="dialog_alert_title">Внимание</string>
+<string name="permission_error">Поскольку разрешение на уведомление не было дано, уведомления работать не будут, поэтому если Вам нужны уведомления, предоставьте разрешение для работы уведомлений.</string>
 	<string name="link_rating">market://details?id=oleksandr.kotyuk.orthodoxcalendarfree</string>
 <string name="program_version">Версия %s</string>
 <string-array name="versions">
