@@ -162,7 +162,7 @@
         <item>23</item>
     </string-array>
     <string-array name="entries_bibli_search_group">
-        <item>ВСЯ БИБЛИЯ</item>
+        <item>БИБЛИЯ</item>
         <item>ВЕТХИЙ ЗАВЕТ</item>
         <item>Пятикнижие</item>
         <item>Исторические</item>
@@ -457,6 +457,30 @@
         <item>dark_green</item>
         <item>blue</item>
         <item>dark_blue</item>
+    </string-array>
+    <string-array name="entries_holy_search_group">
+        <item>Все</item>
+        <item>Праздники</item>
+        <item>Иконы Божией Матери</item>
+        <item>Соборы</item>
+        <item>Апостолы</item>
+        <item>Бессребреники</item>
+        <item>Благоверные</item>
+        <item>Блаженные (юродивые)</item>
+        <item>Великомученики</item>
+        <item>Исповедники</item>
+        <item>Мученики</item>
+        <item>Праведные</item>
+        <item>Преподобноисповедники</item>
+        <item>Преподобномученики</item>
+        <item>Преподобные</item>
+        <item>Пророки</item>
+        <item>Равноапостольные</item>
+        <item>Святые</item>
+        <item>Святители</item>
+        <item>Священноисповедники</item>
+        <item>Священномученики</item>
+        <item>Страстотерпцы</item>
     </string-array>
 
 </resources>

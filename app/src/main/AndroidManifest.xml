@@ -245,6 +245,14 @@
             android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
             android:exported="false">
         </activity>
+        <activity
+            android:name="SearchHolyActivity"
+            android:launchMode="singleTask"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="@string/search_holy"
+            android:theme="@style/Theme.AppCompat.Light.DarkActionBar"
+            android:exported="false">
+        </activity>
     </application>
 
 </manifest>

@@ -1,172 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-	<string name="app_name">Православный календарь</string>
-<string name="app_name_fz">Православный календарь(ФЗ)</string>
-	<string name="drawer_open">Меню</string>
-	<string name="drawer_close">Закрыть меню</string>
-	<string name="menu_item1">На сегодняшнюю дату</string>
-	<string name="menu_item2">Выбрать дату</string>
-	<string name="menu_item3">Поиск</string>
-	<string name="menu_list1">День</string>
-	<string name="menu_list2">Месяц</string>
-<string name="main_options">ОСНОВНЫЕ ОПЦИИ</string>
-<string name="calendar">Календарь</string>
-<string name="prayers">Молитвослов</string>
-	<string name="bible">Библия</string>
-<string name="easter">Пасха Христова</string>
-	<string name="holidays">Праздники</string>
-<string name="souls">Дни поминовения</string>
-	<string name="posts">Посты</string>
-<string name="help">Справочник</string>
-	<string name="other_options">ДРУГИЕ ОПЦИИ</string>
-	<string name="settings">Настройки</string>
-<string name="help_to_project">Помочь проекту</string>
-<string name="rate_project">Оценить проект</string>
-<string name="about">О программе</string>
-<string name="list1_title">Ежедневное уведомление</string>
-	<string name="list1_summary">Включено</string>
-	<string name="tomorrow_date">Включено (уведомления будут отображаться на завтрашнюю дату).</string>
-	<string name="list2_title">Язык молитвослова</string>
-	<string name="list2_summary1">Гражданский</string>
-	<string name="list2_summary2">Церковно-славянский</string>
-	<string name="list3_title">Размер шрифта</string>
-	<string name="list3_summary1">Стандартный</string>
-	<string name="list4_title">Звук уведомления</string>
-	<string name="list4_summary1">Отключен</string>
-	<string name="list5_title">Время уведомления</string>
-	<string name="list6_title">Автоповорот экрана молитвослова</string>
-	<string name="list6_summary">Включен</string>
-	<string name="list7_title">Гражданский шрифт</string>
-	<string name="list7_summary">Arial</string>
-	<string name="list8_title">Церковно-славянский шрифт</string>
-	<string name="list8_summary">Canonic</string>
-	<string name="list9_title">Фон ночного режима</string>
-	<string name="list9_summary">Черный</string>
-	<string name="menu_item1_prayers">Увеличить шрифт</string>
-	<string name="menu_item2_prayers">Уменьшить шрифт</string>
-	<string name="menu_item3_prayers">Режим День/Ночь</string>
-	<string name="menu_item4_prayers">В избранное</string>
-	<string name="menu_item4_delete_prayers">Удалить из избранного</string>
-	<string name="preference_category">ОБЩИЕ</string>
-	<string name="preference_category1">Уведомления</string>
-	<string name="preference_category2">Внешний вид</string>
-	<string name="preference_category3">Общие</string>
-	<string name="preference_category4">Сохранить/загрузить (настройки, избранное, закладки)</string>
-	<string name="save_settings">Сохранить</string>
-	<string name="load_settings">Загрузить</string>
-	<string name="new_style_name">Новый стиль</string>
-	<string name="old_style_name">Старый стиль</string>
-	<string name="full_name_easter">Пасха. Воскресение Христово</string>
-	<string name="select_year">Выберите год:</string>
-	<string name="name_easter_sanday">Пасхальное Воскресение:</string>
-	<string name="holidays_title1">Церковные праздники</string>
-	<string name="holidays_title2">в</string>
-	<string name="holidays_title3">году</string>
-	<string name="holidays_title4">Двунадесятые переходящие праздники</string>
-	<string name="holidays_title5">Двунадесятые непереходящие праздники</string>
-	<string name="holidays_title6">Великие праздники</string>
-	<string name="bible_title1">Библия. Синодальный перевод</string>
-	<string name="bible_title2">Ветхий Завет</string>
-	<string name="bible_title3">Новый Завет</string>
-	<string name="bible_title4">Закладки</string>
-	<string name="bible_title5">Продолжить чтение</string>
-	<string name="bible_title6">Поиск</string>
-	<string name="bible_title7">Найдено результатов - 0</string>
-	<string name="bible_title8">Молитвы</string>
-	<string name="bible_dialog1">Да</string>
-	<string name="bible_dialog2">Нет</string>
-	<string name="bible_dialog3">Сохранить в закладки?</string>
-	<string name="bible_dialog4">Закладки</string>
-	<string name="bible_dialog5">Удалить закладку?</string>
-	<string name="bible_dialog6">Выберите действие</string>
-	<string name="bible_dialog7">Сохранить текст в закладки или копировать в буфер обмена?</string>
-	<string name="bible_dialog8">В закладки</string>
-	<string name="bible_dialog9">Копировать</string>
-	<string name="bible_dialog10">Отмена</string>
-	<string name="bible_dialog11">Azbyka.ru</string>
-	<string name="psaltur_dialog1">Псалтирь</string>
-	<string name="psaltur_dialog2">Продолжить чтение</string>
-	<string name="psaltur_dialog3">Начните читать Псалтирь, при выходе сохранится страница для последующего быстрого продолжения чтения. В следующий раз, кликнув на кнопку, Вы перейдете к последней прочитанной странице.</string>
-	<string name="psaltur_dialog4">Псалтирь</string>
-	<string name="psaltur_dialog5">Псалтирь по усопшим</string>
-	<string name="menu_item1_bookmarks">Удалить все</string>
-	<string name="prayers_search">Поиск</string>
-	<string name="prayers_language_ru_cs">Язык молитвослова</string>
-	<string name="prayers_fonts_ru_cs">Шрифт молитвослова</string>
-	<string name="prayers_dialog1">Избранное</string>
-	<string name="prayers_dialog2">Удалить из избранного?</string>
-	<string name="app_name_bible">Библия</string>
-	<string name="app_name_psaltur">Молитвослов</string>
-	<string name="souls_title1">Дни поминовения усопших</string>
-	<string name="posts_title1">Посты</string>
-	<string name="posts_title2">Многодневные посты</string>
-	<string name="posts_title3">Однодневные посты</string>
-	<string name="posts_title4">Сплошные седмицы</string>
-	<string name="posts_title5">Устав о посте по Типикону</string>
-	<string name="soul_title1">О поминовении усопших</string>
-	<string name="directory_title1">Справочник</string>
-	<string name="directory_title2">Информация</string>
-	<string name="name_developer">© Oleksandr Kotyuk</string>
-	<string name="title_update_news">Что нового</string>
-	<string name="program_date">2024</string>
-	<string name="email_program">Oleksandr.Kotyuk@gmail.com</string>
-	<string name="source_code">Вы можете посмотреть и скачать исходный код приложения на <a href="https://github.com/AlexandrKozlovskiy/orthodoxCalendar/">GitHub</a>.</string>
-	<string name="help_project">Помощь проекту</string>
-	<string name="help_project_text1">Поддержать проект можно пожертвовав на счет PayPal:</string>
-	<string name="help_project_text1_1">А также:</string>
-	<string name="help_project_text2">Написав о всех возникающих ошибках, или неточностях в программе.</string>
-	<string name="help_project_text3">Купив платную версию программы(в платной версии функционал аналогичен бесплатной версии).</string>
-	<string name="help_project_text6">Заранее огромное Вам спасибо!</string>
-	<string name="link_program">Скачать платную версию</string>
-	<string name="splash_activity_text">ЗАГРУЗКА</string>
-	<string name="splash_activity_text_error">Пожалуйста проверьте дату на устройстве, эта версия программы работает в интервале 2021г-2024г.</string>
-	<string name="empty">Нет данных</string>
-	<string name="empty_prayers_bookmarks">Вы еще не добавляли в Избранное!!!</string>
-	<string name="widget_text">Text in widget</string>
-	<string name="widget_transparent_0">Без прозрачности</string>
-	<string name="widget_transparent_20">Легкая прозрачность</string>
-	<string name="widget_transparent_40">Средняя прозрачность</string>
-	<string name="widget_transparent_60">Сильная прозрачность</string>
-	<string name="widget_ok">ОК</string>
-	<string name="widget_radio_group_name">Степень прозрачности виджета:</string>
-	<string name="widget_app_name">Настройки виджета</string>
-	<string name="widget_app_name2">Обновить виджет</string>
-	<string name="about_button_help"> СПРАВОЧНИК ПОЛЬЗОВАТЕЛЯ </string>
-	<string name="about_button_help2">КРАТКИЙ СЛОВАРЬ ТЕРМИНОВ</string>
-	<string name="about_button_help3">ПОСЛЕДНИЕ ОБНОВЛЕНИЯ</string>
-	<string name="gospel_reading_title">Евангельские чтения:</string>
-	<string name="think_feofan_title">Мысли Феофана Затворника:</string>
-	<string name="tropar_kondak_title">Тропари и кондаки дня:</string>
-	<string name="prayers_links_title">Молитвословия дня:</string>
-	<string name="citations_elders_title">Изречения Оптинских старцев:</string>
-	<string name="widget_radio_group_name_week">Название недели (седмица):</string>
-	<string name="widget_WeekYes">Показывать</string>
-	<string name="widget_WeekNo">Не показывать</string>
-	<string name="widget_group_size">Размер текста виджета:</string>
-	<string name="widget_ps">P.S. Чтобы изменить размер виджета, нажмите на виджет и удерживайте, примерно за 2 секунды появится возможность изменить размер.</string>
-	<string name="widget_radio_group_name_fz">Мысли Феофана Затворника:</string>
-	<string name="widget_radio_group_name_text_size">Размер шрифта:</string>
-	<string name="app_dictionary_terms">Краткий словарь терминов</string>
-	<string name="button_dialog_update1">Ещё&#8230;</string>
-	<string name="button_dialog_update2">ОК</string>
-	<string name="action_move_to_first">Переместить в начало</string>
-	<string name="action_move_after">Переместить после пункта %s</string>
-	<string name="dialog_alert_title">Внимание</string>
-<string name="permission_error">Поскольку разрешение на уведомление не было дано, уведомления работать не будут, поэтому если Вам нужны уведомления, предоставьте разрешение для работы уведомлений.</string>
-	<string name="link_rating">market://details?id=oleksandr.kotyuk.orthodoxcalendarfree</string>
-<string name="program_version">Версия %s</string>
-<string-array name="versions">
+    <string name="app_name">Православный календарь</string>
+    <string name="app_name_fz">Православный календарь(ФЗ)</string>
+    <string name="drawer_open">Меню</string>
+    <string name="drawer_close">Закрыть меню</string>
+    <string name="menu_item1">На сегодняшнюю дату</string>
+    <string name="menu_item2">Выбрать дату</string>
+    <string name="menu_item3">Поиск</string>
+    <string name="menu_list1">День</string>
+    <string name="menu_list2">Месяц</string>
+    <string name="main_options">ОСНОВНЫЕ ОПЦИИ</string>
+    <string name="calendar">Календарь</string>
+    <string name="prayers">Молитвослов</string>
+    <string name="bible">Библия</string>
+    <string name="search_holy">Месяцеслов</string>
+    <string name="holidays">Праздники</string>
+    <string name="souls">Дни поминовения</string>
+    <string name="posts">Посты</string>
+    <string name="help">Справочник</string>
+    <string name="other_options">ДРУГИЕ ОПЦИИ</string>
+    <string name="settings">Настройки</string>
+    <string name="help_to_project">Помочь проекту</string>
+    <string name="rate_project">Оценить проект</string>
+    <string name="about">О программе</string>
+    <string name="list1_title">Ежедневное уведомление</string>
+    <string name="list1_summary">Включено</string>
+    <string name="tomorrow_date">Включено (уведомления будут отображаться на завтрашнюю дату).</string>
+    <string name="list2_title">Язык молитвослова</string>
+    <string name="list2_summary1">Гражданский</string>
+    <string name="list2_summary2">Церковно-славянский</string>
+    <string name="list3_title">Размер шрифта</string>
+    <string name="list3_summary1">Стандартный</string>
+    <string name="list4_title">Звук уведомления</string>
+    <string name="list4_summary1">Отключен</string>
+    <string name="list5_title">Время уведомления</string>
+    <string name="list6_title">Автоповорот экрана молитвослова</string>
+    <string name="list6_summary">Включен</string>
+    <string name="list7_title">Гражданский шрифт</string>
+    <string name="list7_summary">Arial</string>
+    <string name="list8_title">Церковно-славянский шрифт</string>
+    <string name="list8_summary">Canonic</string>
+    <string name="list9_title">Фон ночного режима</string>
+    <string name="list9_summary">Черный</string>
+    <string name="menu_item1_prayers">Увеличить шрифт</string>
+    <string name="menu_item2_prayers">Уменьшить шрифт</string>
+    <string name="menu_item3_prayers">Режим День/Ночь</string>
+    <string name="menu_item4_prayers">В избранное</string>
+    <string name="menu_item4_delete_prayers">Удалить из избранного</string>
+    <string name="preference_category">ОБЩИЕ</string>
+    <string name="preference_category1">Уведомления</string>
+    <string name="preference_category2">Внешний вид</string>
+    <string name="preference_category3">Общие</string>
+    <string name="preference_category4">Сохранить/загрузить (настройки, избранное, закладки)</string>
+    <string name="save_settings">Сохранить</string>
+    <string name="load_settings">Загрузить</string>
+    <string name="new_style_name">Новый стиль</string>
+    <string name="old_style_name">Старый стиль</string>
+    <string name="full_name_easter">Пасха. Воскресение Христово</string>
+    <string name="select_year">Выберите год:</string>
+    <string name="name_easter_sanday">Пасхальное Воскресение:</string>
+    <string name="holidays_title1">Церковные праздники</string>
+    <string name="holidays_title2">в</string>
+    <string name="holidays_title3">году</string>
+    <string name="holidays_title4">Двунадесятые переходящие праздники</string>
+    <string name="holidays_title5">Двунадесятые непереходящие праздники</string>
+    <string name="holidays_title6">Великие праздники</string>
+    <string name="bible_title1">Библия. Синодальный перевод</string>
+    <string name="bible_title2">Ветхий Завет</string>
+    <string name="bible_title3">Новый Завет</string>
+    <string name="bible_title4">Закладки</string>
+    <string name="bible_title5">Продолжить чтение</string>
+    <string name="bible_title6">Поиск</string>
+    <string name="bible_title7">Найдено результатов - 0</string>
+    <string name="bible_title8">Молитвы</string>
+    <string name="bible_dialog1">Да</string>
+    <string name="bible_dialog2">Нет</string>
+    <string name="bible_dialog3">Сохранить в закладки?</string>
+    <string name="bible_dialog4">Закладки</string>
+    <string name="bible_dialog5">Удалить закладку?</string>
+    <string name="bible_dialog6">Выберите действие</string>
+    <string name="bible_dialog7">Сохранить текст в закладки или копировать в буфер обмена?</string>
+    <string name="bible_dialog8">В закладки</string>
+    <string name="bible_dialog9">Копировать</string>
+    <string name="bible_dialog10">Отмена</string>
+    <string name="bible_dialog11">Azbyka.ru</string>
+    <string name="psaltur_dialog1">Псалтирь</string>
+    <string name="psaltur_dialog2">Продолжить чтение</string>
+    <string name="psaltur_dialog3">Начните читать Псалтирь, при выходе сохранится страница для последующего быстрого продолжения чтения. В следующий раз, кликнув на кнопку, Вы перейдете к последней прочитанной странице.</string>
+    <string name="psaltur_dialog4">Псалтирь</string>
+    <string name="psaltur_dialog5">Псалтирь по усопшим</string>
+    <string name="menu_item1_bookmarks">Удалить все</string>
+    <string name="prayers_search">Поиск</string>
+    <string name="prayers_language_ru_cs">Язык молитвослова</string>
+    <string name="prayers_fonts_ru_cs">Шрифт молитвослова</string>
+    <string name="prayers_dialog1">Избранное</string>
+    <string name="prayers_dialog2">Удалить из избранного?</string>
+    <string name="app_name_bible">Библия</string>
+    <string name="app_name_psaltur">Молитвослов</string>
+    <string name="souls_title1">Дни поминовения усопших</string>
+    <string name="posts_title1">Посты</string>
+    <string name="posts_title2">Многодневные посты</string>
+    <string name="posts_title3">Однодневные посты</string>
+    <string name="posts_title4">Сплошные седмицы</string>
+    <string name="posts_title5">Устав о посте по Типикону</string>
+    <string name="soul_title1">О поминовении усопших</string>
+    <string name="directory_title1">Справочник</string>
+    <string name="directory_title2">Информация</string>
+    <string name="name_developer">© Oleksandr Kotyuk</string>
+    <string name="title_update_news">Что нового</string>
+    <string name="program_date">2024</string>
+    <string name="email_program">Oleksandr.Kotyuk@gmail.com</string>
+    <string name="source_code">Вы можете посмотреть и скачать исходный код приложения на <a href="https://github.com/AlexandrKozlovskiy/orthodoxCalendar/">GitHub</a>.</string>
+    <string name="help_project">Помощь проекту</string>
+    <string name="help_project_text1">Поддержать проект можно пожертвовав на счет PayPal:</string>
+    <string name="help_project_text1_1">А также:</string>
+    <string name="help_project_text2">Написав о всех возникающих ошибках, или неточностях в программе.</string>
+    <string name="help_project_text3">Купив платную версию программы(в платной версии функционал аналогичен бесплатной версии).</string>
+    <string name="help_project_text6">Заранее огромное Вам спасибо!</string>
+    <string name="link_program">Скачать платную версию</string>
+    <string name="splash_activity_text">ЗАГРУЗКА</string>
+    <string name="splash_activity_text_error">Пожалуйста проверьте дату на устройстве, эта версия программы работает в интервале 2021г-2024г.</string>
+    <string name="empty">Нет данных</string>
+    <string name="empty_prayers_bookmarks">Вы еще не добавляли в Избранное!!!</string>
+    <string name="widget_text">Text in widget</string>
+    <string name="widget_transparent_0">Без прозрачности</string>
+    <string name="widget_transparent_20">Легкая прозрачность</string>
+    <string name="widget_transparent_40">Средняя прозрачность</string>
+    <string name="widget_transparent_60">Сильная прозрачность</string>
+    <string name="widget_ok">ОК</string>
+    <string name="widget_radio_group_name">Степень прозрачности виджета:</string>
+    <string name="widget_app_name">Настройки виджета</string>
+    <string name="widget_app_name2">Обновить виджет</string>
+    <string name="about_button_help"> СПРАВОЧНИК ПОЛЬЗОВАТЕЛЯ </string>
+    <string name="about_button_help2">КРАТКИЙ СЛОВАРЬ ТЕРМИНОВ</string>
+    <string name="about_button_help3">ПОСЛЕДНИЕ ОБНОВЛЕНИЯ</string>
+    <string name="gospel_reading_title">Евангельские чтения:</string>
+    <string name="think_feofan_title">Мысли Феофана Затворника:</string>
+    <string name="tropar_kondak_title">Тропари и кондаки дня:</string>
+    <string name="prayers_links_title">Молитвословия дня:</string>
+    <string name="citations_elders_title">Изречения Оптинских старцев:</string>
+    <string name="widget_radio_group_name_week">Название недели (седмица):</string>
+    <string name="widget_WeekYes">Показывать</string>
+    <string name="widget_WeekNo">Не показывать</string>
+    <string name="widget_group_size">Размер текста виджета:</string>
+    <string name="widget_ps">P.S. Чтобы изменить размер виджета, нажмите на виджет и удерживайте, примерно за 2 секунды появится возможность изменить размер.</string>
+    <string name="widget_radio_group_name_fz">Мысли Феофана Затворника:</string>
+    <string name="widget_radio_group_name_text_size">Размер шрифта:</string>
+    <string name="app_dictionary_terms">Краткий словарь терминов</string>
+    <string name="button_dialog_update1">Ещё&#8230;</string>
+    <string name="button_dialog_update2">ОК</string>
+    <string name="action_move_to_first">Переместить в начало</string>
+    <string name="action_move_after">Переместить после пункта %s</string>
+    <string name="dialog_alert_title">Внимание</string>
+    <string name="permission_error">Поскольку разрешение на уведомление не было дано, уведомления работать не будут, поэтому если Вам нужны уведомления, предоставьте разрешение для работы уведомлений.</string>
+    <string name="link_rating">market://details?id=oleksandr.kotyuk.orthodoxcalendarfree</string>
+    <string name="program_version">Версия %s</string>
+    <string-array name="versions">
 	<item>Version 1.14.35\nИсправлены небольшие ошибки.\n\n
 	</item>
-	<item>Version 1.14.34\nВ календарь добавлена дополнительная информация на 2024 год о постах.\n
+        <item>Version 1.14.34\nВ календарь добавлена дополнительная информация на 2024 год о постах.\n
 		Внесены исправления, для работы уведомлений в Android 13.\n\n
 	</item>
-	<item>Version 1.14.33\nИсправлены небольшие ошибки.\n
+        <item>Version 1.14.33\nИсправлены небольшие ошибки.\n
 		Version 1.14.32\nВ программу добавлен календарь на 2024 год.\n
 		Исправлены ошибки и опечатки в программе.\n\n
 	</item>
-	<item>Version 1.14.31\nИсправлены ошибки и опечатки в программе.\n
+        <item>Version 1.14.31\nИсправлены ошибки и опечатки в программе.\n
 		Также в молитвослов добавлены:\n
 		1. Вопль к Богоматери;\n
 		2. Молитва о прекращении войн и мире всего мира;\n
@@ -182,7 +182,7 @@
 		12. Канон блаженному Максиму Московскому, Христа ради юродивому;\n
 		13. Канон великомученику Феодору Стратилату.\n\n
 	</item>
-	<item>Version 1.14.30\nИсправлены ошибки и опечатки в программе.\n
+        <item>Version 1.14.30\nИсправлены ошибки и опечатки в программе.\n
 		В календарь добавлены новые тропари и кондаки дня.\n
 		Также в молитвослов добавлены:\n
 		1. Молитва Пресвятой Богородице перед иконою «Урюпинской»;\n
@@ -191,9 +191,9 @@
 		4. Акафист преподобномученикам Серафиму и Феогносту Алма-Атинским;\n
 		5. Канон молебный при разлучении души от тела.\n\n
 	</item>
-	<item>Version 1.14.29\nИсправлен вылет в приложении при открытии раздела «Настройки».\n\n
+        <item>Version 1.14.29\nИсправлен вылет в приложении при открытии раздела «Настройки».\n\n
 	</item>
-	<item>Version 1.14.28\nИсправлены ошибки и опечатки в программе.\n
+        <item>Version 1.14.28\nИсправлены ошибки и опечатки в программе.\n
 	В программу добавлен календарь на 2023 год.\n
 	В календарь добавлены новые имена святых.\n
 	Добавлена возможность в разделе «Настройки» Сохранить\\Загрузить (настройки, избранное, закладки).\n
@@ -207,109 +207,109 @@
 	6. Акафист святым праотцам Адаму и Еве;\n
 	7. Канон Пресвятой Богородице пред иконой «Умягчение злых сердец» («Семистрельная»).\n\n
 	</item>
-	<item>Version 1.14.27\nИсправлены ошибки и опечатки в программе.\n
+        <item>Version 1.14.27\nИсправлены ошибки и опечатки в программе.\n
 	Исправлена возможность копирования текста в житиях святых.\n
 	Также в молитвослов добавлены:\n
 	1. Молитва о даровании смирения;\n
 	2. Акафист преподобному Илии Макеевскому;\n
 	3. Канон преподобному Максиму Исповеднику.\n\n
 	</item>
-	<item>Version 1.14.26\nИсправлены ошибки и опечатки в программе.\n
+        <item>Version 1.14.26\nИсправлены ошибки и опечатки в программе.\n
 		В календаре на 2022 год, посты приведены в соответствии с Типиконом и Богослужебными указаниями. Добавлена также дополнительная информация на 2022 год о постах. Чтобы посмотреть доп. информацию необходимо кликнуть в шапке календаря на текст, например \"Постный день (масло)\" и т.п.\n\n
 		Version 1.14.25\nИсправлены ошибки и опечатки в программе.\n
 		Также в молитвослов добавлены новые молитвословия.\n\n
 	</item>
-	<item>Version 1.14.24\nНебольшие исправления в работе уведомлений.\n\n
+        <item>Version 1.14.24\nНебольшие исправления в работе уведомлений.\n\n
 		Version 1.14.23\nИсправлены ошибки и опечатки в программе.\n
 		Также в молитвослов добавлены новые молитвословия.\n\n
 	</item>
-	<item>Version 1.14.22\nИсправлены ошибки и опечатки в программе.\n
+        <item>Version 1.14.22\nИсправлены ошибки и опечатки в программе.\n
 		Добавлена возможность отправки отчета разработчику, при вылете приложения.\n
 		Также в молитвослов добавлены новые молитвословия.\n\n
 	</item>
-	<item>Version 1.14.21\nИсправлена нестабильная работа приложения на старых Android версиях.\n\n
+        <item>Version 1.14.21\nИсправлена нестабильная работа приложения на старых Android версиях.\n\n
 		Version 1.14.20\nИсправлены ошибки и опечатки в программе.\n
 		Улучшина доступность для незрячих.\n
 		Исправлена работа уведомлений.\n
 		Небольшое исправление в виджете (возможно понадобится переустановить виджет).\n
 		Также в молитвослов добавлены новые молитвословия.\n\n
 	</item>
-	<item>Version 1.14.19\nИсправлены ошибки и опечатки в программе.\n
+        <item>Version 1.14.19\nИсправлены ошибки и опечатки в программе.\n
 		Также в молитвослов добавлены новые молитвословия.\n\n
 	</item>
-	<item>Version 1.14.18\nИсправлены ошибки и опечатки в программе.\n
+        <item>Version 1.14.18\nИсправлены ошибки и опечатки в программе.\n
 		Также в молитвослов добавлены новые молитвословия.\n\n
 	</item>
-	<item>Version 1.14.17\nВ программу добавлен календарь на 2022 год.\n
+        <item>Version 1.14.17\nВ программу добавлен календарь на 2022 год.\n
 		В раздел «Тропари и кондаки дня» добавлены величания.\n
 		Исправлены ошибки и опечатки в программе.\n
 		Также в молитвослов добавлены новые молитвословия.\n\n
 	</item>
-	<item>Version 1.14.16\nИсправлены ошибки и опечатки в программе.\n
+        <item>Version 1.14.16\nИсправлены ошибки и опечатки в программе.\n
 		В акафисты добавлены величания.\n
 		Также в молитвослов добавлены новые молитвословия.\n\n
 	</item>
-	<item>Version 1.14.15\nИсправлены ошибки и опечатки в программе.\n
+        <item>Version 1.14.15\nИсправлены ошибки и опечатки в программе.\n
 		Также в молитвослов добавлены новые молитвословия.\n\n
 	</item>
-	<item>Version 1.14.14\nИсправлены ошибки и опечатки в программе.\n
+        <item>Version 1.14.14\nИсправлены ошибки и опечатки в программе.\n
 		Также в молитвослов добавлены новые молитвословия.\n\n
 	</item>
-	<item>Version 1.14.13\nИсправлены ошибки и опечатки в программе.\n
+        <item>Version 1.14.13\nИсправлены ошибки и опечатки в программе.\n
 		Также в молитвослов добавлены новые молитвословия.\n\n
 	</item>
-	<item>Version 1.14.12\nИсправлены ошибки и опечатки в программе.\n
+        <item>Version 1.14.12\nИсправлены ошибки и опечатки в программе.\n
 		В большинстве акафистов и канонов добавлены ударения.\n
 		Также в молитвослов добавлены новые молитвословия.\n\n
 	</item>
-	<item>Version 1.14.11\nИсправлены ошибки и опечатки в программе.\n
+        <item>Version 1.14.11\nИсправлены ошибки и опечатки в программе.\n
 		Также в молитвослов добавлены новые молитвословия.\n\n
 	</item>
-	<item>Version 1.14.10\nВ программу внесены небольшие исправления.\n\n
+        <item>Version 1.14.10\nВ программу внесены небольшие исправления.\n\n
 	</item>
-	<item>Version 1.14.9\nВ программу добавлен календарь на 2021 год.\n
+        <item>Version 1.14.9\nВ программу добавлен календарь на 2021 год.\n
 		Исправлены ошибки и опечатки в программе.\n
 		Также в молитвослов добавлены новые молитвословия.\n\n
 	</item>
-	<item>Version 1.14.8\nИсправлены ошибки и опечатки в программе.\n
+        <item>Version 1.14.8\nИсправлены ошибки и опечатки в программе.\n
 		Также в молитвослов добавлены новые молитвословия.\n\n
 	</item>
-	<item>Version 1.14.7\nИсправлены ошибки и опечатки в программе.\n
+        <item>Version 1.14.7\nИсправлены ошибки и опечатки в программе.\n
 		Также в молитвослов добавлены новые молитвословия.\n\n
 	</item>
-	<item>Version 1.14.6\nВ программу добавлен календарь на 2020 год.\n
+        <item>Version 1.14.6\nВ программу добавлен календарь на 2020 год.\n
 		Исправлены ошибки и опечатки в программе.\n
 		Также в молитвослов добавлены новые молитвословия.\n\n
 	</item>
-	<item>Version 1.14.5\nИсправлено неточность 6 апреля в календаре, а также ошибки и  опечатки в программе.\n
+        <item>Version 1.14.5\nИсправлено неточность 6 апреля в календаре, а также ошибки и  опечатки в программе.\n
 		Также в молитвослов добавлены новые молитвословия.\n\n
 	</item>
-	<item>Version 1.14.4\nВ программу внесены небольшие изменения.\n\n
+        <item>Version 1.14.4\nВ программу внесены небольшие изменения.\n\n
 	</item>
-	<item>Version 1.14.3\nВ календаре на 2019 год, посты приведены в соответствии с Типиконом и Богослужебными указаниями. Добавлена также дополнительная информация на 2019 год о постах. Чтобы посмотреть доп. информацию необходимо кликнуть в шапке календаря на текст, например \"Постный день (масло)\" и т.п.\n
+        <item>Version 1.14.3\nВ календаре на 2019 год, посты приведены в соответствии с Типиконом и Богослужебными указаниями. Добавлена также дополнительная информация на 2019 год о постах. Чтобы посмотреть доп. информацию необходимо кликнуть в шапке календаря на текст, например \"Постный день (масло)\" и т.п.\n
 		Добавлены ударения в тропари и кондаки дня, в которых они отсутствовали. Также добавлены новые тропари и кондаки.\n
 		На Страстную седмицу добавлены паримии.\n
 		Исправлены ошибки и  опечатки в программе.\n
 		Также в молитвослов добавлены новые молитвословия.\n\n
 	</item>
-	<item>Version 1.14.2\nВнесены небольшие улучшения в работу приложения.\n\n
+        <item>Version 1.14.2\nВнесены небольшие улучшения в работу приложения.\n\n
 	</item>
-	<item>Version 1.14.1\nВ программе исправлена ошибка, возникающая при сворачивании приложения в некоторых разделах.\n\n
+        <item>Version 1.14.1\nВ программе исправлена ошибка, возникающая при сворачивании приложения в некоторых разделах.\n\n
 	</item>
-	<item>Version 1.14.0\nВ программу добавлен календарь на 2019 год.\n
+        <item>Version 1.14.0\nВ программу добавлен календарь на 2019 год.\n
 		Добавлены все отсутствующие жития новомучеников (более 1300 житий). Также заменены некоторые краткие жития святых на более подробные (более 300 житий). В жития добавлены ссылки на источник информации. При наличии интернета, можно будет перейдя на сайт, сверить информацию, или посмотреть иконы.\n
 		В самом календаре уменьшены размеры ссылок на жития (подчеркивание), для более удобного отображения информации.\n
 		В календарь добавлены новые имена святых.\n
 		Исправлено множество ошибок и  опечаток в программе.\n
 		Также в молитвослов добавлены новые молитвословия.\n\n
 	</item>
-	<item>Version 1.13.32\nВ программу внесены небольшие изменения.\n
+        <item>Version 1.13.32\nВ программу внесены небольшие изменения.\n
 		Исправлены ошибки (опечатки) в программе.\n
 		Также в молитвослов добавлены новые молитвословия.\n\n
 	</item>
-	<item>Version 1.13.31\nВ молитвослове доработан Псалтирь. В котором теперь есть возможность переключения с обычного Псалтири, на Псалтирь по усопшим. Для чего добавлена новая кнопка. Кнопка «Пс» - переключится в режим чтения обычного Псалтири, «Ус» - переключится на Псалтирь по усопшим.\n
+        <item>Version 1.13.31\nВ молитвослове доработан Псалтирь. В котором теперь есть возможность переключения с обычного Псалтири, на Псалтирь по усопшим. Для чего добавлена новая кнопка. Кнопка «Пс» - переключится в режим чтения обычного Псалтири, «Ус» - переключится на Псалтирь по усопшим.\n
 		Исправлены ошибки (опечатки) в программе.\n
 		Также в молитвослов добавлены новые молитвословия.\n\n
 	</item>
-</string-array>
-	</resources>
+    </string-array>
+</resources>
