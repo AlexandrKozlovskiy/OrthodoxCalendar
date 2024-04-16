@@ -455,7 +455,7 @@ public class SearchHolyActivity extends AppCompatActivity implements SearchView.
         //SELECT _id, name FROM description_holiday WHERE name_title = 'Преподобные' ORDER BY name;
         //SELECT _id, name FROM description_holiday ORDER BY name;
         if (name_holy_group.equals(myArray_holy_group[0])) {
-            sql = "SELECT _id, name FROM description_holiday ORDER BY name;";
+            sql = "SELECT _id, name FROM description_holiday WHERE name_title <> '#' ORDER BY name;";
         } else {
             sql = "SELECT _id, name FROM description_holiday WHERE name_title = \"" + name_holy_group + "\" ORDER BY name;";
         }
