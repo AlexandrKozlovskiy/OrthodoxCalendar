@@ -119,9 +119,9 @@ public class MyArrayAdapterHolySearch extends ArrayAdapter<String> {
             viewHolder.text_title.setTextSize(TypedValue.COMPLEX_UNIT_PX, size + 16);
             viewHolder.text_data.setTextSize(TypedValue.COMPLEX_UNIT_PX, size + 16);
         }
-        String tmp_arr1=arr_name_holy[position];
-        String tmp_arr2= arr_memory_date_holy[position];
-        viewHolder.text_title.setText(arr_name_holy[position]);
+        //String tmp_arr1=arr_name_holy[position];
+        //String tmp_arr2= arr_memory_date_holy[position];
+        viewHolder.text_title.setText(Html.fromHtml(arr_name_holy[position]));
         viewHolder.text_data.setText(arr_memory_date_holy [position]);
 
         return view;

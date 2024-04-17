@@ -32,56 +32,17 @@ public class FragmentHolidays extends Fragment implements OnClickListener {
     public static final String ITEM_NAME = "itemName";
     static final String TAG = "myLogs";
 
-    private final String[] data_years_holidays = {"2014", "2015", "2016",
-            "2017", "2018", "2019", "2020", "2021", "2022", "2023", "2024"};
+    private final String[] data_years_holidays = {"2022", "2023", "2024", "2025", "2026"};
 
-    private final String[] text_years_holidays_easter = {"20.04.2014 - <a href=\"activity-run://DescriptionHolyActivityHost?id=1920\">ПАСХА ХРИСТОВА</a>",
-            "12.04.2015 - <a href=\"activity-run://DescriptionHolyActivityHost?id=1920\">ПАСХА ХРИСТОВА</a>",
-            "01.05.2016 - <a href=\"activity-run://DescriptionHolyActivityHost?id=1920\">ПАСХА ХРИСТОВА</a>",
-            "16.04.2017 - <a href=\"activity-run://DescriptionHolyActivityHost?id=1920\">ПАСХА ХРИСТОВА</a>",
-            "08.04.2018 - <a href=\"activity-run://DescriptionHolyActivityHost?id=1920\">ПАСХА ХРИСТОВА</a>",
-            "28.04.2019 - <a href=\"activity-run://DescriptionHolyActivityHost?id=1920\">ПАСХА ХРИСТОВА</a>",
-            "19.04.2020 - <a href=\"activity-run://DescriptionHolyActivityHost?id=1920\">ПАСХА ХРИСТОВА</a>",
-            "02.05.2021 - <a href=\"activity-run://DescriptionHolyActivityHost?id=1920\">ПАСХА ХРИСТОВА</a>",
-            "24.04.2022 - <a href=\"activity-run://DescriptionHolyActivityHost?id=1920\">ПАСХА ХРИСТОВА</a>",
+    private final String[] text_years_holidays_easter = {"24.04.2022 - <a href=\"activity-run://DescriptionHolyActivityHost?id=1920\">ПАСХА ХРИСТОВА</a>",
             "16.04.2023 - <a href=\"activity-run://DescriptionHolyActivityHost?id=1920\">ПАСХА ХРИСТОВА</a>",
-            "05.05.2024 - <a href=\"activity-run://DescriptionHolyActivityHost?id=1920\">ПАСХА ХРИСТОВА</a>"};
+            "05.05.2024 - <a href=\"activity-run://DescriptionHolyActivityHost?id=1920\">ПАСХА ХРИСТОВА</a>",
+            "20.04.2025 - <a href=\"activity-run://DescriptionHolyActivityHost?id=1920\">ПАСХА ХРИСТОВА</a>",
+            "12.04.2026 - <a href=\"activity-run://DescriptionHolyActivityHost?id=1920\">ПАСХА ХРИСТОВА</a>"};
 
-    private final String[] text_years_holidays1 = {"13.04.2014 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1919\">Вход Господень в Иерусалим</a><br>" +
-            "29.05.2014 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1921\">Вознесение Господне</a><br>" +
-            "08.06.2014 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1922\">День Святой Троицы. Пятидесятница</a>",
-
-            "05.04.2015 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1919\">Вход Господень в Иерусалим</a><br>" +
-                    "21.05.2015 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1921\">Вознесение Господне</a><br>" +
-                    "31.05.2015 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1922\">День Святой Троицы. Пятидесятница</a>",
-
-            "24.04.2016 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1919\">Вход Господень в Иерусалим</a><br>" +
-                    "09.06.2016 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1921\">Вознесение Господне</a><br>" +
-                    "19.06.2016 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1922\">День Святой Троицы. Пятидесятница</a>",
-
-            "09.04.2017 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1919\">Вход Господень в Иерусалим</a><br>" +
-                    "25.05.2017 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1921\">Вознесение Господне</a><br>" +
-                    "04.06.2017 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1922\">День Святой Троицы. Пятидесятница</a>",
-
-            "01.04.2018 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1919\">Вход Господень в Иерусалим</a><br>" +
-                    "17.05.2018 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1921\">Вознесение Господне</a><br>" +
-                    "27.05.2018 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1922\">День Святой Троицы. Пятидесятница</a>",
-
-            "21.04.2019 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1919\">Вход Господень в Иерусалим</a><br>" +
-                    "06.06.2019 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1921\">Вознесение Господне</a><br>" +
-                    "16.06.2019 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1922\">День Святой Троицы. Пятидесятница</a>",
-
-            "12.04.2020 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1919\">Вход Господень в Иерусалим</a><br>" +
-                    "28.05.2020 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1921\">Вознесение Господне</a><br>" +
-                    "07.06.2020 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1922\">День Святой Троицы. Пятидесятница</a>",
-
-            "25.04.2021 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1919\">Вход Господень в Иерусалим</a><br>" +
-                    "10.06.2021 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1921\">Вознесение Господне</a><br>" +
-                    "20.06.2021 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1922\">День Святой Троицы. Пятидесятница</a>",
-
-            "17.04.2022 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1919\">Вход Господень в Иерусалим</a><br>" +
-                    "02.06.2022 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1921\">Вознесение Господне</a><br>" +
-                    "12.06.2022 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1922\">День Святой Троицы. Пятидесятница</a>",
+    private final String[] text_years_holidays1 = {"17.04.2022 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1919\">Вход Господень в Иерусалим</a><br>" +
+            "02.06.2022 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1921\">Вознесение Господне</a><br>" +
+            "12.06.2022 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1922\">День Святой Троицы. Пятидесятница</a>",
 
             "09.04.2023 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1919\">Вход Господень в Иерусалим</a><br>" +
                     "25.05.2023 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1921\">Вознесение Господне</a><br>" +
@@ -89,97 +50,25 @@ public class FragmentHolidays extends Fragment implements OnClickListener {
 
             "28.04.2024 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1919\">Вход Господень в Иерусалим</a><br>" +
                     "13.06.2024 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1921\">Вознесение Господне</a><br>" +
-                    "23.06.2024 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1922\">День Святой Троицы. Пятидесятница</a>"};
+                    "23.06.2024 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1922\">День Святой Троицы. Пятидесятница</a>",
 
-    private final String[] text_years_holidays2 = {"07.01.2014 – <a href=\"activity-run://DescriptionHolyActivityHost?id=30\">Рождество Христово</a><br>" +
-            "19.01.2014 – <a href=\"activity-run://DescriptionHolyActivityHost?id=83\">Крещение Господне. Богоявление</a><br>" +
-            "15.02.2014 – <a href=\"activity-run://DescriptionHolyActivityHost?id=230\">Сретение Господне</a><br>" +
-            "07.04.2014 – <a href=\"activity-run://DescriptionHolyActivityHost?id=478\">Благовещение Пресвятой Богородицы</a><br>" +
-            "19.08.2014 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1184\">Преображение Господне</a><br>" +
-            "28.08.2014 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1227\">Успение Пресвятой Богородицы</a><br>" +
-            "21.09.2014 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1360\">Рождество Пресвятой Богородицы</a><br>" +
-            "27.09.2014 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1401\">Воздвижение Креста Господня</a><br>" +
-            "04.12.2014 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1787\">Введение во храм Пресвятой Богородицы</a>",
+            "13.04.2025 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1919\">Вход Господень в Иерусалим</a><br>" +
+                    "29.05.2025 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1921\">Вознесение Господне</a><br>" +
+                    "08.06.2025 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1922\">День Святой Троицы. Пятидесятница</a>",
 
-            "07.01.2015 – <a href=\"activity-run://DescriptionHolyActivityHost?id=30\">Рождество Христово</a><br>" +
-                    "19.01.2015 – <a href=\"activity-run://DescriptionHolyActivityHost?id=83\">Крещение Господне. Богоявление</a><br>" +
-                    "15.02.2015 – <a href=\"activity-run://DescriptionHolyActivityHost?id=230\">Сретение Господне</a><br>" +
-                    "07.04.2015 – <a href=\"activity-run://DescriptionHolyActivityHost?id=478\">Благовещение Пресвятой Богородицы</a><br>" +
-                    "19.08.2015 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1184\">Преображение Господне</a><br>" +
-                    "28.08.2015 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1227\">Успение Пресвятой Богородицы</a><br>" +
-                    "21.09.2015 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1360\">Рождество Пресвятой Богородицы</a><br>" +
-                    "27.09.2015 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1401\">Воздвижение Креста Господня</a><br>" +
-                    "04.12.2015 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1787\">Введение во храм Пресвятой Богородицы</a>",
+            "05.04.2026 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1919\">Вход Господень в Иерусалим</a><br>" +
+                    "21.05.2026 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1921\">Вознесение Господне</a><br>" +
+                    "31.05.2026 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1922\">День Святой Троицы. Пятидесятница</a>"};
 
-            "07.01.2016 – <a href=\"activity-run://DescriptionHolyActivityHost?id=30\">Рождество Христово</a><br>" +
-                    "19.01.2016 – <a href=\"activity-run://DescriptionHolyActivityHost?id=83\">Крещение Господне. Богоявление</a><br>" +
-                    "15.02.2016 – <a href=\"activity-run://DescriptionHolyActivityHost?id=230\">Сретение Господне</a><br>" +
-                    "07.04.2016 – <a href=\"activity-run://DescriptionHolyActivityHost?id=478\">Благовещение Пресвятой Богородицы</a><br>" +
-                    "19.08.2016 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1184\">Преображение Господне</a><br>" +
-                    "28.08.2016 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1227\">Успение Пресвятой Богородицы</a><br>" +
-                    "21.09.2016 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1360\">Рождество Пресвятой Богородицы</a><br>" +
-                    "27.09.2016 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1401\">Воздвижение Креста Господня</a><br>" +
-                    "04.12.2016 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1787\">Введение во храм Пресвятой Богородицы</a>",
-
-            "07.01.2017 – <a href=\"activity-run://DescriptionHolyActivityHost?id=30\">Рождество Христово</a><br>" +
-                    "19.01.2017 – <a href=\"activity-run://DescriptionHolyActivityHost?id=83\">Крещение Господне. Богоявление</a><br>" +
-                    "15.02.2017 – <a href=\"activity-run://DescriptionHolyActivityHost?id=230\">Сретение Господне</a><br>" +
-                    "07.04.2017 – <a href=\"activity-run://DescriptionHolyActivityHost?id=478\">Благовещение Пресвятой Богородицы</a><br>" +
-                    "19.08.2017 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1184\">Преображение Господне</a><br>" +
-                    "28.08.2017 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1227\">Успение Пресвятой Богородицы</a><br>" +
-                    "21.09.2017 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1360\">Рождество Пресвятой Богородицы</a><br>" +
-                    "27.09.2017 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1401\">Воздвижение Креста Господня</a><br>" +
-                    "04.12.2017 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1787\">Введение во храм Пресвятой Богородицы</a>",
-
-            "07.01.2018 – <a href=\"activity-run://DescriptionHolyActivityHost?id=30\">Рождество Христово</a><br>" +
-                    "19.01.2018 – <a href=\"activity-run://DescriptionHolyActivityHost?id=83\">Крещение Господне. Богоявление</a><br>" +
-                    "15.02.2018 – <a href=\"activity-run://DescriptionHolyActivityHost?id=230\">Сретение Господне</a><br>" +
-                    "07.04.2018 – <a href=\"activity-run://DescriptionHolyActivityHost?id=478\">Благовещение Пресвятой Богородицы</a><br>" +
-                    "19.08.2018 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1184\">Преображение Господне</a><br>" +
-                    "28.08.2018 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1227\">Успение Пресвятой Богородицы</a><br>" +
-                    "21.09.2018 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1360\">Рождество Пресвятой Богородицы</a><br>" +
-                    "27.09.2018 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1401\">Воздвижение Креста Господня</a><br>" +
-                    "04.12.2018 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1787\">Введение во храм Пресвятой Богородицы</a>",
-
-            "07.01.2019 – <a href=\"activity-run://DescriptionHolyActivityHost?id=30\">Рождество Христово</a><br>" +
-                    "19.01.2019 – <a href=\"activity-run://DescriptionHolyActivityHost?id=83\">Крещение Господне. Богоявление</a><br>" +
-                    "15.02.2019 – <a href=\"activity-run://DescriptionHolyActivityHost?id=230\">Сретение Господне</a><br>" +
-                    "07.04.2019 – <a href=\"activity-run://DescriptionHolyActivityHost?id=478\">Благовещение Пресвятой Богородицы</a><br>" +
-                    "19.08.2019 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1184\">Преображение Господне</a><br>" +
-                    "28.08.2019 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1227\">Успение Пресвятой Богородицы</a><br>" +
-                    "21.09.2019 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1360\">Рождество Пресвятой Богородицы</a><br>" +
-                    "27.09.2019 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1401\">Воздвижение Креста Господня</a><br>" +
-                    "04.12.2019 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1787\">Введение во храм Пресвятой Богородицы</a>",
-
-            "07.01.2020 – <a href=\"activity-run://DescriptionHolyActivityHost?id=30\">Рождество Христово</a><br>" +
-                    "19.01.2020 – <a href=\"activity-run://DescriptionHolyActivityHost?id=83\">Крещение Господне. Богоявление</a><br>" +
-                    "15.02.2020 – <a href=\"activity-run://DescriptionHolyActivityHost?id=230\">Сретение Господне</a><br>" +
-                    "07.04.2020 – <a href=\"activity-run://DescriptionHolyActivityHost?id=478\">Благовещение Пресвятой Богородицы</a><br>" +
-                    "19.08.2020 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1184\">Преображение Господне</a><br>" +
-                    "28.08.2020 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1227\">Успение Пресвятой Богородицы</a><br>" +
-                    "21.09.2020 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1360\">Рождество Пресвятой Богородицы</a><br>" +
-                    "27.09.2020 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1401\">Воздвижение Креста Господня</a><br>" +
-                    "04.12.2020 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1787\">Введение во храм Пресвятой Богородицы</a>",
-
-            "07.01.2021 – <a href=\"activity-run://DescriptionHolyActivityHost?id=30\">Рождество Христово</a><br>" +
-                    "19.01.2021 – <a href=\"activity-run://DescriptionHolyActivityHost?id=83\">Крещение Господне. Богоявление</a><br>" +
-                    "15.02.2021 – <a href=\"activity-run://DescriptionHolyActivityHost?id=230\">Сретение Господне</a><br>" +
-                    "07.04.2021 – <a href=\"activity-run://DescriptionHolyActivityHost?id=478\">Благовещение Пресвятой Богородицы</a><br>" +
-                    "19.08.2021 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1184\">Преображение Господне</a><br>" +
-                    "28.08.2021 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1227\">Успение Пресвятой Богородицы</a><br>" +
-                    "21.09.2021 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1360\">Рождество Пресвятой Богородицы</a><br>" +
-                    "27.09.2021 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1401\">Воздвижение Креста Господня</a><br>" +
-                    "04.12.2021 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1787\">Введение во храм Пресвятой Богородицы</a>",
-
-            "07.01.2022 – <a href=\"activity-run://DescriptionHolyActivityHost?id=30\">Рождество Христово</a><br>" +
-                    "19.01.2022 – <a href=\"activity-run://DescriptionHolyActivityHost?id=83\">Крещение Господне. Богоявление</a><br>" +
-                    "15.02.2022 – <a href=\"activity-run://DescriptionHolyActivityHost?id=230\">Сретение Господне</a><br>" +
-                    "07.04.2022 – <a href=\"activity-run://DescriptionHolyActivityHost?id=478\">Благовещение Пресвятой Богородицы</a><br>" +
-                    "19.08.2022 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1184\">Преображение Господне</a><br>" +
-                    "28.08.2022 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1227\">Успение Пресвятой Богородицы</a><br>" +
-                    "21.09.2022 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1360\">Рождество Пресвятой Богородицы</a><br>" +
-                    "27.09.2022 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1401\">Воздвижение Креста Господня</a><br>" +
-                    "04.12.2022 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1787\">Введение во храм Пресвятой Богородицы</a>",
+    private final String[] text_years_holidays2 = {"07.01.2022 – <a href=\"activity-run://DescriptionHolyActivityHost?id=30\">Рождество Христово</a><br>" +
+            "19.01.2022 – <a href=\"activity-run://DescriptionHolyActivityHost?id=83\">Крещение Господне. Богоявление</a><br>" +
+            "15.02.2022 – <a href=\"activity-run://DescriptionHolyActivityHost?id=230\">Сретение Господне</a><br>" +
+            "07.04.2022 – <a href=\"activity-run://DescriptionHolyActivityHost?id=478\">Благовещение Пресвятой Богородицы</a><br>" +
+            "19.08.2022 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1184\">Преображение Господне</a><br>" +
+            "28.08.2022 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1227\">Успение Пресвятой Богородицы</a><br>" +
+            "21.09.2022 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1360\">Рождество Пресвятой Богородицы</a><br>" +
+            "27.09.2022 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1401\">Воздвижение Креста Господня</a><br>" +
+            "04.12.2022 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1787\">Введение во храм Пресвятой Богородицы</a>",
 
             "07.01.2023 – <a href=\"activity-run://DescriptionHolyActivityHost?id=30\">Рождество Христово</a><br>" +
                     "19.01.2023 – <a href=\"activity-run://DescriptionHolyActivityHost?id=83\">Крещение Господне. Богоявление</a><br>" +
@@ -199,61 +88,33 @@ public class FragmentHolidays extends Fragment implements OnClickListener {
                     "28.08.2024 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1227\">Успение Пресвятой Богородицы</a><br>" +
                     "21.09.2024 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1360\">Рождество Пресвятой Богородицы</a><br>" +
                     "27.09.2024 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1401\">Воздвижение Креста Господня</a><br>" +
-                    "04.12.2024 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1787\">Введение во храм Пресвятой Богородицы</a>"};
+                    "04.12.2024 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1787\">Введение во храм Пресвятой Богородицы</a>",
 
-    private final String[] text_years_holidays3 = {"14.01.2014 – <a href=\"activity-run://DescriptionHolyActivityHost?id=59\">Обрезание Господне</a><br>" +
-            "07.07.2014 – <a href=\"activity-run://DescriptionHolyActivityHost?id=965\">Рождество Иоанна Предтечи</a><br>" +
-            "12.07.2014 – <a href=\"activity-run://DescriptionHolyActivityHost?id=989\">Святых первоверховных апостолов Петра и Павла</a><br>" +
-            "11.09.2014 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1293\">Усекновение главы Иоанна Предтечи</a><br>" +
-            "14.10.2014 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1499\">Покров Пресвятой Богородицы</a>",
+            "07.01.2025 – <a href=\"activity-run://DescriptionHolyActivityHost?id=30\">Рождество Христово</a><br>" +
+                    "19.01.2025 – <a href=\"activity-run://DescriptionHolyActivityHost?id=83\">Крещение Господне. Богоявление</a><br>" +
+                    "15.02.2025 – <a href=\"activity-run://DescriptionHolyActivityHost?id=230\">Сретение Господне</a><br>" +
+                    "07.04.2025 – <a href=\"activity-run://DescriptionHolyActivityHost?id=478\">Благовещение Пресвятой Богородицы</a><br>" +
+                    "19.08.2025 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1184\">Преображение Господне</a><br>" +
+                    "28.08.2025 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1227\">Успение Пресвятой Богородицы</a><br>" +
+                    "21.09.2025 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1360\">Рождество Пресвятой Богородицы</a><br>" +
+                    "27.09.2025 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1401\">Воздвижение Креста Господня</a><br>" +
+                    "04.12.2025 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1787\">Введение во храм Пресвятой Богородицы</a>",
 
-            "14.01.2015 – <a href=\"activity-run://DescriptionHolyActivityHost?id=59\">Обрезание Господне</a><br>" +
-                    "07.07.2015 – <a href=\"activity-run://DescriptionHolyActivityHost?id=965\">Рождество Иоанна Предтечи</a><br>" +
-                    "12.07.2015 – <a href=\"activity-run://DescriptionHolyActivityHost?id=989\">Святых первоверховных апостолов Петра и Павла</a><br>" +
-                    "11.09.2015 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1293\">Усекновение главы Иоанна Предтечи</a><br>" +
-                    "14.10.2015 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1499\">Покров Пресвятой Богородицы</a>",
+            "07.01.2026 – <a href=\"activity-run://DescriptionHolyActivityHost?id=30\">Рождество Христово</a><br>" +
+                    "19.01.2026 – <a href=\"activity-run://DescriptionHolyActivityHost?id=83\">Крещение Господне. Богоявление</a><br>" +
+                    "15.02.2026 – <a href=\"activity-run://DescriptionHolyActivityHost?id=230\">Сретение Господне</a><br>" +
+                    "07.04.2026 – <a href=\"activity-run://DescriptionHolyActivityHost?id=478\">Благовещение Пресвятой Богородицы</a><br>" +
+                    "19.08.2026 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1184\">Преображение Господне</a><br>" +
+                    "28.08.2026 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1227\">Успение Пресвятой Богородицы</a><br>" +
+                    "21.09.2026 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1360\">Рождество Пресвятой Богородицы</a><br>" +
+                    "27.09.2026 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1401\">Воздвижение Креста Господня</a><br>" +
+                    "04.12.2026 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1787\">Введение во храм Пресвятой Богородицы</a>"};
 
-            "14.01.2016 – <a href=\"activity-run://DescriptionHolyActivityHost?id=59\">Обрезание Господне</a><br>" +
-                    "07.07.2016 – <a href=\"activity-run://DescriptionHolyActivityHost?id=965\">Рождество Иоанна Предтечи</a><br>" +
-                    "12.07.2016 – <a href=\"activity-run://DescriptionHolyActivityHost?id=989\">Святых первоверховных апостолов Петра и Павла</a><br>" +
-                    "11.09.2016 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1293\">Усекновение главы Иоанна Предтечи</a><br>" +
-                    "14.10.2016 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1499\">Покров Пресвятой Богородицы</a>",
-
-            "14.01.2017 – <a href=\"activity-run://DescriptionHolyActivityHost?id=59\">Обрезание Господне</a><br>" +
-                    "07.07.2017 – <a href=\"activity-run://DescriptionHolyActivityHost?id=965\">Рождество Иоанна Предтечи</a><br>" +
-                    "12.07.2017 – <a href=\"activity-run://DescriptionHolyActivityHost?id=989\">Святых первоверховных апостолов Петра и Павла</a><br>" +
-                    "11.09.2017 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1293\">Усекновение главы Иоанна Предтечи</a><br>" +
-                    "14.10.2017 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1499\">Покров Пресвятой Богородицы</a>",
-
-            "14.01.2018 – <a href=\"activity-run://DescriptionHolyActivityHost?id=59\">Обрезание Господне</a><br>" +
-                    "07.07.2018 – <a href=\"activity-run://DescriptionHolyActivityHost?id=965\">Рождество Иоанна Предтечи</a><br>" +
-                    "12.07.2018 – <a href=\"activity-run://DescriptionHolyActivityHost?id=989\">Святых первоверховных апостолов Петра и Павла</a><br>" +
-                    "11.09.2018 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1293\">Усекновение главы Иоанна Предтечи</a><br>" +
-                    "14.10.2018 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1499\">Покров Пресвятой Богородицы</a>",
-
-            "14.01.2019 – <a href=\"activity-run://DescriptionHolyActivityHost?id=59\">Обрезание Господне</a><br>" +
-                    "07.07.2019 – <a href=\"activity-run://DescriptionHolyActivityHost?id=965\">Рождество Иоанна Предтечи</a><br>" +
-                    "12.07.2019 – <a href=\"activity-run://DescriptionHolyActivityHost?id=989\">Святых первоверховных апостолов Петра и Павла</a><br>" +
-                    "11.09.2019 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1293\">Усекновение главы Иоанна Предтечи</a><br>" +
-                    "14.10.2019 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1499\">Покров Пресвятой Богородицы</a>",
-
-            "14.01.2020 – <a href=\"activity-run://DescriptionHolyActivityHost?id=59\">Обрезание Господне</a><br>" +
-                    "07.07.2020 – <a href=\"activity-run://DescriptionHolyActivityHost?id=965\">Рождество Иоанна Предтечи</a><br>" +
-                    "12.07.2020 – <a href=\"activity-run://DescriptionHolyActivityHost?id=989\">Святых первоверховных апостолов Петра и Павла</a><br>" +
-                    "11.09.2020 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1293\">Усекновение главы Иоанна Предтечи</a><br>" +
-                    "14.10.2020 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1499\">Покров Пресвятой Богородицы</a>",
-
-            "14.01.2021 – <a href=\"activity-run://DescriptionHolyActivityHost?id=59\">Обрезание Господне</a><br>" +
-                    "07.07.2021 – <a href=\"activity-run://DescriptionHolyActivityHost?id=965\">Рождество Иоанна Предтечи</a><br>" +
-                    "12.07.2021 – <a href=\"activity-run://DescriptionHolyActivityHost?id=989\">Святых первоверховных апостолов Петра и Павла</a><br>" +
-                    "11.09.2021 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1293\">Усекновение главы Иоанна Предтечи</a><br>" +
-                    "14.10.2021 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1499\">Покров Пресвятой Богородицы</a>",
-
-            "14.01.2022 – <a href=\"activity-run://DescriptionHolyActivityHost?id=59\">Обрезание Господне</a><br>" +
-                    "07.07.2022 – <a href=\"activity-run://DescriptionHolyActivityHost?id=965\">Рождество Иоанна Предтечи</a><br>" +
-                    "12.07.2022 – <a href=\"activity-run://DescriptionHolyActivityHost?id=989\">Святых первоверховных апостолов Петра и Павла</a><br>" +
-                    "11.09.2022 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1293\">Усекновение главы Иоанна Предтечи</a><br>" +
-                    "14.10.2022 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1499\">Покров Пресвятой Богородицы</a>",
+    private final String[] text_years_holidays3 = {"14.01.2022 – <a href=\"activity-run://DescriptionHolyActivityHost?id=59\">Обрезание Господне</a><br>" +
+            "07.07.2022 – <a href=\"activity-run://DescriptionHolyActivityHost?id=965\">Рождество Иоанна Предтечи</a><br>" +
+            "12.07.2022 – <a href=\"activity-run://DescriptionHolyActivityHost?id=989\">Святых первоверховных апостолов Петра и Павла</a><br>" +
+            "11.09.2022 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1293\">Усекновение главы Иоанна Предтечи</a><br>" +
+            "14.10.2022 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1499\">Покров Пресвятой Богородицы</a>",
 
             "14.01.2023 – <a href=\"activity-run://DescriptionHolyActivityHost?id=59\">Обрезание Господне</a><br>" +
                     "07.07.2023 – <a href=\"activity-run://DescriptionHolyActivityHost?id=965\">Рождество Иоанна Предтечи</a><br>" +
@@ -265,7 +126,20 @@ public class FragmentHolidays extends Fragment implements OnClickListener {
                     "07.07.2024 – <a href=\"activity-run://DescriptionHolyActivityHost?id=965\">Рождество Иоанна Предтечи</a><br>" +
                     "12.07.2024 – <a href=\"activity-run://DescriptionHolyActivityHost?id=989\">Святых первоверховных апостолов Петра и Павла</a><br>" +
                     "11.09.2024 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1293\">Усекновение главы Иоанна Предтечи</a><br>" +
-                    "14.10.2024 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1499\">Покров Пресвятой Богородицы</a>"};
+                    "14.10.2024 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1499\">Покров Пресвятой Богородицы</a>",
+
+            "14.01.2025 – <a href=\"activity-run://DescriptionHolyActivityHost?id=59\">Обрезание Господне</a><br>" +
+                    "07.07.2025 – <a href=\"activity-run://DescriptionHolyActivityHost?id=965\">Рождество Иоанна Предтечи</a><br>" +
+                    "12.07.2025 – <a href=\"activity-run://DescriptionHolyActivityHost?id=989\">Святых первоверховных апостолов Петра и Павла</a><br>" +
+                    "11.09.2025 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1293\">Усекновение главы Иоанна Предтечи</a><br>" +
+                    "14.10.2025 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1499\">Покров Пресвятой Богородицы</a>",
+
+            "14.01.2026 – <a href=\"activity-run://DescriptionHolyActivityHost?id=59\">Обрезание Господне</a><br>" +
+                    "07.07.2026 – <a href=\"activity-run://DescriptionHolyActivityHost?id=965\">Рождество Иоанна Предтечи</a><br>" +
+                    "12.07.2026 – <a href=\"activity-run://DescriptionHolyActivityHost?id=989\">Святых первоверховных апостолов Петра и Павла</a><br>" +
+                    "11.09.2026 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1293\">Усекновение главы Иоанна Предтечи</a><br>" +
+                    "14.10.2026 – <a href=\"activity-run://DescriptionHolyActivityHost?id=1499\">Покров Пресвятой Богородицы</a>"
+    };
 
     private final String FONT_PATH1 = "fonts/Russo_One.ttf";
     Spinner spinnerHolidays;
@@ -330,82 +204,33 @@ public class FragmentHolidays extends Fragment implements OnClickListener {
         spinnerHolidays.setPrompt("Title");
         // выделяем элемент
         switch (cal.getYear()) {
-            case 2014:
-                spinnerHolidays.setSelection(0);
-                tvHolidaysEaster1.setText(Html.fromHtml(text_years_holidays_easter[0].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
-                tvHolidays1.setText(Html.fromHtml(text_years_holidays1[0].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
-                tvHolidays2.setText(Html.fromHtml(text_years_holidays2[0].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
-                tvHolidays3.setText(Html.fromHtml(text_years_holidays3[0].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
-                break;
-            case 2015:
+            case 2023:
                 spinnerHolidays.setSelection(1);
                 tvHolidaysEaster1.setText(Html.fromHtml(text_years_holidays_easter[1].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
                 tvHolidays1.setText(Html.fromHtml(text_years_holidays1[1].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
                 tvHolidays2.setText(Html.fromHtml(text_years_holidays2[1].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
                 tvHolidays3.setText(Html.fromHtml(text_years_holidays3[1].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
                 break;
-            case 2016:
+            case 2024:
                 spinnerHolidays.setSelection(2);
                 tvHolidaysEaster1.setText(Html.fromHtml(text_years_holidays_easter[2].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
                 tvHolidays1.setText(Html.fromHtml(text_years_holidays1[2].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
                 tvHolidays2.setText(Html.fromHtml(text_years_holidays2[2].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
                 tvHolidays3.setText(Html.fromHtml(text_years_holidays3[2].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
                 break;
-            case 2017:
+            case 2025:
                 spinnerHolidays.setSelection(3);
                 tvHolidaysEaster1.setText(Html.fromHtml(text_years_holidays_easter[3].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
                 tvHolidays1.setText(Html.fromHtml(text_years_holidays1[3].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
                 tvHolidays2.setText(Html.fromHtml(text_years_holidays2[3].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
                 tvHolidays3.setText(Html.fromHtml(text_years_holidays3[3].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
                 break;
-            case 2018:
+            case 2026:
                 spinnerHolidays.setSelection(4);
                 tvHolidaysEaster1.setText(Html.fromHtml(text_years_holidays_easter[4].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
                 tvHolidays1.setText(Html.fromHtml(text_years_holidays1[4].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
                 tvHolidays2.setText(Html.fromHtml(text_years_holidays2[4].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
-                tvHolidays3.setText(Html.fromHtml(text_years_holidays3[3].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
-                break;
-            case 2019:
-                spinnerHolidays.setSelection(5);
-                tvHolidaysEaster1.setText(Html.fromHtml(text_years_holidays_easter[5].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
-                tvHolidays1.setText(Html.fromHtml(text_years_holidays1[5].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
-                tvHolidays2.setText(Html.fromHtml(text_years_holidays2[5].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
-                tvHolidays3.setText(Html.fromHtml(text_years_holidays3[5].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
-                break;
-            case 2020:
-                spinnerHolidays.setSelection(6);
-                tvHolidaysEaster1.setText(Html.fromHtml(text_years_holidays_easter[6].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
-                tvHolidays1.setText(Html.fromHtml(text_years_holidays1[6].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
-                tvHolidays2.setText(Html.fromHtml(text_years_holidays2[6].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
-                tvHolidays3.setText(Html.fromHtml(text_years_holidays3[6].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
-                break;
-            case 2021:
-                spinnerHolidays.setSelection(7);
-                tvHolidaysEaster1.setText(Html.fromHtml(text_years_holidays_easter[7].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
-                tvHolidays1.setText(Html.fromHtml(text_years_holidays1[7].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
-                tvHolidays2.setText(Html.fromHtml(text_years_holidays2[7].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
-                tvHolidays3.setText(Html.fromHtml(text_years_holidays3[7].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
-                break;
-            case 2022:
-                spinnerHolidays.setSelection(8);
-                tvHolidaysEaster1.setText(Html.fromHtml(text_years_holidays_easter[8].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
-                tvHolidays1.setText(Html.fromHtml(text_years_holidays1[8].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
-                tvHolidays2.setText(Html.fromHtml(text_years_holidays2[8].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
-                tvHolidays3.setText(Html.fromHtml(text_years_holidays3[8].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
-                break;
-            case 2023:
-                spinnerHolidays.setSelection(9);
-                tvHolidaysEaster1.setText(Html.fromHtml(text_years_holidays_easter[9].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
-                tvHolidays1.setText(Html.fromHtml(text_years_holidays1[9].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
-                tvHolidays2.setText(Html.fromHtml(text_years_holidays2[9].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
-                tvHolidays3.setText(Html.fromHtml(text_years_holidays3[9].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
-                break;
-            case 2024:
-                spinnerHolidays.setSelection(10);
-                tvHolidaysEaster1.setText(Html.fromHtml(text_years_holidays_easter[10].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
-                tvHolidays1.setText(Html.fromHtml(text_years_holidays1[10].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
-                tvHolidays2.setText(Html.fromHtml(text_years_holidays2[10].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
-                tvHolidays3.setText(Html.fromHtml(text_years_holidays3[10].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
+                tvHolidays3.setText(Html.fromHtml(text_years_holidays3[4].replace("DescriptionHolyActivityHost", GlobalData.getDESCRIPTION_HOLY_ACTIVITY_HOST())));
                 break;
             default:
                 spinnerHolidays.setSelection(0);
@@ -450,10 +275,6 @@ public class FragmentHolidays extends Fragment implements OnClickListener {
         String tmp = PreferencesActivity.MyPreferenceFragment.ReadString(getActivity(), "pref_text_size", "0");
         if (!text_size.equals(tmp)) {
             text_size = tmp;
-            //int int_text_size=Integer.valueOf(text_size);
- /*Toast.makeText(getActivity(), text_size+"="+int_text_size,
-  Toast.LENGTH_SHORT).show();*/
-            //float size=MyView_holiday.getTextSize();
             if (text_size.equals("-5")) {
                 tvHolidaysTitle.setTextSize(TypedValue.COMPLEX_UNIT_PX, standart_text_size1 - 10);
                 tvEasterSelectYear.setTextSize(TypedValue.COMPLEX_UNIT_PX, standart_text_size2 - 10);

@@ -30,6 +30,8 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import oleksandr.kotyuk.orthodoxcalendar.DescriptionOtherActivity;
 import oleksandr.kotyuk.orthodoxcalendar.adapters.MyArrayAdapterHolySearch;
@@ -448,7 +450,7 @@ public class SearchHolyActivity extends AppCompatActivity implements SearchView.
             arr_id_name_holy.clear();
         if (arr_name_holy != null)
             arr_name_holy.clear();
-        if(arr_memory_date_holy!=null) arr_memory_date_holy.clear();
+        if (arr_memory_date_holy != null) arr_memory_date_holy.clear();
 
         count_item_search = 0;
 
@@ -487,12 +489,21 @@ public class SearchHolyActivity extends AppCompatActivity implements SearchView.
                 if (!arr_name_holy.get(i).contains(text)) {
                     arr_name_holy.remove(i);
                     arr_id_name_holy.remove(i);
+                } else {
+                    arr_name_holy.set(i, arr_name_holy.get(i).replace(text, "<font color=#aa2c2c>" + text + "</font>"));
                 }
             } else {
                 String text_arr_UpCase = arr_name_holy.get(i).toUpperCase(Locale.getDefault());
                 if (!text_arr_UpCase.contains(text_UpCase)) {
                     arr_name_holy.remove(i);
                     arr_id_name_holy.remove(i);
+                } else {
+                   /* String new_text=arr_name_holy.get(i);
+                    Pattern pattern = Pattern.compile("(?i)"+text);
+                    String new_text2= pattern.matcher(new_text).replaceAll("<font color=#aa2c2c>" + text + "</font>");
+                    arr_name_holy.set(i, new_text2);*/
+
+                    arr_name_holy.set(i, AddSearchTextToRedColorNotRegister(arr_name_holy.get(i),text));
                 }
             }
         }
@@ -500,6 +511,48 @@ public class SearchHolyActivity extends AppCompatActivity implements SearchView.
         String tmp_set_text = "Найдено результатов - " + Integer.toString(count_item_search);
         tvCountSearch.setText(tmp_set_text);
     }
+
+    public String AddSearchTextToRedColorNotRegister(String text, String text_to_replace){
+        //String text = "Священномученик Митрофан Китайский, пресвитер, и иже с ним мучеников многих. Мученик Константин Жданов, пресвитер";
+        Pattern pattern = Pattern.compile("(?i)"+text_to_replace, Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(text);
+
+        StringBuffer result = new StringBuffer();
+        while (matcher.find()) {
+            matcher.appendReplacement(result, "<font color=#aa2c2c>" + matcher.group() + "</font>");
+        }
+        matcher.appendTail(result);
+
+        return result.toString();
+    }
+
+    // поиск и замена части текста на красный цвет, без учета регистра
+    /*public String AddSearchTextToRedColorNotRegister(String text, String text_to_replace) {
+        //StringBuilder tmp_text_to_red_color = new StringBuilder(text);
+        String tmp_text_to_up= text.toUpperCase();
+        String text_to_replace_up=text_to_replace.toUpperCase();
+        String tmp_text_to_replace_html="<font color=#aa2c2c>"+text_to_replace+"</font>";
+
+        int tmp_text_to_up_lenght=tmp_text_to_up.length();
+        int text_to_replace_lenght=text_to_replace.length();
+        int text_to_replace_html=tmp_text_to_replace_html.length();
+
+        StringBuilder builder_up = new StringBuilder(tmp_text_to_up);
+
+        for (int i = 0; i < tmp_text_to_up_lenght; i++) {
+            int index = builder_up.indexOf(oldStr, i);
+
+            if (index == -1) {
+                if (i == 0) {
+                    return str;
+                }
+                return builder_up.toString();
+            }
+            builder_up = builder_up.replace(index, index + oldStrLength, newStr);
+
+        }
+        return "";
+    }*/
 
     public void createSearchList() {
         if (arr_id_name_holy != null) {
