@@ -21,6 +21,7 @@
 
 package com.mobeta.android.dslv;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.database.DataSetObserver;
@@ -314,7 +315,7 @@ private AccessibilityDelegateCompat dropDelegate =new AccessibilityDelegateCompa
     public void onInitializeAccessibilityNodeInfo(View host, AccessibilityNodeInfoCompat info) {
         super.onInitializeAccessibilityNodeInfo(host, info);
         info.setClickable(isClickable());
-        int count=mAdapterWrapper.getCount();
+        int count=getInputAdapter().getCount();
         if(count>1) {
             int startAction = this.startAction;
             int position = Integer.parseInt(host.getTag()+"");
@@ -323,16 +324,21 @@ private AccessibilityDelegateCompat dropDelegate =new AccessibilityDelegateCompa
                 startAction++;
             }
             for (int a = 0; a < count; a++)
-                if(a!=position &&a-position!=-1)
+                if(a!=position &&a-position!=-1) //Проверяем,чтобы не было попытки добавить элемент после себя же,или после предыдущего,т.к в этих случаях нет смысла.
                     info.addAction(new AccessibilityNodeInfoCompat.AccessibilityActionCompat(startAction + a, getContext().getString(R.string.action_move_after, mAdapterWrapper.getItem(a))));
         }
+        info.addAction(new AccessibilityNodeInfoCompat.AccessibilityActionCompat(startAction + count, getContext().getString(R.string.action_remove)));
     }
 
     @Override
     public boolean performAccessibilityAction(View host, int action, Bundle args) {
         int position=Integer.parseInt(host.getTag()+"");
-        if(action<startAction) return super.performAccessibilityAction(host,action,args); else if(mDropListener!=null) {
-            mDropListener.drop(position,action-startAction);
+        if(action<startAction) return super.performAccessibilityAction(host,action,args); else if(action<startAction+getInputAdapter().getCount() &&mDropListener!=null) {
+            moveItem(position,action-startAction);
+            return true;
+        }
+        else if(action==startAction+mAdapterWrapper.getCount()) {
+            removeItemWithConfirmation(position,0);
             return true;
         }
         return false;
@@ -1442,15 +1448,15 @@ ViewCompat.setAccessibilityDelegate(v,dropDelegate);
         mUseRemoveVelocity = false;
         removeItem(which, 0);
     }
-
     /**
      * Removes an item from the list and animates the removal.
      *
      * @param which Position to remove (NOTE: headers/footers ignored!
      * this is a position in your input ListAdapter).
-     * @param velocityX 
+     * @param velocityX
      */
-    public void removeItem(int which, float velocityX) {
+
+        public void removeItem(int which, float velocityX) {
         if (mDragState == IDLE || mDragState == DRAGGING) {
 
             if (mDragState == IDLE) {
@@ -1485,6 +1491,19 @@ ViewCompat.setAccessibilityDelegate(v,dropDelegate);
                 doRemoveItem(which);
             }
         }
+    }
+
+    /**
+     * Removes an item from the list with confirmation, and animates the removal.
+     *
+     * @param which Position to remove (NOTE: headers/footers ignored!
+     * this is a position in your input ListAdapter).
+     * @param velocityX
+     */
+    public void removeItemWithConfirmation(int which, float velocityX) {
+        AlertDialog a=new AlertDialog.Builder(getContext()).setTitle(getContext().getString(R.string.dialog_alert_title)).setMessage(getContext().getString(R.string.deletion_confirmation,getAdapter().getItem(which))).setNegativeButton(getContext().getString(android.R.string.no),null).setPositiveButton(getContext().getString(android.R.string.yes),(dialog, which1) -> {
+            removeItem(which,velocityX);
+        }).show();
     }
 
     /**
@@ -1628,7 +1647,7 @@ ViewCompat.setAccessibilityDelegate(v,dropDelegate);
             mDragScroller.stopScrolling(true);
 
             if (remove) {
-                removeItem(mSrcPos - getHeaderViewsCount(), velocityX);
+                removeItemWithConfirmation(mSrcPos - getHeaderViewsCount(), velocityX);
             } else {
                 if (mDropAnimator != null) {
                     mDropAnimator.start();
