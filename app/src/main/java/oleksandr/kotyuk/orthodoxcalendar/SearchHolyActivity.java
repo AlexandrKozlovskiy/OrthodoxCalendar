@@ -512,6 +512,7 @@ public class SearchHolyActivity extends AppCompatActivity implements SearchView.
         tvCountSearch.setText(tmp_set_text);
     }
 
+    // поиск и замена части текста на красный цвет, без учета регистра
     public String AddSearchTextToRedColorNotRegister(String text, String text_to_replace){
         //String text = "Священномученик Митрофан Китайский, пресвитер, и иже с ним мучеников многих. Мученик Константин Жданов, пресвитер";
         Pattern pattern = Pattern.compile("(?i)"+text_to_replace, Pattern.CASE_INSENSITIVE);
