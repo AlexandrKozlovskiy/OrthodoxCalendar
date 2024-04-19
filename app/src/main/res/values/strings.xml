@@ -159,7 +159,8 @@
         <string name="link_rating">market://details?id=oleksandr.kotyuk.orthodoxcalendarfree</string>
     <string name="program_version">Версия %s</string>
     <string-array name="versions">
-        <item>Version 1.14.36\nРаздел Пасха (который частично дублировал раздел Праздники) заменен на Месяцеслов. Теперь в приложении доступен поиск дат памяти святых.\n\n
+        <item>Version 1.14.37\nИсправлены небольшие ошибки.\n
+            Version 1.14.36\nРаздел Пасха (который частично дублировал раздел Праздники) заменен на Месяцеслов. Теперь в приложении доступен поиск дат памяти святых.\n\n
 	</item>
         <item>Version 1.14.35\nИсправлены небольшие ошибки.\n\n
 	</item>
