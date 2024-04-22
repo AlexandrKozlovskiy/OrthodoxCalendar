@@ -132,16 +132,19 @@ public class MyFactoryFZ implements RemoteViewsFactory {
                 rView.setFloat(R.id.tvItemTextWidgetFZ, "setTextSize", 16);
                 break;
         }
+        if (position >= 0 && position < data.size()) {
 
-        rView.setTextViewText(R.id.tvItemTextWidgetFZ,
-                Html.fromHtml(data.get(position)));
+            rView.setTextViewText(R.id.tvItemTextWidgetFZ, Html.fromHtml(data.get(position)));
 
-        Intent clickIntent = new Intent();
-        clickIntent.putExtra(MyWidgetFZ.ITEM_POSITION, position);
-        rView.setOnClickFillInIntent(R.id.tvItemTextWidgetFZ, clickIntent);
+            Intent clickIntent = new Intent();
+            clickIntent.putExtra(MyWidgetFZ.ITEM_POSITION, position);
+            rView.setOnClickFillInIntent(R.id.tvItemTextWidgetFZ, clickIntent);
+        } else{
+            rView.setTextViewText(R.id.tvItemTextWidgetFZ, "");
+        }
 
         return rView;
-        //}
+
     }
 
     @Override
