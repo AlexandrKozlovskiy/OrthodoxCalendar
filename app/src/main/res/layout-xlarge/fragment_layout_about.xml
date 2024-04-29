@@ -48,6 +48,20 @@
                 android:text="@string/about_button_help3"
                 android:textColor="@color/Gold"
                 android:textSize="20sp" />
+
+           <Button
+               android:id="@+id/button_about4"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_gravity="center"
+               android:layout_marginTop="20dp"
+               android:background="@drawable/button1"
+               android:paddingLeft="10dp"
+               android:paddingRight="10dp"
+               android:text="@string/about_button_help4"
+               android:textColor="@color/Gold"
+               android:textAllCaps="false"
+               android:textSize="20sp" />
             
             <oleksandr.kotyuk.orthodoxcalendar.MyView
                 android:id="@+id/MyViewAbout2"

@@ -135,6 +135,7 @@
     <string name="about_button_help"> СПРАВОЧНИК ПОЛЬЗОВАТЕЛЯ </string>
     <string name="about_button_help2">КРАТКИЙ СЛОВАРЬ ТЕРМИНОВ</string>
     <string name="about_button_help3">ПОСЛЕДНИЕ ОБНОВЛЕНИЯ</string>
+    <string name="about_button_help4">YouTube канал календаря</string>
     <string name="gospel_reading_title">Евангельские чтения:</string>
     <string name="think_feofan_title">Мысли Феофана Затворника:</string>
     <string name="tropar_kondak_title">Тропари и кондаки дня:</string>
@@ -156,10 +157,13 @@
     <string name="dialog_alert_title">Внимание</string>
     <string name="deletion_confirmation">Вы действительно хотите удалить %s из избранного?</string>
     <string name="permission_error">Поскольку разрешение на уведомление не было дано, уведомления работать не будут, поэтому если Вам нужны уведомления, предоставьте разрешение для работы уведомлений.</string>
-        <string name="link_rating">market://details?id=oleksandr.kotyuk.orthodoxcalendarfree</string>
+    <string name="link_rating">market://details?id=oleksandr.kotyuk.orthodoxcalendarfree</string>
+    <string name="link_rating2">https://play.google.com/store/apps/details?id=oleksandr.kotyuk.orthodoxcalendarfree</string>
     <string name="program_version">Версия %s</string>
     <string-array name="versions">
-        <item>Version 1.14.38\nИсправлены небольшие ошибки.\n
+        <item>Version 1.14.38\nВ разделе «О программе» добавлена кнопка, для открытия YouTube канала, на котором можно посмотреть подробные видео по основным разделам приложения.\n\n
+	</item>
+        <item>Version 1.14.37\nИсправлены небольшие ошибки.\n
             Version 1.14.36\nРаздел Пасха (который частично дублировал раздел Праздники) заменен на Месяцеслов. Теперь в приложении доступен поиск дат памяти святых.\n\n
 	</item>
         <item>Version 1.14.35\nИсправлены небольшие ошибки.\n\n

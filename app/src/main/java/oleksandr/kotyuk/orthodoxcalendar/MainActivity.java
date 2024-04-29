@@ -19,6 +19,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 import android.provider.Settings;
+import android.content.ActivityNotFoundException;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -984,10 +985,18 @@ MyScheduledReceiver.setAlarm(this);
                     startActivity(intent_p);
                 } else {
                     if (position == 12) {
-                        Intent intent_m = new Intent(Intent.ACTION_VIEW);
-                        intent_m.setData(Uri
-                                .parse(getString(R.string.link_rating)));
-                        startActivity(intent_m);
+                        String appPackageName = getString(R.string.link_rating);
+                        String appPackageName2 = getString(R.string.link_rating2);
+                        try {
+                            Intent intent_m = new Intent(Intent.ACTION_VIEW);
+                            intent_m.setData(Uri.parse(appPackageName));
+                            startActivity(intent_m);
+                        }catch (ActivityNotFoundException e){
+                            Intent intent_m = new Intent(Intent.ACTION_VIEW);
+                            intent_m.setData(Uri.parse(appPackageName2));
+                            startActivity(intent_m);
+                        }
+
                     } else {
                         // вызываем активити месяцеслова SearchHolyActivity
                         Intent intent_p = new Intent(this, SearchHolyActivity.class);

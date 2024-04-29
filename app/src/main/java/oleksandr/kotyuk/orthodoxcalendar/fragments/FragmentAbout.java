@@ -1,6 +1,7 @@
 package oleksandr.kotyuk.orthodoxcalendar.fragments;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
@@ -34,6 +35,8 @@ public class FragmentAbout extends Fragment {
         MyView getapp = (MyView) view.findViewById(R.id.source);
         getapp.setMovementMethod(LinkMovementMethod.getInstance());
 
+        String youtubeChannelUrl = "https://www.youtube.com/@user-tu6kj2uq1y";
+
         Button button_help3 = (Button) view.findViewById(R.id.button_about3);
         button_help3.setOnClickListener(new OnClickListener() {
 
@@ -48,6 +51,17 @@ public class FragmentAbout extends Fragment {
                 startActivity(intent);
             }
         });
+
+        Button button_help4 = (Button) view.findViewById(R.id.button_about4);
+        button_help4.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(youtubeChannelUrl));
+                startActivity(intent);
+            }
+        });
+
         ((MyView) view.findViewById(R.id.MyView4About)).setText(getString(R.string.program_version, BuildConfig.VERSION_NAME));
         return view;
     }

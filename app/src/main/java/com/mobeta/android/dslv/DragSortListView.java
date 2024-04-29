@@ -1446,8 +1446,8 @@ ViewCompat.setAccessibilityDelegate(v,dropDelegate);
     public void removeItem(int which) {
 
         mUseRemoveVelocity = false;
-        //removeItem(which, 0);
-        removeItemWithConfirmation(which,0);
+        removeItem(which, 0);
+        //removeItemWithConfirmation(which,0);
     }
     /**
      * Removes an item from the list and animates the removal.
