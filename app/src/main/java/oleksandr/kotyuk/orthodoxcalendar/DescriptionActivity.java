@@ -197,7 +197,7 @@ public class DescriptionActivity extends MenuActivity {
 
         int data = intent.getIntExtra("data", 1);
         int month = intent.getIntExtra("month", 0);
-        int year = intent.getIntExtra("year", 2021);
+        int year = intent.getIntExtra("year", 2022);
         prayers_id = intent.getIntExtra("prayers_id", 1);
         int id_termin = intent.getIntExtra("id_termin", 1);
         String prayers_name = intent.getStringExtra("prayers_name");

@@ -35,7 +35,7 @@ public class FragmentAbout extends Fragment {
         MyView getapp = (MyView) view.findViewById(R.id.source);
         getapp.setMovementMethod(LinkMovementMethod.getInstance());
 
-        String youtubeChannelUrl = "https://www.youtube.com/@user-tu6kj2uq1y";
+        String youtubeChannelUrl = "https://www.youtube.com/@Православный_календарь";
 
         Button button_help3 = (Button) view.findViewById(R.id.button_about3);
         button_help3.setOnClickListener(new OnClickListener() {

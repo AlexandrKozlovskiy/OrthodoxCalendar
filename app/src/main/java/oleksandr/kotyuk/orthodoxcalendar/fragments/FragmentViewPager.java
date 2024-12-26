@@ -24,10 +24,10 @@ public class FragmentViewPager extends Fragment {
     int selected_item_position = 0;
     MyCalendar cal = MyCalendar.getInstance();
 
-    // к-во дней в период с 2021г - 2024г
+    // к-во дней в период с 2022г - 2025г
     private final int PAGE_COUNT_DAY = 1461;
 
-    // к-во месяцев в период с 2021г - 2024г
+    // к-во месяцев в период с 2022г - 2025г
     private final int PAGE_COUNT_MONTH = 48;
 
     ViewPager pager;

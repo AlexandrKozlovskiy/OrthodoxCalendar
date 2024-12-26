@@ -120,7 +120,7 @@
     <string name="help_project_text6">Заранее огромное Вам спасибо!</string>
     <string name="link_program">Скачать платную версию</string>
     <string name="splash_activity_text">ЗАГРУЗКА</string>
-    <string name="splash_activity_text_error">Пожалуйста проверьте дату на устройстве, эта версия программы работает в интервале 2021г-2024г.</string>
+    <string name="splash_activity_text_error">Пожалуйста проверьте дату на устройстве, эта версия программы работает в интервале 2022г-2025г.</string>
     <string name="empty">Нет данных</string>
     <string name="empty_prayers_bookmarks">Вы еще не добавляли в Избранное!!!</string>
     <string name="widget_text">Text in widget</string>
@@ -161,6 +161,8 @@
     <string name="link_rating2">https://play.google.com/store/apps/details?id=oleksandr.kotyuk.orthodoxcalendarfree</string>
     <string name="program_version">Версия %s</string>
     <string-array name="versions">
+        <item>Version 1.14.39\nВ программу добавлен календарь на начало 2025 года.\n\n
+	</item>
         <item>Version 1.14.38\nВ разделе «О программе» добавлена кнопка, для открытия YouTube канала, на котором можно посмотреть подробные видео по основным разделам приложения.\n\n
 	</item>
         <item>Version 1.14.37\nИсправлены небольшие ошибки.\n

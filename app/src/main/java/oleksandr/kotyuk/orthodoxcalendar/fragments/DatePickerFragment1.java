@@ -31,7 +31,7 @@ public class DatePickerFragment1 extends DialogFragment implements
 
         // Создаем новый экземпляр DatePickerDialog и возвращаем его
         dpd = new DatePickerDialog(getActivity(), this, year, month, day);
-        dpd.setTitle("Выберите дату c 2021г. по 2024г.");
+        dpd.setTitle("Выберите дату c 2022г. по 2025г.");
         dpd.setButton(DialogInterface.BUTTON_NEGATIVE,
                 "Cancel",
                 new DialogInterface.OnClickListener() {
@@ -58,9 +58,9 @@ public class DatePickerFragment1 extends DialogFragment implements
                     }
                 });
         DatePicker dp = dpd.getDatePicker();
-        // устанавливаем период дат(2021-2024гг)
-        Calendar cal1 = new GregorianCalendar(2021, 0, 01);
-        Calendar cal2 = new GregorianCalendar(2024, 11, 31);
+        // устанавливаем период дат(2022-2024гг)
+        Calendar cal1 = new GregorianCalendar(2022, 0, 01);
+        Calendar cal2 = new GregorianCalendar(2025, 11, 31);
         dp.setMinDate(cal1.getTimeInMillis());
         dp.setMaxDate(cal2.getTimeInMillis());
         return dpd;

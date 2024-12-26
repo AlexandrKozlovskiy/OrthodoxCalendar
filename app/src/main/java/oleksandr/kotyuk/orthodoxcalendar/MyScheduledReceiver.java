@@ -289,7 +289,7 @@ public class MyScheduledReceiver extends BroadcastReceiver {
             cursor.close();
         } else {
             ru_great_holiday = "Проверьте дату на устройстве";
-            post = "2021г-2024гг.";
+            post = "2022г-2025гг.";
         }
         int y = cal.getYear();
         int m = cal.getMonth() + 1;
