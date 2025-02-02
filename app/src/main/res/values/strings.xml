@@ -109,7 +109,7 @@
     <string name="directory_title2">Информация</string>
     <string name="name_developer">© Oleksandr Kotyuk</string>
     <string name="title_update_news">Что нового</string>
-    <string name="program_date">2024</string>
+    <string name="program_date">2025</string>
     <string name="email_program">Oleksandr.Kotyuk@gmail.com</string>
     <string name="source_code">Вы можете посмотреть и скачать исходный код приложения на <a href="https://github.com/AlexandrKozlovskiy/orthodoxCalendar/">GitHub</a>.</string>
     <string name="help_project">Помощь проекту</string>
@@ -161,6 +161,8 @@
     <string name="link_rating2">https://play.google.com/store/apps/details?id=oleksandr.kotyuk.orthodoxcalendarfree</string>
     <string name="program_version">Версия %s</string>
     <string-array name="versions">
+        <item>Version 1.14.40\nВ программу добавлен календарь на первое полугодие 2025 года.\n\n
+    </item>
         <item>Version 1.14.39\nВ программу добавлен календарь на начало 2025 года.\n\n
 	</item>
         <item>Version 1.14.38\nВ разделе «О программе» добавлена кнопка, для открытия YouTube канала, на котором можно посмотреть подробные видео по основным разделам приложения.\n\n
