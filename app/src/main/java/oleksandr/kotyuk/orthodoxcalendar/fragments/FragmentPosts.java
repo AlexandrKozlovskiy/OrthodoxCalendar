@@ -102,7 +102,7 @@ public class FragmentPosts extends Fragment implements OnClickListener {
 
             "<a href=\"activity-run://DescriptionOtherActivityHost?id_sedmitsa=1\">Святки</a> - 07.01.2025 - 17.01.2025<br>" +
                     "<a href=\"activity-run://DescriptionOtherActivityHost?id_sedmitsa=2\">Мытаря и фарисея</a> - 10.02.2025 - 16.02.2025<br>" +
-                    "<a href=\"activity-run://DescriptionOtherActivityHost?id_sedmitsa=3\">Сырная (масленица)</a> - 25.02.2025 - 02.03.2025<br>" +
+                    "<a href=\"activity-run://DescriptionOtherActivityHost?id_sedmitsa=3\">Сырная (масленица)</a> - 24.02.2025 - 02.03.2025<br>" +
                     "<a href=\"activity-run://DescriptionOtherActivityHost?id_sedmitsa=4\">Пасхальная (Светлая)</a> - 21.04.2025 - 27.04.2025<br>" +
                     "<a href=\"activity-run://DescriptionOtherActivityHost?id_sedmitsa=5\">Троицкая</a> - 09.06.2025 - 15.06.2025<br><br>",
 
