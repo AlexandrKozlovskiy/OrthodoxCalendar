@@ -38,7 +38,7 @@
                 android:layout_alignBottom="@+id/MyView_weekday_name"
                 android:layout_marginRight="5dp"
                 android:layout_toLeftOf="@+id/MyView_weekday_name"
-                android:text="Новый стиль"
+                android:text="@string/new_style_name"
                 android:textColor="@color/palegoldenrod"
                 android:textSize="16sp" />
 
@@ -49,7 +49,7 @@
                 android:layout_alignBottom="@+id/MyView_weekday_name"
                 android:layout_marginLeft="5dp"
                 android:layout_toRightOf="@+id/MyView_weekday_name"
-                android:text="Старый стиль"
+                android:text="@string/old_style_name"
                 android:textColor="@color/palegoldenrod"
                 android:textSize="16sp" />
 
