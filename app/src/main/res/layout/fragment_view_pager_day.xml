@@ -145,6 +145,23 @@
                 android:paddingBottom="70dp" >
 
                 <oleksandr.kotyuk.orthodoxcalendar.MyView
+                    android:id="@+id/MyView_holiday_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/rectangle_top_b"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/holiday_title"
+                    android:textColor="@color/WHITE"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
+
+                <oleksandr.kotyuk.orthodoxcalendar.MyView
                     android:id="@+id/MyView_holiday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -158,7 +175,8 @@
                     android:textColor="@color/BLACK"
                     android:textColorLink="@color/BLACK"
                     android:textIsSelectable="true"
-                    android:textSize="19sp" />
+                    android:textSize="19sp"
+                    android:visibility="gone"/>
                 
                 <oleksandr.kotyuk.orthodoxcalendar.MyView
                     android:id="@+id/MyView_tropar_kondak_title"

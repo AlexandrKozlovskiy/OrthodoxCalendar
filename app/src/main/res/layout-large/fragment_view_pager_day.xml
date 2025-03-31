@@ -3,16 +3,17 @@
     android:id="@+id/scrollView1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_alignParentTop="true" 
-    android:fillViewport="true">
+    android:layout_alignParentTop="true"
+    android:fillViewport="true"
+    >
 
     <RelativeLayout
         android:id="@+id/relativeLayoutPagerDay"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" 
+        android:layout_height="wrap_content"
         android:descendantFocusability="beforeDescendants"
-    	android:focusable="true"
-   		android:focusableInTouchMode="true" >
+        android:focusable="true"
+        android:focusableInTouchMode="true" >
 
         <RelativeLayout
             android:id="@+id/relativeLayout_day1"
@@ -28,7 +29,7 @@
                 android:layout_marginTop="10dp"
                 android:text="ВОСКРЕСЕНЬЕ"
                 android:textColor="@color/Dark_orange"
-                android:textSize="25sp"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
             <oleksandr.kotyuk.orthodoxcalendar.MyView
@@ -36,22 +37,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/MyView_weekday_name"
-                android:layout_marginRight="5dp"
+                android:layout_marginRight="3dp"
                 android:layout_toLeftOf="@+id/MyView_weekday_name"
                 android:text="@string/new_style_name"
                 android:textColor="@color/palegoldenrod"
-                android:textSize="16sp" />
+                android:textSize="12sp" />
 
             <oleksandr.kotyuk.orthodoxcalendar.MyView
                 android:id="@+id/MyView_old_style_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/MyView_weekday_name"
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="3dp"
                 android:layout_toRightOf="@+id/MyView_weekday_name"
-                android:text="@string/old_style_name"
+                android:text="Старый стиль"
                 android:textColor="@color/palegoldenrod"
-                android:textSize="16sp" />
+                android:textSize="12sp" />
 
             <oleksandr.kotyuk.orthodoxcalendar.MyView
                 android:id="@+id/MyView_year"
@@ -62,7 +63,7 @@
                 android:layout_marginTop="5dp"
                 android:text="2014"
                 android:textColor="@color/palegoldenrod"
-                android:textSize="29sp"
+                android:textSize="23sp"
                 android:textStyle="bold" />
 
             <oleksandr.kotyuk.orthodoxcalendar.MyView
@@ -75,7 +76,7 @@
                 android:layout_toLeftOf="@+id/MyView_year"
                 android:text="15 сентября"
                 android:textColor="@color/WHITE"
-                android:textSize="22sp"
+                android:textSize="17sp"
                 android:textStyle="bold" />
 
             <oleksandr.kotyuk.orthodoxcalendar.MyView
@@ -86,9 +87,9 @@
                 android:layout_marginBottom="3dp"
                 android:layout_marginLeft="15dp"
                 android:layout_toRightOf="@+id/MyView_year"
-                android:text="23 сентября"
+                android:text="30 сентября"
                 android:textColor="@color/WHITE"
-                android:textSize="22sp"
+                android:textSize="17sp"
                 android:textStyle="bold" />
 
             <oleksandr.kotyuk.orthodoxcalendar.MyView
@@ -97,11 +98,13 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/MyView_year"
                 android:layout_centerHorizontal="true"
+                android:layout_marginLeft="3dp"
+                android:layout_marginRight="3dp"
                 android:layout_marginTop="5dp"
-                android:gravity="center_horizontal"
+                android:gravity="center"
                 android:text="Седмица 9-я по Пятдесятнице"
                 android:textColor="@color/Gold"
-                android:textSize="19sp" 
+                android:textSize="16sp"
                 android:clickable="true"/>
 
             <oleksandr.kotyuk.orthodoxcalendar.MyView
@@ -114,7 +117,7 @@
                 android:gravity="center_horizontal"
                 android:text="Глас 7-й. Поста нет"
                 android:textColor="@color/Celeste"
-                android:textSize="19sp" 
+                android:textSize="16sp"
                 android:clickable="true"/>
 
             <View
@@ -142,6 +145,23 @@
                 android:paddingBottom="70dp" >
 
                 <oleksandr.kotyuk.orthodoxcalendar.MyView
+                    android:id="@+id/MyView_holiday_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/rectangle_top_b"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"
+                    android:paddingTop="5dp"
+                    android:text="@string/holiday_title"
+                    android:textColor="@color/WHITE"
+                    android:textSize="19sp"
+                    android:textStyle="bold" />
+
+                <oleksandr.kotyuk.orthodoxcalendar.MyView
                     android:id="@+id/MyView_holiday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -155,8 +175,9 @@
                     android:textColor="@color/BLACK"
                     android:textColorLink="@color/BLACK"
                     android:textIsSelectable="true"
-                    android:textSize="21sp" />
-                
+                    android:textSize="19sp"
+                    android:visibility="gone"/>
+
                 <oleksandr.kotyuk.orthodoxcalendar.MyView
                     android:id="@+id/MyView_tropar_kondak_title"
                     android:layout_width="match_parent"
@@ -165,16 +186,15 @@
                     android:layout_marginRight="2dp"
                     android:layout_marginTop="30dp"
                     android:background="@drawable/rectangle_top_b"
-                    android:clickable="true"
                     android:paddingBottom="5dp"
                     android:paddingLeft="4dp"
                     android:paddingRight="4dp"
                     android:paddingTop="5dp"
                     android:text="@string/tropar_kondak_title"
                     android:textColor="@color/BLACK"
-                    android:textSize="21sp"
+                    android:textSize="19sp"
                     android:textStyle="bold" />
-                
+
                 <oleksandr.kotyuk.orthodoxcalendar.MyView
                     android:id="@+id/MyView_tropar_kondak_text"
                     android:layout_width="match_parent"
@@ -191,10 +211,10 @@
                     android:textColor="@color/Blue_My2"
                     android:textColorLink="@color/Blue_My2"
                     android:textIsSelectable="true"
-                    android:textSize="21sp"
-                    android:visibility="gone" 
+                    android:textSize="19sp"
+                    android:visibility="gone"
                     android:focusable="false"/>
-                
+
                 <oleksandr.kotyuk.orthodoxcalendar.MyView
                     android:id="@+id/MyView_prayers_links_title"
                     android:layout_width="match_parent"
@@ -203,16 +223,15 @@
                     android:layout_marginRight="2dp"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/rectangle_top_b"
-                    android:clickable="true"
                     android:paddingBottom="5dp"
                     android:paddingLeft="4dp"
                     android:paddingRight="4dp"
                     android:paddingTop="5dp"
                     android:text="@string/prayers_links_title"
                     android:textColor="@color/BLACK"
-                    android:textSize="21sp"
+                    android:textSize="19sp"
                     android:textStyle="bold" />
-                
+
                 <oleksandr.kotyuk.orthodoxcalendar.MyView
                     android:id="@+id/MyView_prayers_links_text"
                     android:layout_width="match_parent"
@@ -229,8 +248,8 @@
                     android:textColor="@color/Blue_My2"
                     android:textColorLink="@color/Blue_My2"
                     android:textIsSelectable="true"
-                    android:textSize="21sp"
-                    android:visibility="gone" 
+                    android:textSize="19sp"
+                    android:visibility="gone"
                     android:focusable="false"/>
 
                 <oleksandr.kotyuk.orthodoxcalendar.MyView
@@ -241,14 +260,13 @@
                     android:layout_marginRight="2dp"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/rectangle_top_b"
-                    android:clickable="true"
                     android:paddingBottom="5dp"
                     android:paddingLeft="4dp"
                     android:paddingRight="4dp"
                     android:paddingTop="5dp"
                     android:text="@string/gospel_reading_title"
                     android:textColor="@color/BLACK"
-                    android:textSize="21sp"
+                    android:textSize="19sp"
                     android:textStyle="bold" />
 
                 <oleksandr.kotyuk.orthodoxcalendar.MyView
@@ -267,7 +285,7 @@
                     android:textColor="@color/BLACK"
                     android:textColorLink="@color/Blue_My2"
                     android:textIsSelectable="true"
-                    android:textSize="21sp"
+                    android:textSize="19sp"
                     android:visibility="gone"/>
 
                 <oleksandr.kotyuk.orthodoxcalendar.MyView
@@ -285,7 +303,7 @@
                     android:paddingTop="5dp"
                     android:text="@string/think_feofan_title"
                     android:textColor="@color/BLACK"
-                    android:textSize="21sp"
+                    android:textSize="19sp"
                     android:textStyle="bold" />
 
                 <oleksandr.kotyuk.orthodoxcalendar.MyView
@@ -301,9 +319,9 @@
                     android:text="dfgdd"
                     android:textColor="@color/BLACK"
                     android:textIsSelectable="true"
-                    android:textSize="21sp"
+                    android:textSize="19sp"
                     android:visibility="gone"/>
-                
+
                 <oleksandr.kotyuk.orthodoxcalendar.MyView
                     android:id="@+id/MyView_citations_elders_title"
                     android:layout_width="match_parent"
@@ -319,14 +337,14 @@
                     android:paddingTop="5dp"
                     android:text="@string/citations_elders_title"
                     android:textColor="@color/BLACK"
-                    android:textSize="21sp"
+                    android:textSize="19sp"
                     android:textStyle="bold" />
 
                 <oleksandr.kotyuk.orthodoxcalendar.MyView
                     android:id="@+id/MyView_citations_elders_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="25dp"
+                    android:layout_marginBottom="20dp"
                     android:layout_marginLeft="2dp"
                     android:layout_marginRight="2dp"
                     android:background="@drawable/rectangle_bottom"
@@ -335,8 +353,8 @@
                     android:text="dfgdd"
                     android:textColor="@color/BLACK"
                     android:textIsSelectable="true"
-                    android:textSize="21sp"
-                    android:visibility="gone"/>
+                    android:textSize="19sp"
+                    android:visibility="gone" />
             </LinearLayout>
         </RelativeLayout>
     </RelativeLayout>

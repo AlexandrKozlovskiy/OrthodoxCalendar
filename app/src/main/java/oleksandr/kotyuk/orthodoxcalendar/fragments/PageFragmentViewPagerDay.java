@@ -36,6 +36,7 @@ public class PageFragmentViewPagerDay extends Fragment implements
 
     static final String ARGUMENT_PAGE_NUMBER = "arg_page_number";
 
+    private int flag_visible_holiday = 0;
     private int flag_visible_tropar_kondak = 0;
     private int flag_visible_prayers_links = 0;
     private int flag_visible_gospel = 0;
@@ -73,6 +74,7 @@ public class PageFragmentViewPagerDay extends Fragment implements
     MyView MyView_post;
     // MyView MyView_gr_holiday;
 // MyView MyView_big_holiday;
+    MyView MyView_holiday_title;
     MyView MyView_holiday;
     MyView MyView_tropar_kondak_title;
     MyView MyView_tropar_kondak_text;
@@ -151,8 +153,7 @@ public class PageFragmentViewPagerDay extends Fragment implements
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view;
-        view = inflater.inflate(R.layout.fragment_view_pager_day, null);
+        View view = inflater.inflate(R.layout.fragment_view_pager_day, null);
 
         cal.AddDay(pageNumber);
 
@@ -182,6 +183,9 @@ public class PageFragmentViewPagerDay extends Fragment implements
         rel1 = (RelativeLayout) view.findViewById(R.id.relativeLayout_day1);
         rel2 = (RelativeLayout) view.findViewById(R.id.relativeLayout_day2);
         vie1 = (View) view.findViewById(R.id.view_separator);
+        MyView_holiday_title = (MyView) view
+                .findViewById(R.id.MyView_holiday_title);
+        MyView_holiday_title.setExpanded(false);
         MyView_tropar_kondak_title = (MyView) view
                 .findViewById(R.id.MyView_tropar_kondak_title);
         MyView_tropar_kondak_title.setExpanded(false);
@@ -305,6 +309,7 @@ public class PageFragmentViewPagerDay extends Fragment implements
         // MyView_holiday.setOnClickListener(this);
         // ////////////////////////////////////////////////////////////////////////
         // MyView_icon_holiday.setOnClickListener(this);
+        MyView_holiday_title.setOnClickListener(this);
         MyView_tropar_kondak_title.setOnClickListener(this);
         MyView_prayers_links_title.setOnClickListener(this);
         MyView_gospel_reading_title.setOnClickListener(this);
@@ -507,6 +512,8 @@ public class PageFragmentViewPagerDay extends Fragment implements
              */
             // float size=MyView_holiday.getTextSize();
             if (text_size.equals("-5")) {
+                MyView_holiday_title.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                        standart_text_size - 10);
                 MyView_holiday.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                         standart_text_size - 10);
                 MyView_prayers_links_title.setTextSize(
@@ -531,6 +538,8 @@ public class PageFragmentViewPagerDay extends Fragment implements
                         TypedValue.COMPLEX_UNIT_PX, standart_text_size - 10);
             }
             if (text_size.equals("-4")) {
+                MyView_holiday_title.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                        standart_text_size - 8);
                 MyView_holiday.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                         standart_text_size - 8);
                 MyView_prayers_links_title.setTextSize(
@@ -555,6 +564,8 @@ public class PageFragmentViewPagerDay extends Fragment implements
                         TypedValue.COMPLEX_UNIT_PX, standart_text_size - 8);
             }
             if (text_size.equals("-3")) {
+                MyView_holiday_title.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                        standart_text_size - 6);
                 MyView_holiday.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                         standart_text_size - 6);
                 MyView_prayers_links_title.setTextSize(
@@ -579,6 +590,8 @@ public class PageFragmentViewPagerDay extends Fragment implements
                         TypedValue.COMPLEX_UNIT_PX, standart_text_size - 6);
             }
             if (text_size.equals("-2")) {
+                MyView_holiday_title.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                        standart_text_size - 4);
                 MyView_holiday.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                         standart_text_size - 4);
                 MyView_prayers_links_title.setTextSize(
@@ -603,6 +616,8 @@ public class PageFragmentViewPagerDay extends Fragment implements
                         TypedValue.COMPLEX_UNIT_PX, standart_text_size - 4);
             }
             if (text_size.equals("-1")) {
+                MyView_holiday_title.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                        standart_text_size - 2);
                 MyView_holiday.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                         standart_text_size - 2);
                 MyView_prayers_links_title.setTextSize(
@@ -627,6 +642,8 @@ public class PageFragmentViewPagerDay extends Fragment implements
                         TypedValue.COMPLEX_UNIT_PX, standart_text_size - 2);
             }
             if (text_size.equals("0")) {
+                MyView_holiday_title.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                        standart_text_size);
                 MyView_holiday.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                         standart_text_size);
                 MyView_prayers_links_title.setTextSize(
@@ -651,6 +668,8 @@ public class PageFragmentViewPagerDay extends Fragment implements
                         TypedValue.COMPLEX_UNIT_PX, standart_text_size);
             }
             if (text_size.equals("+1")) {
+                MyView_holiday_title.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                        standart_text_size + 2);
                 MyView_holiday.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                         standart_text_size + 2);
                 MyView_prayers_links_title.setTextSize(
@@ -675,6 +694,8 @@ public class PageFragmentViewPagerDay extends Fragment implements
                         TypedValue.COMPLEX_UNIT_PX, standart_text_size + 2);
             }
             if (text_size.equals("+2")) {
+                MyView_holiday_title.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                        standart_text_size + 4);
                 MyView_holiday.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                         standart_text_size + 4);
                 MyView_prayers_links_title.setTextSize(
@@ -699,6 +720,8 @@ public class PageFragmentViewPagerDay extends Fragment implements
                         TypedValue.COMPLEX_UNIT_PX, standart_text_size + 4);
             }
             if (text_size.equals("+3")) {
+                MyView_holiday_title.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                        standart_text_size + 6);
                 MyView_holiday.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                         standart_text_size + 6);
                 MyView_prayers_links_title.setTextSize(
@@ -723,6 +746,8 @@ public class PageFragmentViewPagerDay extends Fragment implements
                         TypedValue.COMPLEX_UNIT_PX, standart_text_size + 6);
             }
             if (text_size.equals("+4")) {
+                MyView_holiday_title.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                        standart_text_size + 8);
                 MyView_holiday.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                         standart_text_size + 8);
                 MyView_prayers_links_title.setTextSize(
@@ -747,6 +772,8 @@ public class PageFragmentViewPagerDay extends Fragment implements
                         TypedValue.COMPLEX_UNIT_PX, standart_text_size + 8);
             }
             if (text_size.equals("+5")) {
+                MyView_holiday_title.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                        standart_text_size + 10);
                 MyView_holiday.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                         standart_text_size + 10);
                 MyView_prayers_links_title.setTextSize(
@@ -771,6 +798,8 @@ public class PageFragmentViewPagerDay extends Fragment implements
                         TypedValue.COMPLEX_UNIT_PX, standart_text_size + 10);
             }
             if (text_size.equals("+6")) {
+                MyView_holiday_title.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                        standart_text_size + 12);
                 MyView_holiday.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                         standart_text_size + 12);
                 MyView_prayers_links_title.setTextSize(
@@ -795,6 +824,8 @@ public class PageFragmentViewPagerDay extends Fragment implements
                         TypedValue.COMPLEX_UNIT_PX, standart_text_size + 12);
             }
             if (text_size.equals("+7")) {
+                MyView_holiday_title.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                        standart_text_size + 14);
                 MyView_holiday.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                         standart_text_size + 14);
                 MyView_prayers_links_title.setTextSize(
@@ -819,6 +850,8 @@ public class PageFragmentViewPagerDay extends Fragment implements
                         TypedValue.COMPLEX_UNIT_PX, standart_text_size + 14);
             }
             if (text_size.equals("+8")) {
+                MyView_holiday_title.setTextSize(TypedValue.COMPLEX_UNIT_PX,
+                        standart_text_size + 16);
                 MyView_holiday.setTextSize(TypedValue.COMPLEX_UNIT_PX,
                         standart_text_size + 16);
                 MyView_prayers_links_title.setTextSize(
@@ -1162,6 +1195,14 @@ public class PageFragmentViewPagerDay extends Fragment implements
     public void onClick(View v) {
 // TODO Auto-generated method stub
         switch (v.getId()) {
+            case R.id.MyView_holiday_title:
+                if (flag_visible_holiday == 0) {
+                    MyView_holiday.setVisibility(View.VISIBLE);
+                    flag_visible_holiday = 1;
+                } else {
+                    MyView_holiday.setVisibility(View.GONE);
+                    flag_visible_holiday = 0;
+                }
             case R.id.MyView_tropar_kondak_title:
                 //------------------------------------------
  /*Intent intent = new Intent(getActivity(),
