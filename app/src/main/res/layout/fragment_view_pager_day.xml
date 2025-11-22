@@ -159,7 +159,8 @@
                     android:text="@string/holiday_title"
                     android:textColor="@color/WHITE"
                     android:textSize="19sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:visibility="gone"/>
 
                 <oleksandr.kotyuk.orthodoxcalendar.MyView
                     android:id="@+id/MyView_holiday"
@@ -171,12 +172,10 @@
                     android:clickable="true"
                     android:focusable="false"
                     android:lineSpacingMultiplier="1.2"
-                    android:text="Глас 7-й. Поста нет"
                     android:textColor="@color/BLACK"
                     android:textColorLink="@color/BLACK"
                     android:textIsSelectable="true"
-                    android:textSize="19sp"
-                    android:visibility="gone"/>
+                    android:textSize="19sp"/>
                 
                 <oleksandr.kotyuk.orthodoxcalendar.MyView
                     android:id="@+id/MyView_tropar_kondak_title"
